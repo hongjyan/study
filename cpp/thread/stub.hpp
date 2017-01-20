@@ -8,4 +8,5 @@ public:
     static void handler(std::string);
 private:
     static std::string _name;
+    static std::string initName();
 };
