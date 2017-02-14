@@ -15,6 +15,10 @@ public:
  
 
     static Bar& getBar(const Foo& foo) {
+        Bar b;
+        b.mdata = "xiaojun";
+        foo.mbar = b;
+        foo.mbar.mdata = "xiaohu";
         return foo.mbar;
     }
 
