@@ -1,19 +1,19 @@
 
-#ifndef CONTEXT_HPP_
-#define CONTEXT_HPP_
+#ifndef NAMESPACEPROXY_HPP_
+#define NAMESPACEPROXY_HPP_
 
 #include <memory>
 #include <string>
 
-class Context
+class NamespaceProxy
 {
 public:
     // It's important to have this declaration public.
     // This allows simple access without inline friend and inheritance.
     //class impl;
 
-    Context();
-    ~Context();
+    NamespaceProxy();
+    ~NamespaceProxy();
 
     std::string getNamespace();
 
@@ -24,4 +24,4 @@ private:
     std::unique_ptr<impl> pimpl_;
 };
 
-#endif // CONTEXT_HPP_
+#endif // NAMESPACEPROXY_HPP_

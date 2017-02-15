@@ -1,11 +1,11 @@
-#include "Context.hpp"
+#include "NamespaceProxy.hpp"
 #include <iostream>
 
 int main() {
-	Context ctx;
-	ctx.setNamespace("xiaoming");
-	std::cout << ctx.getNamespace() << std::endl;
-	ctx.setNamespace("xiaoli");
-	std::cout << ctx.getNamespace() << std::endl;
+	NamespaceProxy nsp;
+	nsp.setNamespace("xiaoming");
+	std::cout << nsp.getNamespace() << std::endl;
+	nsp.setNamespace("xiaoli");
+	std::cout << nsp.getNamespace() << std::endl;
 	return 0;
 }
