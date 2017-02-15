@@ -1,12 +1,12 @@
 #include <iostream>
-#include "Context.hpp"
-#include "CtxImpl.hpp"
+#include "NamespaceProxy.hpp"
+#include "NamespaceProxyImpl.hpp"
 
 int main()
 {
-    Ctx ctx;
-    CtxImpl::setCtxName(ctx, "xiaoming");
-    std::cout << CtxImpl::getCtxName(ctx) << std::endl;    
-    CtxImpl::setCtxName(ctx, "xiaoli");
-    std::cout << CtxImpl::getCtxName(ctx) << std::endl;    
+    NamespaceProxy nsp;
+    NamespaceProxyImpl::setNamespaceProxyName(nsp, "xiaoming");
+    std::cout << NamespaceProxyImpl::getNamespaceProxyName(nsp) << std::endl;    
+    NamespaceProxyImpl::setNamespaceProxyName(nsp, "xiaoli");
+    std::cout << NamespaceProxyImpl::getNamespaceProxyName(nsp) << std::endl;    
 }
