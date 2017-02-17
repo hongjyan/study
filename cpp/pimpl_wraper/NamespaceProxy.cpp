@@ -3,13 +3,14 @@
 
 struct NamespaceProxy::impl : public NamespaceProxyImpl
 {
-    static NamespaceProxyImpl& toNamespaceProxyImpl(NamespaceProxy& nsp)
-    {
-        return *nsp.impl_;
-    }
     friend NamespaceProxyImpl& toNamespaceProxyImpl(NamespaceProxy& nsp)
     {
         return impl::toNamespaceProxyImpl(nsp);
+    }
+private:
+    static NamespaceProxyImpl& toNamespaceProxyImpl(NamespaceProxy& nsp)
+    {
+        return *nsp.impl_;
     }
 };
 
