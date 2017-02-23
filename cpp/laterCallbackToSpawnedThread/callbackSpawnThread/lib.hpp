@@ -4,12 +4,12 @@
 typedef void (*EventHandler)(int);
  
 class Context {
-public:
+private:
 	std::thread eventThread_;
 	void daemonFunc();
+	EventHandler eventHandler_;
 
 public:
-	EventHandler eventHandler_;
 	Context(EventHandler handler=nullptr);
 	~Context();
 	void setEventHandler(EventHandler eventHandler);
