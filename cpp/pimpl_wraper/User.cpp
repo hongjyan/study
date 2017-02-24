@@ -5,6 +5,7 @@
 int main()
 {
     NamespaceProxy nsp;
+    std::cout << NamespaceProxyImpl::getNamespaceProxyName(nsp) << std::endl;    
     NamespaceProxyImpl::setNamespaceProxyName(nsp, "xiaoming");
     std::cout << NamespaceProxyImpl::getNamespaceProxyName(nsp) << std::endl;    
     NamespaceProxyImpl::setNamespaceProxyName(nsp, "xiaoli");
