@@ -3,7 +3,8 @@
 
 class Foo {
 public:
-    //can not change non-static variable member via static member function
+    //can not change non-static variable member via static member function. The reason is that static-function maybe exist 
+    // before instance creation.
 	/*
 	static std::string changeName(std::string& name) {
 		name_ = name;
@@ -11,7 +12,8 @@ public:
 	}
     */
 
-    //do not know why this is OK
+    //OK here since Foo was created, so static function can access this non-static member of it.
+    //Think static function member as a global function.
     static std::string changeName(Foo& foo, const std::string& name) {
 		foo.name_ = name;
 		return foo.name_;

@@ -25,7 +25,7 @@
             line = temp; 
             if (std::string::npos != (pos = line.find(": "))) {
                 key = trimstring(line.substr(0, pos));
-                value = trimstring(line.substr(pos+1, std::string::npos));
+                value = trimstring(line.substr(pos+2, std::string::npos));
                 ret[key] = value;
             }
 /*
@@ -46,7 +46,7 @@ int main() {
 "-------------------------------\r\n"
 "\r\n"
 "  internal (Ethernet interface)\r\n"
-"    VRF name(ID)        : default (0)\r\n"
+"    VRF name(ID): default (0)\r\n"
 "    owner               : /MMN-0\r\n"
 "    MAC                 : fa:16:3e:c8:f0:22\r\n"
 "    MTU                 : 1500\r\n"
