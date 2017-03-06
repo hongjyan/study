@@ -14,7 +14,7 @@ public:
     }
  
 
-    static Bar& getBar(const Foo& foo) {
+    static Bar& getBar(Foo const& foo) {
         Bar b;
         b.mdata = "xiaojun";
         foo.mbar = b;

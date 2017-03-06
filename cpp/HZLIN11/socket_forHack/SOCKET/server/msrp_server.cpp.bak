@@ -1,0 +1,194 @@
+#include <cstring> //memset, strlen
+#include <unistd.h> //close(socketfd)
+#include <sys/types.h>  //sigaction(), WNOHANG
+#include <algorithm> //std::copy
+#include <pthread.h>
+#include "../lib/mysocket.h" 
+
+
+void* server(void* pNode) {
+    struct nodeInfo *pnode = static_cast<struct nodeInfo *>(pNode);
+    int sockfd, new_fd, rv;
+    struct addrinfo hints, *serverinfo_list, *p;
+    struct sockaddr clientaddr;
+    int yes=1;
+
+    char port[30];
+    sprintf(port, "%d", pnode->port);
+    char filename[100];
+    sprintf(filename, "%s_%s", pnode->ip, port);
+
+    memset(&hints, 0, sizeof(addrinfo));
+    hints.ai_family = AF_UNSPEC;
+    hints.ai_socktype = SOCK_STREAM | (!O_NONBLOCK);
+    struct timeval tv;
+    tv.tv_sec = 70;
+    tv.tv_usec = 0;
+
+//    printf("creatig server socket for %s:%s\n", pnode->ip, port);
+    if ((rv = getaddrinfo(pnode->ip, port, &hints, &serverinfo_list)) != 0) {
+	printf("!!!!get_addr_info failed for %s:%s, reason is %s\n", pnode->ip, port, gai_strerror(rv));
+        delete pnode;
+        pthread_exit(NULL);
+    };
+    
+    
+    for (p=serverinfo_list; p!=NULL;  p=p->ai_next) {
+	if ((sockfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol)) == -1) {
+            printf("!!!!create socket failed\n");    
+            continue;
+        }
+	
+	if (setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)) == -1) {
+	    printf("!!!!set socket option failed for socket:%d for %s:%s\n", sockfd, pnode->ip, port);
+            close(sockfd);
+            pthread_exit(NULL);
+	}
+
+/*
+       if (setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv, sizeof tv)) {
+           close(sockfd);
+           printf("!!!!set socket option failed for socket:%d for %s:%s\n", sockfd, pnode->ip, port);
+           pthread_exit(NULL);
+       }
+*/
+	if (bind(sockfd, p->ai_addr, p->ai_addrlen) == -1) {
+//	    printf("!!!!bind socket failed in loop for socket:%d for %s:%s. Errno is %d, %s\n", sockfd, pnode->ip, port, errno, strerror(errno));
+//            output_sockaddr(p->ai_addr);
+	    close(sockfd);
+	    continue;
+	}
+	break;
+    }
+
+    if (p==NULL) {
+	printf("!!!!create/setsockopt/bind socket for %s:%s failed\n", pnode->ip, port);
+        delete pnode;
+	pthread_exit(NULL);
+    }
+/*
+    else {
+        char s_server[INET6_ADDRSTRLEN];
+        inet_ntop(p->ai_family, get_in_addr(p->ai_addr), s_server, sizeof s_server);
+        printf("binding on %s:%s successfully for socket %d, and socket blocking state is %d\n", pnode->ip, port, sockfd, isblocking(sockfd));
+    }
+*/
+
+/*
+//debug: output ip&port info for socket.
+    sockaddr_in outaddr_in; 
+    socklen_t len = sizeof outaddr_in;
+    getsockname(sockfd, (sockaddr *)&outaddr_in, &len);
+    char s_sock[INET6_ADDRSTRLEN];
+    inet_ntop(outaddr_in.sin_family, &outaddr_in.sin_addr, s_sock, len);
+    int local_port = ntohs(outaddr_in.sin_port);
+    printf("binding on %s : %d successfully for socket %d the second time\n", s_sock, local_port, sockfd);
+*/
+    freeaddrinfo(serverinfo_list);
+
+//    printf("listening socket\n");
+    if ((listen(sockfd, 1)) == -1) {
+	printf("!!!!listening failed on socket:%d for %s:%s. Errno is %d, %s\n", sockfd, pnode->ip, port, errno, strerror(errno));
+        delete pnode;
+        close(sockfd);
+	pthread_exit(NULL);
+    }
+
+
+/*
+    int nready;
+    struct timeval timeout;
+    fd_set rfds;
+    FD_SET(sockfd, &rfds);
+    timeout.tv_sec = 60;
+    timeout.tv_usec = 0;
+    nready = select(sockfd+1, &rfds, NULL, NULL, &timeout);
+    switch (nready) {
+	case -1 :
+	    printf("!!!!Error happened during select on socket:%d for %s:%s\n", sockfd, pnode->ip, port);
+            close(sockfd);
+	    pthread_exit(NULL);
+	case 0 :
+	    printf("Time experied during select on socket:%d for %s:%s\n", sockfd, pnode->ip, port);
+            close(sockfd);
+	    pthread_exit(NULL);
+	default :
+	    ;
+    }
+*/
+
+//    printf("accepting socket from clients\n");
+    socklen_t sin_size = sizeof clientaddr;
+    if ((new_fd = accept(sockfd, &clientaddr, &sin_size)) == -1) {
+        printf("!!!!accept on socket:%d for %s:%s failed, errno is %s\n", sockfd, pnode->ip, port, strerror(errno));
+        close(sockfd);
+    	delete pnode;
+        pthread_exit(NULL);
+    }
+    else {
+//        printf("new socket:%d creted after accept\n", new_fd);
+        close(sockfd);
+    }
+
+    char s[INET6_ADDRSTRLEN];
+    inet_ntop(clientaddr.sa_family, get_in_addr(&clientaddr), s, sizeof s);
+//    printf("got connection for socket:%d of server:%s-%s------->client:%s : %d successfully\n", sockfd, pnode->ip, port, s, get_in_port(&clientaddr));
+
+    int count = 600;
+    while (0 < count--) {
+       // printf("count is %d\n for socket:%d", count, new_fd);
+    	send_data(new_fd, pnode->pdatainfo);
+        usleep(20);
+    }
+//    receive_data(new_fd, filename);
+//    printf("count is %d for socket:%d\n", count, new_fd);
+    close(new_fd);
+    delete pnode;
+    return p->ai_addr;
+}
+
+
+void usage(void) {
+    printf("usage:\n    msrp_server.o $ip $startPort, $numPort, $file_to_sent\n");
+}
+
+
+int main(int argc, char *argv[]) {
+    if (argc < 5) {
+        int i = 0;
+        while (i<argc) {
+          printf("%s ", argv[i]);
+          i++;
+        }
+        printf("\n");
+        
+        usage();
+        exit(-1);
+    }
+
+    const char* ip = argv[1];
+    const int startPort = atoi(argv[2]);
+    const int numPort = atoi(argv[3]);
+    const char* file_to_send = argv[4];
+    pthread_t threads[numPort];
+    int i, rc;
+    
+    struct dataInfo datainfo = getFileData(file_to_send);
+
+    for (i=0; i<numPort; i++) {
+        struct nodeInfo *pnodeInfo = new nodeInfo();
+        pnodeInfo->pdatainfo = &datainfo;
+        pnodeInfo->ip = ip;
+        pnodeInfo->port = startPort+i;
+        if ((rc =pthread_create(&threads[i], NULL, server, pnodeInfo))) {
+            printf("!!!!thread created failed for %s:%d", ip, startPort+i);
+            if (pnodeInfo) delete pnodeInfo;
+        }
+    }
+
+    for (i=0; i<numPort; i++) {
+        pthread_join(threads[i], NULL);
+    }
+    delete [] datainfo.pdata;
+}
+

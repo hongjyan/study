@@ -84,15 +84,18 @@ int main() {
     Bar b;
     b.setNum(11);
     printf("b.num is %d\n", b.getNum());
+
     printf("---------------------------\n");
     Foo f(b);
-    printf("f.getReferenceBar().getNum is %d\n", f.getReferenceBar().getNum()); //will be -1568605280 since temporary Bar as constructor's parameter will be destoryed.
+    printf("f.getReferenceBar().getNum is %d\n", f.getReferenceBar().getNum()); //will be -123 since constructor's parameter is temporary who will be destoryed after constructor done.
     b.setNum(12);
     printf("f.getReferenceBar().getNum is %d after set\n", f.getReferenceBar().getNum());
     Bar& rb = f.getReferenceBar();
-    printf("rb.getNum() is %d\n", rb.getNum());
-    rb.setNum(12);
-    printf("rb.getNum() is %d\n", rb.getNum());
+    printf("rb.getNum() is %d\n", rb.getNum()); //123
+    rb.setNum(12);  //should crash here, but no, do not know why.
+    printf("rb.getNum() is %d\n", rb.getNum()); //12, do not know why.
+
+
     printf("---------------------------\n");
     Foo f1(1, b);
     printf("f1::b::num is %d\n", f1.getReferenceBar().getNum());
