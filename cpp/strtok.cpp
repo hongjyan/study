@@ -14,22 +14,15 @@ int main()
 
    while(p)
    {
-      //Way1:
-      /*
+      //Way1
+      strncpy(t[i], p, 100);
       if (0 > snprintf(t[i],sizeof(p), "%s",p)) {
           printf("wrong snprintf\n");
       }
-      */
-      //Way2:
-      strncpy(t[i], p, 100);
       //printf("t[%d]:%s\r\t",i,t[i]); //\r\t will let undefine beahivor
-      printf("t[%d]:%s\n",i,t[i]); //OK
-      } catch (std::exception& e) {
-          printf("%s\n", e.what());
-      }
+      printf("t[%d]:%s\n",i,t[i]);
       i++ ;
       p=strtok(NULL,d);
                                                                                             }
-
       return 0;
 }
