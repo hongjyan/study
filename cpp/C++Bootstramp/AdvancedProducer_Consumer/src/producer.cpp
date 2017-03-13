@@ -1,13 +1,14 @@
-#include "producer.hpp"
 #include <unistd.h>
 #include <algorithm>
 #include <cstdlib>
-#include "consumer.hpp"
 #include <cstdio>
 #include <utility>
 #include <list>
 #include <exception>
+#include <cstring>
+#include "producer.hpp"
 #include "log.hpp"
+#include "consumer.hpp"
 
 namespace RT {
 //define nested Pop class
@@ -32,16 +33,17 @@ namespace RT {
 #endif
 
             if (0 != pthread_mutex_lock(&(r_producer.mutex_))) {
+                r_producer.log_.log(LOG_ERROR, "Lock mutex in Producer::Pop::run() failed\n");
                 throw std::exception();
             } else {
 #ifdef DEBUG
-                r_producer.log_.log(LOG_INFO,"Acquire mutex in Pop success\n");
+                r_producer.log_.log(LOG_INFO, "Acquire mutex in Pop success\n");
 #endif
             }
 
             for (std::list<Data>::iterator it = r_producer.queue_.begin(); it != r_producer.queue_.end(); ++it) {
 #ifdef DEBUG
-//                r_producer.log_.log(LOG_INFO,"i is %d, r_producer.queue_.size() is %zd, it->IDs.size() is %lu, r_producer.IDs.size() is %lu\n",
+//                r_producer.log_.log(LOG_ERROR, LOG_INFO,"i is %d, r_producer.queue_.size() is %zd, it->IDs.size() is %lu, r_producer.IDs.size() is %lu\n",
 //                       i, r_producer.queue_.size(), it->IDs.size(), r_producer.IDs.size());
                 i++;
 #endif
@@ -55,6 +57,7 @@ namespace RT {
             }
 
             if (0 != pthread_mutex_unlock(&(r_producer.mutex_))) {
+                r_producer.log_.log(LOG_ERROR, "Unlock mutex in Producer::Pop::run() failed\n");
                 throw std::exception();
             } else {
 #ifdef DEBUG
@@ -79,16 +82,18 @@ namespace RT {
              }
 
              if (pthread_mutex_lock(&r_producer.mutex_)) {
-                throw std::exception();
+                 r_producer.log_.log(LOG_ERROR, "Lock mutex in Producer::Push::run() failed\n");
+                 throw std::exception();
              }
 
              if (max_ < r_producer.queue_.size()) { //size() will iterator all element of list, that will cause carsh if pop
                  //thread erase element. WTF.
-                 r_producer.log_.log(LOG_INFO,"queue reach maximum, wait for 1000us to push\n");
+                 r_producer.log_.log(LOG_INFO, "queue reach maximum, wait for 1000us to push\n");
                  usleep(1000);
              } 
 
              if (pthread_mutex_unlock(&r_producer.mutex_)) {
+                 r_producer.log_.log(LOG_ERROR, "Unlock mutex in Producer::Push::run() failed\n");
                  throw std::exception();
              }
 
@@ -127,10 +132,14 @@ namespace RT {
               pop_(*this), push_(max_, *this)
     {
         pthread_mutexattr_t attr;
-        if (0 != pthread_mutexattr_setrobust(&attr, PTHREAD_MUTEX_ROBUST)) {
+        if (0 != pthread_mutexattr_init(&attr) || 0 != pthread_mutexattr_setrobust(&attr, PTHREAD_MUTEX_ROBUST)) {
+            log_.log(LOG_ERROR, "set robust for attribute of mutex failed in Producer::Producer\n");
             throw std::exception();
         }
+
+
         if (0 != pthread_mutex_init(&mutex_, &attr)) {
+            log_.log(LOG_ERROR, "init mutex failed in Producer::Producer\n");
             throw std::exception();
         }
 
@@ -185,6 +194,7 @@ namespace RT {
         bool distributed = false;
 
         if (0 != pthread_mutex_lock(&mutex_)) {
+            log_.log(LOG_ERROR, "lock mutex in Producer::distributeDividOperator failed\n");
             throw std::exception();
         } else {
 #ifdef DEBUG
@@ -210,6 +220,7 @@ namespace RT {
                 qit->IDs.push_back(id);
 
                 if (0 != pthread_mutex_unlock(&mutex_)) {
+                    log_.log(LOG_ERROR, "unlock mutex in Producer::distributeDividOperator failed\n");
                     throw std::exception();
                 } else {
 #ifdef DEBUG
@@ -227,6 +238,7 @@ namespace RT {
         }
 
         if (0 != pthread_mutex_unlock(&mutex_)) {
+            log_.log(LOG_ERROR, "unLock mutex in Producer::distributeDividOperator failed\n");
             throw std::exception();
         } else {
 #ifdef DEBUG
