@@ -3,6 +3,7 @@
 #include <string>
 #include <sys/socket.h>
 #include <arpa/inet.h>
+#include <string.h>
 #define IPV4 "255.255.255.155"
 
 int main() {
@@ -15,6 +16,13 @@ int main() {
     }
     else {
         printf("failed, errorcode is %d\n", ec.value());
+    }
+
+    boost::asio::ip::address addr = boost::asio::ip::address::from_string(IPV4, ec);
+    if (0 == ec) {
+        printf("addr.to_string is %s\n", addr.to_string().c_str());
+    } else {
+        printf("failed, error is %d\n", ec.value());
     }
 
     boost::asio::ip::address_v4 nulladdr4;
