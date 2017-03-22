@@ -1,7 +1,10 @@
 #include <string>
 #include <vector>
 #include <iostream>
+<<<<<<< HEAD
 #include <boost/algorithm/string/regex.hpp>
+=======
+>>>>>>> cbf76d6e4685e97df9106a441992fb8f34b3a1e3
 
 
 void splitOutput(const std::string& output, const std::string& delim, std::vector<std::string>& outSections)
