@@ -1,2 +1,2 @@
-#include "impl.hpp"
 #include "namespaceProxy.hpp"
+#include "impl.hpp"
