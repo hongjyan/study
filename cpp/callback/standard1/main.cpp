@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <unistd.h>
+#include <pthread.h>
  
 enum Event{
     zero,
@@ -15,12 +16,12 @@ struct Running {
     Running(): pCallback_(NULL), running_(false) {}
 
     void run() {
-        printf("do something....\n");
+        printf("do some preparation....\n");
         startThread();
     }
 
     void startThread() {
-        pthread_create(NULL, NULL, callbackThread, this); //the function needed to be run in pthread_create should be static
+        pthread_create(&pid, NULL, Running::callbackThread, this); //the function needed to be run in pthread_create should be static
     }
 
     static void* callbackThread(void* arg) {   //cast arg to Running to use the non-static property of arg-object.
@@ -33,7 +34,7 @@ struct Running {
     void callbackThread() {
         while (running_) {
             if (pCallback_) { 
-                pCallback_(zero)
+                pCallback_(zero);
                 sleep(1);
             } else {
                printf("callback is null\n");
@@ -42,7 +43,7 @@ struct Running {
         }
     }
 
-    void setCallback(Callback* pCallback) {
+    void setCallback(Callback pCallback) {
         pCallback_ = pCallback;
     }
 
@@ -52,25 +53,29 @@ struct Running {
 
     void stop() {
         running_ = false;
+        pthread_join(pid, NULL);
     }
 private:
-    Callback* pCallback_;
+    Callback pCallback_;
     bool running_;
+    pthread_t pid;
 };
     
 
 struct User {
-    void start() {
-        printf("do something here...\n");
+    void run() {
+        printf("User do something here...\n");
         Running running;
         running.start();
+        running.run();
         sleep(2);
         running.setCallback(eventNotifyCallback);
+        sleep(10);
+        running.stop();
     }
         
     static void eventNotifyCallback(Event event) {
-        event_ = event;
-        printf("Evenet is %d, do something....\n", event_);
+        printf("Event is %d\n", event);
     }
 };
 
@@ -78,9 +83,7 @@ struct User {
 
 int main() {
     User user;
-    User.start();
-    sleep(10);
-    User.stop();
+    user.run();
     pthread_exit(NULL);
     return 0;
 }
