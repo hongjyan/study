@@ -22,5 +22,10 @@ int main()
 
     str = str + "-" + "12";
     cout << str << endl;
+
+    str = "";
+    cout << str.empty() << ",sizeof empty string is " << str.size() << endl;
+    string test;
+    cout << test.empty() << ",sizeof uninitialised string is " << test.size() << endl;
     return 0;
 }
