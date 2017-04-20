@@ -11,13 +11,26 @@ int main() {
 
     boost::cmatch matches;
 
+    std::cout << "------------Basic usage char---------------" << std::endl;
     if (boost::regex_match(input, matches, expression)) { 
         for (auto it=matches.begin(); it!=matches.end(); ++it) {
             std::cout << *it << std::endl;
         }
     }
 
+    {
+        std::cout << "------------Basic usage string---------------" << std::endl;
+        std::string inputstring(input);
+        boost::smatch what;
+        if (boost::regex_match(inputstring, what, expression)) {
+             for (auto it=what.begin(); it!=what.end(); ++it)
+                  std::cout << *it << std::endl;
+        }
+
+    }
+
     
+    std::cout << "------------matches can re-use since it will be clear nex time---------------" << std::endl;
     if (boost::regex_match(input, matches, expression)) {  //seems matches will be cleared when entering regex_match 
         for (auto it=matches.begin()+1; it!=matches.end(); ++it) {
             std::cout << *it << std::endl;
