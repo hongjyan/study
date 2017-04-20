@@ -99,12 +99,24 @@ int main() {
 
    {
        std::cout << ">>>>>>>>>Way2" << std::endl;
+       std::string inputstring = "24 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.029 ms\
+24 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.017 ms\
+24 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.016 ms\
+24 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.018 ms\n\
+24 bytes from 127.0.0.1: icmp_seq=5 ttl=64 time=0.020 ms\
+\
+--- 127.0.0.1 ping statistics ---\
+5 packets transmitted, 5 received, 0% packet loss, time 3999ms\
+rtt min/avg/max/mdev = 0.016/0.020/0.029/0.004 ms";
+       std::cout << inputstring << std::endl;
+
+       boost::regex e("(\\d+[\\s\\t]+bytes from).*?(ttl=\\d+)[\\s\\t]+(time=\\d+\\.\\d+)\\s+ms");
        std::string::const_iterator start = inputstring.begin(); //must const_iterator. iterator is wrong. 
        std::string::const_iterator end = inputstring.end();
        boost::smatch what;
        std::vector<boost::smatch> matches;
        while (start != end) {
-           if (boost::regex_search(start, end, what, expression3))
+           if (boost::regex_search(start, end, what, e))
                matches.push_back(what);
            start = what[0].second;
        }
