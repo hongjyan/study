@@ -21,6 +21,10 @@ int main(int argc, char* argv[]) {
        { 0,         0,                  0,      0  }
    };
 
+    //getopt_long parse argument the same as main though it has parameter argc, argv. two lines below can not take effect
+    argc -= 2; 
+    argv += 2;
+
     while (!doneparsing) {
         ret = getopt_long(argc, argv, optstring, options, &optindex);
         switch (ret) {
