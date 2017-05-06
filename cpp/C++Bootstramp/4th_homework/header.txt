@@ -1,0 +1,47 @@
+<!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>Players</title>
+      <style>
+        body,div{
+          margin:0px;  
+          padding:0px;
+        }
+        
+        .main_frame {
+          position:relative;
+          width:80%;
+          left:10%;
+        }
+
+        .player,.player_header{
+          clear:left;
+          width:100%;
+        	height:18px;
+          border:1px solid #969696;
+        }
+       .player_header{
+          background-color:#94A537;
+        }
+        .player:nth-of-type(odd){
+          background:#F6F6F6;
+        }
+        .name {
+          float:left;
+          width:48%;
+          color:#0066CC;
+        }
+        .id {
+          float:left;
+          width:48%;
+          color:#0099CC;
+        }
+    </style>
+    </head>
+    <body
+      <div class="main_frame">
+      <div class="player_header">
+        <div class="name">name</div>
+        <div class="id">id</div>
+      </div>
