@@ -17,9 +17,10 @@ struct Running {
     void run() {
         printf("running: do some preperation....\n");
         //std::thread can take multiType parameter.
-        //must using running::startThread. startThread will cause error:ISO C++ forbids taking the address of an unqualified or parenthesized non-static member function to form a pointer to member function.
+        //must using Running::startThread. startThread will cause error:ISO C++ forbids taking the address of an unqualified or parenthesized non-static member function to form a pointer to member function.
         //non-static methond can be run in a seperated thread compared than C++98
-        std::thread eventThread(&Running::startThread, this, 1);
+        //std::thread eventThread(&Running::startThread, this, 1);  //ok
+        std::thread eventThread( [=] {startThread(1);} );  //ok too
         eventThread.detach();
     }
 
