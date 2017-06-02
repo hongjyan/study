@@ -1,9 +1,9 @@
-#include "testClient.hpp"
+#include "TcpAppClient.hpp"
 
-TestClient::TestClient(int argc, char* argv[]): TestCommon(argc, argv) {}
-TestClient::~TestClient() {}
+TcpAppClient::TcpAppClient(int argc, char* argv[]): AppCommon(argc, argv) {}
+TcpAppClient::~TcpAppClient() {}
 
-void TestClient::run() {
+void TcpAppClient::run() {
     if (remoteaddr_.empty() || 0==remoteport_) {
         printf("remoteaddr_ and remoteport_ should be specified to test TCP client\n");
     }

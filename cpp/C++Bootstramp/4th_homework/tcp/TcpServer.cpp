@@ -35,7 +35,7 @@ bool TcpServer::start(const char *localaddr, unsigned short localport, const cha
             if ( (0!=strcmp("", remoteaddr)) && 0!=remoteport) {
                 std::string raddr;
                 unsigned short rport;
-                sock_.getPeername(raddr, rport);
+                sock_.getPeerName(raddr, rport);
                 if (rport!=remoteport || strcmp(raddr.c_str(), remoteaddr))
                     bRet = false;
             }

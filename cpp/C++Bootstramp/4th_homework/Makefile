@@ -1,28 +1,39 @@
 CXX = g++ 
 AR = ar rvs
 
-TCPSRCS = $(shell find common tcp -name '*.cpp')
+COMMONSRCS = $(shell find common -name '*.cpp')
+COMMONOBJS = $(patsubst %.cpp, %.o, $(COMMONSRCS))
+TCPSRCS = $(shell find tcp -name '*.cpp')
 TCPOBJS = $(patsubst %.cpp, %.o, $(TCPSRCS))
-TESTSRCS = $(shell find APP -name '*.cpp')
-TESTOBJS = $(patsubst %.cpp, %.o, $(TESTSRCS))
-LIB = tcpproto.a
+ZMQSRCS = $(shell find zmq -name '*.cpp')
+ZMQOBJS = $(patsubst %.cpp, %.o, $(ZMQSRCS))
+
+APPSRCS = $(shell find APP -name '*.cpp')
+APPOBJS = $(patsubst %.cpp, %.o, $(APPSRCS))
+TCPLIB = tcpproto.a 
+ZMQLIB = zmqproto.a
 APP = app.bin
 
-INCFLAGS = -Icommon -Itcp
+INCFLAGS = -Icommon -Itcp -Izmq
 CXXFLAGS = -Wall -std=c++11
 LDDFLAGS = -lpthread
-DEBUGFLAGS = -DDEBUG
+ZMQFLAGS = -DZMQ_BUILD_DRAFT_API=1
+#DEBUGFLAGS = -DDEBUG
 
 all : $(APP) 
 
-$(APP) : $(TESTOBJS) $(LIB) 
-	$(CXX) $^ -lpthread -o $@
+$(APP) : $(COMMONOBJS) $(APPOBJS) $(TCPLIB) $(ZMQLIB)
+	$(CXX) $^ -lpthread -lzmq -o $@
 
-$(LIB) : $(TCPOBJS)
+$(TCPLIB) : $(TCPOBJS)
 	$(AR) $@ $^
 
+$(ZMQLIB) : $(ZMQOBJS)
+	$(AR) $@ $^
+
+
 %.o : %.cpp
-	$(CXX) $(CXXFLAGS) $(INCFLAGS) $(DEBUGFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INCFLAGS) $(ZMQFLAGS) $(DEBUGFLAGS) -c $< -o $@
 		
 clean:
-	rm -rf $(TCPOBJS) $(TESTOBJS) $(LIB) $(APP)
+	rm -rf $(APPOBJS) $(COMMONOBJS) $(TCPOBJS) $(ZMQOBJS) $(PROTOLIB) $(TCPLIB) $(ZMQLIB) $(APP)

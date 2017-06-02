@@ -78,20 +78,27 @@ bool Socket4::fillSockaddr(unsigned short port, const char *addr, sockaddr_in& s
     return bRet;
 }
 
-bool Socket4::getPeername(std::string &addr, unsigned short &port) {
+bool Socket4::getPeerName(std::string &addr, unsigned short &port, int fd)
+{
     struct sockaddr_in socketaddr;
     socklen_t len = sizeof (socketaddr);
     bool bRet = false;
 
     ::bzero(&socketaddr, sizeof (socketaddr));
 
-    if (::getpeername(fd_, (struct sockaddr *) & socketaddr, &len) != -1)
+    if (::getpeername(fd, (struct sockaddr *) & socketaddr, &len) != -1)
         bRet = getAddr(socketaddr, addr, port);
     else
         bRet = false;
 
     return bRet;
 }
+
+bool Socket4::getPeerName(std::string &addr, unsigned short &port) {
+    return getPeerName(addr, port, fd_);
+}
+
+
 
 bool Socket4::getAddr(const struct sockaddr_in &socketaddr, std::string &addr, unsigned short &port) {
     char dst[INET_ADDRSTRLEN];

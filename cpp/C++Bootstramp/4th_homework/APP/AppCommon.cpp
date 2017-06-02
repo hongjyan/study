@@ -1,25 +1,25 @@
-#include "testCommon.hpp"
+#include "AppCommon.hpp"
 #include <unistd.h>
 #include <getopt.h>
 #include <iostream>
 #include <exception>
 
 
-TestCommon::TestCommon(int argc, char* argv[])
+AppCommon::AppCommon(int argc, char* argv[])
 {
     init();
     dealArgs(argc, argv);
 }
 
-void TestCommon::init()
+void AppCommon::init()
 {
     localport_ = 0;
     remoteport_ = 0;
 }
 
-TestCommon::~TestCommon() {}
+AppCommon::~AppCommon() {}
 
-void TestCommon::dealArgs(int argc, char* argv[]) {
+void AppCommon::dealArgs(int argc, char* argv[]) {
 #ifdef DEBUG
     for (int i=0; i!=argc; i++) {
         printf("%s\n", argv[i]);
@@ -69,15 +69,15 @@ void TestCommon::dealArgs(int argc, char* argv[]) {
     }
 }
 
-void TestCommon::showRecv(const char* who, void *buf, unsigned int len) {
-    printf("%s<<<%.*s\n", who, len, (char*)buf);
+void AppCommon::showRecv(const char* who, void *buf, unsigned int len) {
+    printf("%s<<<%.*s\r\n", who, len, (char*)buf);
 }
 
-void TestCommon::start(TcpCnx& tcpCnx) {
-    tcpCnx.setCallback(showRecv);
-    bool bRet = tcpCnx.start(localaddr_.c_str(), localport_, remoteaddr_.c_str(), remoteport_);
+void AppCommon::start(ICnx& cnx) {
+    cnx.setCallback(showRecv);
+    bool bRet = cnx.start(localaddr_.c_str(), localport_, remoteaddr_.c_str(), remoteport_);
     if (!bRet) {
-        printf("start tcpCnx_ failed, exit\n");
+        printf("start cnx_ failed, exit\n");
         _exit(-1);
     }
 
@@ -85,12 +85,19 @@ void TestCommon::start(TcpCnx& tcpCnx) {
     std::string line;
 
     if (bRet) {
-        while (printf(">>>"), std::getline(std::cin, line)) {
-            tcpCnx.send(line.c_str(), line.length(), 7500);
+        while (std::getline(std::cin, line)) {
+            unsigned int len = line.length();
+            int sent = cnx.send(line.c_str(), len, 7500);
+            if (-1 == sent || 0 == sent) {
+                printf("Send data failed, break.\n");
+                break;
+            } else if (len != (unsigned int)sent) {
+                printf("Send partial data, bearing\n");
+            }
         }
     }
 
-    tcpCnx.stop();
+    cnx.stop();
 }
 
 

@@ -1,19 +1,19 @@
 #ifndef __TESTCOMMON_HPP__
 #define __TESTCOMMON_HPP__
-#include "TcpCnx.hpp"
+#include "ICnx.hpp"
 #include <string>
 
 
-class TestCommon {
+class AppCommon {
 public:
-    TestCommon(int argc, char* argv[]);
-    ~TestCommon();
+    AppCommon(int argc, char* argv[]);
+    ~AppCommon();
     virtual void run()=0;
 
 
 protected:
     void dealArgs(int argc, char* argv[]);
-    void start(TcpCnx& tcpCnx);
+    void start(ICnx& cnx);
     void static showRecv(const char* who, void *buf, unsigned int len);
 
 private:

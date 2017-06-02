@@ -1,8 +1,10 @@
 #ifndef __APP_HPP__
 #define __APP_HPP__
 
-#include "testClient.hpp"
-#include "testServer.hpp"
+#include "TcpApp/TcpAppClient.hpp"
+#include "TcpApp/TcpAppServer.hpp"
+#include "ZMQApp/ZMQAppClient.hpp"
+#include "ZMQApp/ZMQAppServer.hpp"
 
 class App {
 public:
