@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><Licence licenceXMLSchemaVersion="2.0">
+<LicenceData Id="licOMGWLic">
+<licenceInfo licenceCode="OMGWLic" licenceName="MGWUi5.0Test"></licenceInfo>
+<order orderId="22222"></order>
+<serial serialNbr="0000191512512"></serial>
+<customer customerId="123456" customerName="NSN Testing"></customer>
+<threshold>
+<objectLimit maxValue="100000000"></objectLimit>
+<timeLimit endTime="2014-01-08T23:59:59" startTime="2013-01-09T00:00:00"></timeLimit>
+</threshold>
+<target targetNeType="MGW"></target>
+<featureData>
+<featureInfo featureCode="0000000265" featureName="MGW CONNECTION CAPACITY"></featureInfo>
+<featureInfo featureCode="0000000751" featureName="MGW AEC IN IU"></featureInfo>
+<featureInfo featureCode="0000000752" featureName="MGW AEC IN A"></featureInfo>
+<featureInfo featureCode="0000000753" featureName="MGW AEC IN ATER"></featureInfo>
+<featureInfo featureCode="0000000756" featureName="MGW ATER INTERFACE"></featureInfo>
+<featureInfo featureCode="0000000757" featureName="MGW EC"></featureInfo>
+<featureInfo featureCode="0000000758" featureName="MGW SEMIPERMANENT TDM IP"></featureInfo>
+<featureInfo featureCode="0000000798" featureName="MGW AMR TFO"></featureInfo>
+<featureInfo featureCode="0000000799" featureName="MGW 2G TFO"></featureInfo>
+<featureInfo featureCode="0000000801" featureName="MGW TTY"></featureInfo>
+<featureInfo featureCode="0000000802" featureName="MGW TRFO"></featureInfo>
+<featureInfo featureCode="0000000803" featureName="MGW AMR WB"></featureInfo>
+<featureInfo featureCode="0000000804" featureName="MGW FAX MODEM DETECTION"></featureInfo>
+<featureInfo featureCode="0000000805" featureName="MGW CLEARMODE"></featureInfo>
+<featureInfo featureCode="0000000810" featureName="MGW MULTIPLE ISOLATED IP NETWORKS"></featureInfo>
+<featureInfo featureCode="0000000814" featureName="MGW VOIP CODEC ILBC"></featureInfo>
+<featureInfo featureCode="0000000815" featureName="MGW VOIP CODEC G729 A B"></featureInfo>
+<featureInfo featureCode="0000000816" featureName="MGW VOIP CODEC G723 1"></featureInfo>
+<featureInfo featureCode="0000000846" featureName="MGW DTMF CODEC"></featureInfo>
+<featureInfo featureCode="0000000861" featureName="MGW VOIP CODEC CN"></featureInfo>
+<featureInfo featureCode="0000000970" featureName="SPMC CLUSTER SUPPORTS MULTIPLE MGW"></featureInfo>
+<featureInfo featureCode="0000000971" featureName="NETWORK ELEMENT LEVEL IPV6"></featureInfo>
+<featureInfo featureCode="0000000972" featureName="HIGH SPEED LINK"></featureInfo>
+<featureInfo featureCode="0000001036" featureName="MGW HR CODEC SUPPORT FOR ATER"></featureInfo>
+<featureInfo featureCode="0000001037" featureName="MGW EXTERNAL IP CAC"></featureInfo>
+<featureInfo featureCode="0000001065" featureName="MGW G711 20MS IN NB INTERFACE"></featureInfo>
+<featureInfo featureCode="0000001113" featureName="MGW IU IP 3G PORT CAPACITY"></featureInfo>
+<featureInfo featureCode="0000001114" featureName="MGW MB IP ACCESS PORT CAPACITY"></featureInfo>
+<featureInfo featureCode="0000001115" featureName="MGW NB IP BACKBONE PORT CAPACITY"></featureInfo>
+<featureInfo featureCode="0000001126" featureName="MGW IP ROUTE CAC BANDWIDTH"></featureInfo>
+<featureInfo featureCode="0000001127" featureName="MGW IP ROUTE CAC PACKET LOSS"></featureInfo>
+<featureInfo featureCode="0000001128" featureName="MGW IP ROUTE CAC TERMINATIONS"></featureInfo>
+<featureInfo featureCode="0000001185" featureName="RTP RTCP MEASUREMENT FOR IP BASED ROUTE"></featureInfo>
+<featureInfo featureCode="0000001221" featureName="MGW NOISE SUPPRESSION"></featureInfo>
+<featureInfo featureCode="0000001245" featureName="MGW ATER CIRCUIT POOLS 28 AND 32"></featureInfo>
+<featureInfo featureCode="0000001292" featureName="MGW T38 FAX IN MB"></featureInfo>
+<featureInfo featureCode="0000001293" featureName="MGW TELEPHONE EVENT IN MB"></featureInfo>
+<featureInfo featureCode="0000001334" featureName="MGW A OVER IP PORT CAPACITY TC IN MGW"></featureInfo>
+<featureInfo featureCode="0000001335" featureName="MGW AEC IN A OVER IP"></featureInfo>
+<featureInfo featureCode="0000001429" featureName="MGW JITTER MEAS FOR IP BASED ROUTE"></featureInfo>
+<featureInfo featureCode="0000001463" featureName="ADVANCED IN SPEECH ANNOUNCEMENT"></featureInfo>
+<featureInfo featureCode="0000001502" featureName="MGW CN NODE SELECTION"></featureInfo>
+<featureInfo featureCode="0000001538" featureName="MGW NELMON INTERFACE"></featureInfo>
+<featureInfo featureCode="0000001539" featureName="MGW NELMON TRAFFICA INTERFACE"></featureInfo>
+<featureInfo featureCode="0000001639" featureName="MGW ENHANCED VAD FOR 3GPP CODECS"></featureInfo>
+<featureInfo featureCode="0000001680" featureName="MGW G711 10MS WITH SIP"></featureInfo>
+<featureInfo featureCode="0000003246" featureName="MGW G711 30MS WITH SIP"></featureInfo>
+</featureData>
+</LicenceData><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="licOMGWLic-pkisig-1"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"></ds:SignatureMethod><ds:Reference URI="#licOMGWLic"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>Tkr0okm42fcVlt0pWeQNBn/VdKA=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>SFUipcI0R2ySx1Gvy8X+tcocNwG3u1KmgX7BF2qB3ZQ71anveaHvD2CTSqBWtgYn7ZdAy2GQgZFQBIoyXz2QX+uLLnqMVwVgROqk4G4Zt8Zsb1uVBnVetao4yuE9vqr+SXx+zdd7mbOE9BjrHq+NIru5yA5G0/5fl/QQIW/HOZE=</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Nokia NET CA, O=Nokia, C=FI</ds:X509IssuerName><ds:X509SerialNumber>3585</ds:X509SerialNumber></ds:X509IssuerSerial><ds:X509Certificate>MIIDIDCCAgigAwIBAgICDgEwDQYJKoZIhvcNAQEFBQAwNDELMAkGA1UEBhMCRkkxDjAMBgNVBAoTBU5va2lhMRUwEwYDVQQDEwxOb2tpYSBORVQgQ0EwHhcNMTEwNDE1MTQwNTExWhcNMTYwMTAyMTEwNTA1WjBDMQswCQYDVQQGEwJGSTEOMAwGA1UEChMFTm9raWExJDAiBgNVBAMTG05va2lhIE5FVCBMaWNlbmNlIEdlbmVyYXRvcjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwue6YGyEE2zduqriCCPtahDE6ivzZcIumh0wMfNhsE/fGuBZsQdxEQLzgypK/o7JqqCLkI0VdWmtSmwL/H9Ah6tfxXd9ZrkqpffaiqNIV4p45A4oZF78y3RgUco0ycj7yEJDjEJKGuI5C7jNeyHu9RLpOfiSZZr5OaFYbBAk6SkCAwDHFaOBsDCBrTAJBgNVHRMEAjAAMBsGA1UdIAEB/wQRMA8wDQYLKwYBBAFeATEFAgEwDgYDVR0PAQH/BAQDAgeAMFQGA1UdIwRNMEuAFHbn42u5/VeuOXDrwuMnUE7xv2yhoS2kKzApMQ4wDAYDVQQKEwVOb2tpYTEXMBUGA1UEAxMOTm9raWEgIFJvb3QgQ0GCBEG1scUwHQYDVR0OBBYEFHRiqBQkagBulqU1imvRZROF8oeTMA0GCSqGSIb3DQEBBQUAA4IBAQDSrU7R4ocC89Q00z7d5Xyb+LaIL51I3ehoYJD4qaE1CCtHNLYI4ItkPzQEZGGmFNvanGN751ABMWQR19VSez4UuU6Z4ImclFLN1zaGS3Ki+seQ7oSYOqOwoB1QWBji8yWi8KEvWm1gz1TTvyTikCVExTcOZNZKDKzgjIm8Zj8SdnkmuoAIfVo8cPl02lz7KMzrcqmT3kmsPnUWUFNJJGRi7ndwEXIJJgQgJVIThFP14Ljbs6Hj7gIl7aw+ye1XzBqbgJaYi6ocAYkn5W9lM1+Nn9YodbpBdL9eCx5eHgBey9CS7M7NqXj6joTXgk6cfQv0d2c+vmwcGaN7vzNlk4Wf</ds:X509Certificate><ds:X509Certificate>MIIDUTCCAjmgAwIBAgIEQbWxxTANBgkqhkiG9w0BAQUFADApMQ4wDAYDVQQKEwVOb2tpYTEXMBUGA1UEAxMOTm9raWEgIFJvb3QgQ0EwHhcNMDQxMjA3MTMzNjA1WhcNMTYwMTAyMTEwNTA1WjA0MQswCQYDVQQGEwJGSTEOMAwGA1UEChMFTm9raWExFTATBgNVBAMTDE5va2lhIE5FVCBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOP7lOX6moUFxPl92sFMGQY7/Y5iie8Jjrqamf50VTWxnESW6ZtSMzv43NQz2d4wIKlniJ76hpUlhm+9ORiCcQ6ntXVOwx5VRT1WLxVQKjEAADrLiIBAichPzHyrSdVhr1sFIfZWH6QkEP7OlOo3sEdYfhho6QnasFQkd2ZPFd7k0z7ObEo963thY39+IIrI/gMCmky4Ab00l3cgj0m8GVDAhUC8Ps1k/azCSOCgaZYPPnZB9Q4KCp1aPMNbY+UvFnfW1SjP7QP8shm8eH+pXJnGWlq8HfQTGc/SI1Zr0phiyetbuaxhcPBjkO1u3v8Z2VkYB4iv5LM1Wq8rPgRebqkCAwEAAaN2MHQwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAcYwEQYDVR0gBAowCDAGBgRVHSAAMB8GA1UdIwQYMBaAFI2N95+hDQAhMu+p7SKu4Dv00H2wMB0GA1UdDgQWBBR25+Nruf1Xrjlw68LjJ1BO8b9soTANBgkqhkiG9w0BAQUFAAOCAQEABTIYpBTthfxrKhyHA76eiSJBzXanWXUPUGn4CcVmWUPYkwgT3TZZ5dUCYKZMmTSpIBW6SyjuI9t4Cvc54dQ4p0om8EmJeZl774qMXWAKsArw7mvifWuVtvnZSPNXwn5KvRq4oxlguimkeepDympxVAaee4sBNtgkPE4hflcvtAnK9hHu5EPxsQNK48lXxlPcMTVEmKM8LKadrFMxd6nraPEJOVFLySNUXjQAcdb3D3uMrKXaCtnkAry0/1sqGGCtCO1j9kE7DM88+N3Y1TnNWiGB1lC36idNlGpwm2FBtKuGW9l44NQ7zKq6xnt+eOBVSRWH69/7FovIozz5cp3WDg==</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature></Licence>

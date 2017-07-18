@@ -1,0 +1,118 @@
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#Modified 2012.12.25
+#2013.1.8 NTP support at OAM part
+#Modified 2013.03.12 by Rene,added 6 features switch on.0000000970,0000000972,0000003443,0000003380,0000003383
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!OAM data!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#OAM ip address: name, interface,  ip,           mask, other
+#OAM_IP_SSH  =   /SharedIP, rtm_sfp0, 10.69.45.180, 28,user /SSH user /ClusterNTP user /HTTPDPlat user /IPSecRedundant user /MGW_OMURG user /Ne3sAgent
+OAM_IP_SSH  =   /SharedIP, bond10, 10.69.45.180, 28,user /SSH user /ClusterNTP user /HTTPDPlat user /MGW_OMURG user /Ne3sAgent
+
+#OAM gateway
+OAM_GW_GW1  = 10.69.45.177
+
+#OAM route:              subnet,        
+OAM_ROUTE_office       = 10.140.0.0/16
+OAM_ROUTE_BOA          = 10.68.128.25/32
+OAM_ROUTE_LINSEE       = 10.159.0.0/16
+OAM_ROUTE_FEWS         = 10.69.55.130/32
+OAM_ROUTE_NTP          = 10.56.126.22/32
+
+#NTP address:           IP address
+OAM_NTP_IP             = 10.56.126.22
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!License data!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#License_1 = I3100642
+#License_2 = I3100654
+#License_3 = VOLTEACP
+License_1 = BA6PIALF
+
+Features_1 = 0000000803,0000004597,0000005149
+#Features_1 = 0000000265,0000000751,0000000752,0000000753,0000000756,0000000757,0000000758,0000000798,0000000799,0000000801,0000000802,0000000803,0000000804,0000000805,0000000810,0000000814,0000000815,0000000816,0000000846,0000000861,0000000846,0000000861,0000000899,0000000971,0000001037,0000001065,0000001113,0000001114,0000001115,0000001126,0000001127,0000001128,0000001185,0000001221,0000001245,0000001292,0000001293,0000001334,0000001335,0000001429,0000001463,0000001502,0000001538,0000001539,0000001639,0000001680,0000003246,0000001036,0000003379,0000000970,0000000972,0000003443,0000003380,0000003383
+
+#License route:   responser ip,    Gateway
+#License_route_1 = 10.23.52.131/32, 10.69.45.177
+
+
+
+
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!CP data!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#Vlan interface:
+VLANIF_CLA0Pri = /CLA-0, vlan_primary, 229, muho1
+VLANIF_CLA1Pri = /CLA-1, vlan_primary, 229, muho1
+VLANIF_CLA0Sec = /CLA-0, vlan_secondary, 230, muho2
+VLANIF_CLA1Sec = /CLA-1, vlan_secondary, 230, muho2
+
+#HCLB IP address: 
+HCLBRG_0VlanifPri  = /MGW_HCLBRG-0, vlan_primary, 10.69.45.170, 29
+HCLBRG_0VlanifSec  = /MGW_HCLBRG-0, vlan_secondary, 10.69.45.194, 29
+HCLBRG_1VlanifPri  = /MGW_HCLBRG-1, vlan_primary, 10.69.45.171, 29
+HCLBRG_1VlanifSec  = /MGW_HCLBRG-1, vlan_secondary, 10.69.45.195, 29
+#HCLBRG_0VlanifPriIPV6 = /MGW_HCLBRG-0, vlan_primary, 2a00:8a00:8000:a000:0:5:1001:3, 112
+#HCLBRG_0VlanifSecIPV6 = /MGW_HCLBRG-0, vlan_secondary, 2a00:8a00:8000:a000:0:6:1002:3, 112
+#HCLBRG_1VlanifPriIPV6 = /MGW_HCLBRG-1, vlan_primary, 2a00:8a00:8000:a000:0:5:1001:4, 112
+#HCLBRG_1VlanifSecIPV6 = /MGW_HCLBRG-1, vlan_secondary, 2a00:8a00:8000:a000:0:6:1002:4, 112
+
+
+#CP route;          node,   subnet,           gateway,  ping source IP(not used in add_CProute, but use in ping)       
+#HCLB-0(CLA-0)---Vlanif_Primary----HUB8----TW_12
+CP_ROUTE_CLA0TW1HUB8  = CLA-0,  10.68.128.205/32, 10.69.45.169, 10.69.45.170
+#HCLB-0(CLA-0)---Vlanif_Secondary----HUB9----TW_132
+CP_ROUTE_CLA0TW1HUB9  = CLA-0,  10.69.73.19/32, 10.69.45.193, 10.69.45.194
+
+#HCLB-0(CLA-1)---Vlanif_Primary----HUB8----TW_12
+CP_ROUTE_CLA1TW1HUB8  = CLA-1,  10.68.128.205/32, 10.69.45.169, 10.69.45.170
+#HCLB-0(CLA-1)---Vlanif_Secondary----HUB9----TW_132
+CP_ROUTE_CLA1TW1HUB9  = CLA-1,  10.69.73.19/32, 10.69.45.193, 10.69.45.194
+
+#IPV6HCLB-0(CLA-0)---Vlanif_Primary----HUB8----GW---TW_eth0
+#CP_ROUTE_CLA0TW1HUB8IPV6  = CLA-0,  2a00:8a00:8000:a000:0:3:2:22/128, 2a00:8a00:8000:a000:0:5:1001:1, 2a00:8a00:8000:a000:0:5:1001:3
+#IPV6HCLB-0(CLA-0)---Vlanif_Secondary----HUB9----GW---TW_eth1
+#CP_ROUTE_CLA0TW1HUB9IPV6  = CLA-0,  2a00:8a00:8000:a000:0:1:1:32/128, 2a00:8a00:8000:a000:0:6:1002:1, 2a00:8a00:8000:a000:0:6:1002:3
+
+#IPV6HCLB-0(CLA-1)---Vlanif_Primary----HUB8----GW---TW_eth0
+#CP_ROUTE_CLA1TW1HUB8IPV6  = CLA-1,  2a00:8a00:8000:a000:0:3:2:22/128, 2a00:8a00:8000:a000:0:5:1001:1, 2a00:8a00:8000:a000:0:5:1001:3
+#IPV6HCLB-0(CLA-1)---Vlanif_Secondary----HUB9----GW---TW_eth1
+#CP_ROUTE_CLA1TW1HUB9IPV6  = CLA-1,  2a00:8a00:8000:a000:0:1:1:32/128, 2a00:8a00:8000:a000:0:6:1002:1, 2a00:8a00:8000:a000:0:6:1002:3
+
+#HCLB-1(CLA-0)---Vlanif_Primary----HUB8----TW_13
+CP_ROUTE_CLA0TW2HUB8  = CLA-0,  10.68.128.206/32, 10.69.45.169, 10.69.45.171
+#HCLB-1(CLA-0)---fi1----HUB9----TW_133
+CP_ROUTE_CLA0TW2HUB9  = CLA-0,  10.69.73.20/32, 10.69.45.193, 10.69.45.195
+
+#HCLB-1(CLA-1)---Vlanif_Primary----HUB8----TW_13
+CP_ROUTE_CLA1TW2HUB8  = CLA-1,  10.68.128.206/32, 10.69.45.169, 10.69.45.171
+#HCLB-1(CLA-1)---Vlanif_Secondary----HUB9----TW_133
+CP_ROUTE_CLA1TW2HUB9  = CLA-1,  10.69.73.20/32, 10.69.45.193, 10.69.45.195
+
+
+e164_1 = 123456789
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!UP data!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#BGNIURG address:
+IPNIURG_0ethaccess = /MGW_BGNIURG-0, ethrtm5, 10.69.45.204, 29
+IPNIURG_0ethcore = /MGW_BGNIURG-0, ethrtm5, 10.69.45.205, 29
+IPNIURG_0ethaccessIPV6 = /MGW_BGNIURG-0, ethrtm5, 2a00:8a00:8000:a000:0:5:1003:4, 112
+IPNIURG_0ethcoreIPV6   = /MGW_BGNIURG-0, ethrtm5, 2a00:8a00:8000:a000:0:5:1003:5, 112
+#UP route:            node,   subnet,           gateway
+UP_ROUTE_IP0TW1  =  BGNIMP-0, default, 10.69.45.201
+UP_ROUTE_IP1TW1  =  BGNIMP-1, default, 10.69.45.201
+UP_ROUTE_IP0TW1IPV6  =  BGNIMP-0, default, 2a00:8a00:8000:a000:0:5:1003:1
+UP_ROUTE_IP1TW1IPV6  =  BGNIMP-1, default, 2a00:8a00:8000:a000:0:5:1003:1
+
+UP_TW_1 = 10.68.128.205
+UP_TW_2 = 2a00:8a00:8000:a000:0:3:2:22
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!VMGW data!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#vmgw data:   vmn,   dur,      rg, opip,         osip,         opn,  pip,           sip,           hve, hea
+
+VMGW_Anna1 =  Anna1, 00:00:30, 0,  10.69.45.170, 10.69.45.194, 8009, 10.68.128.205, 10.69.73.19, 2,   0
+VMGW_Anna2 =  Anna2, 00:00:30, 1,  10.69.45.171, 10.69.45.195, 8010, 10.68.128.206, 10.69.73.20, 2,   0
+#VMGW_Anna3 =  Anna3, 00:00:30, 0,  2a00:8a00:8000:a000:0:9:5:2, 2a00:8a00:8000:a000:0:a:5:2, 8010, 2a00:8a00:8000:a000:0:1:1:22, 2a00:8a00:8000:a000:0:1:2:5, 2,   0
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!UPRoute data!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#uproute data:	    id, name, bid,dscp,modop,ipbrid,ip,         ipnwr, ips, state, vmn
+UPROUTE_access =     2, access, 1, 11, p,      65, 10.69.45.204, 65,    1,   0,     Anna1
+UPROUTE_core =       3, core,   1, 22, p,     135, 10.69.45.205, 135,   1,   0,     Anna1
+IPV6UPROUTE_access = 2, access, 1, 11, p,      65, 2a00:8a00:8000:a000:0:5:1003:4,  65, 1, 0,  Anna1
+IPV6UPROUTE_core =   3, core,   1, 22, p,     135, 2a00:8a00:8000:a000:0:5:1003:5, 135, 1, 0,  Anna1
+#########################################################################################################################

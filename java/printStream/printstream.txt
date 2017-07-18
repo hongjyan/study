@@ -1,0 +1,5 @@
+java.lang.Exception: test
+	at printStream.f1(printStream.java:7)
+	at printStream.f2(printStream.java:11)
+	at printStream.f3(printStream.java:15)
+	at printStream.main(printStream.java:23)

@@ -1,0 +1,416 @@
+/CLA-0/MGW_OMUFU-0
+Process                       /CLA-0/MGW_OMUFU-0/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-0/MGW_OMUFU-0/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-1/MGW_OMUFU-1
+Process                       /CLA-1/MGW_OMUFU-1/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-1/MGW_OMUFU-1/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-0/MGW_CMFU-0
+Process                       /CLA-0/MGW_CMFU-0/MGW_srmprb
+                              command=(/opt/nokiasiemens/SS_MGWSGWRM/bin/srmprb)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-0/MGW_CMFU-0/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-0/MGW_CMFU-0/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-0/MGW_CMFU-0/MGW_UnitResources
+                              command=(/opt/nokiasiemens/SS_MGWUnitResources/bin/uhaprbgx)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-1/MGW_CMFU-1
+Process                       /CLA-1/MGW_CMFU-1/MGW_srmprb
+                              command=(/opt/nokiasiemens/SS_MGWSGWRM/bin/srmprb)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-1/MGW_CMFU-1/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-1/MGW_CMFU-1/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-1/MGW_CMFU-1/MGW_UnitResources
+                              command=(/opt/nokiasiemens/SS_MGWUnitResources/bin/uhaprbgx)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-0/MGW_SGUNNSFFU-0
+Process                       /CLA-0/MGW_SGUNNSFFU-0/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-0/MGW_SGUNNSFFU-0/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-1/MGW_SGUNNSFFU-1
+Process                       /CLA-1/MGW_SGUNNSFFU-1/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-1/MGW_SGUNNSFFU-1/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-0/MGW_SGUNNSFFU-2
+Process                       /CLA-0/MGW_SGUNNSFFU-2/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-0/MGW_SGUNNSFFU-2/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-1/MGW_SGUNNSFFU-3
+Process                       /CLA-1/MGW_SGUNNSFFU-3/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-1/MGW_SGUNNSFFU-3/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-0/MGW_SISUFU-0
+Process                       /CLA-0/MGW_SISUFU-0/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-0/MGW_SISUFU-0/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-1/MGW_SISUFU-1
+Process                       /CLA-1/MGW_SISUFU-1/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-1/MGW_SISUFU-1/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-0/MGW_SISUFU-2
+Process                       /CLA-0/MGW_SISUFU-2/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-0/MGW_SISUFU-2/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-1/MGW_SISUFU-3
+Process                       /CLA-1/MGW_SISUFU-3/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-1/MGW_SISUFU-3/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-0/MGW_SISUFU-4
+Process                       /CLA-0/MGW_SISUFU-4/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-0/MGW_SISUFU-4/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-1/MGW_SISUFU-5
+Process                       /CLA-1/MGW_SISUFU-5/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-1/MGW_SISUFU-5/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-0/MGW_SISUFU-6
+Process                       /CLA-0/MGW_SISUFU-6/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-0/MGW_SISUFU-6/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-1/MGW_SISUFU-7
+Process                       /CLA-1/MGW_SISUFU-7/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-1/MGW_SISUFU-7/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-0/MGW_HCLBFU-0
+Process                       /CLA-0/MGW_HCLBFU-0/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-0/MGW_HCLBFU-0/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-1/MGW_HCLBFU-1
+Process                       /CLA-1/MGW_HCLBFU-1/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-1/MGW_HCLBFU-1/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-0/MGW_HCLBFU-2
+Process                       /CLA-0/MGW_HCLBFU-2/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-0/MGW_HCLBFU-2/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-1/MGW_HCLBFU-3
+Process                       /CLA-1/MGW_HCLBFU-3/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-1/MGW_HCLBFU-3/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/IPNI1P-0/MGW_IPNIUFU-0
+Process                       /IPNI1P-0/MGW_IPNIUFU-0/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /IPNI1P-0/MGW_IPNIUFU-0/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/IPNI1P-1/MGW_IPNIUFU-1
+Process                       /IPNI1P-1/MGW_IPNIUFU-1/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /IPNI1P-1/MGW_IPNIUFU-1/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/IPNI1P-2/MGW_IPNIUFU-2
+Process                       /IPNI1P-2/MGW_IPNIUFU-2/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /IPNI1P-2/MGW_IPNIUFU-2/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/IPNI1P-3/MGW_IPNIUFU-3
+Process                       /IPNI1P-3/MGW_IPNIUFU-3/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /IPNI1P-3/MGW_IPNIUFU-3/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-0/MGW_SGUILSAGFU-0
+Process                       /CLA-0/MGW_SGUILSAGFU-0/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-0/MGW_SGUILSAGFU-0/SGWSCCPLM
+                              command=(/opt/nokiasiemens/SS_SGWLM/script/ss_sgwsccplm_start.sh)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-0/MGW_SGUILSAGFU-0/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/CLA-1/MGW_SGUILSAGFU-1
+Process                       /CLA-1/MGW_SGUILSAGFU-1/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-1/MGW_SGUILSAGFU-1/SGWSCCPLM
+                              command=(/opt/nokiasiemens/SS_SGWLM/script/ss_sgwsccplm_start.sh)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /CLA-1/MGW_SGUILSAGFU-1/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+/TDMNIP-4/MGW_TDMSNIUPFU-4
+Process                       /TDMNIP-4/MGW_TDMSNIUPFU-4/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /TDMNIP-4/MGW_TDMSNIUPFU-4/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+Process                       /TDMNIP-4/MGW_TDMSNIUPFU-4/MGW_TDMConnMgr
+                              command=(/opt/nokiasiemens/SS_MGWTDMConnMgr/bin/TDMConnMgr)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+/TDMNIP-5/MGW_TDMSNIUPFU-5
+Process                       /TDMNIP-5/MGW_TDMSNIUPFU-5/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /TDMNIP-5/MGW_TDMSNIUPFU-5/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+Process                       /TDMNIP-5/MGW_TDMSNIUPFU-5/MGW_TDMConnMgr
+                              command=(/opt/nokiasiemens/SS_MGWTDMConnMgr/bin/TDMConnMgr)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+/TDMNIP-6/MGW_TDMSNIUPFU-6
+Process                       /TDMNIP-6/MGW_TDMSNIUPFU-6/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /TDMNIP-6/MGW_TDMSNIUPFU-6/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+Process                       /TDMNIP-6/MGW_TDMSNIUPFU-6/MGW_TDMConnMgr
+                              command=(/opt/nokiasiemens/SS_MGWTDMConnMgr/bin/TDMConnMgr)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+/TDMNIP-7/MGW_TDMSNIUPFU-7
+Process                       /TDMNIP-7/MGW_TDMSNIUPFU-7/IL_Mfsprb
+                              command=(/opt/nokiasiemens/SS_ILMFS/bin/mfsprb1x)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)
+--
+Process                       /TDMNIP-7/MGW_TDMSNIUPFU-7/IL_Starter
+                              command=(/opt/nokiasiemens/SS_ILStarter/bin/starter)
+                              status=(fullHA)
+                              startMethod=(requested)
+                              severity=(important)
+Process                       /TDMNIP-7/MGW_TDMSNIUPFU-7/MGW_TDMConnMgr
+                              command=(/opt/nokiasiemens/SS_MGWTDMConnMgr/bin/TDMConnMgr)
+                              status=(nonHA)
+                              startMethod=(requested)
+                              severity=(important)

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><Licence licenceXMLSchemaVersion="2.0">
+<LicenceData Id="lic12345">
+<licenceInfo licenceCode="12345" licenceName="MGW"></licenceInfo>
+<order orderId=""></order>
+<serial serialNbr="5000121897264"></serial>
+<customer customerId="123456" customerName="NSN Testing"></customer>
+<threshold>
+<objectLimit maxValue="5000"></objectLimit>
+<timeLimit endTime="2014-10-30T23:59:59" startTime="2013-10-31T00:00:00"></timeLimit>
+</threshold>
+<target targetNeType="MGW"></target>
+<featureData>
+<featureInfo featureCode="0000000265" featureName="MgwConnectionCapacity"></featureInfo>
+<featureInfo featureCode="0000000751" featureName="MgwAecInIu"></featureInfo>
+<featureInfo featureCode="0000000752" featureName="MgwAecInA"></featureInfo>
+<featureInfo featureCode="0000000753" featureName="MgwAecInAter"></featureInfo>
+<featureInfo featureCode="0000000756" featureName="MgwAterInterface                        "></featureInfo>
+<featureInfo featureCode="0000000757" featureName="MgwEc"></featureInfo>
+<featureInfo featureCode="0000000758" featureName="MgwSemipermanentTdmIp                   "></featureInfo>
+<featureInfo featureCode="0000000798" featureName="MgwAmrTfo"></featureInfo>
+<featureInfo featureCode="0000000799" featureName="Mgw2gTfo"></featureInfo>
+<featureInfo featureCode="0000000801" featureName="MgwTty                                  "></featureInfo>
+<featureInfo featureCode="0000000802" featureName="MgwTrfo                                 "></featureInfo>
+<featureInfo featureCode="0000000803" featureName="MgwAmrWb"></featureInfo>
+<featureInfo featureCode="0000000804" featureName="MgwFaxModemDetection                    "></featureInfo>
+<featureInfo featureCode="0000000805" featureName="MgwClearmode "></featureInfo>
+<featureInfo featureCode="0000000810" featureName="MgwMultipleIsolatedIpNetworks           "></featureInfo>
+<featureInfo featureCode="0000000814" featureName="MgwVoipCodecIlbc                        "></featureInfo>
+<featureInfo featureCode="0000000815" featureName="MgwVoipCodecG729AB                      "></featureInfo>
+<featureInfo featureCode="0000000816" featureName="MgwVoipCodecG7231                       "></featureInfo>
+<featureInfo featureCode="0000000846" featureName="MgwDtmfCodec"></featureInfo>
+<featureInfo featureCode="0000000861" featureName="MgwVoipCodecCn                          "></featureInfo>
+<featureInfo featureCode="0000000899" featureName="MgwIua                                  "></featureInfo>
+<featureInfo featureCode="0000000970" featureName="MgwSPMCClusterSupportForMultipleMgw     "></featureInfo>
+<featureInfo featureCode="0000000971" featureName="NetworkElementLevelIpV6                 "></featureInfo>
+<featureInfo featureCode="0000000972" featureName="MgwHighSpeedLink                        "></featureInfo>
+<featureInfo featureCode="0000001036" featureName="MgwHrCodecForAter                       "></featureInfo>
+<featureInfo featureCode="0000001037" featureName="MgwExternalIpCac"></featureInfo>
+<featureInfo featureCode="0000001065" featureName="MgwG71120MsNb"></featureInfo>
+<featureInfo featureCode="0000001113" featureName="MgwIuIp3gPortCapacity                   "></featureInfo>
+<featureInfo featureCode="0000001114" featureName="MgwMbIpPortCapacity                     "></featureInfo>
+<featureInfo featureCode="0000001115" featureName="MgwNbIpBbPortCapacity                   "></featureInfo>
+<featureInfo featureCode="0000001126" featureName="MgwIpRouteCacBandwidth                  "></featureInfo>
+<featureInfo featureCode="0000001127" featureName="MgwIpRouteCacPacketLoss                 "></featureInfo>
+<featureInfo featureCode="0000001128" featureName="MgwIpRouteCacTerminations               "></featureInfo>
+<featureInfo featureCode="0000001185" featureName="MgwRtpRtcpMeasForIpBasedRoute           "></featureInfo>
+<featureInfo featureCode="0000001221" featureName="MgwNoiseSuppression                     "></featureInfo>
+<featureInfo featureCode="0000001229" featureName="MGWAdvancedSpeechCallItemASCI           "></featureInfo>
+<featureInfo featureCode="0000001245" featureName="MgwAterCircuitPools28And32"></featureInfo>
+<featureInfo featureCode="0000001292" featureName="MgwT38FaxInMb                           "></featureInfo>
+<featureInfo featureCode="0000001293" featureName="MgwTelephoneEventInMb                   "></featureInfo>
+<featureInfo featureCode="0000001334" featureName="MgwAoverIpPortCapacityTcInMgw           "></featureInfo>
+<featureInfo featureCode="0000001335" featureName="MgwAecInAoverIp"></featureInfo>
+<featureInfo featureCode="0000001429" featureName="MgwJitterMeasForIpBasedRoute"></featureInfo>
+<featureInfo featureCode="0000001463" featureName="MgwAdvancedInSpeechAnnouncement "></featureInfo>
+<featureInfo featureCode="0000001502" featureName="MgwCnNodeSelection"></featureInfo>
+<featureInfo featureCode="0000001538" featureName="MgwNelmonInterface                      "></featureInfo>
+<featureInfo featureCode="0000001539" featureName="MgwNelmonTrafficaInterface              "></featureInfo>
+<featureInfo featureCode="0000001639" featureName="MgwEnhancedVadFor3gppCodecs"></featureInfo>
+<featureInfo featureCode="0000001680" featureName="MgwG71110MsWithSip "></featureInfo>
+<featureInfo featureCode="0000003246" featureName="MgwG71130MsWithSip"></featureInfo>
+<featureInfo featureCode="0000003379" featureName="VoLTEAccessPortCapacity"></featureInfo>
+<featureInfo featureCode="0000003380" featureName="MGWDynamicRTCP                          "></featureInfo>
+<featureInfo featureCode="0000003383" featureName="MGWTrafficaUserplaneQualityMetrics"></featureInfo>
+<featureInfo featureCode="0000003443" featureName="CallBasesG711EncodingLawInMgw           "></featureInfo>
+<featureInfo featureCode="0000004597" featureName="BGWconcurrentsessions "></featureInfo>
+</featureData>
+</LicenceData><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="lic12345-pkisig-1"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"></ds:SignatureMethod><ds:Reference URI="#lic12345"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>aAjVk50ZbYSqdcyAONxbpiB2VqM=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>uFYP+K62un5NMI/LTz3UG/LtDntpS0jU9hBd695sUmefwci8rhXXhB7LBnnSIZZXxmxbzIbg9pzkioZdcJSbPVz7rvSgvpm8NuADnDotrzHfgKR5auF6dl0DeXmtV0ZBu/x/j338pweF0PAFJFeGCCkmHfTL5PVjo9gDbOirQAU=</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Nokia NET CA, O=Nokia, C=FI</ds:X509IssuerName><ds:X509SerialNumber>3585</ds:X509SerialNumber></ds:X509IssuerSerial><ds:X509Certificate>MIIDIDCCAgigAwIBAgICDgEwDQYJKoZIhvcNAQEFBQAwNDELMAkGA1UEBhMCRkkxDjAMBgNVBAoTBU5va2lhMRUwEwYDVQQDEwxOb2tpYSBORVQgQ0EwHhcNMTEwNDE1MTQwNTExWhcNMTYwMTAyMTEwNTA1WjBDMQswCQYDVQQGEwJGSTEOMAwGA1UEChMFTm9raWExJDAiBgNVBAMTG05va2lhIE5FVCBMaWNlbmNlIEdlbmVyYXRvcjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwue6YGyEE2zduqriCCPtahDE6ivzZcIumh0wMfNhsE/fGuBZsQdxEQLzgypK/o7JqqCLkI0VdWmtSmwL/H9Ah6tfxXd9ZrkqpffaiqNIV4p45A4oZF78y3RgUco0ycj7yEJDjEJKGuI5C7jNeyHu9RLpOfiSZZr5OaFYbBAk6SkCAwDHFaOBsDCBrTAJBgNVHRMEAjAAMBsGA1UdIAEB/wQRMA8wDQYLKwYBBAFeATEFAgEwDgYDVR0PAQH/BAQDAgeAMFQGA1UdIwRNMEuAFHbn42u5/VeuOXDrwuMnUE7xv2yhoS2kKzApMQ4wDAYDVQQKEwVOb2tpYTEXMBUGA1UEAxMOTm9raWEgIFJvb3QgQ0GCBEG1scUwHQYDVR0OBBYEFHRiqBQkagBulqU1imvRZROF8oeTMA0GCSqGSIb3DQEBBQUAA4IBAQDSrU7R4ocC89Q00z7d5Xyb+LaIL51I3ehoYJD4qaE1CCtHNLYI4ItkPzQEZGGmFNvanGN751ABMWQR19VSez4UuU6Z4ImclFLN1zaGS3Ki+seQ7oSYOqOwoB1QWBji8yWi8KEvWm1gz1TTvyTikCVExTcOZNZKDKzgjIm8Zj8SdnkmuoAIfVo8cPl02lz7KMzrcqmT3kmsPnUWUFNJJGRi7ndwEXIJJgQgJVIThFP14Ljbs6Hj7gIl7aw+ye1XzBqbgJaYi6ocAYkn5W9lM1+Nn9YodbpBdL9eCx5eHgBey9CS7M7NqXj6joTXgk6cfQv0d2c+vmwcGaN7vzNlk4Wf</ds:X509Certificate><ds:X509Certificate>MIIDUTCCAjmgAwIBAgIEQbWxxTANBgkqhkiG9w0BAQUFADApMQ4wDAYDVQQKEwVOb2tpYTEXMBUGA1UEAxMOTm9raWEgIFJvb3QgQ0EwHhcNMDQxMjA3MTMzNjA1WhcNMTYwMTAyMTEwNTA1WjA0MQswCQYDVQQGEwJGSTEOMAwGA1UEChMFTm9raWExFTATBgNVBAMTDE5va2lhIE5FVCBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOP7lOX6moUFxPl92sFMGQY7/Y5iie8Jjrqamf50VTWxnESW6ZtSMzv43NQz2d4wIKlniJ76hpUlhm+9ORiCcQ6ntXVOwx5VRT1WLxVQKjEAADrLiIBAichPzHyrSdVhr1sFIfZWH6QkEP7OlOo3sEdYfhho6QnasFQkd2ZPFd7k0z7ObEo963thY39+IIrI/gMCmky4Ab00l3cgj0m8GVDAhUC8Ps1k/azCSOCgaZYPPnZB9Q4KCp1aPMNbY+UvFnfW1SjP7QP8shm8eH+pXJnGWlq8HfQTGc/SI1Zr0phiyetbuaxhcPBjkO1u3v8Z2VkYB4iv5LM1Wq8rPgRebqkCAwEAAaN2MHQwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAcYwEQYDVR0gBAowCDAGBgRVHSAAMB8GA1UdIwQYMBaAFI2N95+hDQAhMu+p7SKu4Dv00H2wMB0GA1UdDgQWBBR25+Nruf1Xrjlw68LjJ1BO8b9soTANBgkqhkiG9w0BAQUFAAOCAQEABTIYpBTthfxrKhyHA76eiSJBzXanWXUPUGn4CcVmWUPYkwgT3TZZ5dUCYKZMmTSpIBW6SyjuI9t4Cvc54dQ4p0om8EmJeZl774qMXWAKsArw7mvifWuVtvnZSPNXwn5KvRq4oxlguimkeepDympxVAaee4sBNtgkPE4hflcvtAnK9hHu5EPxsQNK48lXxlPcMTVEmKM8LKadrFMxd6nraPEJOVFLySNUXjQAcdb3D3uMrKXaCtnkAry0/1sqGGCtCO1j9kE7DM88+N3Y1TnNWiGB1lC36idNlGpwm2FBtKuGW9l44NQ7zKq6xnt+eOBVSRWH69/7FovIozz5cp3WDg==</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature></Licence>

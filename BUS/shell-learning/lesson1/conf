@@ -1,0 +1,5 @@
+NAME="Sun Wukong"  #想想不加引号有什么后果? 单引号是不是也可以?
+skill=72 #这是整形还是字符串?
+
+faterh = "stone"  #请在read_conf.sh读取这个变量,会遇到什么问题? 为什么?怎么修改.
+

@@ -1,0 +1,315 @@
+#--------------- Change History ---------------------------#
+#V1.0 setup: date 2012.12.28
+#2013.01.07 IWF support added by hj
+#2013.01.08 NTP support added by hj
+#2013.01.15 Licence change by LG
+#----------------------------------------------------------#
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!OAM data!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#OAM ip address: name, interface,  ip,           mask, other
+OAM_IP_SSH  =   /SSH, front_eth1, 10.69.9.228, 29,user /ClusterNTP user /HTTPDPlat user /Ne3sAgent user /SNMPMediator
+#OAM_IP_CLM  =   /CLM, front_eth1, 10.69.45.181, 28
+#OAM gateway
+OAM_GW_GW1  = 10.69.9.225
+
+#OAM route:              subnet,        
+OAM_ROUTE_office       = 10.140.0.0/16
+OAM_ROUTE_BOA          = 10.68.128.25/32
+OAM_ROUTE_LINSEE       = 10.159.0.0/16
+OAM_ROUTE_FEWS         = 10.69.55.130/32
+OAM_ROUTE_NTP          = 10.56.126.22/32
+
+#NTP address:           IP address
+OAM_NTP_IP             = 10.56.126.22
+
+
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!License data!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#License_1 = I3100642
+#License_2 = I3100654
+#License_3 = VOLTEACP
+#License_1 = UI5EPALF
+License_1 = UI5EPALF
+
+Features_1 = 0000000265,0000000751,0000000752,0000000753,0000000756,0000000757,0000000758,0000000798,0000000799,0000000801,0000000802,0000000803,0000000804,0000000805,0000000810,0000000814,0000000815,0000000816,0000000846,0000000861,0000000846,0000000861,0000000899,0000000971,0000001037,0000001065,0000001113,0000001114,0000001115,0000001126,0000001127,0000001128,0000001185,0000001221,0000001245,0000001292,0000001293,0000001334,0000001335,0000001429,0000001463,0000001502,0000001538,0000001539,0000001639,0000001680,0000003246,0000001036,0000003379,0000000970,0000000972,0000003443,0000003380,0000003383
+
+#License route:   responser ip,    Gateway
+#License_route_1 = 10.23.52.131/32, 10.69.45.177
+
+
+
+
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!CP data!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#HCLB IP address: 
+HCLBRG_0fi0  = /MGW_HCLBRG-0, fi0, 10.69.9.234, 29
+HCLBRG_0fi1  = /MGW_HCLBRG-0, fi1, 10.69.9.242, 29
+HCLBRG_2fi0  = /MGW_HCLBRG-2, fi0, 10.69.9.236, 29
+HCLBRG_2fi1  = /MGW_HCLBRG-2, fi1, 10.69.9.244, 29
+HCLBRG_3fi0  = /MGW_HCLBRG-3, fi0, 10.69.9.237, 29
+HCLBRG_3fi1  = /MGW_HCLBRG-3, fi1, 10.69.9.245, 29
+HCLBRG_6fi0  = /MGW_HCLBRG-6, fi0, 10.69.9.238, 29
+HCLBRG_6fi1  = /MGW_HCLBRG-6, fi1, 10.69.9.246, 29
+
+#CP route;             node,   destination/TW,     gateway, ping source IP(not used in add_CProute, but use in ping)
+#HCLB-0(CLA-0)---fi0----HUB8----233
+CP_ROUTE_CLA0TW1HUB8  = CLA-0,  10.68.128.132/32, 10.69.9.233, 10.69.9.234 
+#HCLB-0(CLA-0)---fi1----HUB9----241
+CP_ROUTE_CLA0TW1HUB9  = CLA-0,  10.68.128.150/32, 10.69.9.241, 10.69.9.242
+
+#HCLB-0(CLA-1)---fi0----HUB8----233
+CP_ROUTE_CLA1TW1HUB8  = CLA-1,  10.68.128.132/32, 10.69.9.233, 10.69.9.234
+#HCLB-0(CLA-1)---fi1----HUB9----241
+CP_ROUTE_CLA1TW1HUB9  = CLA-1,  10.68.128.150/32, 10.69.9.241, 10.69.9.242
+
+#HCLB-2(ISU-0)---fi0----HUB8----233
+CP_ROUTE_ISU0TW2HUB8  = ISU-0,  10.68.128.133/32, 10.69.9.233, 10.69.9.236
+#HCLB-2(ISU-0)---fi1----HUB9----241
+CP_ROUTE_ISU0TW2HUB9  = ISU-0,  10.68.128.151/32, 10.69.9.241, 10.69.9.244
+
+#HCLB-2(ISU-1)---fi0----HUB8----233
+CP_ROUTE_ISU1TW2HUB8  = ISU-1,  10.68.128.133/32, 10.69.9.233, 10.69.9.236
+#HCLB-2(ISU-1)---fi1----HUB9----241
+CP_ROUTE_ISU1TW2HUB9  = ISU-1,  10.68.128.151/32, 10.69.9.241, 10.69.9.244
+
+#HCLB-6(ISU-4)---fi0----HUB8----233
+CP_ROUTE_ISU4TW2HUB8  = ISU-4,  10.68.128.142/32, 10.69.9.233, 10.69.9.238
+#HCLB-6(ISU-4)---fi1----HUB9----241
+CP_ROUTE_ISU4TW2HUB9  = ISU-4,  10.68.128.143/32, 10.69.9.241, 10.69.9.246
+
+#HCLB-6(ISU-5)---fi0----HUB8----207
+CP_ROUTE_ISU5TW2HUB8  = ISU-5,  10.68.128.142/32, 10.69.9.233, 10.69.9.238
+#HCLB-6(ISU-5)---fi1----HUB9----208
+CP_ROUTE_ISU5TW2HUB9  = ISU-5,  10.68.128.143/32, 10.69.9.241, 10.69.9.246
+
+
+
+
+e164_1 = 123456789
+
+
+
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!UP data!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#IPNIURG address:
+IPNIURG_0lo = /MGW_IPNIURG-0, lo, 10.69.9.97, 30
+
+#UP route:            node,   subnet,           gateway,  *other
+UP_ROUTE_IP0ROUTE0  =  IPNI1P-0, 10.68.128.0/24, 10.69.9.81, bfd-monitoring enabled bfd-rx-interval 50 bfd-tx-interval 50 bfd-detect-mult 3
+UP_ROUTE_IP0ROUTE1  =  IPNI1P-0, 10.68.129.0/24, 10.69.9.85, bfd-monitoring enabled bfd-rx-interval 50 bfd-tx-interval 50 bfd-detect-mult 3
+UP_ROUTE_IP1ROUTE0  =  IPNI1P-1, 10.68.128.0/24, 10.69.9.89, bfd-monitoring enabled bfd-rx-interval 50 bfd-tx-interval 50 bfd-detect-mult 3
+UP_ROUTE_IP0ROUTE0  =  IPNI1P-1, 10.68.129.0/24, 10.69.9.93, bfd-monitoring enabled bfd-rx-interval 50 bfd-tx-interval 50 bfd-detect-mult 3
+
+UP_TW_1 = 10.68.128.132
+#for layer 3 configuration, there are some other parameters
+#RU paramter:      RU, iface, ip, mask
+IPNIUFU_0ethsfp1 = /IPNI1P-0/MGW_IPNIUFU-0, eth_sfp1, 10.69.9.82, 30
+IPNIUFU_0ethsfp2 = /IPNI1P-0/MGW_IPNIUFU-0, eth_sfp2, 10.69.9.86, 30
+IPNIUFU_1ethsfp1 = /IPNI1P-1/MGW_IPNIUFU-1, eth_sfp1, 10.69.9.90, 30
+IPNIUFU_1ethsfp2 = /IPNI1P-1/MGW_IPNIUFU-1, eth_sfp2, 10.69.9.94, 30
+
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!VMGW data!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#vmgw data:   vmn,   dur,      rg, opip,         osip,         opn,  pip,           sip,           hve, hea
+
+VMGW_Roemo1 =  Romeo1, 00:00:30, 0,  10.69.9.234, 10.69.9.242, 8009, 10.68.128.132, 10.68.128.150, 2,   0
+VMGW_Roemo2 =  Romeo2, 00:00:30, 2,  10.69.9.236, 10.69.9.244, 8011, 10.68.128.133, 10.68.128.151, 2,   0
+VMGW_Roemo3 =  Romeo3, 00:00:30, 6,  10.69.9.238, 10.69.9.246, 8013, 10.68.128.142, 10.68.128.143, 2,   0
+
+
+
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#
+#!!!!!itemclass_itemname, there shouldn't '_' in item name. Eg: #
+#SSN_BSSAP_290 is wrong, SSN_BSSAP290 right #
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#
+
+
+#SS7SGU ip:            node,   iface, ip-mask
+SS7SGU_CLA-0FI0=   /CLA-0, fi0,   10.69.9.235/29
+SS7SGU_CLA-0FI1=   /CLA-0, fi1,   10.69.9.243/29
+
+#SGW TDM related configuration: set_index, tdm_chassis_index, tdm_piu_index, tdm_amc_index, tdm_port_index, pgr_wo_index, pgr_sp_index 
+SGW_TDM_1  =                      0,         1,                 10,             3,             0,              0,            128
+
+#service-access-point: name, id, network-appearance, network-indicator, network-type
+SAP_1          =       NA0,  1,  1,                  NA0,               itu
+
+#LOCAL_AS*****:  id, name ,  routing-context, routing-key-dpc, SAP, traffic-mode
+LOCAL_AS_SGWAS = 1,  SGWAS,  1,               251,             NA0, loadshare
+LOCAL_AS_IWFPC = 2,  IWFPC,  17,              255,             NA0, loadshare
+
+#REMOTE_AS*****:   id, name  , peding-timer, SAP, routing-context, routing-key-dpc, traffic-mode, communication-type
+REMOTE_AS_MSS262 = 3,  MSS262, 0,            NA0, 11,              262,              loadshare,   sgasp
+REMOTE_AS_RAN240 = 6,  RAN240, 0,            NA0, 1,               240,              loadshare,   ipsp
+REMOTE_AS_MSS290 = 60, MSS290, 0,            NA0, 66,              290,              loadshare,   sgasp
+
+#ASSOCIATION*****:  id, local-ip-addr, local-server-port, role,   node,   remote-as-name, remote-ip-addr, remote-port, exchage-mode, sctp-profile, communication-type, local-as-name
+ASSOCIATION_3 =     3,   10.69.9.235|10.69.9.243, 2905,              server, /CLA-0, MSS262,         10.68.128.132|10.68.128.150,  2917,        single,       SS7,          sgasp
+ASSOCIATION_6 =     6,   10.69.9.235|10.69.9.243, 49225,             server, /CLA-0, RAN240,         10.68.128.132|10.68.128.150,  2907,        single,       SS7,          ipsp,               IWFPC
+ASSOCIATION_60 =    60,  10.69.9.235|10.69.9.243, 2905,              server, /CLA-0, MSS290,         10.68.128.132|10.68.128.150,  2960,        single,       SS7,          sgasp
+
+#ss7 OPC****:       name,     SAP,  point-code, type
+SS7_OPC_SGW11 =         SGW11,    NA0,  251,        primary
+SS7_OPC_IWFPC =     IWFPC,    NA0,  255,        primary
+SS7_OPC_MSS290 =    MSS290,   NA0,  290,        primary
+SS7_OPC_MSS262 =    MSS262,   NA0,  262,        secondary
+
+#ss7 DPC****:       name,       type,        point-code, SAP, sls-number, special-ansi-sltm-mode
+SS7_DPC_RANSPMC =  RAN_SPMC,   adjacent,    1000,       NA0, 0,          disable
+SS7_DPC_RAN64   =  RAN_64,     adjacent,    1001,       NA0, 0,          disable
+SS7_DPC_RAN128  =  RAN_128,    adjacent,    1002,       NA0, 0,          disable
+SS7_DPC_RAN1984 =  RAN_1984,   adjacent,    1003,       NA0, 0,          disable
+SS7_DPC_BSC3001  =  BSC3001,    adjacent-bsc,3001,       NA0, 0,          disable
+
+
+#ss7 link: bandwidth, destination-point-code-name, own-point-code-name, type, id, node-name, slc, mtp2-link-profile, mtp2-timer-profile, number-of-time-slots, pcm-id, link-rate, time-slot,  spmc-link, chassis-id
+LINK_10  = narrowband, RAN_SPMC,                   MSS290,              A,    10, /CLA-0,    10,  ITU_T,             ITU_T,              1,                    1,       64,       11,        yes,          1
+LINK_11  = narrowband, RAN_64,                     SGW11,               A,    11, /CLA-0,    11,  ITU_T,             ITU_T,              1,                    1,       64,       12,        no
+LINK_12  = hsl,        RAN_128,                    SGW11,               A,    12, /CLA-0,    12,  ITU_T,             ITU_T,              2,                    1,       128,      13,        no
+LINK_13  = hsl,        RAN_1984,                   SGW11,               A,    13, /CLA-0,    13,  ITU_2_M,           ITU_2_M,            31,                   2,       1984,     1,         no        
+LINK_60  = narrowband, BSC3001,                    IWFPC,               A,    60, /CLA-0,    0,   ITU_T,             ITU_T,              1,                    1,       64,       15,        no
+
+#ss7 linkset: id, name,     link-id
+LINKSET_10 =  10, LS_SPMC,  10
+LINKSET_11 =  11, LS_64,    11
+LINKSET_12 =  12, LS_128,   12
+LINKSET_13 =  13, LS_1984,  13
+LINKSET_60 =  60, BSC3001,  60
+
+#ss7 linkroute:    name,      destination-point-code-name, linkset-name, id, priority, own-point-code-name
+LINKROUTE_SPMC =   ROUTE_SPMC,  RAN_SPMC,                    LS_SPMC,      10, 1,        MSS290
+LINKROUTE_64   =   ROUTE_64,    RAN_64,                      LS_64,        11, 1,        SGW11
+LINKROUTE_128  =   ROUTE_128,   RAN_128,                     LS_128,       12, 1,        SGW11
+LINKROUTE_1984 =   ROUTE_1984,  RAN_1984,                    LS_1984,      13, 1,        SGW11
+LINKROUTE_BSC3001 =BSC3001,     BSC3001,                     BSC3001,      60, 1,        IWFPC
+
+#LINKSTATE:    id 
+#this iteam is iterated with linkset, the reason why needs it isthat link state can be set enabled only after# link route configed.
+LINKSTATE_10 = 10
+LINKSTATE_11 = 11
+LINKSTATE_12 = 12
+LINKSTATE_13 = 13
+LINKSTATE_60 = 60
+
+
+#nif-point-code_own:         local-as-name, type,    mgw-id.  
+#we should config mgw-own firstly
+NIF_POINT_CODE_OWN_SGWAS  =  SGWAS,         mgw-own, 1
+#nif-point-code:             local-as-name, type,    mgw-id
+NIF_POINT_CODE_IWFPC  =      IWFPC,         mgw-iwf
+
+#nif-mgw-to-slc_bydpc:           slc, mgw-id, destination-point-code-name
+NIF_MGW_TO_SLC_BYDPC_RANSPMC  = 10,  1,      RAN_SPMC
+NIF_MGW_TO_SLC_BYDPC_BSC3001   = 0,   1,      BSC3001
+#nif-mgw-to-slc_byas:      slc, mgw-id, remote-as-name
+NIF_MGW_TO_SLC_BYAS_RAN240    =  0,   1,      RAN240 
+
+#nif-ran-point-code by dpc:         type,     destination-point-code, e5-value
+NIF_RAN_POINT_CODE_BYDPC_RANSPMC = spmc-ran, RAN_SPMC
+NIF_RAN_POINT_CODE_BYDPC_RAN64  =  stp-ran,  RAN_64
+NIF_RAN_POINT_CODE_BYDPC_RAN128 =  stp-ran,  RAN_128
+NIF_RAN_POINT_CODE_BYDPC_RAN1984 = stp-ran,  RAN_1984
+NIF_RAN_POINT_CODE_BYDPC_BSC3001 =  nnsf-ran, BSC3001,                3
+#nif-ran-point-code by as:          type,     remote-as-name, e5-value
+NIF_RAN_POINT_CODE_BYAS_RAN240 =   nnsf-ran, RAN240,         2
+
+#sccp primary opc by as:                id, local-as-name, type,      e5, lowest-slc
+SCCP_OPC_BYAS_PRIMARY_SGWAS  =  15, SGWAS,         primary,   1,  1
+#sccp secondary opc by as:                id, local-as-name, type
+SCCP_OPC_BYAS_SECONDARY_IWFPC  =          16, IWFPC,         secondary
+
+
+#sccp dpc by as:         id, remote-as-name, e5, lowest-slc
+SCCP_DPC_BYAS_RAN240 =   1,  RAN240,         2,  0
+SCCP_DPC_BYAS_MSS290 =   62, MSS290  
+SCCP_DPC_BYAS_MSS262 =   3,  MSS262  
+#sccp dpc by MTP3:       id, name,    e5, lowest-slc
+SCCP_DPC_BYMTP3_BSC3001 =60, BSC3001, 3,  0
+
+#SSN(sccp subsystem number): id, name,      ssn, point-code-name
+SSN_RANAPLOC =              15, RANAP_LOC, 142, SGWAS
+SSN_BSSAPLOC =              64, BSSAP_LOC, 254, SGWAS
+SSN_BSC3001  =               60, BSC3001,   254, BSC3001
+SSN_RAN240   =               11, RAN240,    142, RAN240
+SSN_MSSBSSAP =              62, MSS290,    254, MSS290
+SSN_MSSRANAP =              13, MSS_RANAP, 142, MSS262
+
+
+
+#GT action:        name,    maximum-digits, minimum-digits, operation-code,         skip-digits
+GT_ACTION_GT1  =   GT1,     2,              2,              get-from-dpc-ssn-table, 0
+GT_ACTION_GT2  =   GT2,     0,              0,              set-rout-indicator,     0
+GT_ACTION_GT3  =   GT3,     2,              2,              get-dpc-from-dpc-table, 0
+GT_ACTION_GT4  =   GT4,     0,              0,              get-ssn-from-gt-input,  0
+
+#GT rule:       direction, encoding-scheme,  global-title-indicator, nature-of address-indicator, numbering-plan, translation-type, id, name, action-name1, action-name2,.......action-namen
+GT_RULE_RULE1 = both,      bcd-odd-digits,   all-itu,                international-number,        isdn-telephony, 0,                1, rule1, GT1,          GT2
+GT_RULE_RULE2 = both,      bcd-even-digits,  all-itu,                international-number,        isdn-telephony, 0,                2, rule2, GT3,          GT4
+
+#GT result:         name,    translation-digits, other-names
+GT_RESULT_BSC3001 = BSC3001, 87654,              ssn:254, destination-point-code-name:SGWAS,  direction:both, routing-indicator:ssn
+GT_RESULT_RANGT1  = RANGT1,  12345,              ssn:142, destination-point-code-name:SGWAS,  direction:both,routing-indicator:ssn
+GT_RESULT_MSS290  = MSS290,  1981,               destination-point-code-name:MSS290
+GT_RESULT_MSSGT1  = MSSGT1,  3333,               destination-point-code-name:MSS262
+
+#NNSF RAN:         gt,    name,    spc,   id
+NNSF_RAN_BSC3001 = 87654, BSC3001, 0xBB9, 6
+NNSF_RAN_RAN1    = 12345, RAN1,    0xF0,  1
+
+#NNSF MSS:         gt,  name, nrilist, nullnri, id, mode, load
+NNSF_MSS_MSS1    = 3333,mss1, 68,      123,     1,  0,    10
+NNSF_MSS_MSS2    = 1981,mss2, 19,      199,     6,  0,    10
+
+
+
+
+
+
+
+
+########################################################################TDM data##################################################
+#SET:   set_index, chassis_index, piu_index, amc_index, port_index
+SET_TDM1 = 0,         1,             10,         4,         0
+SET_TDM2 = 1,         3,             7,         4,         0
+
+#CLOCK:   set_index
+CLOCK_1 = 0
+
+#PGR:   wo-index, sp-index
+PGR_0 = 0,        128
+PGR_1 = 1,        129
+
+#LETGR:   index
+LETGR_1 = 0
+LETGR_2 = 1
+
+#CGR:           name
+CGR_PSTN = Romeo_PSTN
+CGR_ATER = Romeo_ATER
+CGR_IWF  = Romeo_IWF
+
+
+#APCM:        et_index, tcpcm_index, apcm_index, cpool
+APCM_11000 =  84,        1,           11000,      10
+APCM_11001 =  84,        2,           11001,      3
+APCM_11002 =  84,        3,           11002,      5
+
+#CRCT:            ncgr,           pcm,   tsl/subtsl
+CRCT_PSTN =       Romeo_PSTN, 0,     1-31
+CRCT_APCM11000 =  Romeo_ATER, 11000, 1-31
+CRCT_APCM11001 =  Romeo_ATER, 11001, 1-31
+CRCT_APCM11002 =  Romeo_ATER, 11002, 1-27
+CRCT_IWF  =       Romeo_IWF,  22,    1-31
+
+
+################################################################IWF data##########################################################
+#Route for IWF:   node,  destination,    gw
+IWF_ROUTE_CLA0  = CLA-0, 10.56.98.60/32, 10.69.9.233
+IWF_ROUTE_CLA1  = CLA-1, 10.56.98.60/32, 10.69.9.233
+
+#HCLB address for iwf
+IWF_HCLBRG_0  = /MGW_HCLBRG-0, fi0, 10.69.9.234, 29
+
+#hunting method of iwf:         hclb rg,          opip,        hunt method,  nename, pip,          prio, pport, sctp-set-name
+IWF_HUNTANDENTRY_1  =           0,                10.69.9.234, 1,            iwf,    10.56.98.60,  1,    8014,  SS7
+#########################################################################################################################

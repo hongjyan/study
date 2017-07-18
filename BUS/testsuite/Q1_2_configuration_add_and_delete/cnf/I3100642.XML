@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><Licence licenceXMLSchemaVersion="2.0">
+<LicenceData Id="licHZ0001">
+<licenceInfo licenceCode="HZ0001" licenceName="TEST MGW HZ"></licenceInfo>
+<order orderId=""></order>
+<serial serialNbr="1491150741233"></serial>
+<customer customerId="123456" customerName="NOKIA"></customer>
+<threshold>
+<timeLimit endTime="2013-08-02T23:59:59" startTime="2012-08-02T00:00:00"></timeLimit>
+</threshold>
+<target targetNeType="MGW"></target>
+<featureData>
+<featureInfo featureCode="0000000265" featureName="MGW CONNECTION CAPACITY"></featureInfo>
+<featureInfo featureCode="0000000751" featureName="MGW AEC IN IU"></featureInfo>
+<featureInfo featureCode="0000000752" featureName="MGW AEC IN A"></featureInfo>
+<featureInfo featureCode="0000000753" featureName="MGW AEC IN ATER"></featureInfo>
+<featureInfo featureCode="0000000756" featureName="MGW ATER INTERFACE"></featureInfo>
+<featureInfo featureCode="0000000757" featureName="MGW EC"></featureInfo>
+<featureInfo featureCode="0000000758" featureName="MGW SEMIPERMANENT TDM IP"></featureInfo>
+<featureInfo featureCode="0000000798" featureName="MGW AMR TFO"></featureInfo>
+<featureInfo featureCode="0000000799" featureName="MGW 2G TFO"></featureInfo>
+<featureInfo featureCode="0000000801" featureName="MGW TTY"></featureInfo>
+<featureInfo featureCode="0000000802" featureName="MGW TRFO"></featureInfo>
+<featureInfo featureCode="0000000803" featureName="MGW AMR WB"></featureInfo>
+<featureInfo featureCode="0000000804" featureName="MGW FAX MODEM DETECTION"></featureInfo>
+<featureInfo featureCode="0000000805" featureName="MGW CLEARMODE"></featureInfo>
+<featureInfo featureCode="0000000808" featureName="MGW AESA ADDRESS FORMAT"></featureInfo>
+<featureInfo featureCode="0000000810" featureName="MGW MULTIPLE ISOLATED IP NETWORKS"></featureInfo>
+<featureInfo featureCode="0000000811" featureName="M3UA ASSOCIATION SET MEASUREMENT"></featureInfo>
+<featureInfo featureCode="0000000814" featureName="MGW VOIP CODEC ILBC"></featureInfo>
+<featureInfo featureCode="0000000815" featureName="MGW VOIP CODEC G729 A B"></featureInfo>
+<featureInfo featureCode="0000000816" featureName="MGW VOIP CODEC G723 1"></featureInfo>
+<featureInfo featureCode="0000000846" featureName="MGW DTMF CODEC"></featureInfo>
+<featureInfo featureCode="0000000861" featureName="MGW VOIP CODEC CN"></featureInfo>
+<featureInfo featureCode="0000000899" featureName="IUA"></featureInfo>
+<featureInfo featureCode="0000000920" featureName="MGW MC VERSION 2"></featureInfo>
+<featureInfo featureCode="0000000970" featureName="SPMC CLUSTER SUPPORTS MULTIPLE MGW"></featureInfo>
+<featureInfo featureCode="0000000971" featureName="NETWORK ELEMENT LEVEL IPV6"></featureInfo>
+<featureInfo featureCode="0000000972" featureName="HIGH SPEED LINK"></featureInfo>
+</featureData>
+</LicenceData><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="licHZ0001-pkisig-1"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"></ds:SignatureMethod><ds:Reference URI="#licHZ0001"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>KC+Yj+gJjRjGVn1hUJwQJpKkdAo=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>Lxdq8pGLKPM+KEKjbXV0jmyWAOtB5lfF5EwF91zPlNsuyNhz6YRMkI9U3b2B3mUjFPL8nbCrl2e/GzcUa9XSJWl9oQXU6B/Pfj7r8cGlGc4RGFrb4XmIbtuGiYo0UPw4QruUhA3JQyn6umFs00fM+L/5WrMROhUX7ZT1uMMu/Zs=</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=TEST Nokia NET CA, O=Nokia, C=FI</ds:X509IssuerName><ds:X509SerialNumber>13931779850347</ds:X509SerialNumber></ds:X509IssuerSerial><ds:X509Certificate>MIIDMTCCAhmgAwIBAgIGDKu+ygBrMA0GCSqGSIb3DQEBBQUAMDkxCzAJBgNVBAYTAkZJMQ4wDAYDVQQKEwVOb2tpYTEaMBgGA1UEAxMRVEVTVCBOb2tpYSBORVQgQ0EwHhcNMTAxMTE2MTUyNzI2WhcNMTIxMTE1MTUyNzI2WjBAMQswCQYDVQQGEwJGSTEMMAoGA1UEChMDTlNOMSMwIQYDVQQDExpURVNUIE5TTiBJLUNMaWNTIGZpZXNsZ3AwMTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAtvW8SaogJJ2iAi7ORVLRg0h4+BKnI+BFpZhmZQUwYrUBUnI3pylMSsmqQB050tbCs/Qma+pMrk3G83DDN/KkiB/WtNm0VW6xZHyAXus4iQdU5kpz4uT966NwGRCDArREG8LRR30oIQpZeBSlv0+dudI5GNCEmGORJ6kzX6inR70CAwD3Y6OBuzCBuDAJBgNVHRMEAjAAMAsGA1UdDwQEAwIHgDAdBgNVHQ4EFgQUUZnDX8QDwPns5uJqvqMC2R+vDQUwYgYDVR0jBFswWYAUIxiuqV2NR3theblegHBQLiiNJbehPqQ8MDoxCzAJBgNVBAYTAkZJMQ4wDAYDVQQKEwVOb2tpYTEbMBkGA1UEAxMSVEVTVCBOb2tpYSBSb290IENBggEJMBsGA1UdIAEB/wQRMA8wDQYLKwYBBAFeATEFAgEwDQYJKoZIhvcNAQEFBQADggEBAMpPNO4yEPJX3HQj10PemXSbMKFQlRsmVt9MaqfnjdhV5Lr29mTCLWMUyyHr+TZAA+utcywxPqWpOE0o8n+46AIMOWvVvN0a00mCpYCVAEaWY1Xs/5zDZgypEwHwHX/GDx9V/U8NQHIbXrJ3FQxcBqAoro8cVhiLUeTLc+2R9pCDdJRaAzPmYzn2IS2NdRipTVnTr5rTuOc8Zh45yzk8+hOphrx59WDK35lRzVrB/GL6ZgsjElwwqfcByy+HTN9ndO0q1MRvdoViBGeB2K5lvnXaNUrFJdxxYtgZq2otTLSGptwdhPadqkx/ObWZV8PVYijTdat1JlT40l7C7T+L5a4=</ds:X509Certificate><ds:X509Certificate>MIIDpjCCAo6gAwIBAgIBCTANBgkqhkiG9w0BAQQFADA6MQswCQYDVQQGEwJGSTEOMAwGA1UEChMFTm9raWExGzAZBgNVBAMTElRFU1QgTm9raWEgUm9vdCBDQTAeFw0wNDEwMDExMDU2MjJaFw0xOTA5MjgxMDU2MjJaMDkxCzAJBgNVBAYTAkZJMQ4wDAYDVQQKEwVOb2tpYTEaMBgGA1UEAxMRVEVTVCBOb2tpYSBORVQgQ0EwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDLTluZ++a8wE9C6OWm3r/mLCzljBGGy/wj72eX1RwGOItVmPbc/z6XuRbbpChjTk/hGvjFU9c3wNjB9uVHV4YbuJIpjD/jikspQv1X6GcxXXBh+QJ/52YN+D6ENAkrTm0McAGOKn0RTXkC4v+QL+11ZvVlXGB7YFZCTWbmu+VvgWj3xUJK7UDJsjHqxXwusM9+CN8FFQCupHl6DmQ3GXdp94Vx9RzkCoyb9WGgb3I255rHwA3Ng3+m0Pj5egn07cUKO6zFn16WUMEXuGDggyO8iUtSXOtStBAYMKaDDzemTtka+DUGhCWOEfck97bS2n4xklMOOi+H1HNLo89rM8oNAgMBAAGjgbcwgbQwDwYDVR0TAQH/BAUwAwEB/zALBgNVHQ8EBAMCAgQwHQYDVR0OBBYEFCMYrqldjUd7YXm5XoBwUC4ojSW3MGIGA1UdIwRbMFmAFCyiHXfJYvXSL0ZEi91sahdgsZzgoT6kPDA6MQswCQYDVQQGEwJGSTEOMAwGA1UEChMFTm9raWExGzAZBgNVBAMTElRFU1QgTm9raWEgUm9vdCBDQYIBADARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQEEBQADggEBAE5D8RDTSCT9vAN0EV2hhGzMO1GDOkuKMGhEuTROPpYVAfRy9g1u+ITE6ULNqMX3sM6Rg70ssEX3kztRbMA824XOzYaQl/5v99HbxJDq8ZGLgXP9W9IPurohRPYJFSUkXLr6ANZKbrwRYljivZ57s+sHy5U1Pirs2Gq24TjONpGEBin+39jDOqIHd6+a0udiYAExfyBzCrFDDPP6Chqr9kgCJizrKCm8FkKhzavD8cmsSmSHP+9R8dEqiQ1XiF5TO3wlrkc5PtT2zi63vMWbdeht3Pxf9rjoYsPFKQeInLaDc6d7PMI4RdPLzwGiSpWcEvujZtvNxAEd/fR0tYZjlUw=</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature></Licence>
