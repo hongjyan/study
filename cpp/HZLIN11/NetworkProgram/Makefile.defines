@@ -1,5 +1,0 @@
-CFLAGS = -g -Ilib
-CPPFLAGS = -Wall
-CC = gcc
-CPP = g++
-AR = ar
