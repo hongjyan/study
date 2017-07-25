@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
+#include <bitset>
 
 using namespace std;
 
@@ -65,6 +66,13 @@ int main() {
     st_msgHeader *pmsgHeader = (st_msgHeader*)buffer;
     printf("msg content is %s\n", pmsgHeader->content);
 }
+//2017/7/25
+{
+    std::bitset<4> bits = 0b0111;
+    std::cout << bits << std::endl;
+    bits.reset(0);
+    std::cout << bits << std::endl;
 
+}
     return 0;
 }
