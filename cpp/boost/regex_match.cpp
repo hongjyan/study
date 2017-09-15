@@ -17,6 +17,16 @@ int main() {
         }
     }
 
+    //2017.9.15
+    {
+        const char *vrfName = "a9";
+        boost::regex expression("^[a-zA-Z0-9_]{1,15}$");
+        if (boost::regex_match(vrfName, expression)) {
+            printf("Match\n");
+        } else {
+            printf("No match\n");
+        }
+    }
     
     if (boost::regex_match(input, matches, expression)) {  //seems matches will be cleared when entering regex_match 
         for (auto it=matches.begin()+1; it!=matches.end(); ++it) {
