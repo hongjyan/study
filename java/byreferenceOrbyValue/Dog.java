@@ -32,6 +32,7 @@ public class Dog {
 	System.out.println("d.getName().equals(\"Max\") is " + d.getName().equals("Max"));
 	d.setName("Fifi");
 	d = new Dog("dahuang"); //can not do this in C++ if d is reference type foo(Dog& d), since can not assign twice for reference.
+        Sytem.out.println(d.getName());
 	System.out.println("d.getName().equals(\"Fifi\") is " + d.getName().equals("Fifi"));
     }	
 }
