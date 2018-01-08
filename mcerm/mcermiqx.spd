@@ -1,0 +1,129 @@
+ SERVICES SYNC 
+
+PROCEDURE cell_table_init__r()-> , FAR =>; 
+
+PROCEDURE dekfile_open_file_r(
+    IN p_access_mode       access_mode_t)-> bool, FAR =>;
+
+PROCEDURE cell_data_read__r(
+    IN      p_cell_id             c_id_t,
+    IN/OUT  p_record_index        dword ) -> cell_data_ptr__t, FAR =>;
+    
+PROCEDURE cell_table_add_cell__r(
+    IN/OUT  p_index                 dword)-> cell_data_ptr__t, FAR =>;
+
+
+PROCEDURE mark_selective_features_on (
+    IN/OUT  p_feature_flag       cerm_status__t)-> bool, FAR =>;
+
+PROCEDURE cell_table_update_cp_pid__r(
+    IN      p_cell_id                 c_id_t,
+    IN      p_cp_hand_pid             process_id_t)-> bool, FAR =>;    
+
+PROCEDURE find_cell_record_for_proid__r(
+    IN      p_process_id          process_id_t,
+    IN/OUT  p_cell_rec            mce_cell_table__t)-> dword, FAR =>;
+
+PROCEDURE mark_hand_to_be_rel() -> , FAR =>;      
+
+PROCEDURE get_cerm_conf_data__r()-> cerm_conf_data_t, FAR =>;
+
+PROCEDURE cell_table_upd_conf_data__r(
+    IN      p_conf_data            cerm_conf_data_t)->, FAR =>;
+
+PROCEDURE  print_whole_cell_table()->,FAR=>;
+
+PROCEDURE cell_table_update_record__r(
+    IN      p_cell_rec            mce_cell_table__t, 
+    IN      p_index               dword)-> bool, FAR =>;
+    
+PROCEDURE cerm_update_hand_info(
+    IN       p_cell_id             c_id_t,
+    IN       p_hand_info           mce_hand__t)->,FAR =>;
+    
+PROCEDURE get_hand_info_for_all_cells(
+    IN/OUT    p_hand_tbl             mce_hand_tbl__t) -> ,FAR =>;  
+    
+PROCEDURE cerm_get_hand_info(
+    IN       p_cell_id             c_id_t,
+    IN/OUT   p_hand_info           mce_hand__t)->, FAR =>;    
+
+PROCEDURE update_supervision_info(
+    IN       p_supervision_index           dword) ->, FAR =>;
+
+PROCEDURE init_supervision_info()->,FAR =>; 
+
+PROCEDURE init_mce_hand_tbl()->,FAR =>;
+
+PROCEDURE cerm_update_supervision_status(
+    IN       p_hand_info           mce_hand__t) ->, FAR =>;    
+    
+PROCEDURE release_dynamic_data()->,FAR =>;    
+
+PROCEDURE write_test_log(
+    IN      p_log_type              log_type_t,
+    IN      p_info_ptr              bytepointer,
+    IN      p_log_item_count        dword,
+    IN      p_text_ptr              char_ptr_t ) ->, FAR =>;
+
+PROCEDURE write_error_log(
+    IN      p_log_type              log_type_t,
+    IN      p_info_ptr              bytepointer,
+    IN      p_log_item_count        dword,
+    IN      p_text_ptr              char_ptr_t ) ->, FAR =>;
+    
+PROCEDURE handle_re_unit_restart_imminent() -> , FAR =>;
+    
+PROCEDURE set_test_log_variables(
+    IN      p_test_log          byte) ->, FAR =>; 
+     
+PROCEDURE find_inactive_cell_index__r(
+    IN/OUT  p_index                 dword)-> cell_data_ptr__t, FAR =>;
+    
+    
+PROCEDURE set_data_collection_stop()->,FAR=>;
+
+
+PROCEDURE get_cell_data_collect_info(
+    IN VIEWED cell_id               c_id_t,
+    IN VIEWED collect_state         data_collect__t,
+    IN/OUT    cell_count            word,
+    IN/OUT    data_collect_info     mcerm_data_collect_inquire__t) ->, FAR =>;
+
+
+PROCEDURE get_cell_counter_data_info(
+    IN VIEWED cell_id               c_id_t,
+    IN/OUT    cell_count            word,
+    IN/OUT    counter_data_info     mcerm_counter_data_inquire__t) ->, FAR =>;
+
+PROCEDURE convert_bps_to_mbps__r(
+    IN VIEWED cell_data             cell_data__t)-> cell_counter_data__t,FAR =>;
+
+PROCEDURE temp_convert_bps_to_mbps__r(
+    IN VIEWED counter_data             temp_counter_data__t)-> temp_counter_data__t,FAR =>;
+
+PROCEDURE set_mcermi_debug_flag(
+    IN mcermi_debug_flag     bool) ->, FAR =>;
+
+PROCEDURE get_mcermi_debug_flag() -> bool, FAR =>;
+
+PROCEDURE set_c1file_update_period(
+    IN c1file_update_period     dword) ->, FAR =>;
+
+PROCEDURE get_c1file_update_period() -> dword, FAR =>;
+
+PROCEDURE set_pcermi_report_period(
+    IN pcermi_report_period     dword) ->, FAR =>;
+
+PROCEDURE get_pcermi_report_period() -> dword, FAR =>;
+
+PROCEDURE get_home_icsu_index(
+    IN l3_pid                  pid)-> unit_index_t, FAR =>;
+
+PROCEDURE get_home_icsu_log_addr(
+    IN l3_pid                  pid)-> log_address_t, FAR =>;
+    
+PROCEDURE read_prfile(
+    IN parameter_class pr_cl_t, 
+    IN parameter_number pr_nr_t, 
+    IN/OUT p_cerm_feature_flag word) ->bool, FAR =>;

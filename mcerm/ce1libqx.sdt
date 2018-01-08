@@ -1,0 +1,80 @@
+/************************** FILE DEFINITION ********************
+*
+*    FILE NAME: C1FILE, 
+*
+****************************************************************
+*    ID:         CE1LIBQX.SDT
+*    AUTHOR:     Inderjeet
+*
+*    Copyright (C) NSN Oyj 2010
+****************************************************************
+This file contains cell specific data and profiles based on recorded data
+*/
+
+/***********************Constant Declaration Start**********************/
+CONSTANT
+    c1_file_rec_count_c           = 4800;
+    c1_hash_rec_count_c           = 4800;
+    undefined_cell_index_c        = 0xffff;
+    undefined_index_c             = 0xffffffff;
+/***********************Constant Declaration End*************************/
+
+
+TYPE c1file__t
+	REPRESENTATION
+	  STRUCT
+	    index_to_next_rec    word;
+	    c1fil                c1file_rec_t;
+	  ENDSTRUCT;
+ENDTYPE c1file__t;
+
+/********************************************/
+TYPE hash_item__t
+    REPRESENTATION
+        STRUCT
+            key dword;
+        ENDSTRUCT;
+ENDTYPE hash_item__t;
+
+/********************************************/
+TYPE c1file_rec_ptr_t
+  REPRESENTATION
+    POINTER(c1file_rec_t);
+ENDTYPE c1file_rec_ptr_t;
+
+/********************************************/
+TYPE c1file_ptr_t
+   REPRESENTATION
+     POINTER( c1file__t );
+ENDTYPE c1file_ptr_t;
+
+/********************************************/
+TYPE hash_ptr__t
+   REPRESENTATION POINTER (hash_item__t);
+ENDTYPE hash_ptr__t
+    COMMENT '#E: pointer to hash file record.';
+
+/********************************************/
+TYPE c1file_data__t
+    REPRESENTATION
+        STRUCT
+            c1_fil_ptr             c1file_ptr_t;
+            c1_file_handle         file_handle_t;
+            c1_hash_ptr            hash_ptr__t;
+            c1_hash_file_handle    file_handle_t;
+        ENDSTRUCT;
+ENDTYPE c1file_data__t
+    COMMENT '#E: Structure for storing work file handles and work file pointers';
+
+TYPE long_ptr_ptr__t
+  REPRESENTATION POINTER (long_pointer_t);
+ENDTYPE long_ptr_ptr__t
+    COMMENT '#E: pointer to the datatype of type long pointer .';
+
+
+TYPE ce1_rec_list__t
+    REPRESENTATION ARRAY ( c1_file_rec_count_c ) OF c1file__t;
+ENDTYPE ce1_rec_list__t
+   COMMENT '#E:  list of ce1 file parameter';
+
+/********************************************/

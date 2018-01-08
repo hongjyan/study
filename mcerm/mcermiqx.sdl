@@ -1,0 +1,12 @@
+#include "mcermiqx.sst"       /* program block definitions */
+
+#include "mcefi1qx.sdl"
+#include "mcemodqx.sdl"
+#include "mcefi3qx.sdl"
+#include "mcefi2qx.sdl"
+#include "mceha1qx.sdl"
+#include "mceha2qx.sdl"
+#include "mceha3qx.sdl"
+#include "mcesteqx.sdl"
+#include "mcemasqx.sdl"
+

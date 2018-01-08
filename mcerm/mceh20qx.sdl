@@ -1,0 +1,342 @@
+ /*
+ *  
+ *  $Author: Inderjeet, hongjyan $
+ *
+ *  Environment:
+ *   rnxsysqx,rnqsybqx,ceisebqx   
+ *
+ *  Description:
+ *      Private procedures of FP hand process. 
+ *
+ *  COPYRIGHT (c) 2006 - 2017 NOKIA
+ *
+ **************************************************************************/
+PROCEDURE get_timestamp;
+RETURNS dword;
+START;
+    RETURN 12;
+ENDPROCEDURE get_timestamp;
+/**************************************************************************/
+PROCEDURE get_dsp_index;
+FPAR
+    IN family_id family_id_t,
+    IN log_address log_address_t;
+RETURNS dword;
+DCL
+    dsp_index dword;
+
+START;
+    TASK dsp_index := 4;
+    RETURN dsp_index;
+ENDPROCEDURE get_dsp_index;
+/**************************************************************************/
+PROCEDURE get_percent;
+FPAR
+    IN dividend dword,
+    IN divisor dword;    
+RETURNS byte;
+DCL
+    result byte;
+
+START;
+    DECISION(dividend > divisor);
+    (T):
+        TASK write_error_log(log_type_t_empty_t_c, NIL, 0, @'Mceh20qx, data corrupted, return 0');
+        RETURN 0;
+    ENDDECISION;
+    
+    DECISION(0=divisor);
+    (T):
+        RETURN 0; /*assign 0 for convinient, when other kpi has data, but i have not. If assign it for example 0xff, it hand to sort */
+    ELSE:
+        TASK result :=  (dividend * 100) / divisor;
+        TASK dxsyslog_r(log_type_t_empty_e_c, @'result is %u', result);
+        RETURN  result ;
+    ENDDECISION;
+ENDPROCEDURE get_percent;
+/**************************************************************************/
+PROCEDURE create_dsp_report;
+FPAR
+    IN sample call_failure_t;
+RETURNS dsp_report__t;
+DCL
+    dsp_report dsp_report__t;
+START;
+   TASK dxsyslog_r(log_type_t_empty_e_c, @'sample.RRC_connection_setup_fail is %u, sample.RRC_connection_setup_att is %u,'
+                              ' sample.CS_RAB_setup_fail is %u, sample.CS_RAB_setup_att is %u,'
+                              ' sample.PS_RAB_setup_fail is %u, sample.PS_RAB_setup_att is %u,'
+                              ' sample.Packet_Call_ticket_setup_fail is %u, sample.Packet_Call_ticket_setup_att is %u,'
+                              ' sample.Packet_Call_ticket_release_fail is %u, sample.Packet_Call_ticket_release_att is %u,'
+                              ' sample.RAB_Call_release_fail is %u,sample.RAB_Call_release_att is %u.',
+                              sample.RRC_connection_setup_fail, sample.RRC_connection_setup_att,
+                              sample.CS_RAB_setup_fail, sample.CS_RAB_setup_att,
+                              sample.PS_RAB_setup_fail, sample.PS_RAB_setup_att,
+                              sample.Packet_Call_ticket_setup_fail, sample.Packet_Call_ticket_setup_att,
+                              sample.Packet_Call_ticket_release_fail, sample.Packet_Call_ticket_release_att,
+                              sample.RAB_Call_release_fail, sample.RAB_Call_release_att); 
+    TASK dsp_report.logical_add := sample.logical_add;
+    TASK dsp_report.family_id := sample.family_id;
+    TASK dsp_report.RRC_conn_setup_fail_rate := get_percent(sample.RRC_connection_setup_fail, sample.RRC_connection_setup_att);
+    TASK dsp_report.CS_RAB_setup_fail_rate := get_percent(sample.CS_RAB_setup_fail, sample.CS_RAB_setup_att);
+    TASK dsp_report.PS_RAB_setup_fail_rate := get_percent(sample.PS_RAB_setup_fail, sample.PS_RAB_setup_att);
+    TASK dsp_report.pkt_call_setup_fail_rate := get_percent(sample.Packet_Call_ticket_setup_fail, sample.Packet_Call_ticket_setup_att);
+    TASK dsp_report.pkt_call_rel_fail_rate := get_percent(sample.Packet_Call_ticket_release_fail, sample.Packet_Call_ticket_release_att);
+    TASK dsp_report.RAB_call_rel_fail_rate := get_percent(sample.RAB_Call_release_fail, sample.RAB_Call_release_att);
+    RETURN dsp_report;
+ENDPROCEDURE create_dsp_report;
+/**************************************************************************/
+PROCEDURE rise_the_two_biggest;
+FPAR
+    IN/OUT dsp_kpi_array dsp_kpi_ptr__t;
+DCL 
+    iter byte := 0,
+    index word := 0,
+    temp dsp_kpi__t;
+START;
+    WHILE(iter<2);
+        TASK index := iter;
+        WHILE(index+1 < G_dsps_report.count);
+             DECISION(ADDPTR(dsp_kpi_array, index)->rate < ADDPTR(dsp_kpi_array, index+1)->rate);
+             (T):
+                 TASK temp := $ADDPTR(dsp_kpi_array, index);
+                 TASK $ADDPTR(dsp_kpi_array, index) := $ADDPTR(dsp_kpi_array, index+1);
+                 TASK $ADDPTR(dsp_kpi_array, index+1) := temp;
+             ENDDECISION;
+             TASK index := index+1;
+        ENDWHILE;
+        TASK iter := iter + 1;
+    ENDWHILE;
+ENDPROCEDURE rise_the_two_biggest;
+/**************************************************************************/
+PROCEDURE is_concecutive;
+FPAR
+    IN timestamp1 dword,
+    IN timestamp2 dword;
+    RETURNS bool;
+START;
+    /* for debug 
+    RETURN  longint(G_dsp_sample_interval) > timestamp2-timestamp1 > longint(G_dsp_sample_interval+1);
+    */
+    RETURN T;
+ENDPROCEDURE is_concecutive;
+/**************************************************************************/
+PROCEDURE fill_np_kpis;
+RETURNS bool;
+DCL
+    RRC_conn_setup_ptr dsp_kpi_ptr__t,
+    CS_RAB_setup_ptr dsp_kpi_ptr__t,
+    PS_RAB_setup_ptr dsp_kpi_ptr__t,
+    pkt_call_setup_ptr dsp_kpi_ptr__t,
+    pkt_call_rel_ptr dsp_kpi_ptr__t,
+    RAB_call_rel_ptr dsp_kpi_ptr__t,
+    buf_ptr                         ptr_and_handle_t,
+    index word := 0,
+    dsp_index word := 0xff;
+
+START;
+    TASK write_error_log(log_type_t_empty_t_c, NIL, 0, @'Mceh20qx:Enter into fill_np_kpis');
+    DECISION(G_dsps_report.count); 
+    (0): /*tii_req_s does not contian any dsp sample*/
+        RETURN F;
+    ENDDECISION;
+
+    DECISION(allocate_buffer_r(SIZEOF(dsp_kpi__t)*G_dsps_report.count*6, time_limit_t_no_time_limit_c, buf_ptr));
+    (F):
+        TASK write_error_log(log_type_t_empty_t_c, NIL, 0, @'Mceh20qx:memory allocation in fill_np_kpi failed'); 
+        RETURN F;
+    ENDDECISION;
+    TASK write_error_log(log_type_t_empty_t_c, NIL, 0, @'Mceh20qx:memory allocation in fill_np_kpi success');
+    
+    TASK RRC_conn_setup_ptr := dsp_kpi_ptr__t(ptr_and_handle_t_to_ptr_r(buf_ptr));
+    TASK CS_RAB_setup_ptr := ADDPTR(RRC_conn_setup_ptr,  G_dsps_report.count);
+    TASK PS_RAB_setup_ptr := ADDPTR(CS_RAB_setup_ptr, G_dsps_report.count);
+    TASK pkt_call_setup_ptr :=  ADDPTR(PS_RAB_setup_ptr, G_dsps_report.count);
+    TASK pkt_call_rel_ptr := ADDPTR(pkt_call_setup_ptr, G_dsps_report.count);
+    TASK RAB_call_rel_ptr := ADDPTR(pkt_call_rel_ptr, G_dsps_report.count);
+
+    WHILE (index<G_dsps_report.count);
+        TASK ADDPTR(RRC_conn_setup_ptr, index)->logical_add :=  G_dsps_report.reports(index).logical_add;
+        TASK ADDPTR(CS_RAB_setup_ptr, index)->logical_add := G_dsps_report.reports(index).logical_add;
+        TASK ADDPTR(PS_RAB_setup_ptr, index)->logical_add :=  G_dsps_report.reports(index).logical_add;
+        TASK ADDPTR(pkt_call_setup_ptr, index)->logical_add := G_dsps_report.reports(index).logical_add;
+        TASK ADDPTR(pkt_call_rel_ptr, index)->logical_add := G_dsps_report.reports(index).logical_add;
+        TASK ADDPTR(RAB_call_rel_ptr, index)->logical_add := G_dsps_report.reports(index).logical_add;
+
+        TASK ADDPTR(RRC_conn_setup_ptr, index)->family_id := G_dsps_report.reports(index).family_id;
+        TASK ADDPTR(CS_RAB_setup_ptr, index)->family_id := G_dsps_report.reports(index).family_id;
+        TASK ADDPTR(PS_RAB_setup_ptr, index)->family_id := G_dsps_report.reports(index).family_id;
+        TASK ADDPTR(pkt_call_setup_ptr, index)->family_id := G_dsps_report.reports(index).family_id;
+        TASK ADDPTR(pkt_call_rel_ptr, index)->family_id := G_dsps_report.reports(index).family_id;
+        TASK ADDPTR(RAB_call_rel_ptr, index)->family_id := G_dsps_report.reports(index).family_id;
+        
+        TASK ADDPTR(RRC_conn_setup_ptr, index)->rate := G_dsps_report.reports(index).RRC_conn_setup_fail_rate;
+        TASK ADDPTR(CS_RAB_setup_ptr, index)->rate := G_dsps_report.reports(index).CS_RAB_setup_fail_rate;
+        TASK ADDPTR(PS_RAB_setup_ptr, index)->rate := G_dsps_report.reports(index).PS_RAB_setup_fail_rate;
+        TASK ADDPTR(pkt_call_setup_ptr, index)->rate := G_dsps_report.reports(index).pkt_call_setup_fail_rate;
+        TASK ADDPTR(pkt_call_rel_ptr, index)->rate := G_dsps_report.reports(index).pkt_call_rel_fail_rate;
+        TASK ADDPTR(RAB_call_rel_ptr, index)->rate := G_dsps_report.reports(index).RAB_call_rel_fail_rate;
+        
+        TASK index := index + 1;
+    ENDWHILE;
+
+    TASK rise_the_two_biggest(RRC_conn_setup_ptr);
+    TASK rise_the_two_biggest(CS_RAB_setup_ptr);
+    TASK rise_the_two_biggest(PS_RAB_setup_ptr);
+    TASK rise_the_two_biggest(pkt_call_setup_ptr);
+    TASK rise_the_two_biggest(pkt_call_rel_ptr);
+    TASK rise_the_two_biggest(RAB_call_rel_ptr);
+    
+    /* only for debug, may cause exception since index 1 may not exist*/
+    TASK dxsyslog_r(log_type_t_empty_e_c, @'The two biggest of RRC_conn_set_ptr is  %u, %u', 
+                             RRC_conn_setup_ptr->rate, ADDPTR(RRC_conn_setup_ptr,1)->rate); 
+    TASK dxsyslog_r(log_type_t_empty_e_c, @'The two biggest of CS_RAB_setup_ptr is  %u, %u', 
+                             CS_RAB_setup_ptr->rate, ADDPTR(CS_RAB_setup_ptr,1)->rate); 
+    TASK dxsyslog_r(log_type_t_empty_e_c, @'The two biggest of PS_RAB_setup_ptr is  %u, %u', 
+                             PS_RAB_setup_ptr->rate, ADDPTR(PS_RAB_setup_ptr,1)->rate);    
+    TASK dxsyslog_r(log_type_t_empty_e_c, @'The two biggest of pkt_call_setup_ptr is  %u, %u', 
+                             pkt_call_setup_ptr->rate, ADDPTR(pkt_call_setup_ptr,1)->rate);
+    TASK dxsyslog_r(log_type_t_empty_e_c, @'The two biggest of pkt_call_rel_ptr is  %u, %u', 
+                             pkt_call_rel_ptr->rate, ADDPTR(pkt_call_rel_ptr,1)->rate);
+     TASK dxsyslog_r(log_type_t_empty_e_c, @'The two biggest of RAB_call_rel_ptr is  %u, %u', 
+                             RAB_call_rel_ptr->rate, ADDPTR(RAB_call_rel_ptr,1)->rate);  
+                             
+    /* For RRC_conn_setup */
+    DECISION((1=G_dsps_report.count AND G_RRC_conn_setup_fail_thd < RRC_conn_setup_ptr->rate AND 
+                     G_RRC_conn_setup_fail_mgn < RRC_conn_setup_ptr->rate) OR 
+                    (G_RRC_conn_setup_fail_thd < RRC_conn_setup_ptr->rate AND 
+                     integer(G_RRC_conn_setup_fail_mgn) < RRC_conn_setup_ptr->rate - ADDPTR(RRC_conn_setup_ptr, 1)->rate));
+    (T):
+         TASK write_error_log(log_type_t_empty_t_c, NIL, 0, @'Mceh20qx:222222'); 
+         TASK dsp_index := get_dsp_index(RRC_conn_setup_ptr->logical_add, RRC_conn_setup_ptr->family_id);
+                    
+         TASK dxsyslog_r(log_type_t_empty_e_c, @'MCEH20: Non performing dsp:%u for RRC_conn_setup_fail failure rate is %u', 
+                                  dsp_index, RRC_conn_setup_ptr->rate );
+         DECISION(G_np_kpis.RRC_conn_setup_np_index = dsp_index AND 
+                         is_concecutive(G_np_kpis.RRC_conn_setup_np_ts, G_dsps_report.timestamp));
+         (T):
+             TASK G_np_kpis.RRC_conn_setup_np_times := G_np_kpis.RRC_conn_setup_np_times + 1;
+         ELSE:
+              TASK G_np_kpis.RRC_conn_setup_np_index := dsp_index;
+              TASK G_np_kpis.RRC_conn_setup_np_times := 1;
+         ENDDECISION;
+         TASK dxsyslog_r(log_type_t_empty_e_c, @'MCEH20: Non performing dsp:%u for RRC_conn_setup_fail times is %u', 
+                                   dsp_index, G_np_kpis.RRC_conn_setup_np_times);
+         TASK G_np_kpis.RRC_conn_setup_np_ts := G_dsps_report.timestamp;
+     ENDDECISION;
+     TASK write_error_log(log_type_t_empty_t_c, NIL, 0, @'Mceh20qx:333333'); 
+
+     /* For CS_RAB_setup */
+     DECISION((1=G_dsps_report.count AND G_CS_RAB_setup_fail_thd < CS_RAB_setup_ptr->rate AND 
+                     G_CS_RAB_setup_fail_mgn < CS_RAB_setup_ptr->rate) OR 
+                    (G_CS_RAB_setup_fail_thd < CS_RAB_setup_ptr->rate AND 
+                     integer(G_CS_RAB_setup_fail_mgn) < CS_RAB_setup_ptr->rate - ADDPTR(CS_RAB_setup_ptr, 1)->rate ));
+    (T):
+         TASK dsp_index := get_dsp_index(CS_RAB_setup_ptr->logical_add, CS_RAB_setup_ptr->family_id);
+         TASK dxsyslog_r(log_type_t_empty_e_c, @'MCEH20: Non performing dsp:%u for CS_RAB_setup failure rate is %u', 
+                                  dsp_index, CS_RAB_setup_ptr->rate );
+         DECISION(G_np_kpis.CS_RAB_setup_np_index = dsp_index AND 
+                         is_concecutive(G_np_kpis.CS_RAB_setup_np_ts, G_dsps_report.timestamp));
+         (T):
+             TASK G_np_kpis.CS_RAB_setup_np_times := G_np_kpis.CS_RAB_setup_np_times + 1;
+         ELSE:
+              TASK G_np_kpis.CS_RAB_setup_np_index := dsp_index;
+              TASK G_np_kpis.CS_RAB_setup_np_times := 1;
+         ENDDECISION;
+         TASK dxsyslog_r(log_type_t_empty_e_c, @'MCEH20: Non performing dsp:%u for CS_RAB_setup_np_times times is %u', 
+                                   dsp_index, G_np_kpis.CS_RAB_setup_np_times);
+         TASK G_np_kpis.CS_RAB_setup_np_ts := G_dsps_report.timestamp;         
+     ENDDECISION;
+
+     /* For PS_RAB_setup */
+     DECISION((1=G_dsps_report.count AND G_PS_RAB_setup_fail_thd < PS_RAB_setup_ptr->rate AND 
+                     G_PS_RAB_setup_fail_mgn < PS_RAB_setup_ptr->rate) OR 
+                    (G_PS_RAB_setup_fail_thd < PS_RAB_setup_ptr->rate AND 
+                     integer(G_PS_RAB_setup_fail_mgn) < PS_RAB_setup_ptr->rate - ADDPTR(PS_RAB_setup_ptr, 1)->rate));
+    (T):
+         TASK dsp_index := get_dsp_index(PS_RAB_setup_ptr->logical_add, PS_RAB_setup_ptr->family_id);
+         TASK dxsyslog_r(log_type_t_empty_e_c, @'MCEH20: Non performing dsp:%u for PS_RAB_setup failure rate is %u', 
+                                  dsp_index, PS_RAB_setup_ptr->rate );      
+         DECISION(G_np_kpis.PS_RAB_setup_np_index = dsp_index AND 
+                         is_concecutive(G_np_kpis.PS_RAB_setup_np_ts, G_dsps_report.timestamp));
+         (T):
+             TASK G_np_kpis.PS_RAB_setup_np_times := G_np_kpis.PS_RAB_setup_np_times + 1;
+         ELSE:
+              TASK G_np_kpis.PS_RAB_setup_np_index := dsp_index;
+              TASK G_np_kpis.PS_RAB_setup_np_times := 1;
+         ENDDECISION;
+         TASK dxsyslog_r(log_type_t_empty_e_c, @'MCEH20: Non performing dsp:%u for PS_RAB_setup_np_times times is %u', 
+                                   dsp_index, G_np_kpis.PS_RAB_setup_np_times);
+         TASK G_np_kpis.PS_RAB_setup_np_ts := G_dsps_report.timestamp;          
+     ENDDECISION;
+
+     /*For pkt_call_setup */
+     DECISION((1=G_dsps_report.count AND G_pkt_call_setup_fail_thd < pkt_call_setup_ptr->rate AND 
+                     G_pkt_call_setup_fail_mgn < pkt_call_setup_ptr->rate) OR 
+                    (G_pkt_call_setup_fail_thd < pkt_call_setup_ptr->rate AND 
+                     integer(G_pkt_call_setup_fail_mgn) < pkt_call_setup_ptr->rate - ADDPTR(pkt_call_setup_ptr, 1)->rate));
+    (T):
+         TASK dsp_index := get_dsp_index(pkt_call_setup_ptr->logical_add, pkt_call_setup_ptr->family_id);
+         TASK dxsyslog_r(log_type_t_empty_e_c, @'MCEH20: Non performing dsp:%u for pkt_call_setup failure rate is %u', 
+                                  dsp_index, pkt_call_setup_ptr->rate );      
+         DECISION(G_np_kpis.pkt_call_setup_np_index = dsp_index AND 
+                         is_concecutive(G_np_kpis.pkt_call_setup_np_ts, G_dsps_report.timestamp));
+         (T):
+             TASK G_np_kpis.pkt_call_setup_np_times := G_np_kpis.pkt_call_setup_np_times + 1;
+         ELSE:
+              TASK G_np_kpis.pkt_call_setup_np_index := dsp_index;
+              TASK G_np_kpis.pkt_call_setup_np_times := 1;
+         ENDDECISION;
+         TASK dxsyslog_r(log_type_t_empty_e_c, @'MCEH20: Non performing dsp:%u for pkt_call_setup times is %u', 
+                                   dsp_index, G_np_kpis.pkt_call_setup_np_times);
+        TASK G_np_kpis.pkt_call_setup_np_ts := G_dsps_report.timestamp;          
+     ENDDECISION;
+
+     /* For pkt_call_rel */
+     DECISION((1=G_dsps_report.count AND G_pkt_call_rel_fail_thd < pkt_call_rel_ptr->rate AND 
+                     G_pkt_call_rel_fail_mgn < pkt_call_rel_ptr->rate) OR 
+                    (G_pkt_call_rel_fail_thd < pkt_call_rel_ptr->rate AND 
+                     integer(G_pkt_call_rel_fail_mgn) < pkt_call_rel_ptr->rate - ADDPTR(pkt_call_rel_ptr, 1)->rate));
+    (T):
+         TASK dsp_index := get_dsp_index(pkt_call_rel_ptr->logical_add, pkt_call_rel_ptr->family_id);
+         TASK dxsyslog_r(log_type_t_empty_e_c, @'MCEH20: Non performing dsp:%u for pkt_call_rel failure rate is %u', 
+                                  dsp_index, pkt_call_rel_ptr->rate );           
+         DECISION(G_np_kpis.pkt_call_rel_np_index = dsp_index AND 
+                         is_concecutive(G_np_kpis.pkt_call_rel_np_ts, G_dsps_report.timestamp));
+         (T):
+             TASK G_np_kpis.pkt_call_rel_np_times := G_np_kpis.pkt_call_rel_np_times + 1;
+         ELSE:
+              TASK G_np_kpis.pkt_call_rel_np_index := dsp_index;
+              TASK G_np_kpis.pkt_call_rel_np_times := 1;
+         ENDDECISION;
+         TASK dxsyslog_r(log_type_t_empty_e_c, @'MCEH20: Non performing dsp:%u for pkt_call_rel times is %u', 
+                                   dsp_index, G_np_kpis.pkt_call_rel_np_times);         
+         TASK G_np_kpis.pkt_call_rel_np_ts := G_dsps_report.timestamp;              
+     ENDDECISION;     
+
+     /* For RAB_call_rel */
+     DECISION((1=G_dsps_report.count AND G_RAB_call_rel_fail_thd < RAB_call_rel_ptr->rate AND 
+                     G_RAB_call_rel_fail_mgn < RAB_call_rel_ptr->rate) OR 
+                    (G_RAB_call_rel_fail_thd < RAB_call_rel_ptr->rate AND 
+                     integer(G_RAB_call_rel_fail_mgn) < RAB_call_rel_ptr->rate - ADDPTR(RAB_call_rel_ptr, 1)->rate));
+    (T):
+         TASK dsp_index := get_dsp_index(RAB_call_rel_ptr->logical_add, RAB_call_rel_ptr->family_id);
+         TASK dxsyslog_r(log_type_t_empty_e_c, @'MCEH20: Non performing dsp:%u for RAB_call_rel failure rate is %u', 
+                                  dsp_index, RAB_call_rel_ptr->rate );          
+         DECISION(G_np_kpis.RAB_call_rel_np_index = dsp_index AND 
+                         is_concecutive(G_np_kpis.RAB_call_rel_np_ts, G_dsps_report.timestamp));
+         (T):
+             TASK G_np_kpis.RAB_call_rel_np_times := G_np_kpis.RAB_call_rel_np_times + 1;
+         ELSE:
+              TASK G_np_kpis.RAB_call_rel_np_index := dsp_index;
+              TASK G_np_kpis.RAB_call_rel_np_times := 1;
+         ENDDECISION;
+         TASK dxsyslog_r(log_type_t_empty_e_c, @'MCEH20: Non performing dsp:%u for RAB_call_rel times is %u', 
+                                   dsp_index, G_np_kpis.RAB_call_rel_np_times);         
+         TASK G_np_kpis.RAB_call_rel_np_ts := G_dsps_report.timestamp;              
+     ENDDECISION;    
+
+     TASK free_buffer_r(ptr_and_handle_t_to_handle_r(buf_ptr));
+
+     RETURN T;
+ENDPROCEDURE fill_np_kpis;
+/**************************************************************************/

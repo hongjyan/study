@@ -1,0 +1,77 @@
+/*
+ *  $Author: Inderjeet $
+ *
+ *  Environment:
+ *      rnxsysqx,rnqsybqx,ceisebqx
+ *
+ *  Description:
+ *
+ *
+ *  COPYRIGHT (c) 2000 - 2010 NSN
+ */
+
+IMPLEMENTATION rnxsysqx OF SYSTEM rnxsys;
+ SYSTEMBLOCK
+ rnqsyb;
+
+#include "s_dty:dxsstdef.sdt" /* character_t definition */
+#include "dtocstgx.spd"
+#include "dtobitgx.spd"
+
+/* Runtime environment */
+#include "mcermiqx.scc"
+#include "dtopidgx.spd"
+#include "ce1libqx.sdt"
+#include "ce1libqx.spd"
+
+ENDIMPLEMENTATION rnxsysqx;
+
+IMPLEMENTATION rnqsybqx OF SYSTEMBLOCK rnqsyb;
+ SERVICEBLOCK
+ ceiseb;
+ENDIMPLEMENTATION rnqsybqx;
+
+IMPLEMENTATION ceisebqx OF SERVICEBLOCK ceiseb;
+ PROGRAMBLOCK
+ mcermi;
+ENDIMPLEMENTATION ceisebqx;
+
+IMPLEMENTATION mcermiqx OF PROGRAMBLOCK mcermi;
+
+MASTER PROCESS
+    mcemas;
+PROCESS
+    mceha1(cell_index       dword),
+    mceha2(G_dsp_sample_interval_count word, G_RRC_conn_setup_fail_thd_mgn word, G_CS_RAB_setup_fail_thd_mgn word,
+                G_PS_RAB_setup_fail_thd_mgn word, G_pkt_call_setup_fail_thd_mgn word, G_pkt_call_rel_fail_thd_mgn word,
+                G_RAB_call_rel_fail_thd_mgn word),
+    mceha3(),
+    mceste();
+
+MODULE 
+    mcemod;
+
+/* make compilation switches visible to C-code */
+SYNONYM MT bool = EXTERNAL;
+#include "mcermiqx.sdt"        /*  own types  */
+
+#include "mcermiqx.spd"
+
+
+
+ENDIMPLEMENTATION mcermiqx;
+
+MODULE mcemod: TNSDL;
+  PROVIDES  mark_selective_features_on,
+  					handle_re_unit_restart_imminent,
+  					cell_table_init__r,
+  					cell_table_add_cell__r,
+  					cell_table_update_cp_pid__r,
+  					cell_data_read__r,
+  					find_cell_record_for_proid__r,
+  					get_cerm_conf_data__r,
+  					cell_table_upd_conf_data__r,
+  					write_error_log,
+  					write_test_log;
+ENDMODULE mcemod;
+

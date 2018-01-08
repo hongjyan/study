@@ -1,0 +1,5 @@
+! $Revision: 1 $
+! $Author: Inderjeet $
+! MCERMI used services
+.so i_sed:sed007A1.cls ! prb_startup_as
+s_lib:dmxpl3gx.spd

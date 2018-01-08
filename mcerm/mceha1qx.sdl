@@ -1,0 +1,281 @@
+PROCESS mceha1
+ COMMENT '%SID%';
+/*
+ *  $Author: Inderjeet $
+ *
+ *  Environment:
+  *      rnxsysqx,rnqsybqx,ceisebqx
+ *
+ *  Description:
+ *      Hand 1 (Cell Profiler) process of MCERMI
+ *
+ *  COPYRIGHT (c) 2000 - 2009 NSN
+ *
+ **************************************************************************/
+FPAR
+    G_cell_index              dword;
+TIMER
+    t_cp_stop_delay_timer     =  0x9B00 (c_id_t),
+    t_hand_stop_timer         =  0x9B01,
+    t_wait_data_report        =  0x9B02;
+
+DCL
+     G_cell_state           bool :=  F;
+
+#include "mceh10qx.sdl"
+/*********************** P R O C E S S    B O D Y *************************/
+START;
+    
+    DECISION check_hand_requirements();
+    (F):
+        OUTPUT hand_stopped_s TO PARENT COMMENT '2070';
+        STOP;
+    ENDDECISION;
+    TASK G_cell_state :=  T;  
+   /*check CPU load and set the reporting time for PCERMI accordingly*/
+    
+    NEXTSTATE wait_request;
+
+/**************************************************************************/
+STATE wait_request;
+
+/**************************************************************************/
+INPUT mce_hand_info_s(l_msg_data) COMMENT '0x0FFF';
+
+DCL
+    l_msg_data                  msg_0fff_t,
+    l_cell_data_ptr             cell_data_ptr__t,
+    l_pce_pid                   pid,
+    l_c1_rec                    c1file_rec_t,
+    l_status                    error_t := success_ec,
+    l_msg_123a                  msg_123a_t,
+    l_msg_129d                  msg_129d_t,
+    l_start_status              bool := F;
+    
+    
+    DECISION l_msg_data.mce_task;
+    (mce_task_t_start_collect_c):   /* start collecting Cell data   */
+    
+        RESET(t_cp_stop_delay_timer(l_msg_data.cell_id));
+        TASK l_cell_data_ptr := cell_data_read__r (l_msg_data.cell_id, G_cell_index);
+        
+        DECISION l_cell_data_ptr /= NIL;
+        (T):
+            TASK c1_rec_read_r(l_msg_data.cell_id ,l_c1_rec, l_status);
+            DECISION l_status;
+            (success_ec):
+                TASK l_msg_123a.cell_id             := l_msg_data.cell_id,
+                     l_msg_123a.cell_home_unit      := get_home_icsu_log_addr(l_cell_data_ptr->l3_proid),
+                     l_msg_123a.reporting_period    := l_cell_data_ptr->pcermi_report_period;
+                TASK fill_needed_counters(l_msg_123a.counter_list);
+                TASK l_start_status := send_start_data_collect(l_msg_123a,l_msg_data.pcermi_pid);
+                DECISION l_start_status;
+                (F):
+                    SET(NOW + hand_stop_time_c,t_hand_stop_timer);
+                ENDDECISION;
+            ENDDECISION;
+        ENDDECISION;
+
+    (mce_task_t_stop_collect_c):    /* stop collecting Cell data    */
+        SET (NOW + cp_stop_delay_time_c,t_cp_stop_delay_timer(l_msg_data.cell_id));
+        
+    (mce_task_t_cell_unavailable_c):
+
+        TASK G_cell_state :=  F;
+        
+        TASK l_msg_129d.cell_id := l_msg_data.cell_id,
+             l_msg_129d.cell_availability := F;
+
+        TASK make_pid_r(l_pce_pid,log_address_t_icsux_c, pcermi_p,0,0);/*pcermi_p*/
+
+        OUTPUT  cerm_cell_availability_s(l_msg_129d) TO l_pce_pid COMMENT '0x129d';
+
+    (mce_task_t_cell_available_c):
+
+        TASK G_cell_state :=  T;
+
+        TASK l_msg_129d.cell_id := l_msg_data.cell_id,
+             l_msg_129d.cell_availability := T;
+
+        TASK make_pid_r(l_pce_pid,log_address_t_icsux_c, pcermi_p,0,0);/*pcermi_p*/
+         
+        OUTPUT  cerm_cell_availability_s(l_msg_129d) TO l_pce_pid COMMENT '0x129d';
+
+    (mce_task_t_hand_stop_c):       /* Hand stop indication         */
+      
+       OUTPUT hand_stopped_s TO PARENT COMMENT '2070';
+       STOP;
+
+    ELSE:
+        TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                            @'MCEHA1: Invalid TASK received');      
+    ENDDECISION;
+
+    NEXTSTATE -;
+
+/**************************************************************************/    
+INPUT cerm_data_collect_report_s(l_msg_ack_data) COMMENT '0x123c';
+
+
+DCL
+    l_msg_ack_data                  msg_123c_t,
+    l_status                        bool;    
+    
+    DECISION l_msg_ack_data.status =success_ec;
+    (T):
+        TASK l_status := store_recvd_data_internally(l_msg_ack_data);
+        TASK update_cell_profiles(l_msg_ack_data.cell_id, l_msg_ack_data.cerm_counter_list); 
+    ELSE:
+        TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                            @'MCEHA1: Cell data collection failed');
+    ENDDECISION;
+
+    NEXTSTATE -;
+
+
+/**************************************************************************/    
+INPUT pcermi_process_crashed_s(l_pid);
+
+DCL
+    l_pid                  pid,
+    l_cell_id              c_id_t := undefined_word_c,
+    l_pce_pid              pid,
+    l_msg_data             msg_124a_t,
+    l_msg_123a             msg_123a_t,
+    l_cell_data_ptr        cell_data_ptr__t,
+    l_start_status         bool := F;
+
+    TASK make_pid_r(l_pce_pid,log_address_t_icsux_c, pcermi_p,0,0);
+
+    TASK l_cell_data_ptr := cell_data_read__r (l_cell_id, G_cell_index);
+
+    DECISION l_cell_data_ptr /= NIL;
+    (T):
+        TASK l_msg_data.cell_id := l_cell_data_ptr->cell_id,
+             l_msg_data.send_report := F;
+
+        TASK send_stop_data_collect(l_msg_data);
+        
+        TASK l_msg_123a.cell_id             := l_msg_data.cell_id,
+             l_msg_123a.cell_home_unit      := get_home_icsu_log_addr(l_cell_data_ptr->l3_proid),
+             l_msg_123a.reporting_period    := l_cell_data_ptr->pcermi_report_period;
+
+        TASK fill_needed_counters(l_msg_123a.counter_list);
+
+        TASK l_start_status := send_start_data_collect(l_msg_123a,l_pce_pid);
+        DECISION l_start_status;
+        (F):
+            SET(NOW + hand_stop_time_c,t_hand_stop_timer);
+        ENDDECISION;
+    ENDDECISION;
+
+    NEXTSTATE -;
+
+
+/**************************************************************************/    
+INPUT t_cp_stop_delay_timer(l_cell_id ) COMMENT '0x9b00';
+
+DCL 
+    l_cell_id              c_id_t,
+    l_msg_data             msg_124a_t,
+    l_cell_data_ptr        cell_data_ptr__t,
+    l_cerm_conf_data       cerm_conf_data_t;
+
+    TASK l_cell_data_ptr := cell_data_read__r (l_cell_id, G_cell_index);
+    DECISION l_cell_data_ptr /= NIL AND l_cell_data_ptr->data_collect = data_collect__t_coll_stop_c;
+    (T):
+        TASK l_msg_data.cell_id        := l_cell_id,
+             l_msg_data.send_report    := T;
+
+        TASK send_stop_data_collect(l_msg_data);
+    ENDDECISION;
+    TASK l_cerm_conf_data := get_cerm_conf_data__r();
+    DECISION l_cerm_conf_data.cerm_main_flag;
+    (F):
+        SET(NOW + hand_stop_time_c,t_hand_stop_timer);
+    ENDDECISION;
+    
+NEXTSTATE -;
+
+
+/************************************************************************/
+INPUT hand_supervision_msg_s COMMENT '7816';
+
+    OUTPUT hand_supervision_ack_s TO SENDER COMMENT'7817';
+NEXTSTATE -;
+
+/*************************************************************************/
+INPUT rnc_hand_released_s( L_msg );
+
+DCL
+    L_msg               msg_bfaa_t,
+    L_crashed_pid       pid_union_t;
+
+    TASK L_crashed_pid.real_pid  := L_msg.crashed_pid.real_pid;
+
+    DECISION( L_crashed_pid.pid_struct.family );
+    (pcermi_p):
+
+    ENDDECISION;
+
+    NEXTSTATE -;
+
+
+INPUT c_test_msg_s(l_test_log,l_mod_test,?) COMMENT '#TNCOV:ERROR';
+
+    DCL
+        l_test_log                  byte,
+        l_cell_data_ptr             cell_data_ptr__t := NIL,
+        l_mod_test                  byte;
+
+
+    DECISION l_test_log;
+    (0x01):
+         RESET(t_cp_stop_delay_timer(l_mod_test));
+         SET (NOW + 0,t_cp_stop_delay_timer(l_mod_test));
+    (0x02):
+           TASK l_cell_data_ptr->cell_id := 0;
+    (0x03):
+    ELSE: 
+        TASK write_error_log(log_type_t_byte_t_c,bytepointer(@l_test_log),1,@'NRMHA1: Testing info received');
+    ENDDECISION;
+    NEXTSTATE -;
+
+
+/**************************************************************************/
+
+INPUT re_unit_restart_imminent_s(l_unit_it.ttype,l_unit_it.index,?,?,?) COMMENT 'E30F';
+
+    DCL
+        l_unit_it           unit_it_t,
+        l_cell_rec          mce_cell_table__t,
+        l_msg_data          msg_124a_t,
+        l_index             dword := undefined_dword_c;
+        
+   TASK l_index :=  find_cell_record_for_proid__r(get_pid_process_id_r(SELF),l_cell_rec);
+   DECISION l_index /= undefined_dword_c;
+   (T):       
+       TASK l_msg_data.cell_id := l_cell_rec.cell_id,
+            l_msg_data.send_report := F;
+
+       TASK send_stop_data_collect(l_msg_data);
+   ENDDECISION;
+   SET(NOW + hand_stop_time_c,t_hand_stop_timer);
+           
+NEXTSTATE -;
+
+
+/**************************************************************************/ 
+INPUT t_hand_stop_timer;
+
+    OUTPUT hand_stopped_s TO PARENT COMMENT '2070';
+    STOP;
+
+ENDSTATE wait_request;
+/**************************************************************************/
+
+ENDPROCESS mceha1;
+
+
+
+

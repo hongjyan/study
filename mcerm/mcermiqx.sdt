@@ -1,0 +1,583 @@
+ /*
+ *  SPM file : %SID%
+ *  $Revision: 2 $
+ *  $Date:  $
+ *  $Author: inderjeet $
+ *
+ *  Environment:
+ *      rnxsysqx,rnqsybqx,ceisebqx
+ *
+ *  Description:
+ *      Type definitions of MCERMI
+ *
+ *  COPYRIGHT (c) 2000 - 2010 NSN
+ */
+ 
+ 
+/* Constant definitions **************************************************/ 
+CONSTANT
+
+    /* Delay between name service retries */
+    name_serv_retry_delay__c            = 100;      /* 1.0s */
+    
+    cp_stop_delay_time_c                = 6000;     /* 1.0 M */
+    hand_stop_time_c                    = 100;     /* 1.0s hand stop timer*/
+    c1file_update_period_c              = 60 * 60 * 100;  /*1 hour*/
+    c1file_upd_retry_time_c             = 500;  
+    wait_data_report_time_c             = 200;      /* 2.0 s*/
+    pcermi_report_period_c              = 60 * 60 * 100;
+
+    /* hand rel wait time */
+    hand_refresh_wait_time__c           = 10 * 100;     /* 10.0s */
+    conf_data_wait_time__c              = 200 * 100;     /* 200.0s*/
+
+    undefined_byte_c                    = 0xFF;
+    undefined_word_c                    = 0xFFFF;
+    undefined_dword_c                   = 0xFFFFFFFF;
+    max_c                               = 0xFFFFFFFF;
+    min_c                               = 0x00000000;
+    
+    bps_to_mbps_div__c                  = 1048576;
+    ticket_per_second__c                = 100;
+    hspa_user__c                        = 1;
+    dl_thp__c                           = 2;
+    ul_thp__c                           = 3;
+/*    max_dsp_num__c = 400; */ /* need change to real max dsp */
+
+/* Type definitions **************************************************/
+
+TYPE cerm_status__t
+    CONSTANT
+        all_active_c   = 0xFFFF;
+        all_inactive_c = 0x0;
+    REPRESENTATION word;
+ENDTYPE cerm_status__t;
+
+TYPE cerm_np_recov_feature_status__t
+    CONSTANT
+        all_active_c = 0xFF;
+        all_inactive_c = 0x0;
+    REPRESENTATION byte;
+ENDTYPE cerm_np_recov_feature_status__t;
+
+TYPE supervision_status__t
+    CONSTANT
+        undef_c      = 0;
+        rq_snt_c     = 1;
+        rp_rcv_c     = 2;
+    REPRESENTATION byte;
+ENDTYPE supervision_status__t;
+
+
+TYPE data_collect__t
+    CONSTANT
+        undef_c         = 0;
+        start_c         = 1;
+        coll_stop_c     = 2;
+        report_recvd_c  = 3;
+    REPRESENTATION byte;
+ENDTYPE data_collect__t;
+
+
+TYPE mce_hand__t
+    REPRESENTATION
+    STRUCT
+        hand_pr_id              process_id_t;
+        supervision_status      supervision_status__t;
+        cell_state              bool;
+        reserved                bool;
+    ENDSTRUCT;
+ENDTYPE mce_hand__t;
+
+
+TYPE mce_hand_tbl__t
+    CONSTANT
+      max_mce_hand_c = (wcel_t_max_c); 
+    REPRESENTATION
+    STRUCT
+        next_supervise_index    dword;
+        count                   word;
+        mce_hand_info           ARRAY ( max_mce_hand_c ) OF mce_hand__t;
+        cell_id_list            ARRAY ( max_mce_hand_c ) OF c_id_t;
+    ENDSTRUCT;
+ENDTYPE mce_hand_tbl__t;
+
+
+
+TYPE failed_pid_list__t
+    REPRESENTATION
+    STRUCT
+        num_of_pid  dword;
+        mcecp_pid   ARRAY(mce_hand_tbl__t_max_mce_hand_c) OF pid_union_t;
+    ENDSTRUCT;
+ENDTYPE failed_pid_list__t;
+
+
+TYPE cerm_mask__t
+    CONSTANT
+        none                       = 0X0000;
+        data_collecting            = 0X0001;
+        pref_dsp_list_upd          = 0X0002;
+        dsp_for_l2                 = 0X0004;
+        load_supervision           = 0X0008;
+        load_balancing             = 0X0010;
+        pce_cell_reloc             = 0X0020;
+        mce_cell_reloc             = 0X0040;
+        dsp_pool_tuning            = 0X0080;
+        event_logging              = 0X0100;
+    REPRESENTATION word;
+ENDTYPE cerm_mask__t;
+
+TYPE cerm_counter_data__t
+    REPRESENTATION STRUCT
+        max    dword;
+        min    dword;
+        ave    dword;
+    ENDSTRUCT;
+ENDTYPE cerm_counter_data__t;
+
+TYPE cell_data__t
+    REPRESENTATION
+    STRUCT
+        hspa_users           cerm_counter_data__t;
+        thp_dl               cerm_counter_data__t;
+        thp_ul               cerm_counter_data__t;
+    ENDSTRUCT;
+ENDTYPE cell_data__t
+      COMMENT '#E: cell counter data';
+TYPE temp_counter_data__t
+    REPRESENTATION
+    STRUCT
+        num                  qword;
+        den                  dword;
+    ENDSTRUCT;
+ENDTYPE temp_counter_data__t
+            COMMENT '#E: CERM counter results of a Cell';
+TYPE temp_count_storage__t
+    CONSTANT
+      max_c  = 3;  
+    REPRESENTATION
+          ARRAY (max_c) OF temp_counter_data__t;
+ENDTYPE temp_count_storage__t
+            COMMENT '#E: CERM counter results of a Cell';
+TYPE mce_cell_table__t
+    REPRESENTATION STRUCT
+        cell_id                c_id_t;            /* cell identity          */ 
+        cell_data              cell_data__t;      /* cell counter collected data*/
+        cell_data_storage      temp_count_storage__t;
+        dsp_index              unit_index_t;      /* Index of allocated DSP */
+        home_icsu              unit_index_t;      /* Cell home ICSU         */
+        l3_proid               pid;               /* BRM process id         */
+        timestamp              calendar_time_t;   /* latest alloc/rel   */
+        mce_hand_info          mce_hand__t;
+        pcermi_report_period   dword;
+        data_collect           data_collect__t;
+    ENDSTRUCT;
+ENDTYPE mce_cell_table__t
+  COMMENT '#E: Global Cell information table of MCERMI';
+  
+TYPE cell_data_ptr__t
+    REPRESENTATION POINTER (mce_cell_table__t);
+ENDTYPE cell_data_ptr__t;
+
+
+TYPE cerm_data_tbl__t
+    CONSTANT
+        max_recs_c  = wcel_t_max_c;  /* max number of Cells in RNC */
+    REPRESENTATION STRUCT
+        cell_data     ARRAY(max_recs_c) OF cell_data_ptr__t;
+    ENDSTRUCT;
+ENDTYPE cerm_data_tbl__t;
+
+
+TYPE mcerm_cell_table_ptr__t
+    REPRESENTATION POINTER FAR (cerm_data_tbl__t);
+ENDTYPE mcerm_cell_table_ptr__t;
+
+
+
+TYPE mce_hand_data__t
+    REPRESENTATION STRUCT
+        count                  dword;
+        cell_data_ptr          mcerm_cell_table_ptr__t;
+        cerm_data_tbl_handle   buf_handle_t;
+        cerm_conf_data         cerm_conf_data_t;
+        next_supervise_index   dword;
+    ENDSTRUCT;
+ENDTYPE mce_hand_data__t;
+
+TYPE cerm_hand_data_ptr__t
+    REPRESENTATION POINTER (mce_hand_data__t);
+ENDTYPE cerm_hand_data_ptr__t;
+
+
+
+
+/* type definitions **************************************************/
+
+TYPE mce_hand_data_info__t
+    REPRESENTATION STRUCT
+        mce_hand_data_ptr       cerm_hand_data_ptr__t;       /* pointer to hand resource parameters */
+        cell_data_ptr           cell_data_ptr__t;            /* pointer to CELL resource parameters */
+    ENDSTRUCT;
+ENDTYPE mce_hand_data_info__t;
+
+
+
+TYPE mce_task_t
+    CONSTANT
+        done_c               = 0x00;  /* task completed ok            */
+        failed_c             = 0x01;  /* task failed                  */
+        dsp_allocation_c     = 0x02;  /* DSP allocated for Cell       */
+        dsp_release_c        = 0x03;  /* DSP reld from Cell       */
+        upd_pref_dsp_c       = 0x04;  /* Pref DSP list update request */
+        subfeature_upd_c     = 0x05;  /* sub-feature status update    */
+        start_collect_c      = 0x06;  /* start collecting Cell data   */
+        stop_collect_c       = 0x07;  /* stop collecting Cell data    */
+        cell_available_c     = 0x08;  /* cell unavailable. */
+        cell_unavailable_c   = 0x09;  /* cell unavailable. temperary stop data collection*/
+        avoid_pcermi_report  = 0x10;  
+        hand_stop_c          = 0xFF;  /* Hand stop indication         */
+    REPRESENTATION byte;
+ENDTYPE mce_task_t
+  COMMENT '#E: Internal MCERMI task identifier';
+
+
+
+
+TYPE cal_time__t
+    REPRESENTATION
+    UNION
+        calendar_time    calendar_time_t;
+        time_str
+        STRUCT
+            time  time_of_day_t;
+            date  date_t;
+        ENDSTRUCT;
+    ENDUNION;
+ENDTYPE cal_time__t;
+
+TYPE counter_data__t
+    REPRESENTATION STRUCT
+        max     byte;
+        min     byte;
+        ave     byte;
+    ENDSTRUCT;
+ENDTYPE counter_data__t;
+
+TYPE cell_counter_data__t
+    REPRESENTATION
+    STRUCT
+        hspa_users              counter_data__t;
+        thp_dl                  counter_data__t;
+        thp_ul                  counter_data__t;
+    ENDSTRUCT;
+ENDTYPE cell_counter_data__t;
+
+TYPE mcerm_cell_data_collect__t
+    REPRESENTATION
+    STRUCT
+        cell_id               c_id_t;
+        data_collect          data_collect__t;
+        home_icsu             unit_index_t;
+        dsp_index             unit_index_t;
+        l3_proid              pid;
+        pcermi_report_period  dword;
+    ENDSTRUCT;
+ENDTYPE mcerm_cell_data_collect__t;
+
+
+TYPE mcerm_counter_data_collect__t
+    REPRESENTATION
+    STRUCT
+        cell_id               c_id_t;
+        counter_data          cell_counter_data__t;
+        cerm_temp_storage     temp_count_storage__t;
+    ENDSTRUCT;
+ENDTYPE mcerm_counter_data_collect__t;
+
+
+TYPE mcerm_data_collect_inquire__t
+    CONSTANT
+        max_recs_c  = 100;  /*wcel_t_max_c max number of Cells in RNC */
+    REPRESENTATION STRUCT
+        cell_data_collect     ARRAY(max_recs_c) OF mcerm_cell_data_collect__t;
+    ENDSTRUCT;
+ENDTYPE mcerm_data_collect_inquire__t;
+
+
+TYPE mcerm_counter_data_inquire__t
+    CONSTANT
+        max_recs_c  = 100;  /*wcel_t_max_c max number of Cells in RNC */
+    REPRESENTATION STRUCT
+        counter_data     ARRAY(max_recs_c) OF mcerm_counter_data_collect__t;
+    ENDSTRUCT;
+ENDTYPE mcerm_counter_data_inquire__t;
+
+
+/* msg_0fff_t  1.0 */ TYPE msg_0fff_t
+REPRESENTATION 
+    STRUCT
+        mce_task          mce_task_t;
+        cell_id           c_id_t;
+        dsp_index         unit_index_t;
+        timestamp         calendar_time_t;
+        pcermi_pid        pid;
+    ENDSTRUCT;  
+ENDTYPE msg_0fff_t;
+        
+
+
+TYPE dsp_report__t
+    REPRESENTATION STRUCT
+        logical_add              log_address_t
+         COMMENT '#E: Logical address of the unit handling user plane of the RAB';
+        family_id                family_id_t
+         COMMENT '#E: Family id of process handling user plane of the RAB';
+        RRC_conn_setup_fail_rate byte;
+        CS_RAB_setup_fail_rate byte;
+        PS_RAB_setup_fail_rate byte;
+        pkt_call_setup_fail_rate byte;
+        pkt_call_rel_fail_rate byte;
+        RAB_call_rel_fail_rate byte;
+    ENDSTRUCT;
+ENDTYPE dsp_report__t;
+
+TYPE dsps_report__t
+    REPRESENTATION STRUCT
+        timestamp dword COMMENT 'the timestamp when received last tii_req_t';
+        count word;
+        reports ARRAY(call_failure_aggregated_t_len_c) OF dsp_report__t;
+    ENDSTRUCT;
+ENDTYPE dsps_report__t;
+
+
+TYPE np_kpis_info__t
+    REPRESENTATION STRUCT
+        RRC_conn_setup_np_index word;
+        RRC_conn_setup_np_times word;
+        RRC_conn_setup_np_ts dword;
+        CS_RAB_setup_np_index word;
+        CS_RAB_setup_np_times word;
+        CS_RAB_setup_np_ts dword;
+        PS_RAB_setup_np_index word;
+        PS_RAB_setup_np_times word;
+        PS_RAB_setup_np_ts dword;
+        pkt_call_setup_np_index word;
+        pkt_call_setup_np_times word;
+        pkt_call_setup_np_ts dword;
+        pkt_call_rel_np_index word;
+        pkt_call_rel_np_times word;
+        pkt_call_rel_np_ts dword;
+        RAB_call_rel_np_index word;
+        RAB_call_rel_np_times word;
+        RAB_call_rel_np_ts dword;
+    ENDSTRUCT;
+ENDTYPE np_kpis_info__t;
+
+TYPE dsp_kpi__t
+    REPRESENTATION STRUCT
+        logical_add log_address_t;
+        family_id family_id_t;
+        rate byte COMMENT 'anyone from these 6 kpis';
+    ENDSTRUCT;
+ENDTYPE dsp_kpi__t;
+
+TYPE dsp_kpi_ptr__t
+    REPRESENTATION POINTER(dsp_kpi__t);
+ENDTYPE dsp_kpi_ptr__t;
+
+ TYPE dsp_reset_reason__t
+    REPRESENTATION ENUM
+        DCH,
+        CCH
+    ENDENUM;
+ ENDTYPE  dsp_reset_reason__t;
+
+TYPE mcer_instruct_msg__t
+    REPRESENTATION STRUCT
+        dsp_index dword;
+        reason dsp_reset_reason__t;
+    ENDSTRUCT;
+ ENDTYPE mcer_instruct_msg__t;
+
+/* 
+TYPE call_failure__t
+    REPRESENTATION STRUCT 
+    logical_add              log_address_t
+         COMMENT '#E: Logical address of the unit handling user plane of the RAB';
+    family_id                family_id_t
+         COMMENT '#E: Family id of process handling user plane of the RAB';
+    RRC_conn_setup_fail        dword
+        COMMENT '#E: RRC setup failure';
+    RRC_conn_setup_attempt         dword
+         COMMENT '#E: RRC setup attempt';
+    CS_RAB_setup_fail        dword
+        COMMENT '#E: CS RAB setup failure';
+    CS_RAB_setup_attempt         dword
+         COMMENT '#E: CS RAB setup attempt';
+    PS_RAB_setup_fail        dword
+        COMMENT '#E: PS RAB setup failure';
+    PS_RAB_setup_attempt         dword
+         COMMENT '#E: PS RAB setup attempt';
+    pkt_call_setup_fail        dword
+        COMMENT '#E: Packet Call ticket setup failure';
+    pkt_call_setup_attempt         dword
+         COMMENT '#E: Packet Call ticket setup attempt';
+    pkt_call_rel_fail         dword
+         COMMENT '#E: Packet Call ticket rel failure';
+    pkt_call_rel_attempt         dword
+         COMMENT '#E: Packet Call ticket rel attempt';
+    RAB_call_rel_fail         dword
+         COMMENT '#E: Packet Call ticket rel failure';
+    RAB_call_rel_attempt         dword
+         COMMENT '#E: Packet Call ticket rel attempt';
+  ENDSTRUCT;
+ENDTYPE call_failure__t;
+*/
+
+/* for debug */
+TYPE call_failures__t
+    REPRESENTATION STRUCT
+    st ARRAY(3) OF call_failure_t;
+    ENDSTRUCT;
+ENDTYPE call_failures__t;
+
+/*
+ TYPE call_failure_aggregated__t
+  REPRESENTATION 
+    STRUCT
+      st  ARRAY(max_dsp_num__c) OF call_failure__t ;
+    ENDSTRUCT ;
+ENDTYPE call_failure_aggregated__t;
+*/
+     
+/************************ MESSAGE DEFINITION ***********************
+ *
+ *  DEFINITION ID: @(#)SID: MED0xxxx.SDT 1.1-0 10/04/07
+ *
+ *  CONTEXT: This message is an internal information update message
+ *           of MCERMI family.
+ *
+ *  GROUP ID: 0x00000
+ *
+ *  REMARKS: MCERMI <-> MCERMI
+ *
+ */
+
+signal mce_hand_info_s  = 0x0FFF
+(
+     msg         msg_0fff_t;
+);
+
+/************************ FIELD DESCRIPTIONS ***********************
+
+  MCE_TASK
+      Task identifier.
+
+  CELL_ID
+      Identity of target Cell.
+
+  DSP_INDEX
+      Index of target DSP. Valid when changes in Cell HSPA service
+      allocation (MCERMI master->FP hand).
+
+  TIMESTAMP
+      Timestamp of latest DSP allocation action. Valid when new Cell
+      HSPA service allocation has been made (MCERMI master->CP hand).
+*/
+   
+SIGNAL pcermi_process_crashed_s  = 0xfffc
+(
+      hand_pid           pid;
+);
+
+
+
+
+SIGNAL mcerm_data_collect_req__s  = 0x9100
+(
+       ceh_pid           pid;
+       cell_id           c_id_t;
+       collect_state     data_collect__t;
+);
+
+
+SIGNAL mcerm_data_collect_ack__s = 0x9101
+(
+       cell_count         word;
+       mcerm_inquire_info mcerm_data_collect_inquire__t;
+       
+);
+
+SIGNAL mcerm_counter_data_req__s  = 0x9102
+(
+       ceh_pid           pid;
+       cell_id           c_id_t;
+);
+
+
+SIGNAL mcerm_counter_data_ack__s = 0x9103
+(
+       cell_count         word;
+       mcerm_inquire_info mcerm_counter_data_inquire__t;
+);
+
+SIGNAL c1file_update_period__s = 0x9109
+(
+       c1file_update_period  dword;
+);
+
+SIGNAL ste_config__s = 0x9110
+(
+       mcermi_debug_flag  bool;
+);
+
+SIGNAL ste_config_req__s = 0x9111
+(
+        pcermi_ste_pid          pid;
+);
+
+SIGNAL ste_config_inq__s = 0x9112
+(
+        ceh_pid          pid;
+);
+
+SIGNAL ste_config_inq_ack__s = 0x9113
+(
+       mcermi_debug_flag  bool;
+);
+
+SIGNAL pcermi_report_period__s = 0x9114
+(
+       pcermi_reporting_period  dword;
+);
+
+SIGNAL c1file_update_period_inq__s = 0x9115
+(
+        ceh_pid          pid;
+);
+
+SIGNAL pcermi_report_period_inq__s = 0x9116
+(
+        ceh_pid          pid;
+);
+
+SIGNAL mcer_instruct_s = 0x9117
+(
+    mcer_instruct_msg   mcer_instruct_msg__t;
+);
+
+/*
+SIGNAL  tii_req__s = 0x9118
+(
+     sample_count    word;
+     msg    call_failure_aggregated__t;
+);
+*/
+
+/*for debug*/
+SIGNAL tii_req_test__s = 0X9119
+(
+    failures call_failures__t;
+);

@@ -1,0 +1,904 @@
+/*
+ *  
+ *  $Author: Inderjeet $
+ *
+ *  Environment:
+ *     rnxsysqx,rnqsybqx,ceisebqx
+ *
+ *  Description:
+ *      Common proceduress of MCERMI
+ *
+ *  COPYRIGHT (c) 2000 - 2010 NSN
+ *
+ **************************************************************************/
+
+
+DCL
+    service_add_ok         bool := F,
+    state_change_ok        bool := F,
+    state_imn_ok           bool := F;
+
+
+
+/* Procedure Definition ***************************************************/
+PROCEDURE order_restart_msg;
+
+/* Formal parameters ******************************************************/
+
+FPAR
+    IN      p_family                family_t;
+
+/* Variable definitions ***************************************************/
+DCL
+    l_self                          pid,
+    l_ok                            bool,
+    l_status                        error_t;
+
+/* Procedure Body *********************************************************/
+START;
+    DECISION p_family;
+    (/=0):
+        TASK l_self := SELF;
+
+        TASK l_ok := PID_CONVERT_NEAR(l_self);
+
+        TASK l_status := order_family_restart_notice_r(computer_t_rel_own_unit_c,
+                                                       p_family,
+                                                       l_self);
+        DECISION l_status;
+        (success_ec,family_already_exists_ec):
+            RETURN;
+        ENDDECISION;
+    ELSE:
+        TASK l_status := wrong_type_server_pid_ec;
+    ENDDECISION;
+
+    TASK write_error_log(log_type_t_dword_e_c,bytepointer(@l_status),1,
+                         @'MCEMA1: Restart msg order failed');
+    RETURN;
+
+ENDPROCEDURE order_restart_msg;
+/* Procedure Definition ***************************************************/
+
+PROCEDURE subscribe_state_change_events;
+
+/* Return parameters ******************************************************/
+RETURNS error_t;
+/* Variable definitions ***************************************************/
+
+DCL
+    l_own_pid                       pid_union_t,
+    l_own_unit                      unit_it_t,
+    l_pid_ptr                       pidptr_t,
+    l_status                        error_t;
+
+/* Procedure Body *********************************************************/
+START;
+    TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                        @'MCEMA1: subscribe_state_change_events'); 
+                        
+    TASK l_own_pid.real_pid := SELF,
+         l_pid_ptr          := @l_own_pid.pid_struct;
+
+    TASK PID_CONVERT_FAR(l_own_pid.real_pid);
+
+    TASK l_status := unit_type_and_index_r(l_own_pid.pid_struct.computer,l_own_unit);
+
+    DECISION (l_status);
+    (/=success_ec):
+        TASK write_error_log(log_type_t_dword_e_c,bytepointer(@l_status),1,
+                             @'MCEMA1: unit_type_and_index_r failed');
+    ELSE:
+        /* re_state_change_executed_ss */
+        DECISION state_change_ok;
+        (F):
+        TASK l_status := re_event_subscribe_r(l_own_unit.ttype,
+                                              l_own_unit.index,
+                                              l_pid_ptr,
+                                              re_service_t_state_ch_exec_c,
+                                              swover_step_t_not_applicable_c,
+                                              re_ann_priority_t_normal_c,
+                                              re_distr_width_t_single_unit_c,
+                                              time_limit_t_no_waiting_c);
+
+        DECISION (l_status);
+        (success_ec,
+         subscription_already_exists_ec):
+                  TASK state_change_ok := T;
+            /* do nothing*/
+            TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                                @'MCEMA1: re_event_subscribe_r success');           
+        ELSE:
+            TASK write_error_log(log_type_t_dword_e_c,bytepointer(@l_status),1,
+                                 @'MCEMA1: re_state_change_executed_ss failed');
+            ENDDECISION;
+        ENDDECISION;
+        DECISION state_imn_ok;
+        (F):
+        /* re_unit_restart_imminent_ss */
+            TASK l_status := re_event_subscribe_r(l_own_unit.ttype,
+                                                  unit_index_t_any_index_c,
+                                                  l_pid_ptr,
+                                                  re_service_t_unit_rst_imm_c,
+                                                  swover_step_t_not_applicable_c,
+                                                  re_ann_priority_t_normal_c,
+                                                  re_distr_width_t_single_unit_c,
+                                                  time_limit_t_no_waiting_c);
+
+        DECISION (l_status);
+        (success_ec,
+         subscription_already_exists_ec):
+            TASK state_imn_ok := T;           
+        ELSE:
+            TASK write_error_log(log_type_t_dword_e_c,bytepointer(@l_status),1,
+                                 @'MCEMA1: re_state_change_executed_ss failed');
+            ENDDECISION;
+        ENDDECISION;
+    ENDDECISION;
+
+    RETURN l_status;
+
+ENDPROCEDURE subscribe_state_change_events;
+/* Procedure Definition ***************************************************/
+PROCEDURE add_own_services;
+
+/* Return parameters ******************************************************/
+
+RETURNS bool;
+
+/* Variable definitions ***************************************************/
+DCL
+    l_serv_info                     service_information_t,
+    l_status                        error_t,
+    l_all_ok                        bool;
+
+/* Procedure Body *********************************************************/
+START;
+    TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                        @'MCEMA1: add_own_services');
+
+    /* add own service */
+    TASK l_serv_info.server                   := SELF,
+         l_serv_info.service_attr.replaceable := T,
+         l_serv_info.msg_attr.group_number    := 0,
+         l_serv_info.msg_attr.delivery        := computer_t_width_wosp_c,
+         l_serv_info.msg_attr.attr            := 0x0,
+         l_all_ok                             := T;
+
+    TASK PID_CONVERT_FAR(l_serv_info.server);
+
+    /*TASK set_pid_computer_r(l_serv_info.server,computer_t_log_own_c);*/
+
+    DECISION service_add_ok;
+    (F):
+        TASK l_serv_info.service_name               := 'mcermi_services_as',
+             l_serv_info.service_attr.local_service := F,
+             l_serv_info.service_attr.group_service := T;
+
+        TASK l_status := add_service_r(l_serv_info);
+        DECISION l_status;
+        (/=success_ec):
+            TASK l_all_ok := F;
+
+            TASK write_error_log(log_type_t_dword_e_c,bytepointer(@l_status),1,
+                                 @'MCEMA1: mcermi_services_as add fail');
+        ELSE:
+            TASK service_add_ok := T;
+            TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                                @'MCEMA1: cermi_services_as add success');
+        ENDDECISION;
+    ENDDECISION;
+
+    RETURN l_all_ok;
+
+ENDPROCEDURE add_own_services;
+
+
+
+/**************************************************************************/
+
+PROCEDURE fp_hand_feature_status;
+
+RETURNS bool;
+
+DCL
+    l_conf_data           cerm_conf_data_t; 
+
+   
+
+/* Procedure Body *********************************************************/
+START;
+     TASK l_conf_data := get_cerm_conf_data__r();
+     
+    DECISION l_conf_data.sub_flags.data_collecting = T AND
+             l_conf_data.sub_flags.pref_dsps_update = T;
+    (T):
+          RETURN T;
+    ENDDECISION;
+
+RETURN F;
+ENDPROCEDURE fp_hand_feature_status;
+
+/**************************************************************************/
+
+PROCEDURE lb_hand_feature_status;
+
+
+
+RETURNS bool;   
+
+/**************************************************************************/
+START;
+ 
+RETURN T;
+ENDPROCEDURE lb_hand_feature_status;
+
+
+
+/**************************************************************************/
+
+PROCEDURE fill_default_cerm_conf_data;
+DCL
+    l_cerm_conf_data           cerm_conf_data_t;
+
+START;
+
+      TASK memset(bytepointer(@l_cerm_conf_data),0xFF,SIZEOF(l_cerm_conf_data));
+      TASK l_cerm_conf_data.reporting_period      := 6000/*360000*/;
+      TASK l_cerm_conf_data.icsu_cpu_usage_th     := 95; 
+      TASK l_cerm_conf_data.pcermi_data.max_cells := wcel_t_max_c;
+         /*HSPA users*/
+         TASK l_cerm_conf_data.counters.counter(0).provider    :=brmprb_p,
+              l_cerm_conf_data.counters.counter(0).mea_type    := 1000,
+              l_cerm_conf_data.counters.counter(0).counter_id  := 282,
+              l_cerm_conf_data.counters.counter(0).coll_interv := 1;
+
+         /*SUM of HSPA users*/
+         TASK l_cerm_conf_data.counters.counter(1).provider    := brmprb_p,
+              l_cerm_conf_data.counters.counter(1).mea_type    := 1000,
+              l_cerm_conf_data.counters.counter(1).counter_id  := 284,
+              l_cerm_conf_data.counters.counter(1).coll_interv := 1;
+
+         /*Denominatot for calculating Average HSPA users*/   
+         TASK l_cerm_conf_data.counters.counter(2).provider    := brmprb_p,
+              l_cerm_conf_data.counters.counter(2).mea_type    := 1000,
+              l_cerm_conf_data.counters.counter(2).counter_id  := 285,
+              l_cerm_conf_data.counters.counter(2).coll_interv := 1;
+
+         /*DL throughputs counter*/
+         TASK l_cerm_conf_data.counters.counter(3).provider    := l3ccmp_p,
+              l_cerm_conf_data.counters.counter(3).mea_type    := 1023,
+              l_cerm_conf_data.counters.counter(3).counter_id  := 8,
+              l_cerm_conf_data.counters.counter(3).coll_interv := 20;
+
+         /*UL throughputs: NRT_DCH_UL_DATA_VOL*/       
+         TASK l_cerm_conf_data.counters.counter(4).provider    := l3ccmp_p,
+              l_cerm_conf_data.counters.counter(4).mea_type    := 1023,
+              l_cerm_conf_data.counters.counter(4).counter_id  := 6,
+              l_cerm_conf_data.counters.counter(4).coll_interv := 20;
+
+         /*UL throughputs: NRT_DCH_HSDPA_UL_DATA_VOL*/                      
+         TASK l_cerm_conf_data.counters.counter(5).provider    := l3ccmp_p,
+              l_cerm_conf_data.counters.counter(5).mea_type    := 1023,
+              l_cerm_conf_data.counters.counter(5).counter_id  := 9,
+              l_cerm_conf_data.counters.counter(5).coll_interv := 20;
+
+         /*UL throughputs: NRT_EDCH_UL_DATA_VOL*/
+         TASK l_cerm_conf_data.counters.counter(6).provider    := l3ccmp_p,
+              l_cerm_conf_data.counters.counter(6).mea_type    := 1023,
+              l_cerm_conf_data.counters.counter(6).counter_id  := 10,
+              l_cerm_conf_data.counters.counter(6).coll_interv := 20;
+
+     TASK cell_table_upd_conf_data__r(l_cerm_conf_data); /*store conf data to global cell table*/
+
+     RETURN;
+ENDPROCEDURE fill_default_cerm_conf_data;
+
+/**************************************************************************/
+
+PROCEDURE compare_pids;
+
+/**************************************************************************/
+FPAR
+    IN       p_hand_pid     pid,
+    IN       p_cerm_pid     pid;
+
+RETURNS bool;   
+
+DCL
+    l_computer               computer_t,
+    l_family                 family_t,
+    l_process_id             process_id_t;
+
+/**************************************************************************/
+START;
+    TASK l_computer    :=  get_pid_family_r (p_hand_pid),
+         l_family      :=  get_pid_family_r (p_hand_pid),
+         l_process_id  :=  get_pid_process_id_r (p_hand_pid);
+         
+    DECISION l_computer   = get_pid_family_r (p_cerm_pid) AND
+             l_family     = get_pid_family_r (p_cerm_pid) AND
+             l_process_id = get_pid_process_id_r (p_cerm_pid);
+    (T):
+          RETURN T;
+    ENDDECISION;
+
+RETURN F;
+ENDPROCEDURE compare_pids;
+
+/**************************************************************************/
+PROCEDURE initialize_c1file;
+
+RETURNS error_t;
+
+DCL
+    l_work_fil_handle   c1file_data__t,
+    l_status            error_t;
+    
+START ;
+
+    TASK l_status := c1_init_and_open_for_wr_r(l_work_fil_handle);
+    DECISION l_status;
+    (/= success_ec):
+        /*retry one more time to intialize files*/
+        TASK l_status := c1_init_and_open_for_wr_r(l_work_fil_handle);
+    ENDDECISION;
+
+    DECISION l_status;
+    (success_ec):
+        TASK G_c1_file_handle      := l_work_fil_handle.c1_file_handle,
+             G_c1_hash_file_handle := l_work_fil_handle.c1_hash_file_handle;
+    ENDDECISION;
+    RETURN l_status;
+
+ENDPROCEDURE initialize_c1file;  
+
+
+/**************************************************************************/
+PROCEDURE update_c1file_and_close;
+FPAR
+    IN     p_update_and_close            bool; 
+
+DCL
+    l_work_fil_handle   c1file_data__t,
+    l_status            error_t;
+
+START ;
+
+    TASK l_status := c1file_update_and_close_r(l_work_fil_handle,p_update_and_close);
+
+    DECISION l_status;
+    (success_ec):
+        TASK G_c1_file_handle      := l_work_fil_handle.c1_file_handle,
+             G_c1_hash_file_handle := l_work_fil_handle.c1_hash_file_handle;
+    ENDDECISION;
+    RETURN;
+    
+ENDPROCEDURE update_c1file_and_close; 
+
+/**************************************************************************/
+PROCEDURE open_dekfile;
+FPAR
+    IN   p_access_mode          access_mode_t;
+RETURNS error_t;
+
+START;
+
+RETURN success_ec;
+ENDPROCEDURE open_dekfile;
+
+/**************************************************************************/
+PROCEDURE check_any_hand_exist;
+RETURNS bool;
+DCL
+    L_tbl_index              dword,
+    l_hand_info_tbl          mce_hand_tbl__t;
+
+START ;
+    TASK L_tbl_index := 0;
+    TASK get_hand_info_for_all_cells(l_hand_info_tbl);
+      
+    WHILE (L_tbl_index < l_hand_info_tbl.count);
+      DECISION l_hand_info_tbl.mce_hand_info(L_tbl_index).reserved;
+      (T):
+        RETURN T;
+      ENDDECISION;
+      TASK L_tbl_index := L_tbl_index + 1;
+    ENDWHILE;
+    RETURN F;
+ENDPROCEDURE check_any_hand_exist;
+
+
+/**************************************************************************/
+PROCEDURE send_supervision_msg;
+FPAR
+    IN  p_num_hand   dword;
+
+RETURNS bool;
+DCL
+    L_num_msg_sent          word := 0,
+    l_hand_info_tbl         mce_hand_tbl__t,
+    l_hand_pid              pid := NULL,
+    l_tbl_index             word := 0;
+
+START;
+
+    TASK get_hand_info_for_all_cells(l_hand_info_tbl); 
+
+    TASK l_tbl_index := l_hand_info_tbl.next_supervise_index;
+    WHILE (l_tbl_index < l_hand_info_tbl.count);        
+        
+        DECISION l_hand_info_tbl.mce_hand_info(l_tbl_index).reserved           = T AND /*CP Hand is present*/
+                 l_hand_info_tbl.mce_hand_info(l_tbl_index).supervision_status = supervision_status__t_undef_c AND /*supervision is not yet sent*/
+                 L_num_msg_sent < p_num_hand;
+        (T):
+            TASK l_hand_info_tbl.mce_hand_info(l_tbl_index).supervision_status     := supervision_status__t_rq_snt_c;
+
+            TASK make_pid_r(l_hand_pid,get_pid_computer_r(SELF),mcermi_p,l_hand_info_tbl.mce_hand_info(l_tbl_index).hand_pr_id,0);
+
+            OUTPUT hand_supervision_msg_s TO l_hand_pid;
+
+            TASK L_num_msg_sent                      := L_num_msg_sent + 1,
+                  l_hand_info_tbl.next_supervise_index := l_tbl_index;
+            TASK cerm_update_supervision_status(l_hand_info_tbl.mce_hand_info(l_tbl_index));
+        ENDDECISION;
+        TASK l_tbl_index := l_tbl_index + 1;
+    ENDWHILE;
+    TASK update_supervision_info(l_hand_info_tbl.next_supervise_index);
+    
+    RETURN (L_num_msg_sent > 0);
+ENDPROCEDURE send_supervision_msg;
+
+/**************************************************************************/
+PROCEDURE check_supervision_status;
+FPAR
+    IN/OUT P_failed_pid_list failed_pid_list__t;
+
+RETURNS bool;
+
+DCL
+    l_hand_info_tbl         mce_hand_tbl__t,
+    L_tbl_index             word,
+    l_hand_pid              pid;
+
+START;
+
+    TASK P_failed_pid_list.num_of_pid := 0,
+         L_tbl_index                  := 0;
+         
+    TASK get_hand_info_for_all_cells(l_hand_info_tbl);
+
+    WHILE (L_tbl_index < l_hand_info_tbl.count);
+        DECISION l_hand_info_tbl.mce_hand_info(L_tbl_index).reserved           = T AND /*CP Hand is present*/
+                 l_hand_info_tbl.mce_hand_info(L_tbl_index).supervision_status = supervision_status__t_rq_snt_c; /*supervision ack not received*/
+        (T):
+            TASK make_pid_r(l_hand_pid,get_pid_computer_r(SELF),mcermi_p,l_hand_info_tbl.mce_hand_info(L_tbl_index).hand_pr_id,0);
+
+            TASK P_failed_pid_list.mcecp_pid(P_failed_pid_list.num_of_pid).real_pid := l_hand_pid;
+            TASK P_failed_pid_list.num_of_pid                               := P_failed_pid_list.num_of_pid + 1;
+
+        ENDDECISION;
+        TASK L_tbl_index := L_tbl_index + 1;
+    ENDWHILE;
+    RETURN (P_failed_pid_list.num_of_pid = 0);
+ENDPROCEDURE check_supervision_status;
+
+
+/**************************************************************************/
+PROCEDURE start_hand_crash_proc;
+FPAR
+    IN P_crashed_pid pid_union_t;
+
+RETURNS bool;
+DCL
+    l_tbl_index       dword := undefined_dword_c,
+    l_status          bool := F,
+    l_cell_rec        mce_cell_table__t,
+    l_msg_mce_data    msg_0fff_t,
+    L_restart_status  error_t;
+
+START;
+
+    TASK l_tbl_index := find_cell_record_for_proid__r(P_crashed_pid.pid_struct.process_id,l_cell_rec);
+    
+    TASK L_restart_status := restart_hand(P_crashed_pid.pid_struct.process_id);
+    CREATE mceha1(l_tbl_index);
+
+    TASK l_cell_rec.mce_hand_info.reserved := T;
+
+    TASK l_cell_rec.mce_hand_info.hand_pr_id := get_pid_process_id_r(OFFSPRING),
+         l_cell_rec.mce_hand_info.supervision_status := supervision_status__t_undef_c; 
+
+    TASK l_status := copy_calendar_time_r(l_msg_mce_data.timestamp);   /* store current calendar time to l_timestamp*/
+    
+    TASK l_msg_mce_data.mce_task   := mce_task_t_start_collect_c,
+         l_msg_mce_data.cell_id    := l_cell_rec.cell_id,
+         l_msg_mce_data.dsp_index  := l_cell_rec.dsp_index,
+         l_msg_mce_data.pcermi_pid := NULL;
+         
+    TASK l_status := cell_table_update_record__r(l_cell_rec,l_tbl_index);
+    
+    OUTPUT mce_hand_info_s(l_msg_mce_data) TO OFFSPRING COMMENT '0xFFFE';
+
+    RETURN l_status;
+ENDPROCEDURE start_hand_crash_proc;
+
+
+/**************************************************************************/
+PROCEDURE stop_all_cp_data_collect;
+
+DCL
+    L_tbl_index         dword := 0,
+    l_msg_mce_data      msg_0fff_t,
+    l_status            bool,
+    l_timestamp         calendar_time_t,
+    l_mce_hand_tbl      mce_hand_tbl__t,
+    l_cp_hand_pid       pid;
+
+START;
+    TASK get_hand_info_for_all_cells(l_mce_hand_tbl);
+    TASK set_data_collection_stop();
+    WHILE (L_tbl_index < l_mce_hand_tbl.count);
+        DECISION l_mce_hand_tbl.mce_hand_info(L_tbl_index).reserved = T;
+        (T):
+            TASK l_status := copy_calendar_time_r(l_timestamp);   /* store current calendar time to l_timestamp*/
+            TASK l_msg_mce_data.mce_task := mce_task_t_stop_collect_c,
+                 l_msg_mce_data.timestamp := l_timestamp,
+                 l_msg_mce_data.pcermi_pid := NULL,
+                 l_msg_mce_data.cell_id  := l_mce_hand_tbl.cell_id_list(L_tbl_index);
+
+            TASK make_pid_r(l_cp_hand_pid,
+                            get_pid_computer_r(SELF),
+                            mcermi_p,
+                            l_mce_hand_tbl.mce_hand_info(L_tbl_index).hand_pr_id,
+                            0);
+
+            OUTPUT mce_hand_info_s(l_msg_mce_data) TO l_cp_hand_pid COMMENT '';
+        ENDDECISION;
+        TASK L_tbl_index := L_tbl_index + 1;
+    ENDWHILE;
+RETURN;
+ENDPROCEDURE stop_all_cp_data_collect;
+  
+/* Procedure Definition ***************************************************/
+PROCEDURE bcd_to_decimal;
+
+FPAR
+    IN  l_bcd_time               bcd_t;
+
+RETURNS byte;
+
+DCL
+
+    l_dec_time                   byte := 0;
+
+START;
+    TASK l_dec_time := l_bcd_time mod 16 + l_bcd_time / 16 mod 16 * 10;
+    
+RETURN l_dec_time;
+ENDPROCEDURE bcd_to_decimal;
+
+/* Procedure Definition ***************************************************/
+PROCEDURE get_c1file_update_timer_value;
+
+RETURNS dword;
+
+DCL
+    l_cal_time                  cal_time__t,
+    l_status                    bool := F,
+    l_time_difference           dword := 0,
+    l_c1file_update_period      dword := c1file_update_period_c,
+    l_minutes                   byte := 0,
+    l_sec                       byte := 0;
+
+START;
+    TASK l_status  := copy_calendar_time_r(l_cal_time.calendar_time);   /* store current calendar time to l_cal_time*/
+    TASK l_minutes := bcd_to_decimal(l_cal_time.calendar_time.minutes);
+    TASK l_minutes := byte(60 - l_minutes - 1);
+    TASK l_sec     := bcd_to_decimal(l_cal_time.calendar_time.seconds);
+    TASK l_sec     := byte(60 - l_sec); 
+
+    TASK l_time_difference := (l_minutes * 60) + l_sec;
+    TASK l_time_difference := l_time_difference * ticket_per_second__c;
+
+    DECISION get_mcermi_debug_flag();
+    (T):
+        TASK l_c1file_update_period := get_c1file_update_period();
+        TASK l_time_difference := l_time_difference MOD l_c1file_update_period;
+        DECISION l_time_difference = 0;
+        (T):
+            TASK l_time_difference := l_c1file_update_period;
+        ENDDECISION;
+    ENDDECISION;
+
+RETURN l_time_difference;
+ENDPROCEDURE get_c1file_update_timer_value;
+
+/* Procedure Definition ***************************************************/
+PROCEDURE get_current_day;
+
+RETURNS byte;
+
+DCL
+    l_cal_time                  cal_time__t,
+    l_current_date              date_t,
+    l_current_day               byte,
+    l_status                    bool := F;
+
+START;
+    TASK l_status          := copy_calendar_time_r(l_cal_time.calendar_time);
+    TASK l_current_date    := l_cal_time.time_str.date;
+    TASK l_current_day     := find_day_of_week(l_current_date);
+    TASK l_current_day     := l_current_day mod 7;
+    
+RETURN l_current_day;
+ENDPROCEDURE get_current_day;
+
+/* Procedure Definition ***************************************************/
+PROCEDURE get_current_hour;
+
+RETURNS byte;
+
+DCL
+    l_cal_time                  cal_time__t,
+    l_current_hour              byte,
+    l_status                    bool := F;
+
+START;
+    TASK l_status           := copy_calendar_time_r(l_cal_time.calendar_time);
+    TASK l_current_hour     := bcd_to_decimal(l_cal_time.calendar_time.hours);
+    
+RETURN l_current_hour;
+ENDPROCEDURE get_current_hour;
+
+/* Procedure Definition ***************************************************/
+PROCEDURE get_c1file_update_weight;
+FPAR
+    IN            update_count        byte,
+    IN/OUT        l_old_weight        word,
+    IN/OUT        l_new_weight        word;
+
+DCL
+    l_stored_upd_count                byte := 0;
+
+START;
+    DECISION update_count < 10;
+    (T):
+        TASK l_stored_upd_count := update_count + 1;
+        TASK l_old_weight := word(100 - word(100/l_stored_upd_count));
+        TASK l_new_weight := word(100 - l_old_weight);
+    ELSE:
+        TASK l_old_weight := 90;
+        TASK l_new_weight := 10;
+    ENDDECISION;
+
+ENDPROCEDURE get_c1file_update_weight;
+
+/* Procedure Definition ***************************************************/
+PROCEDURE process_hspa_user_data;
+FPAR
+    IN            l_old_hspa_user         word,
+    IN            l_new_hspa_user         word,
+    IN            l_old_weight            word,
+    IN            l_new_weight            word;
+    
+RETURNS byte;
+
+DCL
+    l_hspa_user              byte;
+
+START;
+    TASK l_hspa_user := byte(((l_new_hspa_user * l_new_weight) + (l_old_hspa_user * l_old_weight)) / 100);
+
+RETURN l_hspa_user;
+ENDPROCEDURE process_hspa_user_data;
+
+/* Procedure Definition ***************************************************/
+PROCEDURE process_throughput_data;
+FPAR
+    IN            l_old_thp               qword,
+    IN            l_new_thp               qword,
+    IN            l_old_weight            word,
+    IN            l_new_weight            word;
+    
+RETURNS byte;
+
+DCL
+    l_thp_value              byte;
+
+START;
+    TASK l_thp_value := byte(((l_new_thp * l_new_weight) + (l_old_thp * l_old_weight)) / 100 / bps_to_mbps_div__c);
+
+RETURN l_thp_value;
+ENDPROCEDURE process_throughput_data;
+
+/* Procedure Definition ***************************************************/
+PROCEDURE process_data_for_c1file_update;
+/**************************************************************************/
+FPAR
+    IN/OUT  p_c1_rec            c1file_rec_t;
+
+RETURNS bool;
+
+DCL
+    l_current_day               byte,
+    l_current_hour              byte,
+    l_update_count              byte,
+    l_hspa_users_max            word,
+    l_hspa_users_min            word,
+    l_hspa_users_ave            word,
+    l_thp_dl_max                qword,
+    l_thp_dl_min                qword,
+    l_thp_dl_ave                qword,
+    l_thp_ul_max                qword,
+    l_thp_ul_min                qword,
+    l_thp_ul_ave                qword,
+    l_cell_data_ptr             cell_data_ptr__t,
+    l_old_weight                word := 0,
+    l_new_weight                word := 0,
+    l_index                     dword := undefined_dword_c;
+
+START;
+ 
+    TASK l_cell_data_ptr := cell_data_read__r(p_c1_rec.cell_id,l_index);
+
+    /*If there is no user in cell, then do not need to update c1file*/
+    DECISION l_cell_data_ptr->cell_data.hspa_users.max = min_c;
+    (T):
+        RETURN F;
+    ENDDECISION;
+
+    DECISION l_cell_data_ptr /= NIL;
+    (T):
+        TASK l_current_day := get_current_day();
+        TASK l_current_hour := get_current_hour();
+        TASK l_update_count := p_c1_rec.data(l_current_day).hour(l_current_hour).update_count;
+        TASK get_c1file_update_weight(l_update_count, l_old_weight, l_new_weight);
+        
+        /************* HSPA USER VALUE**********************/
+        TASK l_hspa_users_max := word(p_c1_rec.data(l_current_day).hour(l_current_hour).hspa_users.max);
+        TASK l_hspa_users_min := word(p_c1_rec.data(l_current_day).hour(l_current_hour).hspa_users.min);
+        TASK l_hspa_users_ave := word(p_c1_rec.data(l_current_day).hour(l_current_hour).hspa_users.ave);
+
+        /*Max*/
+        TASK p_c1_rec.data(l_current_day).hour(l_current_hour).hspa_users.max := process_hspa_user_data(l_hspa_users_max, l_cell_data_ptr->cell_data.hspa_users.max, l_old_weight, l_new_weight);
+
+        /*Min*/
+        DECISION l_cell_data_ptr->cell_data.hspa_users.min = max_c;
+        (T):
+            TASK p_c1_rec.data(l_current_day).hour(l_current_hour).hspa_users.min := process_hspa_user_data(l_hspa_users_min, 0, l_old_weight, l_new_weight);
+        ELSE:
+            TASK p_c1_rec.data(l_current_day).hour(l_current_hour).hspa_users.min := process_hspa_user_data(l_hspa_users_min, l_cell_data_ptr->cell_data.hspa_users.min, l_old_weight, l_new_weight);
+        ENDDECISION;
+
+        /*Ave*/
+        DECISION l_cell_data_ptr->cell_data_storage(0).den;
+        (>0):
+            TASK l_cell_data_ptr->cell_data.hspa_users.ave := dword(l_cell_data_ptr->cell_data_storage(0).num / l_cell_data_ptr->cell_data_storage(0).den);
+        ELSE:
+            TASK l_cell_data_ptr->cell_data.hspa_users.ave := 0;
+        ENDDECISION;
+
+        TASK p_c1_rec.data(l_current_day).hour(l_current_hour).hspa_users.ave := process_hspa_user_data(l_hspa_users_ave, l_cell_data_ptr->cell_data.hspa_users.ave, l_old_weight, l_new_weight);
+
+        /************* THROUGHPUT_DL **********************/
+        TASK l_thp_dl_max := qword(p_c1_rec.data(l_current_day).hour(l_current_hour).throughput_dl.max) * bps_to_mbps_div__c;
+        TASK l_thp_dl_min := qword(p_c1_rec.data(l_current_day).hour(l_current_hour).throughput_dl.min) * bps_to_mbps_div__c;
+        TASK l_thp_dl_ave := qword(p_c1_rec.data(l_current_day).hour(l_current_hour).throughput_dl.ave) * bps_to_mbps_div__c;
+
+        /*Max*/
+        TASK p_c1_rec.data(l_current_day).hour(l_current_hour).throughput_dl.max := process_throughput_data(l_thp_dl_max, l_cell_data_ptr->cell_data.thp_dl.max, l_old_weight, l_new_weight);
+
+        /*Min*/
+        DECISION l_cell_data_ptr->cell_data.thp_dl.min = max_c;
+        (T):
+            TASK p_c1_rec.data(l_current_day).hour(l_current_hour).throughput_dl.min := process_throughput_data(l_thp_dl_min, 0, l_old_weight, l_new_weight);
+        ELSE:
+            TASK p_c1_rec.data(l_current_day).hour(l_current_hour).throughput_dl.min := process_throughput_data(l_thp_dl_min, l_cell_data_ptr->cell_data.thp_dl.min, l_old_weight, l_new_weight);
+        ENDDECISION;
+
+        /*Ave*/
+        DECISION l_cell_data_ptr->cell_data_storage(1).den;
+        (>0):
+            TASK l_cell_data_ptr->cell_data.thp_dl.ave := dword(l_cell_data_ptr->cell_data_storage(1).num / l_cell_data_ptr->cell_data_storage(1).den);
+        ELSE:
+            TASK l_cell_data_ptr->cell_data.thp_dl.ave := 0;
+        ENDDECISION;
+
+        TASK p_c1_rec.data(l_current_day).hour(l_current_hour).throughput_dl.ave := process_throughput_data(l_thp_dl_ave, l_cell_data_ptr->cell_data.thp_dl.ave, l_old_weight, l_new_weight);
+
+        /************* THROUGHPUT_UL **********************/
+        TASK l_thp_ul_max := qword(p_c1_rec.data(l_current_day).hour(l_current_hour).throughput_ul.max) * bps_to_mbps_div__c;
+        TASK l_thp_ul_min := qword(p_c1_rec.data(l_current_day).hour(l_current_hour).throughput_ul.min) * bps_to_mbps_div__c;
+        TASK l_thp_ul_ave := qword(p_c1_rec.data(l_current_day).hour(l_current_hour).throughput_ul.ave) * bps_to_mbps_div__c;
+
+        /*Max*/
+        TASK p_c1_rec.data(l_current_day).hour(l_current_hour).throughput_ul.max := process_throughput_data(l_thp_ul_max, l_cell_data_ptr->cell_data.thp_ul.max, l_old_weight, l_new_weight);
+
+        /*Min*/
+        DECISION l_cell_data_ptr->cell_data.thp_ul.min = max_c;
+        (T):
+            TASK p_c1_rec.data(l_current_day).hour(l_current_hour).throughput_ul.min := process_throughput_data(l_thp_ul_min, 0, l_old_weight, l_new_weight);
+        ELSE:
+            TASK p_c1_rec.data(l_current_day).hour(l_current_hour).throughput_ul.min := process_throughput_data(l_thp_ul_min, l_cell_data_ptr->cell_data.thp_ul.min, l_old_weight, l_new_weight);
+        ENDDECISION;
+
+        /*Ave*/
+        DECISION l_cell_data_ptr->cell_data_storage(2).den;
+        (>0):
+            TASK l_cell_data_ptr->cell_data.thp_ul.ave := dword(l_cell_data_ptr->cell_data_storage(2).num / l_cell_data_ptr->cell_data_storage(2).den);
+        ELSE:
+            TASK l_cell_data_ptr->cell_data.thp_ul.ave := 0;
+        ENDDECISION;
+
+        TASK p_c1_rec.data(l_current_day).hour(l_current_hour).throughput_ul.ave := process_throughput_data(l_thp_ul_ave, l_cell_data_ptr->cell_data.thp_ul.ave, l_old_weight, l_new_weight);
+
+        TASK p_c1_rec.data(l_current_day).hour(l_current_hour).update_count := l_update_count + 1;
+    ELSE:
+        TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                          @'MCEH10: cell_record not found for update');
+        RETURN F;
+    ENDDECISION;
+
+    RETURN T;
+ENDPROCEDURE process_data_for_c1file_update; 
+
+
+/* Procedure Definition ***************************************************/
+PROCEDURE retry_after_5_sec_time;
+START;
+
+    SET (NOW + c1file_upd_retry_time_c,t_wait_upd_retry_time);
+    NEXTSTATE wait_timer;
+
+STATE wait_timer;
+
+INPUT t_wait_upd_retry_time;
+
+RETURN;
+
+ENDSTATE wait_timer;
+    
+ENDPROCEDURE retry_after_5_sec_time;  
+
+
+/* Procedure Definition ***************************************************/
+PROCEDURE clear_internal_cell_data;
+
+/**************************************************************************/
+FPAR
+    IN  l_cell_id               c_id_t;
+
+DCL
+    l_cell_data_ptr             cell_data_ptr__t,
+    l_index                     dword := undefined_dword_c;
+
+START;
+     TASK l_cell_data_ptr := cell_data_read__r(l_cell_id,l_index);
+
+    DECISION l_cell_data_ptr /= NIL;
+    (T):
+        TASK l_cell_data_ptr->cell_data.hspa_users.max := min_c;
+        TASK l_cell_data_ptr->cell_data.hspa_users.min := max_c;
+        TASK l_cell_data_ptr->cell_data.hspa_users.ave := min_c;
+        TASK l_cell_data_ptr->cell_data.thp_dl.max := min_c;
+        TASK l_cell_data_ptr->cell_data.thp_dl.min := max_c;
+        TASK l_cell_data_ptr->cell_data.thp_dl.ave := min_c;
+        TASK l_cell_data_ptr->cell_data.thp_ul.max := min_c;
+        TASK l_cell_data_ptr->cell_data.thp_ul.min := max_c;
+        TASK l_cell_data_ptr->cell_data.thp_ul.ave := min_c;  
+        TASK l_index := 0;
+        WHILE l_index < temp_count_storage__t_max_c;
+              TASK l_cell_data_ptr->cell_data_storage(l_index).num := min_c;
+              TASK l_cell_data_ptr->cell_data_storage(l_index).den := min_c;
+              TASK l_index := l_index + 1;
+        ENDWHILE;
+    ELSE:
+        TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                          @'MCEH10: cell_record not found for update');
+    ENDDECISION;
+
+    RETURN;
+ENDPROCEDURE clear_internal_cell_data;
+
+/**************************************************************************/

@@ -1,0 +1,36 @@
+-- %MID%
+-- $Date:  $
+-- $Author: Inderjeet $
+--** PID = '@(#)PID:                                ';
+--** TYPE = FAMILY;
+--** MULTILDT;
+TNBLD;
+
+SEGMENT
+    CODE32( DPL = 0, BASE = 80000000H ),
+    DATA( DPL = 0 ),
+    mceha1_DATA( DPL = 0 ),
+    mceste_DATA( DPL = 0),
+    STACK( DPL = 0, NOT EXPANDDOWN, LIMIT = 1FFFFH );
+
+TABLE
+    LDT_TNB( ENTRY = ( 1 : CODE32,
+                       2 : DATA,
+                       4 : STACK,
+                      25 : mceha1_DATA
+                      26 : mceste_DATA ),
+             RESERVE = (3..3),
+             BASE = 74000000H );
+
+TASK
+    NORMAL_TASK( BASE = 60000000H,
+                 CODE = mcemas,
+                 LDT  = LDT_TNB,
+                 DATA = DATA,
+                 STACKS = ( STACK ));
+
+--** BASE_SEL = 5;
+--** DYN_SLOTS = 1000;
+--** HAND_GROUP( DATA = mceha1_DATA, DYN_SLOTS = 3 );
+--** HAND_GROUP( DATA = mceste_DATA, DYN_SLOTS = 3 );
+END

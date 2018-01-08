@@ -1,0 +1,57 @@
+/*
+ *  $Revision: 2 $
+ *  $Date:  $
+ *  $Author: Inderjeet $
+ *
+ *  Environment:
+ *      rnxsysqx,rnqsybqx,ceisebqx
+ *
+ *  Description:
+ *
+ *
+ *  COPYRIGHT (c) 2010 NSN
+ */
+
+IMPLEMENTATION rnxsysqx OF SYSTEM rnxsys;
+ SYSTEMBLOCK
+ rnqsyb;
+
+#include "s_dty:dxsstdef.sdt" /* character_t definition */
+#include "dtocstgx.spd"
+#include "dtobitgx.spd"
+
+/* Runtime environment */
+#include "mcermiqx.scc"
+#include "dtopidgx.spd"
+
+ENDIMPLEMENTATION rnxsysqx;
+
+IMPLEMENTATION rnqsybqx OF SYSTEMBLOCK rnqsyb;
+ SERVICEBLOCK
+ ceiseb;
+ENDIMPLEMENTATION rnqsybqx;
+
+IMPLEMENTATION ceisebqx OF SERVICEBLOCK ceiseb;
+ PROGRAMBLOCK
+ mcermi;
+ENDIMPLEMENTATION ceisebqx;
+
+IMPLEMENTATION mcermiqx OF PROGRAMBLOCK mcermi;
+
+MASTER PROCESS
+    mcemas;
+PROCESS
+    mceha1(cell_index       dword),
+    mceha2(),
+    mceha3(),
+    mceste();
+
+MODULE 
+    mcemod;
+
+/* make compilation switches visible to C-code */
+SYNONYM mt bool = EXTERNAL;
+#include "mcermiqx.sdt"        /*  own types  */
+#include "mcermiqx.spd"
+
+ENDIMPLEMENTATION mcermiqx;

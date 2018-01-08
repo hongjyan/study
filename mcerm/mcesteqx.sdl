@@ -1,0 +1,143 @@
+PROCESS mceste
+ COMMENT '%SID%';
+DCL
+
+    mcermi_debug_flag          bool,
+    l_pce_pid                  pid;
+
+/*********************** P R O C E S S    B O D Y *************************/
+START;
+
+
+
+    TASK mcermi_debug_flag := get_mcermi_debug_flag();
+
+    TASK make_pid_r(l_pce_pid,log_address_t_icsux_c, pcermi_p,0,0);
+
+    OUTPUT ste_config__s(mcermi_debug_flag) TO l_pce_pid COMMENT '0x9110';
+
+    NEXTSTATE wait_request;
+
+/**************************************************************************/
+STATE wait_request;
+
+/**************************************************************************/
+INPUT mcerm_data_collect_req__s(ceh_pid, cell_id, collect_state) COMMENT '0x9100';
+DCL
+    ceh_pid                pid,
+    cell_id                c_id_t,
+    collect_state          data_collect__t,
+    cell_count             word,
+    data_collect_info      mcerm_data_collect_inquire__t;
+
+
+    TASK get_cell_data_collect_info(cell_id, collect_state, cell_count, data_collect_info);
+    
+    OUTPUT mcerm_data_collect_ack__s(cell_count, data_collect_info) TO ceh_pid COMMENT'0x9101';
+
+
+NEXTSTATE -;
+
+INPUT mcerm_counter_data_req__s(ceh_pid, cell_id) COMMENT '0x9102';
+DCL
+    ceh_pid                pid,
+    cell_id                c_id_t,
+    cell_count             word,
+    counter_data_info      mcerm_counter_data_inquire__t;
+
+
+    TASK get_cell_counter_data_info(cell_id, cell_count, counter_data_info);
+    
+    OUTPUT mcerm_counter_data_ack__s(cell_count, counter_data_info) TO ceh_pid COMMENT'0x9103';
+    
+
+NEXTSTATE -;
+
+INPUT ste_config__s(mcermi_debug_flag) COMMENT '0x9110';
+DCL 
+    mcermi_debug_flag          bool,
+    l_pce_pid                  pid;
+
+    TASK set_mcermi_debug_flag(mcermi_debug_flag);
+
+    DECISION mcermi_debug_flag;
+    (F):
+        TASK set_c1file_update_period(c1file_update_period_c);
+        TASK set_pcermi_report_period(pcermi_report_period_c);
+    ENDDECISION;
+
+    TASK make_pid_r(l_pce_pid,log_address_t_icsux_c, pcermi_p,0,0);
+
+    OUTPUT ste_config__s(mcermi_debug_flag) TO l_pce_pid COMMENT '0x9110';
+    
+NEXTSTATE -;
+
+INPUT ste_config_req__s(pcermi_ste_pid) COMMENT '0x9111';
+DCL 
+    mcermi_debug_flag          bool,
+    pcermi_ste_pid             pid;
+
+    TASK mcermi_debug_flag := get_mcermi_debug_flag();
+
+    OUTPUT ste_config__s(mcermi_debug_flag) TO pcermi_ste_pid COMMENT '0x9110';
+    
+NEXTSTATE -;
+
+INPUT ste_config_inq__s(ceh_pid) COMMENT '0x9112';
+DCL
+    ceh_pid                    pid,
+    mcermi_debug_flag          bool;
+   
+
+    TASK mcermi_debug_flag := get_mcermi_debug_flag();
+
+    OUTPUT ste_config_inq_ack__s(mcermi_debug_flag) TO ceh_pid COMMENT '0x9113';
+    
+NEXTSTATE -;
+
+INPUT pcermi_report_period__s(pcermi_report_period) COMMENT '0x9114';
+DCL 
+    pcermi_report_period            dword;
+
+    DECISION get_mcermi_debug_flag();
+    (T):
+        TASK pcermi_report_period := pcermi_report_period * 60 * ticket_per_second__c;
+        TASK set_pcermi_report_period(pcermi_report_period);
+    ENDDECISION;
+
+NEXTSTATE -;
+
+INPUT c1file_update_period_inq__s(ceh_pid) COMMENT '0x9115';
+DCL 
+    ceh_pid                       pid,
+    c1file_update_period          dword;
+
+    TASK c1file_update_period := get_c1file_update_period();
+    TASK c1file_update_period := c1file_update_period / ticket_per_second__c / 60;
+
+    OUTPUT c1file_update_period__s(c1file_update_period)TO ceh_pid COMMENT '0x9109';
+
+NEXTSTATE -;
+
+INPUT pcermi_report_period_inq__s(ceh_pid) COMMENT '0x9116';
+DCL 
+    ceh_pid                     pid,
+    pcermi_report_period        dword;
+
+    TASK pcermi_report_period := get_pcermi_report_period();
+    TASK pcermi_report_period := pcermi_report_period / ticket_per_second__c / 60;
+
+    OUTPUT pcermi_report_period__s(pcermi_report_period)TO ceh_pid COMMENT '0x9114';
+
+NEXTSTATE -;
+
+/************************************************************************/
+INPUT hand_supervision_msg_s COMMENT '7816';
+    
+    OUTPUT hand_supervision_ack_s TO SENDER COMMENT'7817';
+NEXTSTATE -;
+
+ENDSTATE wait_request;
+/**************************************************************************/
+
+ENDPROCESS mceste;

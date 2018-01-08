@@ -1,0 +1,86 @@
+PROCESS mceha3
+ COMMENT '%SID%';
+/*
+ *  $Author: Inderjeet $
+ *
+ *  Environment:
+  *      rnxsysqx,rnqsybqx,ceisebqx
+ *
+ *  Description:
+ *      Hand 3 (Load Balancer) process of MCERMI
+ *
+ *  COPYRIGHT (c) 2000 - 2009 NSN
+ *
+ **************************************************************************/
+    
+
+#include "mceh30qx.sdl"
+/*********************** P R O C E S S    B O D Y *************************/
+START;
+
+NEXTSTATE wait_request;
+
+
+STATE wait_request;
+
+/**************************************************************************/
+INPUT mce_hand_info_s(l_msg_data) COMMENT '0xxxxx';
+
+DCL
+    l_msg_data          msg_0fff_t;
+
+    DECISION l_msg_data.mce_task;
+    (mce_task_t_done_c):            /* task completed ok            */
+
+    (mce_task_t_failed_c):          /* task failed                  */
+
+    (mce_task_t_dsp_allocation_c):  /* DSP allocated for Cell       */
+
+    (mce_task_t_dsp_release_c):     /* DSP released from Cell       */
+
+    (mce_task_t_upd_pref_dsp_c):    /* Pref DSP list update request */
+
+    (mce_task_t_subfeature_upd_c):  /* sub-feature status update    */
+
+    (mce_task_t_start_collect_c):   /* start collecting Cell data   */
+
+    (mce_task_t_stop_collect_c):    /* stop collecting Cell data    */
+
+    (mce_task_t_hand_stop_c):       /* Hand stop indication         */
+
+    OUTPUT hand_stopped_s TO PARENT COMMENT '2070';
+    STOP;
+
+    ELSE:
+        TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                            @'MCEHA1: Invalid TASK received');
+    ENDDECISION;
+
+    NEXTSTATE -;
+
+
+/*************************************************************************/
+INPUT rnc_hand_released_s( L_msg );
+
+DCL
+    L_msg               msg_bfaa_t,
+    L_crashed_pid       pid_union_t;
+
+    TASK L_crashed_pid.real_pid  := L_msg.crashed_pid.real_pid;
+
+    DECISION( L_crashed_pid.pid_struct.family );
+    (pcermi_p):
+       OUTPUT hand_stopped_s TO PARENT COMMENT '2070';
+       STOP;
+    ENDDECISION;
+
+    NEXTSTATE -;
+
+/************************************************************************/
+INPUT hand_supervision_msg_s COMMENT '7816';
+    OUTPUT hand_supervision_ack_s TO SENDER COMMENT'7817';
+NEXTSTATE -;
+
+ENDSTATE wait_request;
+
+ENDPROCESS mceha3;

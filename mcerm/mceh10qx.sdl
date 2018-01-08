@@ -1,0 +1,309 @@
+ /*
+ *  
+ *  $Author: Inderjeet $
+ *
+ *  Environment:
+ *   rnxsysqx,rnqsybqx,ceisebqx   
+ *
+ *  Description:
+ *      Private procedures of CP hand process. 
+ *
+ *  COPYRIGHT (c) 2006 - 2010 NSN
+ *
+ **************************************************************************/
+
+
+
+
+
+PROCEDURE check_hand_requirements;
+RETURNS bool;
+DCL
+    l_mce_error       error_t,
+    l_conf_data       cerm_conf_data_t,
+    l_cell_data_ptr   cell_data_ptr__t,
+    l_c1_rec          c1file_rec_t;
+    
+START;
+    TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                         @'MCEHA10: check_hand_requirements');
+    TASK l_conf_data := get_cerm_conf_data__r();
+
+    DECISION l_conf_data.sub_flags.data_collecting;
+    (T):
+        TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                         @'MCEHA10: l_conf_data.sub_flags.data_collecting');
+    ELSE:
+        RETURN F;
+    ENDDECISION;
+    
+    TASK l_cell_data_ptr := cell_data_read__r (c_id_t_not_def_c,G_cell_index);
+
+    DECISION l_cell_data_ptr /= NIL;
+    (T):
+        TASK c1_rec_read_r(l_cell_data_ptr->cell_id,l_c1_rec,l_mce_error);
+        TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                         @'MCEHA10: c1_rec_read_r');
+        DECISION l_mce_error;
+        (/=success_ec):
+            TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                                @'MCEHA10: l_mce_error');
+            RETURN F;
+        ENDDECISION;
+    ELSE:
+        RETURN F;
+    ENDDECISION;
+    
+    RETURN T;
+
+ENDPROCEDURE check_hand_requirements;
+
+
+/**************************************************************************/
+PROCEDURE fill_needed_counters;
+/**************************************************************************/
+FPAR
+    IN/OUT      p_cerm_counters     cerm_counter_index_list_t;
+
+/**************************************************************************/
+DCL
+  l_conf_data                 cerm_conf_data_t,
+  l_index                     byte := 0,
+  l_count                     byte := 0;
+
+/**************************************************************************/
+START;
+    TASK memset(bytepointer(@p_cerm_counters),0xFF,SIZEOF(p_cerm_counters));
+    /* Fill counters needed from PCERMI */
+    TASK l_conf_data := get_cerm_conf_data__r();
+
+    WHILE l_index < cerm_counter_res_list_t_max_c;
+        DECISION l_conf_data.counters.counter(l_index).counter_id /= undefined_word_c;
+        (T):
+            TASK p_cerm_counters(l_count) := l_index;
+            TASK l_count := l_count + 1;
+        ENDDECISION;
+        TASK l_index := l_index + 1;
+    ENDWHILE;
+
+RETURN;
+ENDPROCEDURE fill_needed_counters;
+
+
+/**************************************************************************/
+PROCEDURE check_data_validity;
+/**************************************************************************/
+FPAR
+    IN      p_msg_data                      msg_123c_t;
+
+RETURNS bool;    
+
+/**************************************************************************/
+DCL
+  l_index1                    byte,
+  l_count                     byte,
+  l_cerm_conf_data            cerm_conf_data_t;
+
+/**************************************************************************/
+START;
+    TASK l_cerm_conf_data := get_cerm_conf_data__r();
+        TASK l_count    := 0;
+        WHILE l_count < p_msg_data.object_count;
+            TASK l_index1 := 0;
+            WHILE l_index1 < cerm_counters_t_max_counters_c;
+                DECISION p_msg_data.cerm_counter_list(l_count).counter_id /= undefined_byte_c AND
+                   l_cerm_conf_data.counters.counter(p_msg_data.cerm_counter_list(l_count).counter_id).counter_id /= undefined_word_c ;
+                (T):
+                    DECISION p_msg_data.cerm_counter_list(l_count).max = 0xFF AND
+                             p_msg_data.cerm_counter_list(l_count).min = 0xFF;
+                    (T):
+                        RETURN F;
+                    ENDDECISION;
+                ENDDECISION;
+                TASK l_index1 := l_index1 + 1;
+            ENDWHILE;
+            TASK l_count := l_count + 1;
+        ENDWHILE;
+
+   RETURN T;
+ENDPROCEDURE check_data_validity;
+
+
+/* Procedure Definition ***************************************************/
+PROCEDURE store_recvd_data_internally;
+/**************************************************************************/
+FPAR
+    IN/OUT      p_msg_data                  msg_123c_t;
+
+RETURNS bool;
+
+DCL
+     l_cerm_data_ptr                  cell_data_ptr__t,
+     l_count                          byte := 0,
+     l_index                          dword := undefined_dword_c;
+     
+START;
+    
+    TASK l_cerm_data_ptr := cell_data_read__r(p_msg_data.cell_id,l_index);
+    DECISION l_cerm_data_ptr /= NIL AND l_cerm_data_ptr->data_collect /= data_collect__t_report_recvd_c;
+    (T):
+        WHILE l_count < p_msg_data.object_count;
+           DECISION p_msg_data.cerm_counter_list(l_count).counter_id;
+           
+           (hspa_user__c):
+           
+               DECISION p_msg_data.cerm_counter_list(l_count).max > l_cerm_data_ptr->cell_data.hspa_users.max;
+               (T):
+                   TASK l_cerm_data_ptr->cell_data.hspa_users.max := p_msg_data.cerm_counter_list(l_count).max;
+               ENDDECISION;
+               DECISION p_msg_data.cerm_counter_list(l_count).min < l_cerm_data_ptr->cell_data.hspa_users.min;
+               (T):
+                   TASK l_cerm_data_ptr->cell_data.hspa_users.min := p_msg_data.cerm_counter_list(l_count).min;
+              ENDDECISION;
+              
+              TASK l_cerm_data_ptr->cell_data_storage(hspa_user__c - 1).num := l_cerm_data_ptr->cell_data_storage(hspa_user__c - 1).num + 
+                                                                (p_msg_data.cerm_counter_list(l_count).ave * l_cerm_data_ptr->pcermi_report_period);
+              TASK l_cerm_data_ptr->cell_data_storage(hspa_user__c - 1).den := l_cerm_data_ptr->cell_data_storage(hspa_user__c - 1).den + l_cerm_data_ptr->pcermi_report_period;
+              
+           (dl_thp__c):
+           
+               DECISION p_msg_data.cerm_counter_list(l_count).max > l_cerm_data_ptr->cell_data.thp_dl.max;
+               (T):
+                   TASK l_cerm_data_ptr->cell_data.thp_dl.max := p_msg_data.cerm_counter_list(l_count).max;
+               ENDDECISION;
+               DECISION p_msg_data.cerm_counter_list(l_count).min < l_cerm_data_ptr->cell_data.thp_dl.min;
+               (T):
+                   TASK l_cerm_data_ptr->cell_data.thp_dl.min := p_msg_data.cerm_counter_list(l_count).min;
+               ENDDECISION;             
+               TASK l_cerm_data_ptr->cell_data_storage(dl_thp__c - 1).num := l_cerm_data_ptr->cell_data_storage(dl_thp__c - 1).num + 
+                                                                 qword(p_msg_data.cerm_counter_list(l_count).ave) * qword(l_cerm_data_ptr->pcermi_report_period);
+               TASK l_cerm_data_ptr->cell_data_storage(dl_thp__c - 1).den := l_cerm_data_ptr->cell_data_storage(dl_thp__c - 1).den + l_cerm_data_ptr->pcermi_report_period;
+               
+           (ul_thp__c):
+           
+               DECISION p_msg_data.cerm_counter_list(l_count).max > l_cerm_data_ptr->cell_data.thp_ul.max;
+               (T):
+                   TASK l_cerm_data_ptr->cell_data.thp_ul.max := p_msg_data.cerm_counter_list(l_count).max;
+               ENDDECISION;
+               DECISION p_msg_data.cerm_counter_list(l_count).min < l_cerm_data_ptr->cell_data.thp_ul.min;
+               (T):
+                   TASK l_cerm_data_ptr->cell_data.thp_ul.min := p_msg_data.cerm_counter_list(l_count).min;
+               ENDDECISION;
+
+               TASK l_cerm_data_ptr->cell_data_storage(ul_thp__c - 1).num := l_cerm_data_ptr->cell_data_storage(ul_thp__c - 1).num + 
+                                                                 qword(p_msg_data.cerm_counter_list(l_count).ave) * qword(l_cerm_data_ptr->pcermi_report_period);
+               TASK l_cerm_data_ptr->cell_data_storage(ul_thp__c - 1).den := l_cerm_data_ptr->cell_data_storage(ul_thp__c - 1).den + l_cerm_data_ptr->pcermi_report_period;
+
+           ENDDECISION;
+           TASK l_count := l_count + 1;
+        ENDWHILE;
+        DECISION l_cerm_data_ptr->data_collect = data_collect__t_coll_stop_c;
+        (T):
+           TASK l_cerm_data_ptr->data_collect := data_collect__t_report_recvd_c;
+        ENDDECISION;
+        RETURN T;
+    ELSE:
+        TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                            @'MCEH10: Cell record not found');
+    ENDDECISION;
+
+RETURN F;
+ENDPROCEDURE store_recvd_data_internally;
+
+
+/* Procedure Definition ***************************************************/
+PROCEDURE update_cell_profiles;
+/**************************************************************************/
+FPAR
+    IN      p_cell_id                 c_id_t,
+    IN      p_counter_list            cerm_counter_res_list_t;
+START;
+
+RETURN ;
+ENDPROCEDURE update_cell_profiles;
+
+
+/* Procedure Definition ***************************************************/
+PROCEDURE get_reporting_period;
+
+RETURNS word;
+
+DCL
+    l_conf_data             cerm_conf_data_t,
+    l_reporting_period      word;
+START;
+    TASK l_conf_data := get_cerm_conf_data__r();
+    TASK l_reporting_period := l_conf_data.reporting_period;
+
+RETURN l_reporting_period;
+ENDPROCEDURE get_reporting_period;
+
+/* Procedure Definition ***************************************************/
+PROCEDURE send_stop_data_collect;
+FPAR 
+    IN  p_msg_data           msg_124a_t;
+DCL
+    l_pce_pid               pid;
+    
+START;
+    TASK make_pid_r(l_pce_pid, log_address_t_icsux_c ,pcermi_p,0,0); /*pcermi_p*/
+    OUTPUT cerm_data_collect_stop_s(p_msg_data) TO l_pce_pid COMMENT '0x124a';
+
+    RETURN;
+
+ENDPROCEDURE send_stop_data_collect;
+
+
+
+/* Procedure Definition ***************************************************/
+PROCEDURE send_start_data_collect;
+FPAR 
+    IN  p_msg_data           msg_123a_t,
+    IN  p_pcermi_pid         pid;
+
+RETURNS bool;    
+/**************************************************************************/    
+DCL
+    l_pce_pid               pid;
+    
+/**************************************************************************/    
+START;
+    TASK l_pce_pid := p_pcermi_pid;
+    
+    DECISION p_pcermi_pid = NULL;
+    (T):
+        TASK make_pid_r(l_pce_pid,log_address_t_icsux_c, pcermi_p,0,0);
+    ENDDECISION;
+
+    OUTPUT cerm_data_collect_start_s(p_msg_data) TO l_pce_pid COMMENT '0x0123a';
+    
+    SET(NOW + wait_data_report_time_c,t_wait_data_report);
+    
+    NEXTSTATE wait_for_pcermi_ack;
+
+/**************************************************************************/  
+STATE wait_for_pcermi_ack;
+/**************************************************************************/  
+INPUT t_wait_data_report;
+    TASK write_test_log(log_type_t_empty_t_c,NIL,0,
+                        @'MCEHA10: ACK could not be received');
+    /*SET(NOW + hand_stop_time_c,t_hand_stop_timer); */
+    RETURN F;
+
+
+/**************************************************************************/
+INPUT cerm_data_collect_ack_s(l_msg_data) COMMENT '0x123B';
+DCL
+    l_msg_data            msg_123b_t;
+
+    RESET(t_wait_data_report);
+    DECISION l_msg_data.status;
+    (/=success_ec):
+        RETURN F;
+    ENDDECISION;
+
+RETURN T;
+
+ENDSTATE wait_for_pcermi_ack;
+
+ENDPROCEDURE send_start_data_collect;

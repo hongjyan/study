@@ -1,0 +1,29 @@
+! %MID%
+! $Revision: 2 $
+! $Date: 8/30/2010 5:25:25 PM
+! $Author: Inderjeet $
+! MCERMI used services
+.so i_sed:sed01F58.cls ! cerm_data_collecting_as
+
+.so i_sed:sed0078F.cls ! prb_restart_notice_ss
+.so i_sed:sed007A1.cls ! prb_startup_as
+.so i_sed:sed00A8D.cls ! re_state_change_executed_ss
+.so i_sed:sed011DB.cls ! re_unit_restart_imminent_ss
+
+
+s_lib:clugengx.spd
+s_lib:dmxpl0gx.spd
+s_lib:dmxpl3gx.spd
+s_lib:efilibgx.spd
+s_lib:fislibgx.spd
+s_lib:funlibgx.spd
+s_lib:invokegx.spd
+s_lib:libgengx.spd
+s_lib:railibqx.spd
+s_lib:catlibgx.spd
+s_lib:pmtlibgx.spd
+s_lib:pmtlibqx.spd
+s_lib:prslibgx.spd 
+s_dty:dxsfilgx.sdt
+s_dty:dxserrg1.sli !error_t
+s_lib:seklibgx.spd !dxsyslog_r
