@@ -1,7 +1,0 @@
- ! @(#)MID: MCERMIQX.IN1 3.3-0 07/03/04
-! MCERMI provided services
-.so i_sed:sed01F30.cls ! mcermi_services_as
-!.so i_sed:sed01A6B.cls ! cerm_status_inquiry_as
-!.so i_sed:sed01A6B.cls ! cerm_load_balancing_as
-
-
