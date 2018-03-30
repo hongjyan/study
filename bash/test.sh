@@ -29,11 +29,11 @@ bar="hav"
 [[ $var == have[[:space:]]+fun ]] && echo == have[[:space:]]+fun #should work, but not.
 [[ $var =~ have[[:space:]]+fun ]] && echo =~ have[[:space:]]+fun #work, recommend to use =~ when do matching
 [[ $var == have[[:space:]]*fun ]] && echo == have[[:space:]]*fun # * work in ==, but + won't, don't know why.
-[[ $var =~ have[[:space:]]*fun ]] && echo =~ have[[:space:]]*fun
-[[ $var == have.*fun ]] && echo == have.*fun
-[[ $var =~ have.*fun ]] && echo =~ have.*fun
-[[ $var == have* ]] && echo == have*
-[[ $var =~ have* ]] && echo =~ have*
+[[ $var =~ have[[:space:]]*fun ]] && echo =~ have[[:space:]]*fun #ok
+[[ $var == have.*fun ]] && echo == have.*fun #. not ok in ==
+[[ $var =~ have.*fun ]] && echo =~ have.*fun #. ok in =~
+[[ $var == have* ]] && echo == have* #* ok in ==
+[[ $var =~ have* ]] && echo =~ have* #* ok in =~
 
 #wrong usage. will be interpreted as "[[ -n have fun==havesfun ]]"
 [[ $var==have\sfun ]] && echo  have\\sfun    
