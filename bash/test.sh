@@ -38,5 +38,21 @@ bar="hav"
 #wrong usage. will be interpreted as "[[ -n have fun==havesfun ]]"
 [[ $var==have\sfun ]] && echo  have\\sfun    
 set +x
-echo -e "-----------------------------------\n\n"
-
+echo -e "-----------------------------------"
+#2018/4/3
+source common.source
+functionOne() {
+   return
+}
+another() {
+   return
+}
+yetANOTHERfunction() {
+   return
+}
+IFS=$'\n'
+for f in $(declare -F); do
+   echo "${f:11}"
+done
+func1
+echo -e "-----------------------------------"

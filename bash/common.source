@@ -1,0 +1,4 @@
+func1() {
+    echo "I am func1"
+}
+
