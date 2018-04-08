@@ -39,20 +39,66 @@ bar="hav"
 [[ $var==have\sfun ]] && echo  have\\sfun    
 set +x
 echo -e "-----------------------------------"
-#2018/4/3
+
+#2018/4/3. get all functions from script then execute one by one.
 source common.source
 functionOne() {
+   echo "i am functionOne"
    return
 }
 another() {
+   echo "i am another"
    return
 }
 yetANOTHERfunction() {
+   echo "i am yetANOTHERfunction"
    return
 }
 IFS=$'\n'
+declare -a funcs
 for f in $(declare -F); do
-   echo "${f:11}"
+   declare -f pTemp
+   pTemp="${f:11}"
+   funcs+=($pTemp)
+   $pTemp
+#   echo "${f:11}"
 done
-func1
+for p in ${funcs[*]}; do
+    $p
+done
+echo -e "-----------------------------------"
+
+#2018/4/3. Test if callee function can shift caller's argument
+callee() {
+    for arg;
+        do printf "%s " $arg
+    done
+    printf "\n"
+    shift
+}
+caller() {
+    callee $@
+    for arg;
+        do printf "%s " $arg
+    done
+    printf "\n"
+}
+caller 1 2 3 4
+echo -e "-----------------------------------"
+
+#2018/4/8. How to pass an associative array as parameter to a function
+print_array() {
+    eval declare -A func_assoc_array=${1#*=} #eval is mandatory, otherwise the content after = would be taken as literal string. eval differs but root cause still vague for me. 
+    declare -p func_assoc_array
+}
+
+declare -A assoc_array=([key1]="value1" [key2]="value2")
+#proof that array was successfully created
+declare -p assoc_array
+#customer code to iterate associative array
+for key in ${!assoc_array[*]}; do
+    echo $key=${assoc_array[$key]}
+done
+
+print_array "$(declare -p assoc_array)"
 echo -e "-----------------------------------"
