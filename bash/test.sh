@@ -54,17 +54,21 @@ yetANOTHERfunction() {
    echo "i am yetANOTHERfunction"
    return
 }
+print_arg() {
+    for arg; do
+        echo -e $arg
+    done
+}
 IFS=$'\n'
 declare -a funcs
 for f in $(declare -F); do
    declare -f pTemp
    pTemp="${f:11}"
    funcs+=($pTemp)
-   $pTemp
 #   echo "${f:11}"
 done
 for p in ${funcs[*]}; do
-    $p
+    $p $@
 done
 echo -e "-----------------------------------"
 
@@ -101,4 +105,11 @@ for key in ${!assoc_array[*]}; do
 done
 
 print_array "$(declare -p assoc_array)"
+echo -e "-----------------------------------"
+#2018/4/27
+funcname() {
+    echo ${FUNCNAME[0]}
+    echo $0
+}
+funcname
 echo -e "-----------------------------------"
