@@ -113,3 +113,20 @@ funcname() {
 }
 funcname
 echo -e "-----------------------------------"
+echo $(pwd)
+echo $(dirname $0)
+echo -e "-----------------------------------"
+#2018/5/17
+#The content in [[ ]] is taken as string.
+# [[ echo game | grep game ]] && echo found #error
+[[ `echo game | grep game` ]] && echo found 1 #[ -n game] && echo found
+#when command execute failed, return value is an empty string. [[ -n '' ]] && echo found
+[[ `echo game | grep notexist` ]] && echo found 2
+# $(cmd) is the same as `cmd`
+[[ $(echo game | grep game) ]] && echo found 3
+#if take the return code of command
+if echo game | grep -q game;then echo found 4; fi
+#take the output of command, then take is as command to execute
+#if `echo game | grep game`; then echo found; fi
+#if $(echo game | grep game); then echo found; fi
+echo -e "-----------------------------------"
