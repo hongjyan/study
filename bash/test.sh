@@ -119,14 +119,13 @@ echo -e "-----------------------------------"
 #2018/5/17
 #The content in [[ ]] is taken as string.
 # [[ echo game | grep game ]] && echo found #error
-[[ `echo game | grep game` ]] && echo found 1 #[ -n game] && echo found
-#when command execute failed, return value is an empty string. [[ -n '' ]] && echo found
-[[ `echo game | grep notexist` ]] && echo found 2
+[[ `echo game | grep game` ]] && echo found 1 #The output of command take as arg in [[ `cmd` ]], so [ -n game] && echo found
+[[ `echo game | grep notexist` ]] && echo found 2 #when command execute failed, return value is an empty string. [[ -n '' ]] && echo found
 # $(cmd) is the same as `cmd`
 [[ $(echo game | grep game) ]] && echo found 3
-#if take the return code of command
+#if take the return code of command, not output of command
 if echo game | grep -q game;then echo found 4; fi
-#take the output of command, then take is as command to execute
+#take the output of command, then take is as command to execute, so shell will try to run "game" which is the output of cmd.
 #if `echo game | grep game`; then echo found; fi
 #if $(echo game | grep game); then echo found; fi
 echo -e "-----------------------------------"
