@@ -129,3 +129,95 @@ if echo game | grep -q game;then echo found 4; fi
 #if `echo game | grep game`; then echo found; fi
 #if $(echo game | grep game); then echo found; fi
 echo -e "-----------------------------------"
+#2018/7/2
+#func_a() {
+#    pre=$(declare -p array)
+#    declare -A array=(
+#        [force]=1
+#        [swarm]=1
+#        ${pre#*=}
+#    )
+#}
+#
+#test_dict_in_func() {
+#    pre=$(declare -p array)
+#    declare -A array=(
+#        [base]=1
+#        [force]=1
+#        ${pre#*=}
+#    )
+#    declare -p array
+#}
+#set -x
+
+pre_test_dict_in_func_b() {
+#    declare -f FUNCNAME[0]
+    if [ ${#array[@]} -ne 0 ];then
+        array+=(
+            [swarm]=1
+        )
+    else
+        declare -x -g -A 'array=(
+            [swarm]=1
+        )'
+    fi
+    declare -p array
+}
+
+test_dict_in_func_b() {
+    if [ ${#array[@]} -ne 0 ];then
+        array+=(
+            [build]=1
+            [k8s]=2
+        )
+    else
+        declare -x -g -A 'array=(
+            [build]=1
+            [k8s]=2
+        )'
+    fi
+}
+pre_test_dict_in_func_b
+test_dict_in_func_b
+declare -p array
+set +x
+echo -e "-----------------------------------"
+#2018/7/5
+funcarf() {
+    local aak=(1 2 3 4)
+    funcrf aak[@]
+}
+
+funcrf() {
+    local aab=${!1}
+    echo ${aab[@]}
+}
+
+funcarf
+declare -f funcarf
+funcstr=`declare -f funcarf`
+echo "${funcstr}" >> foo
+echo -e "-----------------------------------"
+#2018/7/9
+[ -f $(dirname $0)/combineFunction/layer1.sh ] && echo "layer1.sh exist"
+func79() {
+    [ -f $(dirname $0)/combineFunction/layer1.sh ] && echo "layer1.sh exist in function"
+}
+func79
+echo -e "-----------------------------------"
+#2018/7/26 check the length of array taken as function argument
+arr726=(1 2 3)
+func726() {
+    echo ${1}
+    echo ${!1}
+    #echo ${#${!1}} #wrong
+    local arr=(${!1})
+    echo ${#arr[@]}
+   
+}
+func726 arr726[@]
+echo -e "-----------------------------------"
+#2018/7/30 built-in variable ${BASH_SOURCE}
+echo ${BASH_SOURCE}
+echo -e "-----------------------------------"
+
