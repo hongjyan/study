@@ -1,0 +1,2325 @@
+./msrp_server.out "10.68.128.35" "70000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "70100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "70200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "70300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "70400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "70500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "70600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "70700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "70800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "70900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "71000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "71100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "71200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "71300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "71400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "71500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "71600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "71700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "71800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "71900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "72000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "72100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "72200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "72300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "72400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "72500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "72600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "72700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "72800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "72900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "73000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "73100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "73200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "73300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "73400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "73500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "73600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "73700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "73800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "73900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "74000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "74100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "74200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "74300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "74400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "74500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "74600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "74700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "74800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "74900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "75000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "75100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "75200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "75300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "75400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "75500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "75600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "75700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "75800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "75900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "76000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "76100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "76200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "76300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "76400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "76500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "76600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "76700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "76800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "76900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "77000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "77100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "77200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "77300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "77400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "77500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "77600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "77700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "77800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "77900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "78000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "78100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "78200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "78300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "78400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "78500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "78600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "78700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "78800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "78900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "79000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "79100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "79200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "79300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "79400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "79500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "79600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "79700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "79800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "79900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "80000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "80100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "80200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "80300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "80400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "80500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "80600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "80700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "80800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "80900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "81000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "81100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "81200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "81300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "81400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "81500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "81600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "81700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "81800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "81900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "82000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "82100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "82200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "82300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "82400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "82500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "82600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "82700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "82800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "82900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "83000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "83100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "83200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "83300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "83400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "83500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "83600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "83700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "83800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "83900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "84000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "84100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "84200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "84300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "84400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "84500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "84600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "84700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "84800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "84900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "85000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "85100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "85200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "85300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "85400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "85500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "85600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "85700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "85800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "85900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "86000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "86100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "86200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "86300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "86400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "86500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "86600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "86700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "86800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "86900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "87000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "87100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "87200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "87300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "87400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "87500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "87600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "87700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "87800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "87900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "88000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "88100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "88200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "88300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "88400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "88500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "88600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "88700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "88800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "88900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "89000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "89100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "89200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "89300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "89400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "89500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "89600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "89700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "89800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "89900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "90000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "90100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "90200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "90300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "90400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "90500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "90600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "90700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "90800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "90900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "91000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "91100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "91200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "91300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "91400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "91500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "91600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "91700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "91800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "91900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "92000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "92100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "92200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "92300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "92400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "92500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "92600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "92700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "92800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "92900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "93000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "93100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "93200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "93300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "93400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "93500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "93600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "93700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "93800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "93900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "94000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "94100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "94200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "94300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "94400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "94500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "94600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "94700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "94800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "94900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "95000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "95100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "95200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "95300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "95400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "95500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "95600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "95700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "95800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "95900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "96000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "96100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "96200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "96300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "96400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "96500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "96600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "96700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "96800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "96900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "97000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "97100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "97200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "97300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "97400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "97500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "97600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "97700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "97800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "97900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "98000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "98100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "98200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "98300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "98400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "98500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "98600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "98700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "98800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "98900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "99000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "99100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "99200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "99300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "99400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "99500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "99600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "99700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "99800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "99900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "100000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "100100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "100200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "100300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "100400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "100500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "100600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "100700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "100800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "100900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "101000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "101100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "101200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "101300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "101400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "101500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "101600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "101700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "101800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "101900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "102000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "102100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "102200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "102300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "102400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "102500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "102600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "102700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "102800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "102900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "103000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "103100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "103200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "103300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "103400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "103500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "103600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "103700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "103800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "103900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "104000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "104100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "104200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "104300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "104400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "104500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "104600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "104700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "104800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "104900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "105000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "105100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "105200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "105300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "105400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "105500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "105600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "105700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "105800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "105900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "106000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "106100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "106200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "106300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "106400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "106500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "106600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "106700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "106800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "106900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "107000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "107100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "107200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "107300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "107400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "107500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "107600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "107700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "107800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "107900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "108000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "108100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "108200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "108300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "108400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "108500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "108600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "108700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "108800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "108900" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "109000" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "109100" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "109200" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "109300" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "109400" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "109500" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "109600" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "109700" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "109800" "100" "msrp_server.cpp"&
+./msrp_server.out "10.68.128.35" "109900" "100" "msrp_server.cpp"&
+!!!!listening failed on socket:16 for 10.68.128.35:71208. Errno is 95, Operation not supported
+!!!!listening failed on socket:22 for 10.68.128.35:98619. Errno is 95, Operation not supported
+!!!!listening failed on socket:38 for 10.68.128.35:98636. Errno is 95, Operation not supported
+!!!!listening failed on socket:51 for 10.68.128.35:98649. Errno is 95, Operation not supported
+!!!!listening failed on socket:7 for 10.68.128.35:109504. Errno is 95, Operation not supported
+!!!!listening failed on socket:31 for 10.68.128.35:109527. Errno is 95, Operation not supported
+!!!!listening failed on socket:78 for 10.68.128.35:109578. Errno is 95, Operation not supported
+!!!!listening failed on socket:12 for 10.68.128.35:98310. Errno is 95, Operation not supported
+!!!!listening failed on socket:20 for 10.68.128.35:98316. Errno is 95, Operation not supported
+!!!!listening failed on socket:5 for 10.68.128.35:99408. Errno is 95, Operation not supported
+!!!!listening failed on socket:37 for 10.68.128.35:99435. Errno is 95, Operation not supported
+!!!!listening failed on socket:58 for 10.68.128.35:99458. Errno is 95, Operation not supported
+!!!!listening failed on socket:60 for 10.68.128.35:99461. Errno is 95, Operation not supported
+!!!!listening failed on socket:73 for 10.68.128.35:99474. Errno is 95, Operation not supported
+!!!!listening failed on socket:88 for 10.68.128.35:99490. Errno is 95, Operation not supported
+!!!!listening failed on socket:94 for 10.68.128.35:99497. Errno is 95, Operation not supported
+!!!!listening failed on socket:33 for 10.68.128.35:100729. Errno is 95, Operation not supported
+!!!!listening failed on socket:37 for 10.68.128.35:100736. Errno is 95, Operation not supported
+!!!!listening failed on socket:40 for 10.68.128.35:100739. Errno is 95, Operation not supported
+!!!!listening failed on socket:48 for 10.68.128.35:100748. Errno is 95, Operation not supported
+!!!!listening failed on socket:59 for 10.68.128.35:100759. Errno is 95, Operation not supported
+!!!!listening failed on socket:68 for 10.68.128.35:100770. Errno is 95, Operation not supported
+!!!!listening failed on socket:69 for 10.68.128.35:100772. Errno is 95, Operation not supported
+!!!!listening failed on socket:5 for 10.68.128.35:100102. Errno is 95, Operation not supported
+!!!!listening failed on socket:5 for 10.68.128.35:100109. Errno is 95, Operation not supported
+!!!!listening failed on socket:23 for 10.68.128.35:100122. Errno is 95, Operation not supported
+!!!!listening failed on socket:57 for 10.68.128.35:100156. Errno is 95, Operation not supported
+!!!!listening failed on socket:60 for 10.68.128.35:100161. Errno is 95, Operation not supported
+!!!!listening failed on socket:71 for 10.68.128.35:100172. Errno is 95, Operation not supported
+!!!!listening failed on socket:87 for 10.68.128.35:100189. Errno is 95, Operation not supported
+!!!!listening failed on socket:15 for 10.68.128.35:105112. Errno is 95, Operation not supported
+!!!!listening failed on socket:20 for 10.68.128.35:105117. Errno is 95, Operation not supported
+!!!!listening failed on socket:29 for 10.68.128.35:105129. Errno is 95, Operation not supported
+!!!!listening failed on socket:42 for 10.68.128.35:105141. Errno is 95, Operation not supported
+!!!!listening failed on socket:47 for 10.68.128.35:105148. Errno is 95, Operation not supported
+!!!!listening failed on socket:48 for 10.68.128.35:105149. Errno is 95, Operation not supported
+!!!!listening failed on socket:50 for 10.68.128.35:105153. Errno is 95, Operation not supported
+!!!!listening failed on socket:61 for 10.68.128.35:105165. Errno is 95, Operation not supported
+!!!!listening failed on socket:63 for 10.68.128.35:105168. Errno is 95, Operation not supported
+!!!!listening failed on socket:65 for 10.68.128.35:105170. Errno is 95, Operation not supported
+!!!!listening failed on socket:71 for 10.68.128.35:105178. Errno is 95, Operation not supported
+!!!!listening failed on socket:7 for 10.68.128.35:99802. Errno is 95, Operation not supported
+!!!!listening failed on socket:18 for 10.68.128.35:99815. Errno is 95, Operation not supported
+!!!!listening failed on socket:33 for 10.68.128.35:99832. Errno is 95, Operation not supported
+!!!!listening failed on socket:70 for 10.68.128.35:99870. Errno is 95, Operation not supported
+!!!!listening failed on socket:16 for 10.68.128.35:101014. Errno is 95, Operation not supported
+!!!!listening failed on socket:25 for 10.68.128.35:101023. Errno is 95, Operation not supported
+!!!!listening failed on socket:25 for 10.68.128.35:101024. Errno is 95, Operation not supported
+!!!!listening failed on socket:42 for 10.68.128.35:101041. Errno is 95, Operation not supported
+!!!!listening failed on socket:46 for 10.68.128.35:101045. Errno is 95, Operation not supported
+!!!!listening failed on socket:63 for 10.68.128.35:101065. Errno is 95, Operation not supported
+!!!!listening failed on socket:85 for 10.68.128.35:101088. Errno is 95, Operation not supported
+!!!!listening failed on socket:10 for 10.68.128.35:100000. Errno is 95, Operation not supported
+!!!!listening failed on socket:27 for 10.68.128.35:100025. Errno is 95, Operation not supported
+!!!!listening failed on socket:41 for 10.68.128.35:100040. Errno is 95, Operation not supported
+!!!!listening failed on socket:68 for 10.68.128.35:100068. Errno is 95, Operation not supported
+!!!!listening failed on socket:73 for 10.68.128.35:100075. Errno is 95, Operation not supported
+!!!!listening failed on socket:96 for 10.68.128.35:100098. Errno is 95, Operation not supported
+!!!!listening failed on socket:15 for 10.68.128.35:100913. Errno is 95, Operation not supported
+!!!!listening failed on socket:34 for 10.68.128.35:100932. Errno is 95, Operation not supported
+!!!!listening failed on socket:72 for 10.68.128.35:100972. Errno is 95, Operation not supported
+!!!!listening failed on socket:74 for 10.68.128.35:100974. Errno is 95, Operation not supported
+!!!!listening failed on socket:89 for 10.68.128.35:100990. Errno is 95, Operation not supported
+!!!!listening failed on socket:91 for 10.68.128.35:100993. Errno is 95, Operation not supported
+!!!!listening failed on socket:30 for 10.68.128.35:105226. Errno is 95, Operation not supported
+!!!!listening failed on socket:40 for 10.68.128.35:105238. Errno is 95, Operation not supported
+!!!!listening failed on socket:47 for 10.68.128.35:105247. Errno is 95, Operation not supported
+!!!!listening failed on socket:52 for 10.68.128.35:105253. Errno is 95, Operation not supported
+!!!!listening failed on socket:76 for 10.68.128.35:105277. Errno is 95, Operation not supported
+!!!!listening failed on socket:77 for 10.68.128.35:105279. Errno is 95, Operation not supported
+!!!!listening failed on socket:81 for 10.68.128.35:105284. Errno is 95, Operation not supported
+!!!!listening failed on socket:6 for 10.68.128.35:98504. Errno is 95, Operation not supported
+!!!!listening failed on socket:8 for 10.68.128.35:98503. Errno is 95, Operation not supported
+!!!!listening failed on socket:4 for 10.68.128.35:98500. Errno is 95, Operation not supported
+!!!!listening failed on socket:16 for 10.68.128.35:98516. Errno is 95, Operation not supported
+!!!!listening failed on socket:33 for 10.68.128.35:98534. Errno is 95, Operation not supported
+!!!!listening failed on socket:74 for 10.68.128.35:98575. Errno is 95, Operation not supported
+!!!!listening failed on socket:20 for 10.68.128.35:99612. Errno is 95, Operation not supported
+!!!!listening failed on socket:30 for 10.68.128.35:99629. Errno is 95, Operation not supported
+!!!!listening failed on socket:12 for 10.68.128.35:99109. Errno is 95, Operation not supported
+!!!!listening failed on socket:12 for 10.68.128.35:99112. Errno is 95, Operation not supported
+!!!!listening failed on socket:32 for 10.68.128.35:99131. Errno is 95, Operation not supported
+!!!!listening failed on socket:63 for 10.68.128.35:99163. Errno is 95, Operation not supported
+!!!!listening failed on socket:74 for 10.68.128.35:99175. Errno is 95, Operation not supported
+!!!!listening failed on socket:76 for 10.68.128.35:99178. Errno is 95, Operation not supported
+!!!!listening failed on socket:85 for 10.68.128.35:99189. Errno is 95, Operation not supported
+!!!!listening failed on socket:8 for 10.68.128.35:102204. Errno is 95, Operation not supported
+!!!!listening failed on socket:23 for 10.68.128.35:102221. Errno is 95, Operation not supported
+!!!!listening failed on socket:40 for 10.68.128.35:102239. Errno is 95, Operation not supported
+!!!!listening failed on socket:57 for 10.68.128.35:102257. Errno is 95, Operation not supported
+!!!!listening failed on socket:98 for 10.68.128.35:102298. Errno is 95, Operation not supported
+!!!!listening failed on socket:7 for 10.68.128.35:100600. Errno is 95, Operation not supported
+!!!!listening failed on socket:15 for 10.68.128.35:100613. Errno is 95, Operation not supported
+!!!!listening failed on socket:26 for 10.68.128.35:100625. Errno is 95, Operation not supported
+!!!!listening failed on socket:30 for 10.68.128.35:100630. Errno is 95, Operation not supported
+!!!!listening failed on socket:42 for 10.68.128.35:100644. Errno is 95, Operation not supported
+!!!!listening failed on socket:52 for 10.68.128.35:100656. Errno is 95, Operation not supported
+!!!!listening failed on socket:74 for 10.68.128.35:100678. Errno is 95, Operation not supported
+!!!!listening failed on socket:9 for 10.68.128.35:100207. Errno is 95, Operation not supported
+!!!!listening failed on socket:4 for 10.68.128.35:100204. Errno is 95, Operation not supported
+!!!!listening failed on socket:13 for 10.68.128.35:100212. Errno is 95, Operation not supported
+!!!!listening failed on socket:15 for 10.68.128.35:100214. Errno is 95, Operation not supported
+!!!!listening failed on socket:20 for 10.68.128.35:100220. Errno is 95, Operation not supported
+!!!!listening failed on socket:22 for 10.68.128.35:100224. Errno is 95, Operation not supported
+!!!!listening failed on socket:96 for 10.68.128.35:100299. Errno is 95, Operation not supported
+!!!!listening failed on socket:17 for 10.68.128.35:99913. Errno is 95, Operation not supported
+!!!!listening failed on socket:36 for 10.68.128.35:99934. Errno is 95, Operation not supported
+!!!!listening failed on socket:75 for 10.68.128.35:99974. Errno is 95, Operation not supported
+!!!!listening failed on socket:13 for 10.68.128.35:101509. Errno is 95, Operation not supported
+!!!!listening failed on socket:41 for 10.68.128.35:101539. Errno is 95, Operation not supported
+!!!!listening failed on socket:60 for 10.68.128.35:101559. Errno is 95, Operation not supported
+!!!!listening failed on socket:91 for 10.68.128.35:101591. Errno is 95, Operation not supported
+!!!!listening failed on socket:10 for 10.68.128.35:102903. Errno is 95, Operation not supported
+!!!!listening failed on socket:44 for 10.68.128.35:102942. Errno is 95, Operation not supported
+!!!!listening failed on socket:61 for 10.68.128.35:102960. Errno is 95, Operation not supported
+!!!!listening failed on socket:83 for 10.68.128.35:102983. Errno is 95, Operation not supported
+!!!!listening failed on socket:87 for 10.68.128.35:102989. Errno is 95, Operation not supported
+!!!!listening failed on socket:97 for 10.68.128.35:102999. Errno is 95, Operation not supported
+!!!!listening failed on socket:19 for 10.68.128.35:100515. Errno is 95, Operation not supported
+!!!!listening failed on socket:70 for 10.68.128.35:100568. Errno is 95, Operation not supported
+!!!!listening failed on socket:87 for 10.68.128.35:100586. Errno is 95, Operation not supported
+!!!!listening failed on socket:87 for 10.68.128.35:100587. Errno is 95, Operation not supported
+!!!!listening failed on socket:91 for 10.68.128.35:100592. Errno is 95, Operation not supported
+!!!!listening failed on socket:28 for 10.68.128.35:102425. Errno is 95, Operation not supported
+!!!!listening failed on socket:30 for 10.68.128.35:102427. Errno is 95, Operation not supported
+!!!!listening failed on socket:44 for 10.68.128.35:102443. Errno is 95, Operation not supported
+!!!!listening failed on socket:60 for 10.68.128.35:102461. Errno is 95, Operation not supported
+!!!!listening failed on socket:72 for 10.68.128.35:102473. Errno is 95, Operation not supported
+!!!!listening failed on socket:85 for 10.68.128.35:102486. Errno is 95, Operation not supported
+!!!!listening failed on socket:61 for 10.68.128.35:101258. Errno is 95, Operation not supported
+!!!!listening failed on socket:63 for 10.68.128.35:101260. Errno is 95, Operation not supported
+!!!!listening failed on socket:76 for 10.68.128.35:101274. Errno is 95, Operation not supported
+!!!!listening failed on socket:49 for 10.68.128.35:101446. Errno is 95, Operation not supported
+!!!!listening failed on socket:73 for 10.68.128.35:101472. Errno is 95, Operation not supported
+!!!!listening failed on socket:78 for 10.68.128.35:101477. Errno is 95, Operation not supported
+!!!!listening failed on socket:84 for 10.68.128.35:101484. Errno is 95, Operation not supported
+!!!!listening failed on socket:88 for 10.68.128.35:101489. Errno is 95, Operation not supported
+!!!!listening failed on socket:96 for 10.68.128.35:101498. Errno is 95, Operation not supported
+!!!!listening failed on socket:3 for 10.68.128.35:102508. Errno is 95, Operation not supported
+!!!!listening failed on socket:12 for 10.68.128.35:102509. Errno is 95, Operation not supported
+!!!!listening failed on socket:19 for 10.68.128.35:102518. Errno is 95, Operation not supported
+!!!!listening failed on socket:46 for 10.68.128.35:102546. Errno is 95, Operation not supported
+!!!!listening failed on socket:56 for 10.68.128.35:102558. Errno is 95, Operation not supported
+!!!!listening failed on socket:60 for 10.68.128.35:102562. Errno is 95, Operation not supported
+!!!!listening failed on socket:64 for 10.68.128.35:102567. Errno is 95, Operation not supported
+!!!!listening failed on socket:9 for 10.68.128.35:104706. Errno is 95, Operation not supported
+!!!!listening failed on socket:45 for 10.68.128.35:104743. Errno is 95, Operation not supported
+!!!!listening failed on socket:66 for 10.68.128.35:104765. Errno is 95, Operation not supported
+!!!!listening failed on socket:71 for 10.68.128.35:104771. Errno is 95, Operation not supported
+!!!!listening failed on socket:96 for 10.68.128.35:104797. Errno is 95, Operation not supported
+!!!!listening failed on socket:24 for 10.68.128.35:101921. Errno is 95, Operation not supported
+!!!!listening failed on socket:36 for 10.68.128.35:101934. Errno is 95, Operation not supported
+!!!!listening failed on socket:64 for 10.68.128.35:101963. Errno is 95, Operation not supported
+!!!!listening failed on socket:64 for 10.68.128.35:101964. Errno is 95, Operation not supported
+!!!!listening failed on socket:71 for 10.68.128.35:101972. Errno is 95, Operation not supported
+!!!!listening failed on socket:77 for 10.68.128.35:101979. Errno is 95, Operation not supported
+!!!!listening failed on socket:84 for 10.68.128.35:101986. Errno is 95, Operation not supported
+!!!!listening failed on socket:90 for 10.68.128.35:101993. Errno is 95, Operation not supported
+!!!!listening failed on socket:91 for 10.68.128.35:101996. Errno is 95, Operation not supported
+!!!!listening failed on socket:17 for 10.68.128.35:107014. Errno is 95, Operation not supported
+!!!!listening failed on socket:25 for 10.68.128.35:107024. Errno is 95, Operation not supported
+!!!!listening failed on socket:27 for 10.68.128.35:107025. Errno is 95, Operation not supported
+!!!!listening failed on socket:25 for 10.68.128.35:107027. Errno is 95, Operation not supported
+!!!!listening failed on socket:33 for 10.68.128.35:107034. Errno is 95, Operation not supported
+!!!!listening failed on socket:47 for 10.68.128.35:107049. Errno is 95, Operation not supported
+!!!!listening failed on socket:62 for 10.68.128.35:107065. Errno is 95, Operation not supported
+!!!!listening failed on socket:67 for 10.68.128.35:107071. Errno is 95, Operation not supported
+!!!!listening failed on socket:8 for 10.68.128.35:104205. Errno is 95, Operation not supported
+!!!!listening failed on socket:13 for 10.68.128.35:104203. Errno is 95, Operation not supported
+!!!!listening failed on socket:30 for 10.68.128.35:104227. Errno is 95, Operation not supported
+!!!!listening failed on socket:30 for 10.68.128.35:104231. Errno is 95, Operation not supported
+!!!!listening failed on socket:47 for 10.68.128.35:104248. Errno is 95, Operation not supported
+!!!!listening failed on socket:59 for 10.68.128.35:104261. Errno is 95, Operation not supported
+!!!!listening failed on socket:76 for 10.68.128.35:104279. Errno is 95, Operation not supported
+!!!!listening failed on socket:85 for 10.68.128.35:104289. Errno is 95, Operation not supported
+!!!!listening failed on socket:86 for 10.68.128.35:104291. Errno is 95, Operation not supported
+!!!!listening failed on socket:88 for 10.68.128.35:104295. Errno is 95, Operation not supported
+!!!!listening failed on socket:88 for 10.68.128.35:104293. Errno is 95, Operation not supported
+!!!!listening failed on socket:5 for 10.68.128.35:98901. Errno is 95, Operation not supported
+!!!!listening failed on socket:63 for 10.68.128.35:98961. Errno is 95, Operation not supported
+!!!!listening failed on socket:9 for 10.68.128.35:98700. Errno is 95, Operation not supported
+!!!!listening failed on socket:17 for 10.68.128.35:98715. Errno is 95, Operation not supported
+!!!!listening failed on socket:22 for 10.68.128.35:98720. Errno is 95, Operation not supported
+!!!!listening failed on socket:34 for 10.68.128.35:98734. Errno is 95, Operation not supported
+!!!!listening failed on socket:69 for 10.68.128.35:98770. Errno is 95, Operation not supported
+!!!!listening failed on socket:84 for 10.68.128.35:98785. Errno is 95, Operation not supported
+!!!!listening failed on socket:62 for 10.68.128.35:99059. Errno is 95, Operation not supported
+!!!!listening failed on socket:85 for 10.68.128.35:99082. Errno is 95, Operation not supported
+!!!!listening failed on socket:98 for 10.68.128.35:99097. Errno is 95, Operation not supported
+!!!!listening failed on socket:99 for 10.68.128.35:99099. Errno is 95, Operation not supported
+!!!!listening failed on socket:18 for 10.68.128.35:106905. Errno is 95, Operation not supported
+!!!!listening failed on socket:28 for 10.68.128.35:106925. Errno is 95, Operation not supported
+!!!!listening failed on socket:37 for 10.68.128.35:106934. Errno is 95, Operation not supported
+!!!!listening failed on socket:92 for 10.68.128.35:106992. Errno is 95, Operation not supported
+!!!!listening failed on socket:13 for 10.68.128.35:99509. Errno is 95, Operation not supported
+!!!!listening failed on socket:14 for 10.68.128.35:99511. Errno is 95, Operation not supported
+!!!!listening failed on socket:83 for 10.68.128.35:99581. Errno is 95, Operation not supported
+!!!!listening failed on socket:93 for 10.68.128.35:99592. Errno is 95, Operation not supported
+!!!!listening failed on socket:94 for 10.68.128.35:99595. Errno is 95, Operation not supported
+!!!!listening failed on socket:22 for 10.68.128.35:108319. Errno is 95, Operation not supported
+!!!!listening failed on socket:35 for 10.68.128.35:108333. Errno is 95, Operation not supported
+!!!!listening failed on socket:35 for 10.68.128.35:108334. Errno is 95, Operation not supported
+!!!!listening failed on socket:37 for 10.68.128.35:108337. Errno is 95, Operation not supported
+!!!!listening failed on socket:42 for 10.68.128.35:108343. Errno is 95, Operation not supported
+!!!!listening failed on socket:42 for 10.68.128.35:108345. Errno is 95, Operation not supported
+!!!!listening failed on socket:46 for 10.68.128.35:108348. Errno is 95, Operation not supported
+!!!!listening failed on socket:12 for 10.68.128.35:99308. Errno is 95, Operation not supported
+!!!!listening failed on socket:65 for 10.68.128.35:99364. Errno is 95, Operation not supported
+!!!!listening failed on socket:92 for 10.68.128.35:99391. Errno is 95, Operation not supported
+!!!!listening failed on socket:4 for 10.68.128.35:107901. Errno is 95, Operation not supported
+!!!!listening failed on socket:16 for 10.68.128.35:107913. Errno is 95, Operation not supported
+!!!!listening failed on socket:73 for 10.68.128.35:107970. Errno is 95, Operation not supported
+!!!!listening failed on socket:74 for 10.68.128.35:107973. Errno is 95, Operation not supported
+!!!!listening failed on socket:81 for 10.68.128.35:107982. Errno is 95, Operation not supported
+!!!!listening failed on socket:17 for 10.68.128.35:101113. Errno is 95, Operation not supported
+!!!!listening failed on socket:32 for 10.68.128.35:101130. Errno is 95, Operation not supported
+!!!!listening failed on socket:43 for 10.68.128.35:101141. Errno is 95, Operation not supported
+!!!!listening failed on socket:44 for 10.68.128.35:101143. Errno is 95, Operation not supported
+!!!!listening failed on socket:54 for 10.68.128.35:101154. Errno is 95, Operation not supported
+!!!!listening failed on socket:68 for 10.68.128.35:101170. Errno is 95, Operation not supported
+!!!!listening failed on socket:86 for 10.68.128.35:101190. Errno is 95, Operation not supported
+!!!!listening failed on socket:6 for 10.68.128.35:104601. Errno is 95, Operation not supported
+!!!!listening failed on socket:4 for 10.68.128.35:104606. Errno is 95, Operation not supported
+!!!!listening failed on socket:4 for 10.68.128.35:104608. Errno is 95, Operation not supported
+!!!!listening failed on socket:12 for 10.68.128.35:104613. Errno is 95, Operation not supported
+!!!!listening failed on socket:17 for 10.68.128.35:104617. Errno is 95, Operation not supported
+!!!!listening failed on socket:25 for 10.68.128.35:104627. Errno is 95, Operation not supported
+!!!!listening failed on socket:52 for 10.68.128.35:104655. Errno is 95, Operation not supported
+!!!!listening failed on socket:52 for 10.68.128.35:104657. Errno is 95, Operation not supported
+!!!!listening failed on socket:54 for 10.68.128.35:104659. Errno is 95, Operation not supported
+!!!!listening failed on socket:84 for 10.68.128.35:104690. Errno is 95, Operation not supported
+!!!!listening failed on socket:23 for 10.68.128.35:107219. Errno is 95, Operation not supported
+!!!!listening failed on socket:23 for 10.68.128.35:107223. Errno is 95, Operation not supported
+!!!!listening failed on socket:39 for 10.68.128.35:107238. Errno is 95, Operation not supported
+!!!!listening failed on socket:46 for 10.68.128.35:107245. Errno is 95, Operation not supported
+!!!!listening failed on socket:49 for 10.68.128.35:107250. Errno is 95, Operation not supported
+!!!!listening failed on socket:69 for 10.68.128.35:107271. Errno is 95, Operation not supported
+!!!!listening failed on socket:79 for 10.68.128.35:107282. Errno is 95, Operation not supported
+!!!!listening failed on socket:80 for 10.68.128.35:107283. Errno is 95, Operation not supported
+!!!!listening failed on socket:14 for 10.68.128.35:98408. Errno is 95, Operation not supported
+!!!!listening failed on socket:51 for 10.68.128.35:98449. Errno is 95, Operation not supported
+!!!!listening failed on socket:27 for 10.68.128.35:104924. Errno is 95, Operation not supported
+!!!!listening failed on socket:44 for 10.68.128.35:104942. Errno is 95, Operation not supported
+!!!!listening failed on socket:82 for 10.68.128.35:104981. Errno is 95, Operation not supported
+!!!!listening failed on socket:6 for 10.68.128.35:98803. Errno is 95, Operation not supported
+!!!!listening failed on socket:35 for 10.68.128.35:98833. Errno is 95, Operation not supported
+!!!!listening failed on socket:36 for 10.68.128.35:98835. Errno is 95, Operation not supported
+!!!!listening failed on socket:52 for 10.68.128.35:98852. Errno is 95, Operation not supported
+!!!!listening failed on socket:10 for 10.68.128.35:108501. Errno is 95, Operation not supported
+!!!!listening failed on socket:15 for 10.68.128.35:108514. Errno is 95, Operation not supported
+!!!!listening failed on socket:36 for 10.68.128.35:108535. Errno is 95, Operation not supported
+!!!!listening failed on socket:54 for 10.68.128.35:108554. Errno is 95, Operation not supported
+!!!!listening failed on socket:55 for 10.68.128.35:108557. Errno is 95, Operation not supported
+!!!!listening failed on socket:58 for 10.68.128.35:108560. Errno is 95, Operation not supported
+!!!!listening failed on socket:8 for 10.68.128.35:105503. Errno is 95, Operation not supported
+!!!!listening failed on socket:16 for 10.68.128.35:105515. Errno is 95, Operation not supported
+!!!!listening failed on socket:22 for 10.68.128.35:105521. Errno is 95, Operation not supported
+!!!!listening failed on socket:31 for 10.68.128.35:105531. Errno is 95, Operation not supported
+!!!!listening failed on socket:46 for 10.68.128.35:105546. Errno is 95, Operation not supported
+!!!!listening failed on socket:54 for 10.68.128.35:105556. Errno is 95, Operation not supported
+!!!!listening failed on socket:67 for 10.68.128.35:105570. Errno is 95, Operation not supported
+!!!!listening failed on socket:86 for 10.68.128.35:105591. Errno is 95, Operation not supported
+!!!!listening failed on socket:13 for 10.68.128.35:100306. Errno is 95, Operation not supported
+!!!!listening failed on socket:14 for 10.68.128.35:100309. Errno is 95, Operation not supported
+!!!!listening failed on socket:22 for 10.68.128.35:100316. Errno is 95, Operation not supported
+!!!!listening failed on socket:25 for 10.68.128.35:100325. Errno is 95, Operation not supported
+!!!!listening failed on socket:33 for 10.68.128.35:100332. Errno is 95, Operation not supported
+!!!!listening failed on socket:32 for 10.68.128.35:100336. Errno is 95, Operation not supported
+!!!!listening failed on socket:45 for 10.68.128.35:100346. Errno is 95, Operation not supported
+!!!!listening failed on socket:47 for 10.68.128.35:100350. Errno is 95, Operation not supported
+!!!!listening failed on socket:48 for 10.68.128.35:100353. Errno is 95, Operation not supported
+!!!!listening failed on socket:52 for 10.68.128.35:100358. Errno is 95, Operation not supported
+!!!!listening failed on socket:62 for 10.68.128.35:100369. Errno is 95, Operation not supported
+!!!!listening failed on socket:65 for 10.68.128.35:100374. Errno is 95, Operation not supported
+!!!!listening failed on socket:86 for 10.68.128.35:100395. Errno is 95, Operation not supported
+!!!!listening failed on socket:87 for 10.68.128.35:100397. Errno is 95, Operation not supported
+!!!!listening failed on socket:8 for 10.68.128.35:100400. Errno is 95, Operation not supported
+!!!!listening failed on socket:9 for 10.68.128.35:100405. Errno is 95, Operation not supported
+!!!!listening failed on socket:5 for 10.68.128.35:100406. Errno is 95, Operation not supported
+!!!!listening failed on socket:15 for 10.68.128.35:100415. Errno is 95, Operation not supported
+!!!!listening failed on socket:22 for 10.68.128.35:100423. Errno is 95, Operation not supported
+!!!!listening failed on socket:41 for 10.68.128.35:100442. Errno is 95, Operation not supported
+!!!!listening failed on socket:47 for 10.68.128.35:100450. Errno is 95, Operation not supported
+!!!!listening failed on socket:48 for 10.68.128.35:100453. Errno is 95, Operation not supported
+!!!!listening failed on socket:53 for 10.68.128.35:100457. Errno is 95, Operation not supported
+!!!!listening failed on socket:67 for 10.68.128.35:100472. Errno is 95, Operation not supported
+!!!!listening failed on socket:71 for 10.68.128.35:100478. Errno is 95, Operation not supported
+!!!!listening failed on socket:89 for 10.68.128.35:100495. Errno is 95, Operation not supported
+!!!!listening failed on socket:5 for 10.68.128.35:106102. Errno is 95, Operation not supported
+!!!!listening failed on socket:62 for 10.68.128.35:106160. Errno is 95, Operation not supported
+!!!!listening failed on socket:99 for 10.68.128.35:106198. Errno is 95, Operation not supported
+!!!!listening failed on socket:24 for 10.68.128.35:101621. Errno is 95, Operation not supported
+!!!!listening failed on socket:27 for 10.68.128.35:101625. Errno is 95, Operation not supported
+!!!!listening failed on socket:28 for 10.68.128.35:101626. Errno is 95, Operation not supported
+!!!!listening failed on socket:27 for 10.68.128.35:101627. Errno is 95, Operation not supported
+!!!!listening failed on socket:61 for 10.68.128.35:101663. Errno is 95, Operation not supported
+!!!!listening failed on socket:64 for 10.68.128.35:101666. Errno is 95, Operation not supported
+!!!!listening failed on socket:95 for 10.68.128.35:101699. Errno is 95, Operation not supported
+!!!!listening failed on socket:10 for 10.68.128.35:103010. Errno is 95, Operation not supported
+!!!!listening failed on socket:28 for 10.68.128.35:103026. Errno is 95, Operation not supported
+!!!!listening failed on socket:47 for 10.68.128.35:103046. Errno is 95, Operation not supported
+!!!!listening failed on socket:60 for 10.68.128.35:103060. Errno is 95, Operation not supported
+!!!!listening failed on socket:87 for 10.68.128.35:103087. Errno is 95, Operation not supported
+!!!!listening failed on socket:8 for 10.68.128.35:100803. Errno is 95, Operation not supported
+!!!!listening failed on socket:18 for 10.68.128.35:100817. Errno is 95, Operation not supported
+!!!!listening failed on socket:21 for 10.68.128.35:100819. Errno is 95, Operation not supported
+!!!!listening failed on socket:50 for 10.68.128.35:100850. Errno is 95, Operation not supported
+!!!!listening failed on socket:69 for 10.68.128.35:100870. Errno is 95, Operation not supported
+!!!!listening failed on socket:71 for 10.68.128.35:100873. Errno is 95, Operation not supported
+!!!!listening failed on socket:71 for 10.68.128.35:100874. Errno is 95, Operation not supported
+!!!!listening failed on socket:80 for 10.68.128.35:100884. Errno is 95, Operation not supported
+!!!!listening failed on socket:88 for 10.68.128.35:100893. Errno is 95, Operation not supported
+!!!!listening failed on socket:24 for 10.68.128.35:106521. Errno is 95, Operation not supported
+!!!!listening failed on socket:30 for 10.68.128.35:106528. Errno is 95, Operation not supported
+!!!!listening failed on socket:89 for 10.68.128.35:106588. Errno is 95, Operation not supported
+!!!!listening failed on socket:12 for 10.68.128.35:107504. Errno is 95, Operation not supported
+!!!!listening failed on socket:37 for 10.68.128.35:107535. Errno is 95, Operation not supported
+!!!!listening failed on socket:71 for 10.68.128.35:107571. Errno is 95, Operation not supported
+!!!!listening failed on socket:81 for 10.68.128.35:107581. Errno is 95, Operation not supported
+!!!!listening failed on socket:66 for 10.68.128.35:99262. Errno is 95, Operation not supported
+!!!!listening failed on socket:79 for 10.68.128.35:99277. Errno is 95, Operation not supported
+!!!!listening failed on socket:93 for 10.68.128.35:99291. Errno is 95, Operation not supported
+!!!!listening failed on socket:91 for 10.68.128.35:99292. Errno is 95, Operation not supported
+!!!!listening failed on socket:44 for 10.68.128.35:107140. Errno is 95, Operation not supported
+!!!!listening failed on socket:58 for 10.68.128.35:107157. Errno is 95, Operation not supported
+!!!!listening failed on socket:89 for 10.68.128.35:107189. Errno is 95, Operation not supported
+!!!!listening failed on socket:7 for 10.68.128.35:103906. Errno is 95, Operation not supported
+!!!!listening failed on socket:25 for 10.68.128.35:103922. Errno is 95, Operation not supported
+!!!!listening failed on socket:48 for 10.68.128.35:103947. Errno is 95, Operation not supported
+!!!!listening failed on socket:71 for 10.68.128.35:103971. Errno is 95, Operation not supported
+!!!!listening failed on socket:72 for 10.68.128.35:103973. Errno is 95, Operation not supported
+!!!!listening failed on socket:88 for 10.68.128.35:103990. Errno is 95, Operation not supported
+!!!!listening failed on socket:88 for 10.68.128.35:103992. Errno is 95, Operation not supported
+!!!!listening failed on socket:3 for 10.68.128.35:106204. Errno is 95, Operation not supported
+!!!!listening failed on socket:66 for 10.68.128.35:106264. Errno is 95, Operation not supported
+!!!!listening failed on socket:95 for 10.68.128.35:106293. Errno is 95, Operation not supported
+!!!!listening failed on socket:96 for 10.68.128.35:106296. Errno is 95, Operation not supported
+!!!!listening failed on socket:24 for 10.68.128.35:102121. Errno is 95, Operation not supported
+!!!!listening failed on socket:27 for 10.68.128.35:102124. Errno is 95, Operation not supported
+!!!!listening failed on socket:34 for 10.68.128.35:102133. Errno is 95, Operation not supported
+!!!!listening failed on socket:46 for 10.68.128.35:102146. Errno is 95, Operation not supported
+!!!!listening failed on socket:60 for 10.68.128.35:102160. Errno is 95, Operation not supported
+!!!!listening failed on socket:61 for 10.68.128.35:102162. Errno is 95, Operation not supported
+!!!!listening failed on socket:76 for 10.68.128.35:102179. Errno is 95, Operation not supported
+!!!!listening failed on socket:76 for 10.68.128.35:102181. Errno is 95, Operation not supported
+!!!!listening failed on socket:81 for 10.68.128.35:102186. Errno is 95, Operation not supported
+!!!!listening failed on socket:6 for 10.68.128.35:102801. Errno is 95, Operation not supported
+!!!!listening failed on socket:6 for 10.68.128.35:102807. Errno is 95, Operation not supported
+!!!!listening failed on socket:17 for 10.68.128.35:102816. Errno is 95, Operation not supported
+!!!!listening failed on socket:25 for 10.68.128.35:102825. Errno is 95, Operation not supported
+!!!!listening failed on socket:37 for 10.68.128.35:102838. Errno is 95, Operation not supported
+!!!!listening failed on socket:62 for 10.68.128.35:102864. Errno is 95, Operation not supported
+!!!!listening failed on socket:74 for 10.68.128.35:102877. Errno is 95, Operation not supported
+!!!!listening failed on socket:8 for 10.68.128.35:103607. Errno is 95, Operation not supported
+!!!!listening failed on socket:16 for 10.68.128.35:103615. Errno is 95, Operation not supported
+!!!!listening failed on socket:33 for 10.68.128.35:103633. Errno is 95, Operation not supported
+!!!!listening failed on socket:39 for 10.68.128.35:103638. Errno is 95, Operation not supported
+!!!!listening failed on socket:56 for 10.68.128.35:103657. Errno is 95, Operation not supported
+!!!!listening failed on socket:74 for 10.68.128.35:103676. Errno is 95, Operation not supported
+!!!!listening failed on socket:84 for 10.68.128.35:103687. Errno is 95, Operation not supported
+!!!!listening failed on socket:90 for 10.68.128.35:103694. Errno is 95, Operation not supported
+!!!!listening failed on socket:5 for 10.68.128.35:103707. Errno is 95, Operation not supported
+!!!!listening failed on socket:10 for 10.68.128.35:103702. Errno is 95, Operation not supported
+!!!!listening failed on socket:14 for 10.68.128.35:103711. Errno is 95, Operation not supported
+!!!!listening failed on socket:16 for 10.68.128.35:103716. Errno is 95, Operation not supported
+!!!!listening failed on socket:19 for 10.68.128.35:103719. Errno is 95, Operation not supported
+!!!!listening failed on socket:59 for 10.68.128.35:103761. Errno is 95, Operation not supported
+!!!!listening failed on socket:64 for 10.68.128.35:103767. Errno is 95, Operation not supported
+!!!!listening failed on socket:64 for 10.68.128.35:103768. Errno is 95, Operation not supported
+!!!!listening failed on socket:10 for 10.68.128.35:101701. Errno is 95, Operation not supported
+!!!!listening failed on socket:33 for 10.68.128.35:101732. Errno is 95, Operation not supported
+!!!!listening failed on socket:59 for 10.68.128.35:101758. Errno is 95, Operation not supported
+!!!!listening failed on socket:60 for 10.68.128.35:101760. Errno is 95, Operation not supported
+!!!!listening failed on socket:85 for 10.68.128.35:101786. Errno is 95, Operation not supported
+!!!!listening failed on socket:89 for 10.68.128.35:101791. Errno is 95, Operation not supported
+!!!!listening failed on socket:94 for 10.68.128.35:101795. Errno is 95, Operation not supported
+!!!!listening failed on socket:3 for 10.68.128.35:103207. Errno is 95, Operation not supported
+!!!!listening failed on socket:30 for 10.68.128.35:103228. Errno is 95, Operation not supported
+!!!!listening failed on socket:57 for 10.68.128.35:103256. Errno is 95, Operation not supported
+!!!!listening failed on socket:57 for 10.68.128.35:103257. Errno is 95, Operation not supported
+!!!!listening failed on socket:61 for 10.68.128.35:103262. Errno is 95, Operation not supported
+!!!!listening failed on socket:71 for 10.68.128.35:103272. Errno is 95, Operation not supported
+!!!!listening failed on socket:73 for 10.68.128.35:103276. Errno is 95, Operation not supported
+!!!!listening failed on socket:25 for 10.68.128.35:108023. Errno is 95, Operation not supported
+!!!!listening failed on socket:53 for 10.68.128.35:108051. Errno is 95, Operation not supported
+!!!!listening failed on socket:61 for 10.68.128.35:108059. Errno is 95, Operation not supported
+!!!!listening failed on socket:70 for 10.68.128.35:108070. Errno is 95, Operation not supported
+!!!!listening failed on socket:36 for 10.68.128.35:103533. Errno is 95, Operation not supported
+!!!!listening failed on socket:46 for 10.68.128.35:103544. Errno is 95, Operation not supported
+!!!!listening failed on socket:67 for 10.68.128.35:103565. Errno is 95, Operation not supported
+!!!!listening failed on socket:74 for 10.68.128.35:103573. Errno is 95, Operation not supported
+!!!!listening failed on socket:91 for 10.68.128.35:103592. Errno is 95, Operation not supported
+!!!!listening failed on socket:16 for 10.68.128.35:101316. Errno is 95, Operation not supported
+!!!!listening failed on socket:12 for 10.68.128.35:101311. Errno is 95, Operation not supported
+!!!!listening failed on socket:57 for 10.68.128.35:101355. Errno is 95, Operation not supported
+!!!!listening failed on socket:70 for 10.68.128.35:101370. Errno is 95, Operation not supported
+!!!!listening failed on socket:73 for 10.68.128.35:101374. Errno is 95, Operation not supported
+!!!!listening failed on socket:80 for 10.68.128.35:101382. Errno is 95, Operation not supported
+!!!!listening failed on socket:93 for 10.68.128.35:101396. Errno is 95, Operation not supported
+!!!!listening failed on socket:12 for 10.68.128.35:106407. Errno is 95, Operation not supported
+!!!!listening failed on socket:63 for 10.68.128.35:106461. Errno is 95, Operation not supported
+!!!!listening failed on socket:98 for 10.68.128.35:106497. Errno is 95, Operation not supported
+!!!!listening failed on socket:17 for 10.68.128.35:102714. Errno is 95, Operation not supported
+!!!!listening failed on socket:22 for 10.68.128.35:102720. Errno is 95, Operation not supported
+!!!!listening failed on socket:28 for 10.68.128.35:102728. Errno is 95, Operation not supported
+!!!!listening failed on socket:28 for 10.68.128.35:102729. Errno is 95, Operation not supported
+!!!!listening failed on socket:35 for 10.68.128.35:102736. Errno is 95, Operation not supported
+!!!!listening failed on socket:45 for 10.68.128.35:102747. Errno is 95, Operation not supported
+!!!!listening failed on socket:52 for 10.68.128.35:102755. Errno is 95, Operation not supported
+!!!!listening failed on socket:68 for 10.68.128.35:102773. Errno is 95, Operation not supported
+!!!!listening failed on socket:71 for 10.68.128.35:102776. Errno is 95, Operation not supported
+!!!!listening failed on socket:72 for 10.68.128.35:102777. Errno is 95, Operation not supported
+!!!!listening failed on socket:76 for 10.68.128.35:102783. Errno is 95, Operation not supported
+!!!!listening failed on socket:76 for 10.68.128.35:102785. Errno is 95, Operation not supported
+!!!!listening failed on socket:85 for 10.68.128.35:102794. Errno is 95, Operation not supported
+!!!!listening failed on socket:14 for 10.68.128.35:105303. Errno is 95, Operation not supported
+!!!!listening failed on socket:16 for 10.68.128.35:105315. Errno is 95, Operation not supported
+!!!!listening failed on socket:33 for 10.68.128.35:105332. Errno is 95, Operation not supported
+!!!!listening failed on socket:39 for 10.68.128.35:105339. Errno is 95, Operation not supported
+!!!!listening failed on socket:46 for 10.68.128.35:105347. Errno is 95, Operation not supported
+!!!!listening failed on socket:51 for 10.68.128.35:105353. Errno is 95, Operation not supported
+!!!!listening failed on socket:54 for 10.68.128.35:105357. Errno is 95, Operation not supported
+!!!!listening failed on socket:61 for 10.68.128.35:105365. Errno is 95, Operation not supported
+!!!!listening failed on socket:73 for 10.68.128.35:105378. Errno is 95, Operation not supported
+!!!!listening failed on socket:78 for 10.68.128.35:105384. Errno is 95, Operation not supported
+!!!!listening failed on socket:16 for 10.68.128.35:105613. Errno is 95, Operation not supported
+!!!!listening failed on socket:18 for 10.68.128.35:105615. Errno is 95, Operation not supported
+!!!!listening failed on socket:17 for 10.68.128.35:105614. Errno is 95, Operation not supported
+!!!!listening failed on socket:28 for 10.68.128.35:105628. Errno is 95, Operation not supported
+!!!!listening failed on socket:40 for 10.68.128.35:105641. Errno is 95, Operation not supported
+!!!!listening failed on socket:63 for 10.68.128.35:107860. Errno is 95, Operation not supported
+!!!!listening failed on socket:77 for 10.68.128.35:107874. Errno is 95, Operation not supported
+!!!!listening failed on socket:3 for 10.68.128.35:106600. Errno is 95, Operation not supported
+!!!!listening failed on socket:26 for 10.68.128.35:106624. Errno is 95, Operation not supported
+!!!!listening failed on socket:53 for 10.68.128.35:106652. Errno is 95, Operation not supported
+!!!!listening failed on socket:81 for 10.68.128.35:106681. Errno is 95, Operation not supported
+!!!!listening failed on socket:10 for 10.68.128.35:102005. Errno is 95, Operation not supported
+!!!!listening failed on socket:21 for 10.68.128.35:102019. Errno is 95, Operation not supported
+!!!!listening failed on socket:32 for 10.68.128.35:102024. Errno is 95, Operation not supported
+!!!!listening failed on socket:57 for 10.68.128.35:102057. Errno is 95, Operation not supported
+!!!!listening failed on socket:71 for 10.68.128.35:102072. Errno is 95, Operation not supported
+!!!!listening failed on socket:72 for 10.68.128.35:102075. Errno is 95, Operation not supported
+!!!!listening failed on socket:88 for 10.68.128.35:102090. Errno is 95, Operation not supported
+!!!!listening failed on socket:5 for 10.68.128.35:103308. Errno is 95, Operation not supported
+!!!!listening failed on socket:32 for 10.68.128.35:103330. Errno is 95, Operation not supported
+!!!!listening failed on socket:52 for 10.68.128.35:103351. Errno is 95, Operation not supported
+!!!!listening failed on socket:99 for 10.68.128.35:103398. Errno is 95, Operation not supported
+!!!!listening failed on socket:10 for 10.68.128.35:108103. Errno is 95, Operation not supported
+!!!!listening failed on socket:12 for 10.68.128.35:108108. Errno is 95, Operation not supported
+!!!!listening failed on socket:30 for 10.68.128.35:108129. Errno is 95, Operation not supported
+!!!!listening failed on socket:93 for 10.68.128.35:108193. Errno is 95, Operation not supported
+!!!!listening failed on socket:21 for 10.68.128.35:103117. Errno is 95, Operation not supported
+!!!!listening failed on socket:32 for 10.68.128.35:103130. Errno is 95, Operation not supported
+!!!!listening failed on socket:70 for 10.68.128.35:103169. Errno is 95, Operation not supported
+!!!!listening failed on socket:80 for 10.68.128.35:103180. Errno is 95, Operation not supported
+!!!!listening failed on socket:94 for 10.68.128.35:103195. Errno is 95, Operation not supported
+!!!!listening failed on socket:57 for 10.68.128.35:107754. Errno is 95, Operation not supported
+!!!!listening failed on socket:68 for 10.68.128.35:107766. Errno is 95, Operation not supported
+!!!!listening failed on socket:83 for 10.68.128.35:107780. Errno is 95, Operation not supported
+!!!!listening failed on socket:86 for 10.68.128.35:107785. Errno is 95, Operation not supported
+!!!!listening failed on socket:15 for 10.68.128.35:104015. Errno is 95, Operation not supported
+!!!!listening failed on socket:46 for 10.68.128.35:104043. Errno is 95, Operation not supported
+!!!!listening failed on socket:48 for 10.68.128.35:104047. Errno is 95, Operation not supported
+!!!!listening failed on socket:48 for 10.68.128.35:107444. Errno is 95, Operation not supported
+!!!!listening failed on socket:55 for 10.68.128.35:107453. Errno is 95, Operation not supported
+!!!!listening failed on socket:22 for 10.68.128.35:108217. Errno is 95, Operation not supported
+!!!!listening failed on socket:28 for 10.68.128.35:108225. Errno is 95, Operation not supported
+!!!!listening failed on socket:37 for 10.68.128.35:108235. Errno is 95, Operation not supported
+!!!!listening failed on socket:54 for 10.68.128.35:108254. Errno is 95, Operation not supported
+!!!!listening failed on socket:57 for 10.68.128.35:108259. Errno is 95, Operation not supported
+!!!!listening failed on socket:19 for 10.68.128.35:106016. Errno is 95, Operation not supported
+!!!!listening failed on socket:73 for 10.68.128.35:106070. Errno is 95, Operation not supported
+!!!!listening failed on socket:27 for 10.68.128.35:102324. Errno is 95, Operation not supported
+!!!!listening failed on socket:46 for 10.68.128.35:102344. Errno is 95, Operation not supported
+!!!!listening failed on socket:66 for 10.68.128.35:102365. Errno is 95, Operation not supported
+!!!!listening failed on socket:84 for 10.68.128.35:102384. Errno is 95, Operation not supported
+!!!!listening failed on socket:88 for 10.68.128.35:102389. Errno is 95, Operation not supported
+!!!!listening failed on socket:28 for 10.68.128.35:104524. Errno is 95, Operation not supported
+!!!!listening failed on socket:34 for 10.68.128.35:104533. Errno is 95, Operation not supported
+!!!!listening failed on socket:44 for 10.68.128.35:104543. Errno is 95, Operation not supported
+!!!!listening failed on socket:61 for 10.68.128.35:104561. Errno is 95, Operation not supported
+!!!!listening failed on socket:67 for 10.68.128.35:104568. Errno is 95, Operation not supported
+!!!!listening failed on socket:68 for 10.68.128.35:104570. Errno is 95, Operation not supported
+!!!!listening failed on socket:18 for 10.68.128.35:105915. Errno is 95, Operation not supported
+!!!!listening failed on socket:18 for 10.68.128.35:105919. Errno is 95, Operation not supported
+!!!!listening failed on socket:50 for 10.68.128.35:105949. Errno is 95, Operation not supported
+!!!!listening failed on socket:55 for 10.68.128.35:105955. Errno is 95, Operation not supported
+!!!!listening failed on socket:86 for 10.68.128.35:105987. Errno is 95, Operation not supported
+Time experied during select on socket:24 for 10.68.128.35:95022
+!!!!listening failed on socket:4 for 10.68.128.35:101801. Errno is 95, Operation not supported
+!!!!listening failed on socket:5 for 10.68.128.35:101805. Errno is 95, Operation not supported
+!!!!listening failed on socket:7 for 10.68.128.35:101803. Errno is 95, Operation not supported
+!!!!listening failed on socket:25 for 10.68.128.35:101825. Errno is 95, Operation not supported
+!!!!listening failed on socket:25 for 10.68.128.35:101827. Errno is 95, Operation not supported
+!!!!listening failed on socket:39 for 10.68.128.35:101841. Errno is 95, Operation not supported
+!!!!listening failed on socket:42 for 10.68.128.35:101845. Errno is 95, Operation not supported
+!!!!listening failed on socket:70 for 10.68.128.35:101874. Errno is 95, Operation not supported
+!!!!listening failed on socket:74 for 10.68.128.35:101879. Errno is 95, Operation not supported
+Time experied during select on socket:75 for 10.68.128.35:101880
+!!!!listening failed on socket:5 for 10.68.128.35:102604. Errno is 95, Operation not supported
+!!!!listening failed on socket:9 for 10.68.128.35:102601. Errno is 95, Operation not supported
+!!!!listening failed on socket:8 for 10.68.128.35:102605. Errno is 95, Operation not supported
+!!!!listening failed on socket:9 for 10.68.128.35:102608. Errno is 95, Operation not supported
+!!!!listening failed on socket:15 for 10.68.128.35:102616. Errno is 95, Operation not supported
+!!!!listening failed on socket:82 for 10.68.128.35:102684. Errno is 95, Operation not supported
+!!!!listening failed on socket:95 for 10.68.128.35:102699. Errno is 95, Operation not supported
+Time experied during select on socket:30 for 10.68.128.35:102632
+!!!!listening failed on socket:7 for 10.68.128.35:105408. Errno is 95, Operation not supported
+!!!!listening failed on socket:18 for 10.68.128.35:105416. Errno is 95, Operation not supported
+!!!!listening failed on socket:28 for 10.68.128.35:105427. Errno is 95, Operation not supported
+!!!!listening failed on socket:32 for 10.68.128.35:105432. Errno is 95, Operation not supported
+!!!!listening failed on socket:66 for 10.68.128.35:105467. Errno is 95, Operation not supported
+!!!!listening failed on socket:74 for 10.68.128.35:105476. Errno is 95, Operation not supported
+!!!!listening failed on socket:76 for 10.68.128.35:105479. Errno is 95, Operation not supported
+Time experied during select on socket:7 for 10.68.128.35:105409
+!!!!listening failed on socket:28 for 10.68.128.35:103825. Errno is 95, Operation not supported
+!!!!listening failed on socket:29 for 10.68.128.35:103826. Errno is 95, Operation not supported
+!!!!listening failed on socket:28 for 10.68.128.35:103828. Errno is 95, Operation not supported
+!!!!listening failed on socket:74 for 10.68.128.35:103873. Errno is 95, Operation not supported
+!!!!listening failed on socket:86 for 10.68.128.35:103887. Errno is 95, Operation not supported
+!!!!listening failed on socket:97 for 10.68.128.35:103898. Errno is 95, Operation not supported
+Time experied during select on socket:39 for 10.68.128.35:103839
+!!!!listening failed on socket:16 for 10.68.128.35:103410. Errno is 95, Operation not supported
+!!!!listening failed on socket:45 for 10.68.128.35:103443. Errno is 95, Operation not supported
+!!!!listening failed on socket:45 for 10.68.128.35:103445. Errno is 95, Operation not supported
+!!!!listening failed on socket:83 for 10.68.128.35:103483. Errno is 95, Operation not supported
+!!!!listening failed on socket:91 for 10.68.128.35:103493. Errno is 95, Operation not supported
+Time experied during select on socket:92 for 10.68.128.35:103492
+Time experied during select on socket:88 for 10.68.128.35:103489
+Time experied during select on socket:90 for 10.68.128.35:103491
+Time experied during select on socket:79 for 10.68.128.35:103478
+Time experied during select on socket:86 for 10.68.128.35:103487
+Time experied during select on socket:94 for 10.68.128.35:103496
+Time experied during select on socket:87 for 10.68.128.35:103488
+Time experied during select on socket:89 for 10.68.128.35:103490
+Time experied during select on socket:91 for 10.68.128.35:103495
+Time experied during select on socket:93 for 10.68.128.35:103494
+Time experied during select on socket:96 for 10.68.128.35:103499
+Time experied during select on socket:95 for 10.68.128.35:103497
+Time experied during select on socket:97 for 10.68.128.35:103498
+!!!!listening failed on socket:8 for 10.68.128.35:104401. Errno is 95, Operation not supported
+!!!!listening failed on socket:10 for 10.68.128.35:104406. Errno is 95, Operation not supported
+!!!!listening failed on socket:62 for 10.68.128.35:104461. Errno is 95, Operation not supported
+!!!!listening failed on socket:67 for 10.68.128.35:104467. Errno is 95, Operation not supported
+!!!!listening failed on socket:72 for 10.68.128.35:104471. Errno is 95, Operation not supported
+!!!!listening failed on socket:97 for 10.68.128.35:104498. Errno is 95, Operation not supported
+Time experied during select on socket:43 for 10.68.128.35:104443
+!!!!listening failed on socket:60 for 10.68.128.35:105857. Errno is 95, Operation not supported
+!!!!listening failed on socket:71 for 10.68.128.35:105869. Errno is 95, Operation not supported
+!!!!listening failed on socket:76 for 10.68.128.35:105875. Errno is 95, Operation not supported
+!!!!listening failed on socket:88 for 10.68.128.35:105888. Errno is 95, Operation not supported
+!!!!listening failed on socket:89 for 10.68.128.35:105890. Errno is 95, Operation not supported
+Time experied during select on socket:6 for 10.68.128.35:105807
+!!!!listening failed on socket:34 for 10.68.128.35:104130. Errno is 95, Operation not supported
+!!!!listening failed on socket:34 for 10.68.128.35:104133. Errno is 95, Operation not supported
+!!!!listening failed on socket:51 for 10.68.128.35:104150. Errno is 95, Operation not supported
+!!!!listening failed on socket:59 for 10.68.128.35:104158. Errno is 95, Operation not supported
+!!!!listening failed on socket:77 for 10.68.128.35:104178. Errno is 95, Operation not supported
+!!!!listening failed on socket:79 for 10.68.128.35:104181. Errno is 95, Operation not supported
+Time experied during select on socket:77 for 10.68.128.35:104180
+!!!!listening failed on socket:9 for 10.68.128.35:104303. Errno is 95, Operation not supported
+!!!!listening failed on socket:6 for 10.68.128.35:104304. Errno is 95, Operation not supported
+!!!!listening failed on socket:39 for 10.68.128.35:104338. Errno is 95, Operation not supported
+!!!!listening failed on socket:52 for 10.68.128.35:104354. Errno is 95, Operation not supported
+!!!!listening failed on socket:56 for 10.68.128.35:104357. Errno is 95, Operation not supported
+!!!!listening failed on socket:67 for 10.68.128.35:104370. Errno is 95, Operation not supported
+!!!!listening failed on socket:77 for 10.68.128.35:104380. Errno is 95, Operation not supported
+!!!!listening failed on socket:93 for 10.68.128.35:104396. Errno is 95, Operation not supported
+Time experied during select on socket:91 for 10.68.128.35:104397
+!!!!listening failed on socket:3 for 10.68.128.35:104810. Errno is 95, Operation not supported
+!!!!listening failed on socket:24 for 10.68.128.35:104823. Errno is 95, Operation not supported
+!!!!listening failed on socket:36 for 10.68.128.35:104835. Errno is 95, Operation not supported
+!!!!listening failed on socket:46 for 10.68.128.35:104845. Errno is 95, Operation not supported
+!!!!listening failed on socket:55 for 10.68.128.35:104856. Errno is 95, Operation not supported
+!!!!listening failed on socket:56 for 10.68.128.35:104858. Errno is 95, Operation not supported
+!!!!listening failed on socket:62 for 10.68.128.35:104865. Errno is 95, Operation not supported
+Time experied during select on socket:59 for 10.68.128.35:104863
+!!!!listening failed on socket:5 for 10.68.128.35:105008. Errno is 95, Operation not supported
+!!!!listening failed on socket:14 for 10.68.128.35:105011. Errno is 95, Operation not supported
+!!!!listening failed on socket:24 for 10.68.128.35:105023. Errno is 95, Operation not supported
+!!!!listening failed on socket:29 for 10.68.128.35:105029. Errno is 95, Operation not supported
+!!!!listening failed on socket:31 for 10.68.128.35:105032. Errno is 95, Operation not supported
+!!!!listening failed on socket:40 for 10.68.128.35:105042. Errno is 95, Operation not supported
+!!!!listening failed on socket:63 for 10.68.128.35:105065. Errno is 95, Operation not supported
+!!!!listening failed on socket:80 for 10.68.128.35:105084. Errno is 95, Operation not supported
+Time experied during select on socket:83 for 10.68.128.35:105088
+Time experied during select on socket:75 for 10.68.128.35:105079
+Time experied during select on socket:92 for 10.68.128.35:105097
+Time experied during select on socket:87 for 10.68.128.35:105091
+Time experied during select on socket:89 for 10.68.128.35:105094
+Time experied during select on socket:78 for 10.68.128.35:105081
+Time experied during select on socket:76 for 10.68.128.35:105080
+Time experied during select on socket:82 for 10.68.128.35:105087
+Time experied during select on socket:84 for 10.68.128.35:105089
+Time experied during select on socket:86 for 10.68.128.35:105092
+Time experied during select on socket:77 for 10.68.128.35:105082
+Time experied during select on socket:85 for 10.68.128.35:105090
+Time experied during select on socket:90 for 10.68.128.35:105096
+Time experied during select on socket:71 for 10.68.128.35:105075
+Time experied during select on socket:79 for 10.68.128.35:105083
+Time experied during select on socket:81 for 10.68.128.35:105085
+Time experied during select on socket:80 for 10.68.128.35:105086
+Time experied during select on socket:91 for 10.68.128.35:105095
+Time experied during select on socket:94 for 10.68.128.35:105098
+Time experied during select on socket:88 for 10.68.128.35:105093
+Time experied during select on socket:93 for 10.68.128.35:105099
+!!!!listening failed on socket:20 for 10.68.128.35:105716. Errno is 95, Operation not supported
+!!!!listening failed on socket:23 for 10.68.128.35:105719. Errno is 95, Operation not supported
+!!!!listening failed on socket:23 for 10.68.128.35:105722. Errno is 95, Operation not supported
+!!!!listening failed on socket:36 for 10.68.128.35:105737. Errno is 95, Operation not supported
+!!!!listening failed on socket:66 for 10.68.128.35:105766. Errno is 95, Operation not supported
+!!!!listening failed on socket:90 for 10.68.128.35:105792. Errno is 95, Operation not supported
+Time experied during select on socket:12 for 10.68.128.35:105708
+!!!!listening failed on socket:37 for 10.68.128.35:106734. Errno is 95, Operation not supported
+!!!!listening failed on socket:64 for 10.68.128.35:106761. Errno is 95, Operation not supported
+Time experied during select on socket:23 for 10.68.128.35:106720
+Time experied during select on socket:30 for 10.68.128.35:106726
+Time experied during select on socket:44 for 10.68.128.35:106742
+Time experied during select on socket:48 for 10.68.128.35:106746
+Time experied during select on socket:75 for 10.68.128.35:106774
+Time experied during select on socket:98 for 10.68.128.35:106797
+Time experied during select on socket:100 for 10.68.128.35:106799
+Time experied during select on socket:42 for 10.68.128.35:106740
+Time experied during select on socket:65 for 10.68.128.35:106763
+Time experied during select on socket:67 for 10.68.128.35:106766
+Time experied during select on socket:82 for 10.68.128.35:106781
+Time experied during select on socket:83 for 10.68.128.35:106783
+Time experied during select on socket:93 for 10.68.128.35:106792
+Time experied during select on socket:52 for 10.68.128.35:106750
+Time experied during select on socket:53 for 10.68.128.35:106752
+Time experied during select on socket:63 for 10.68.128.35:106762
+Time experied during select on socket:73 for 10.68.128.35:106772
+Time experied during select on socket:37 for 10.68.128.35:106737
+Time experied during select on socket:45 for 10.68.128.35:106745
+Time experied during select on socket:59 for 10.68.128.35:106757
+Time experied during select on socket:60 for 10.68.128.35:106759
+Time experied during select on socket:80 for 10.68.128.35:106779
+Time experied during select on socket:99 for 10.68.128.35:106798
+Time experied during select on socket:7 for 10.68.128.35:106712
+Time experied during select on socket:76 for 10.68.128.35:106775
+Time experied during select on socket:78 for 10.68.128.35:106777
+Time experied during select on socket:51 for 10.68.128.35:106749
+Time experied during select on socket:28 for 10.68.128.35:106724
+Time experied during select on socket:46 for 10.68.128.35:106744
+Time experied during select on socket:50 for 10.68.128.35:106748
+Time experied during select on socket:55 for 10.68.128.35:106753
+Time experied during select on socket:84 for 10.68.128.35:106782
+Time experied during select on socket:57 for 10.68.128.35:106755
+Time experied during select on socket:95 for 10.68.128.35:106793
+Time experied during select on socket:87 for 10.68.128.35:106786
+Time experied during select on socket:88 for 10.68.128.35:106788
+Time experied during select on socket:26 for 10.68.128.35:106723
+Time experied during select on socket:69 for 10.68.128.35:106768
+Time experied during select on socket:64 for 10.68.128.35:106764
+Time experied during select on socket:71 for 10.68.128.35:106770
+Time experied during select on socket:61 for 10.68.128.35:106758
+Time experied during select on socket:77 for 10.68.128.35:106776
+Time experied during select on socket:29 for 10.68.128.35:106727
+Time experied during select on socket:91 for 10.68.128.35:106790
+Time experied during select on socket:94 for 10.68.128.35:106794
+Time experied during select on socket:31 for 10.68.128.35:106728
+Time experied during select on socket:34 for 10.68.128.35:106731
+Time experied during select on socket:68 for 10.68.128.35:106767
+Time experied during select on socket:70 for 10.68.128.35:106769
+Time experied during select on socket:43 for 10.68.128.35:106741
+Time experied during select on socket:36 for 10.68.128.35:106733
+Time experied during select on socket:25 for 10.68.128.35:106722
+Time experied during select on socket:58 for 10.68.128.35:106756
+Time experied during select on socket:38 for 10.68.128.35:106735
+Time experied during select on socket:33 for 10.68.128.35:106730
+Time experied during select on socket:35 for 10.68.128.35:106732
+Time experied during select on socket:47 for 10.68.128.35:106743
+Time experied during select on socket:40 for 10.68.128.35:106738
+Time experied during select on socket:21 for 10.68.128.35:106718
+Time experied during select on socket:24 for 10.68.128.35:106721
+Time!!!!listening failed on socket:48 for 10.68.128.35:106346. Errno is 95, Operation not supported
+!!!!listening failed on socket:93 for 10.68.128.35:106391. Errno is 95, Operation not supported
+Time experied during select on socket:91 for 10.68.128.35:106389
+Time experied during select on socket:100 for 10.68.128.35:106399
+Time experied during select on socket:67 for 10.68.128.35:106363
+Time experied during select on socket:71 for 10.68.128.35:106369
+Time experied during select on socket:72 for 10.68.128.35:106370
+Time experied during select on socket:74 for 10.68.128.35:106372
+Time experied during select on socket:83 for 10.68.128.35:106381
+Time experied during select on socket:98 for 10.68.128.35:106398
+Time experied during select on socket:81 for 10.68.128.35:106379
+Time experied during select on socket:85 for 10.68.128.35:106383
+Time experied during select on socket:94 for 10.68.128.35:106394
+Time experied during select on socket:70 for 10.68.128.35:106368
+Time experied during select on socket:75 for 10.68.128.35:106373
+Time experied during select on socket:65 for 10.68.128.35:106362
+Time experied during select on socket:64 for 10.68.128.35:106364
+Time experied during select on socket:66 for 10.68.128.35:106365
+Time experied during select on socket:68 for 10.68.128.35:106366
+Time experied during select on socket:79 for 10.68.128.35:106377
+Time experied during select on socket:86 for 10.68.128.35:106385
+Time experied during select on socket:69 for 10.68.128.35:106367
+Time experied during select on socket:90 for 10.68.128.35:106387
+Time experied during select on socket:73 for 10.68.128.35:106371
+Time experied during select on socket:77 for 10.68.128.35:106375
+Time experied during select on socket:87 for 10.68.128.35:106384
+Time experied during select on socket:76 for 10.68.128.35:106374
+Time experied during select on socket:78 for 10.68.128.35:106376
+Time experied during select on socket:95 for 10.68.128.35:106393
+Time experied during select on socket:80 for 10.68.128.35:106378
+Time experied during select on socket:82 for 10.68.128.35:106380
+Time experied during select on socket:84 for 10.68.128.35:106382
+Time experied during select on socket:89 for 10.68.128.35:106388
+Time experied during select on socket:93 for 10.68.128.35:106392
+Time experied during select on socket:96 for 10.68.128.35:106395
+Time experied during select on socket:92 for 10.68.128.35:106390
+Time experied during select on socket:97 for 10.68.128.35:106396
+Time experied during select on socket:99 for 10.68.128.35:106397
+ experied during select on socket:49 for 10.68.128.35:106747
+Time experied during select on socket:90 for 10.68.128.35:106789
+Time experied during select on socket:92 for 10.68.128.35:106791
+Time experied during select on socket:66 for 10.68.128.35:106765
+Time experied during select on socket:81 for 10.68.128.35:106780
+Time experied during select on socket:22 for 10.68.128.35:106719
+Time experied during select on socket:32 for 10.68.128.35:106729
+Time experied during select on socket:27 for 10.68.128.35:106725
+Time experied during select on socket:39 for 10.68.128.35:106736
+Time experied during select on socket:41 for 10.68.128.35:106739
+Time experied during select on socket:54 for 10.68.128.35:106751
+Time experied during select on socket:56 for 10.68.128.35:106754
+Time experied during select on socket:72 for 10.68.128.35:106771
+Time experied during select on socket:74 for 10.68.128.35:106773
+Time experied during select on socket:79 for 10.68.128.35:106778
+Time experied during select on socket:89 for 10.68.128.35:106787
+Time experied during select on socket:96 for 10.68.128.35:106795
+Time experied during select on socket:97 for 10.68.128.35:106796
+!!!!listening failed on socket:11 for 10.68.128.35:106802. Errno is 95, Operation not supported
+!!!!listening failed on socket:18 for 10.68.128.35:106816. Errno is 95, Operation not supported
+!!!!listening failed on socket:18 for 10.68.128.35:106817. Errno is 95, Operation not supported
+!!!!listening failed on socket:23 for 10.68.128.35:106823. Errno is 95, Operation not supported
+!!!!listening failed on socket:32 for 10.68.128.35:106833. Errno is 95, Operation not supported
+!!!!listening failed on socket:32 for 10.68.128.35:106834. Errno is 95, Operation not supported
+!!!!listening failed on socket:44 for 10.68.128.35:106845. Errno is 95, Operation not supported
+!!!!listening failed on socket:52 for 10.68.128.35:106856. Errno is 95, Operation not supported
+!!!!listening failed on socket:59 for 10.68.128.35:106863. Errno is 95, Operation not supported
+!!!!listening failed on socket:64 for 10.68.128.35:106870. Errno is 95, Operation not supported
+!!!!listening failed on socket:69 for 10.68.128.35:106876. Errno is 95, Operation not supported
+!!!!listening failed on socket:74 for 10.68.128.35:106882. Errno is 95, Operation not supported
+Time experied during select on socket:64 for 10.68.128.35:106871
+Time experied during select on socket:72 for 10.68.128.35:106880
+Time experied during select on socket:90 for 10.68.128.35:106898
+Time experied during select on socket:82 for 10.68.128.35:106891
+Time experied during select on socket:80 for 10.68.128.35:106889
+Time experied during select on socket:67 for 10.68.128.35:106874
+Time experied during select on socket:88 for 10.68.128.35:106899
+Time experied during select on socket:77 for 10.68.128.35:106885
+Time experied during select on socket:87 for 10.68.128.35:106896
+Time experied during select on socket:85 for 10.68.128.35:106894
+Time experied during select on socket:69 for 10.68.128.35:106877
+Time experied during select on socket:66 for 10.68.128.35:106873
+Time experied during select on socket:74 for 10.68.128.35:106884
+Time experied during select on socket:81 for 10.68.128.35:106890
+Time experied during select on socket:73 for 10.68.128.35:106881
+Time experied during select on socket:70 for 10.68.128.35:106878
+Time experied during select on socket:62 for 10.68.128.35:106868
+Time experied during select on socket:68 for 10.68.128.35:106875
+Time experied during select on socket:65 for 10.68.128.35:106872
+Time experied during select on socket:78 for 10.68.128.35:106887
+Time experied during select on socket:86 for 10.68.128.35:106895
+Time experied during select on socket:84 for 10.68.128.35:106893
+Time experied during select on socket:71 for 10.68.128.35:106879
+Time experied during select on socket:79 for 10.68.128.35:106888
+Time experied during select on socket:75 for 10.68.128.35:106883
+Time experied during select on socket:76 for 10.68.128.35:106886
+Time experied during select on socket:83 for 10.68.128.35:106892
+Time experied during select on socket:89 for 10.68.128.35:106897
+!!!!listening failed on socket:26 for 10.68.128.35:107324. Errno is 95, Operation not supported
+!!!!listening failed on socket:31 for 10.68.128.35:107329. Errno is 95, Operation not supported
+!!!!listening failed on socket:37 for 10.68.128.35:107335. Errno is 95, Operation not supported
+!!!!listening failed on socket:40 for 10.68.128.35:107340. Errno is 95, Operation not supported
+Time experied during select on socket:73 for 10.68.128.35:107374
+Time experied during select on socket:87 for 10.68.128.35:107388
+Time experied during select on socket:57 for 10.68.128.35:107360
+Time experied during select on socket:89 for 10.68.128.35:107389
+Time experied during select on socket:74 for 10.68.128.35:107375
+Time experied during select on socket:68 for 10.68.128.35:107368
+Time experied during select on socket:62 for 10.68.128.35:107363
+Time experied during select on socket:82 for 10.68.128.35:107384
+Time experied during select on socket:88 for 10.68.128.35:107390
+Time experied during select on socket:94 for 10.68.128.35:107395
+Time experied during select on socket:98 for 10.68.128.35:107398
+Time experied during select on socket:63 for 10.68.128.35:107364
+Time experied during select on socket:71 for 10.68.128.35:107371
+Time experied during select on socket:84 for 10.68.128.35:107386
+Time experied during select on socket:95 for 10.68.128.35:107397
+Time experied during select on socket:92 for 10.68.128.35:107393
+Time experied during select on socket:60 for 10.68.128.35:107361
+Time experied during select on socket:79 for 10.68.128.35:107382
+Time experied during select on socket:97 for 10.68.128.35:107399
+Time experied during select on socket:96 for 10.68.128.35:107396
+Time experied during select on socket:78 for 10.68.128.35:107379
+Time experied during select on socket:65 for 10.68.128.35:107366
+Time experied during select on socket:61 for 10.68.128.35:107362
+Time experied during select on socket:86 for 10.68.128.35:107387
+Time experied during select on socket:81 for 10.68.128.35:107381
+Time experied during select on socket:77 for 10.68.128.35:107378
+Time experied during select on socket:93 for 10.68.128.35:107394
+Time experied during select on socket:66 for 10.68.128.35:107367
+Time experied during select on socket:69 for 10.68.128.35:107370
+Time experied during select on socket:76 for 10.68.128.35:107377
+Time experied during select on socket:90 for 10.68.128.35:107392
+Time experied during select on socket:64 for 10.68.128.35:107365
+Time experied during select on socket:67 for 10.68.128.35:107369
+Time experied during select on socket:75 for 10.68.128.35:107376
+Time experied during select on socket:80 for 10.68.128.35:107380
+Time experied during select on socket:85 for 10.68.128.35:107385
+Time experied during select on socket:70 for 10.68.128.35:107372
+Time experied during select on socket:72 for 10.68.128.35:107373
+Time experied during select on socket:83 for 10.68.128.35:107383
+Time experied during select on socket:91 for 10.68.128.35:107391
+!!!!listening failed on socket:42 for 10.68.128.35:108639. Errno is 95, Operation not supported
+!!!!listening failed on socket:48 for 10.68.128.35:108647. Errno is 95, Operation not supported
+!!!!listening failed on socket:74 for 10.68.128.35:108673. Errno is 95, Operation not supported
+!!!!listening failed on socket:77 for 10.68.128.35:108675. Errno is 95, Operation not supported
+!!!!listening failed on socket:81 for 10.68.128.35:108682. Errno is 95, Operation not supported
+!!!!listening failed on socket:89 for 10.68.128.35:108692. Errno is 95, Operation not supported
+Time experied during select on socket:19 for 10.68.128.35:108615
+Time experied during select on socket:3 for 10.68.128.35:108608
+Time experied during select on socket:39 for 10.68.128.35:108636
+Time experied during select on socket:29 for 10.68.128.35:108627
+Time experied during select on socket:34 for 10.68.128.35:108630
+Time experied during select on socket:65 for 10.68.128.35:108664
+Time experied during select on socket:57 for 10.68.128.35:108656
+Time experied during select on socket:63 for 10.68.128.35:108661
+Time experied during select on socket:59 for 10.68.128.35:108658
+Time experied during select on socket:79 for 10.68.128.35:108680
+Time experied during select on socket:75 for 10.68.128.35:108676
+Time experied during select on socket:56 for 10.68.128.35:108655
+Time experied during select on socket:48 for 10.68.128.35:108648
+Time experied during select on socket:6 for 10.68.128.35:108607
+Time experied during select on socket:41 for 10.68.128.35:108638
+Time experied during select on socket:18 for 10.68.128.35:108614
+Time experied during select on socket:51 for 10.68.128.35:108650
+Time experied during select on socket:27 for 10.68.128.35:108625
+Time experied during select on socket:72 for 10.68.128.35:108671
+Time experied during select on socket:44 for 10.68.128.35:108641
+Time experied during select on socket:36 for 10.68.128.35:108633
+Time experied during select on socket:73 for 10.68.128.35:108672
+Time experied during select on socket:11 for 10.68.128.35:108613
+Time experied during select on socket:38 for 10.68.128.35:108635
+Time experied during select on socket:40 for 10.68.128.35:108637
+Time experied during select on socket:20 for 10.68.128.35:108617
+Time experied during select on socket:14 for 10.68.128.35:108606
+Time experied during select on socket:70 for 10.68.128.35:108669
+Time experied during select on socket:68 for 10.68.128.35:108666
+Time experied during select on socket:22 for 10.68.128.35:108619
+Time experied during select on socket:45 for 10.68.128.35:108642
+Time experied during select on socket:49 for 10.68.128.35:108646
+Time experied during select on socket:25 for 10.68.128.35:108623
+Time experied during select on socket:24 for 10.68.128.35:108621
+Time experied during select on socket:80 for 10.68.128.35:108681
+Time experied during select on socket:77 for 10.68.128.35:108678
+Time experied during select on socket:53 for 10.68.128.35:108652
+Time experied during select on socket:4 for 10.68.128.35:108605
+Time experied during select on socket:95 for 10.68.128.35:108698
+Time experied during select on socket:66 for 10.68.128.35:108665
+Time experied during select on socket:46 for 10.68.128.35:108643
+Time experied during select on socket:37 for 10.68.128.35:108634
+Time experied during select on socket:32 for 10.68.128.35:108629
+Time experied during select on socket:60 for 10.68.128.35:108659
+Time experied during select on socket:96 for 10.68.128.35:108699
+Time experied during select on socket:83 for 10.68.128.35:108685
+Time experied during select on socket:62 for 10.68.128.35:108662
+Time experied during select on socket:88 for 10.68.128.35:108690
+Time experied during select on socket:58 for 10.68.128.35:108657
+Time experied during select on socket:78 for 10.68.128.35:108679
+Time experied during select on socket:64 for 10.68.128.35:108663
+Time experied during select on socket:90 for 10.68.128.35:108691
+Time experied during select on socket:31 for 10.68.128.35:108628
+Time experied during select on socket:21 for 10.68.128.35:108618
+Time experied!!!!listening failed on socket:15 for 10.68.128.35:108700. Errno is 95, Operation not supported
+!!!!listening failed on socket:18 for 10.68.128.35:108715. Errno is 95, Operation not supported
+!!!!listening failed on socket:27 for 10.68.128.35:108725. Errno is 95, Operation not supported
+!!!!listening failed on socket:28 for 10.68.128.35:108727. Errno is 95, Operation not supported
+!!!!listening failed on socket:40 for 10.68.128.35:108741. Errno is 95, Operation not supported
+!!!!listening failed on socket:46 for 10.68.128.35:108749. Errno is 95, Operation not supported
+!!!!listening failed on socket:63 for 10.68.128.35:108766. Errno is 95, Operation not supported
+!!!!listening failed on socket:70 for 10.68.128.35:108774. Errno is 95, Operation not supported
+!!!!listening failed on socket:78 for 10.68.128.35:108782. Errno is 95, Operation not supported
+!!!!listening failed on socket:78 for 10.68.128.35:108784. Errno is 95, Operation not supported
+Time experied during select on socket:32 for 10.68.128.35:108733
+Time experied during select on socket:26 for 10.68.128.35:108726
+Time experied during select on socket:64 for 10.68.128.35:108767
+Time experied during select on socket:62 for 10.68.128.35:108765
+Time experied during select on socket:56 for 10.68.128.35:108759
+Time experied during select on socket:17 for 10.68.128.35:108706
+Time experied during select on socket:13 for 10.68.128.35:108704
+Time experied during select on socket:39 for 10.68.128.35:108740
+Time experied during select on socket:54 for 10.68.128.35:108758
+Time experied during select on socket:38 for 10.68.128.35:108739
+Time experied during select on socket:67 for 10.68.128.35:108771
+Time experied during select on socket:63 for 10.68.128.35:108768
+Time experied during select on socket:37 for 10.68.128.35:108738
+Time experied during select on socket:27 for 10.68.128.35:108728
+Time experied during select on socket:70 for 10.68.128.35:108775
+Time experied during select on socket:51 for 10.68.128.35:108754
+Time experied during select on socket:66 for 10.68.128.35:108770
+Time experied during select on socket:28 for 10.68.128.35:108729
+Time experied during select on socket:74 for 10.68.128.35:108778
+Time experied during select on socket:22 for 10.68.128.35:108722
+Time experied during select on socket:24 for 10.68.128.35:108723
+Time experied during select on socket:18 for 10.68.128.35:108717
+Time experied during select on socket:12 for 10.68.128.35:108701
+Time experied during select on socket:81 for 10.68.128.35:108788
+Time experied during select on socket:60 for 10.68.128.35:108763
+Time experied during select on socket:6 for 10.68.128.35:108708
+Time experied during select on socket:9 for 10.68.128.35:108716
+Time experied during select on socket:21 for 10.68.128.35:108720
+Time experied during select on socket:33 for 10.68.128.35:108734
+Time experied during select on socket:35 for 10.68.128.35:108736
+Time experied during select on socket:40 for 10.68.128.35:108742
+Time experied during select on socket:78 for 10.68.128.35:108786
+Time experied during select on socket:45 for 10.68.128.35:108746
+Time experied during select on socket:49 for 10.68.128.35:108753
+Time experied during select on socket:83 for 10.68.128.35:108790
+Time experied during select on socket:61 for 10.68.128.35:108764
+Time experied during select on socket:58 for 10.68.128.35:108761
+Time experied during select on socket:72 for 10.68.128.35:108777
+Time experied during select on socket:88 for 10.68.128.35:108795
+Time experied during select on socket:75 for 10.68.128.35:108780
+Time experied during select on socket:65 for 10.68.128.35:108769
+Time experied during select on socket:47 for 10.68.128.35:108750
+Time experied during select on socket:4 for 10.68.128.35:108702
+Time experied during select on socket:16 for 10.68.128.35:108713
+Time experied during select on socket:48 for 10.68.128.35:108748
+Time experied during select on socket:91 for 10.68.128.35:108798
+Time experied during select on socket:34 for 10.68.128.35:108735
+Time experied during select on socket:5 for 10.68.128.35:108705
+Time experied during!!!!listening failed on socket:18 for 10.68.128.35:107616. Errno is 95, Operation not supported
+!!!!listening failed on socket:18 for 10.68.128.35:107619. Errno is 95, Operation not supported
+!!!!listening failed on socket:29 for 10.68.128.35:107628. Errno is 95, Operation not supported
+!!!!listening failed on socket:37 for 10.68.128.35:107635. Errno is 95, Operation not supported
+!!!!listening failed on socket:39 for 10.68.128.35:107640. Errno is 95, Operation not supported
+!!!!listening failed on socket:47 for 10.68.128.35:107649. Errno is 95, Operation not supported
+!!!!listening failed on socket:50 for 10.68.128.35:107652. Errno is 95, Operation not supported
+!!!!listening failed on socket:57 for 10.68.128.35:107661. Errno is 95, Operation not supported
+!!!!listening failed on socket:77 for 10.68.128.35:107682. Errno is 95, Operation not supported
+Time experied during select on socket:63 for 10.68.128.35:107667
+Time experied during select on socket:66 for 10.68.128.35:107671
+Time experied during select on socket:64 for 10.68.128.35:107669
+Time experied during select on socket:70 for 10.68.128.35:107675
+Time experied during select on socket:85 for 10.68.128.35:107692
+Time experied during select on socket:84 for 10.68.128.35:107691
+Time experied during select on socket:71 for 10.68.128.35:107676
+Time experied during select on socket:67 for 10.68.128.35:107672
+Time experied during select on socket:62 for 10.68.128.35:107668
+Time experied during select on socket:69 for 10.68.128.35:107673
+Time experied during select on socket:75 for 10.68.128.35:107680
+Time experied during select on socket:79 for 10.68.128.35:107685
+Time experied during select on socket:92 for 10.68.128.35:107698
+Time experied during select on socket:89 for 10.68.128.35:107695
+Time experied during select on socket:72 for 10.68.128.35:107677
+Time experied during select on socket:90 for 10.68.128.35:107697
+Time experied during select on socket:68 for 10.68.128.35:107674
+Time experied during select on socket:83 for 10.68.128.35:107689
+Time experied during select on socket:82 for 10.68.128.35:107688
+Time experied during select on socket:65 for 10.68.128.35:107670
+Time experied during select on socket:73 for 10.68.128.35:107678
+Time experied during select on socket:74 for 10.68.128.35:107679
+Time experied during select on socket:76 for 10.68.128.35:107681
+Time experied during select on socket:77 for 10.68.128.35:107683
+Time experied during select on socket:78 for 10.68.128.35:107684
+Time experied during select on socket:80 for 10.68.128.35:107686
+Time experied during select on socket:81 for 10.68.128.35:107687
+Time experied during select on socket:86 for 10.68.128.35:107690
+Time experied during select on socket:88 for 10.68.128.35:107694
+Time experied during select on socket:91 for 10.68.128.35:107696
+Time experied during select on socket:87 for 10.68.128.35:107693
+Time experied during select on socket:93 for 10.68.128.35:107699
+!!!!listening failed on socket:16 for 10.68.128.35:108911. Errno is 95, Operation not supported
+!!!!listening failed on socket:52 for 10.68.128.35:108950. Errno is 95, Operation not supported
+!!!!listening failed on socket:70 for 10.68.128.35:108969. Errno is 95, Operation not supported
+!!!!listening failed on socket:73 for 10.68.128.35:108975. Errno is 95, Operation not supported
+!!!!listening failed on socket:76 for 10.68.128.35:108977. Errno is 95, Operation not supported
+!!!!listening failed on socket:92 for 10.68.128.35:108995. Errno is 95, Operation not supported
+Time experied during select on socket:27 for 10.68.128.35:108925
+Time experied during select on socket:39 for 10.68.128.35:108937
+Time experied during select on socket:20 for 10.68.128.35:108919
+Time experied during select on socket:17 for 10.68.128.35:108915
+Time experied during select on socket:13 for 10.68.128.35:108909
+Time experied during select on socket:23 for 10.68.128.35:108920
+Time experied during select on socket:15 for 10.68.128.35:108912
+Time experied during select on socket:29 for 10.68.128.35:108927
+Time experied during select on socket:47 for 10.68.128.35:108945
+Time experied during select on socket:37 for 10.68.128.35:108935
+Time experied during select on socket:18 for 10.68.128.35:108916
+Time experied during select on socket:44 for 10.68.128.35:108941
+Time experied during select on socket:12 for 10.68.128.35:108910
+Time experied during select on socket:59 for 10.68.128.35:108958
+Time experied during select on socket:40 for 10.68.128.35:108938
+Time experied during select on socket:54 for 10.68.128.35:108953
+Time experied during select on socket:42 for 10.68.128.35:108939
+Time experied during select on socket:30 for 10.68.128.35:108928
+Time experied during select on socket:57 for 10.68.128.35:108956
+Time experied during select on socket:24 for 10.68.128.35:108922
+Time experied during select on socket:65 for 10.68.128.35:108964
+Time experied during select on socket:80 for 10.68.128.35:108982
+Time experied during select on socket:19 for 10.68.128.35:108917
+Time experied during select on socket:48 for 10.68.128.35:108946
+Time experied during select on socket:84 for 10.68.128.35:108986
+Time experied during select on socket:61 for 10.68.128.35:108960
+Time experied during select on socket:56 for 10.68.128.35:108955
+Time experied during select on socket:45 for 10.68.128.35:108944
+Time experied during select on socket:34 for 10.68.128.35:108930
+Time experied during select on socket:14 for 10.68.128.35:108913
+Time experied during select on socket:74 for 10.68.128.35:108973
+Time experied during select on socket:63 for 10.68.128.35:108962
+Time experied during select on socket:50 for 10.68.128.35:108948
+Time experied during select on socket:73 for 10.68.128.35:108976
+Time experied during select on socket:81 for 10.68.128.35:108983
+Time experied during select on socket:55 for 10.68.128.35:108954
+Time experied during select on socket:52 for 10.68.128.35:108952
+Time experied during select on socket:8 for 10.68.128.35:108908
+Time experied during select on socket:60 for 10.68.128.35:108959
+Time experied during select on socket:53 for 10.68.128.35:108951
+Time experied during select on socket:51 for 10.68.128.35:108949
+Time experied during select on socket:3 for 10.68.128.35:108905
+Time experied during select on socket:33 for 10.68.128.35:108931
+Time experied during select on socket:70 for 10.68.128.35:108971
+Time experied during select on socket:26 for 10.68.128.35:108924
+Time experied during select on socket:10 for 10.68.128.35:108907
+Time experied during select on socket:79 for 10.68.128.35:108981
+Time experied during select on socket:64 for 10.68.128.35:108963
+Time experied during select on socket:85 for 10.68.128.35:108987
+Time experied during select on socket:16 for 10.68.128.35:108914
+Time experied during select on socket:90 for 10.68.128.35:108993
+Time experied during select on socket:22 for 10.68.128.35:108921
+Time experied during select on socket:25 for 10.68.128.35:108923
+Time experied during select on socket:88 for 10.68.128.35:108990
+Time experie!!!!listening failed on socket:36 for 10.68.128.35:108432. Errno is 95, Operation not supported
+!!!!listening failed on socket:40 for 10.68.128.35:108438. Errno is 95, Operation not supported
+!!!!listening failed on socket:73 for 10.68.128.35:108472. Errno is 95, Operation not supported
+!!!!listening failed on socket:79 for 10.68.128.35:108478. Errno is 95, Operation not supported
+!!!!listening failed on socket:87 for 10.68.128.35:108489. Errno is 95, Operation not supported
+Time experied during select on socket:93 for 10.68.128.35:108495
+Time experied during select on socket:97 for 10.68.128.35:108499
+Time experied during select on socket:94 for 10.68.128.35:108496
+Time experied during select on socket:96 for 10.68.128.35:108498
+Time experied during select on socket:95 for 10.68.128.35:108497
+!!!!listening failed on socket:45 for 10.68.128.35:109241. Errno is 95, Operation not supported
+!!!!listening failed on socket:58 for 10.68.128.35:109256. Errno is 95, Operation not supported
+!!!!listening failed on socket:88 for 10.68.128.35:109286. Errno is 95, Operation not supported
+!!!!listening failed on socket:98 for 10.68.128.35:109299. Errno is 95, Operation not supported
+Time experied during select on socket:86 for 10.68.128.35:109285
+Time experied during select on socket:52 for 10.68.128.35:109250
+Time experied during select on socket:4 for 10.68.128.35:109211
+Time experied during select on socket:42 for 10.68.128.35:109239
+Time experied during select on socket:89 for 10.68.128.35:109288
+Time experied during select on socket:41 for 10.68.128.35:109237
+Time experied during select on socket:14 for 10.68.128.35:109214
+Time experied during select on socket:66 for 10.68.128.35:109265
+Time experied during select on socket:60 for 10.68.128.35:109259
+Time experied during select on socket:94 for 10.68.128.35:109294
+Time experied during select on socket:92 for 10.68.128.35:109292
+Time experied during select on socket:96 for 10.68.128.35:109296
+Time experied during select on socket:62 for 10.68.128.35:109261
+Time experied during select on socket:17 for 10.68.128.35:109212
+Time experied during select on socket:21 for 10.68.128.35:109218
+Time experied during select on socket:29 for 10.68.128.35:109226
+Time experied during select on socket:34 for 10.68.128.35:109231
+Time experied during select on socket:47 for 10.68.128.35:109244
+Time experied during select on socket:85 for 10.68.128.35:109284
+Time experied during select on socket:74 for 10.68.128.35:109273
+Time experied during select on socket:75 for 10.68.128.35:109274
+Time experied during select on socket:50 for 10.68.128.35:109248
+Time experied during select on socket:3 for 10.68.128.35:109208
+Time experied during select on socket:97 for 10.68.128.35:109297
+Time experied during select on socket:35 for 10.68.128.35:109238
+Time experied during select on socket:37 for 10.68.128.35:109234
+Time experied during select on socket:33 for 10.68.128.35:109230
+Time experied during select on socket:28 for 10.68.128.35:109225
+Time experied during select on socket:25 for 10.68.128.35:109222
+Time experied during select on socket:6 for 10.68.128.35:109210
+Time experied during select on socket:40 for 10.68.128.35:109233
+Time experied during select on socket:91 for 10.68.128.35:109291
+Time experied during select on socket:70 for 10.68.128.35:109269
+Time experied during select on socket:93 for 10.68.128.35:109293
+Time experied during select on socket:67 for 10.68.128.35:109266
+Time experied during select on socket:53 for 10.68.128.35:109251
+Time experied during select on socket:38 for 10.68.128.35:109236
+Time experied during select on socket:18 for 10.68.128.35:109209
+Time experied during select on socket:99 for 10.68.128.35:109298
+Time experied during select on socket:72 for 10.68.128.35:109272
+Time experied during select on socket:27 for 10.68.128.35:109224
+Time experied during select on socket:63 for 10.68.128.35:109263
+Time experied during select on socket:22 for 10.68.128.35:109219
+Time experied during select on socket:23 for 10.68.128.35:109220
+Time experied during select on socket:58 for 10.68.128.35:109257
+Time experied during select on socket:57 for 10.68.128.35:109255
+Time experied during select on socket:43 for 10.68.128.35:109240
+Time experied during select on socket:44 for 10.68.128.35:109242
+Time experied during select on socket:73 for 10.68.128.35:109271
+Time experied during select on socket:76 for 10.68.128.35:109275
+Time experied during select on socket:77 for 10.68.128.35:109276
+Time experied during select on socket:26 for 10.68.128.35:109223
+Time experied during select on socket:30 for 10.68.128.35:109228
+Time experied during select on socket:95 for 10.68.128.35:109295
+Time experied during select on socket:71 for 10.68.128.35:109270
+Time experied during select on socket:54 for 10.68.128.35:109252
+Time experied during select on socket:19 for 10.68.128.35:109213
+Time exper!!!!listening failed on socket:18 for 10.68.128.35:109113. Errno is 95, Operation not supported
+!!!!listening failed on socket:12 for 10.68.128.35:109112. Errno is 95, Operation not supported
+!!!!listening failed on socket:25 for 10.68.128.35:109124. Errno is 95, Operation not supported
+!!!!listening failed on socket:36 for 10.68.128.35:109135. Errno is 95, Operation not supported
+Time experied during select on socket:19 for 10.68.128.35:109117
+Time experied during select on socket:91 for 10.68.128.35:109192
+Time experied during select on socket:53 for 10.68.128.35:109154
+Time experied during select on socket:48 for 10.68.128.35:109149
+Time experied during select on socket:35 for 10.68.128.35:109136
+Time experied during select on socket:33 for 10.68.128.35:109133
+Time experied during select on socket:84 for 10.68.128.35:109185
+Time experied during select on socket:74 for 10.68.128.35:109175
+Time experied during select on socket:30 for 10.68.128.35:109131
+Time experied during select on socket:62 for 10.68.128.35:109163
+Time experied during select on socket:25 for 10.68.128.35:109126
+Time experied during select on socket:28 for 10.68.128.35:109128
+Time experied during select on socket:44 for 10.68.128.35:109145
+Time experied during select on socket:90 for 10.68.128.35:109190
+Time experied during select on socket:85 for 10.68.128.35:109186
+Time experied during select on socket:45 for 10.68.128.35:109146
+Time experied during select on socket:64 for 10.68.128.35:109165
+Time experied during select on socket:65 for 10.68.128.35:109167
+Time experied during select on socket:59 for 10.68.128.35:109160
+Time experied during select on socket:73 for 10.68.128.35:109174
+Time experied during select on socket:78 for 10.68.128.35:109179
+Time experied during select on socket:81 for 10.68.128.35:109182
+Time experied during select on socket:86 for 10.68.128.35:109187
+Time experied during select on socket:93 for 10.68.128.35:109195
+Time experied during select on socket:51 for 10.68.128.35:109152
+Time experied during select on socket:95 for 10.68.128.35:109197
+Time experied during select on socket:94 for 10.68.128.35:109194
+Time experied during select on socket:43 for 10.68.128.35:109144
+Time experied during select on socket:42 for 10.68.128.35:109142
+Time experied during select on socket:17 for 10.68.128.35:109111
+Time experied during select on socket:31 for 10.68.128.35:109130
+Time experied during select on socket:58 for 10.68.128.35:109159
+Time experied during select on socket:21 for 10.68.128.35:109120
+Time experied during select on socket:13 for 10.68.128.35:109115
+Time experied during select on socket:77 for 10.68.128.35:109178
+Time experied during select on socket:61 for 10.68.128.35:109162
+Time experied during select on socket:18 for 10.68.128.35:109118
+Time experied during select on socket:16 for 10.68.128.35:109110
+Time experied during select on socket:49 for 10.68.128.35:109150
+Time experied during select on socket:87 for 10.68.128.35:109188
+Time experied during select on socket:82 for 10.68.128.35:109184
+Time experied during select on socket:79 for 10.68.128.35:109180
+Time experied during select on socket:8 for 10.68.128.35:109114
+Time experied during select on socket:69 for 10.68.128.35:109171
+Time experied during select on socket:67 for 10.68.128.35:109168
+Time experied during select on socket:34 for 10.68.128.35:109134
+Time experied during select on socket:76 for 10.68.128.35:109177
+Time experied during select on socket:56 for 10.68.128.35:109157
+Time experied during select on socket:24 for 10.68.128.35:109123
+Time experied during select on socket:22 for 10.68.128.35:109121
+Time experied during select on socket:5 for 10.68.128.35:109109
+Time experied during select on socket:29 for 10.68.128.35:109129
+Time experied during select on socket:37 for 10.68.128.35:109137
+Time experied during select on socket:68 for 10.68.128.35:109169
+Time experied during select on socket:11 for 10.68.128.35:109107
+Time experied during select on socket:83 for 10.68.128.35:109183
+Time experied during select on socket:54 for 10.68.128.35:109155
+Time expe!!!!listening failed on socket:9 for 10.68.128.35:109004. Errno is 95, Operation not supported
+!!!!listening failed on socket:13 for 10.68.128.35:109003. Errno is 95, Operation not supported
+!!!!listening failed on socket:17 for 10.68.128.35:109015. Errno is 95, Operation not supported
+!!!!listening failed on socket:22 for 10.68.128.35:109022. Errno is 95, Operation not supported
+!!!!listening failed on socket:63 for 10.68.128.35:109064. Errno is 95, Operation not supported
+!!!!listening failed on socket:75 for 10.68.128.35:109076. Errno is 95, Operation not supported
+!!!!listening failed on socket:78 for 10.68.128.35:109081. Errno is 95, Operation not supported
+Time experied during select on socket:27 for 10.68.128.35:109028
+Time experied during select on socket:22 for 10.68.128.35:109024
+Time experied during select on socket:18 for 10.68.128.35:109018
+Time experied during select on socket:17 for 10.68.128.35:109016
+Time experied during select on socket:20 for 10.68.128.35:109020
+Time experied during select on socket:6 for 10.68.128.35:109017
+Time experied during select on socket:41 for 10.68.128.35:109042
+Time experied during select on socket:76 for 10.68.128.35:109079
+Time experied during select on socket:44 for 10.68.128.35:109045
+Time experied during select on socket:55 for 10.68.128.35:109056
+Time experied during select on socket:65 for 10.68.128.35:109068
+Time experied during select on socket:59 for 10.68.128.35:109060
+Time experied during select on socket:49 for 10.68.128.35:109050
+Time experied during select on socket:91 for 10.68.128.35:109095
+Time experied during select on socket:95 for 10.68.128.35:109099
+Time experied during select on socket:21 for 10.68.128.35:109021
+Time experied during select on socket:26 for 10.68.128.35:109027
+Time experied during select on socket:42 for 10.68.128.35:109043
+Time experied during select on socket:38 for 10.68.128.35:109039
+Time experied during select on socket:51 for 10.68.128.35:109052
+Time experied during select on socket:35 for 10.68.128.35:109036
+Time experied during select on socket:85 for 10.68.128.35:109092
+Time experied during select on socket:29 for 10.68.128.35:109030
+Time experied during select on socket:32 for 10.68.128.35:109034
+Time experied during select on socket:53 for 10.68.128.35:109054
+Time experied during select on socket:28 for 10.68.128.35:109029
+Time experied during select on socket:30 for 10.68.128.35:109031
+Time experied during select on socket:71 for 10.68.128.35:109073
+Time experied during select on socket:37 for 10.68.128.35:109038
+Time experied during select on socket:93 for 10.68.128.35:109097
+Time experied during select on socket:57 for 10.68.128.35:109058
+Time experied during select on socket:64 for 10.68.128.35:109066
+Time experied during select on socket:56 for 10.68.128.35:109059
+Time experied during select on socket:74 for 10.68.128.35:109077
+Time experied during select on socket:90 for 10.68.128.35:109094
+Time experied during select on socket:54 for 10.68.128.35:109055
+Time experied during select on socket:70 for 10.68.128.35:109072
+Time experied during select on socket:39 for 10.68.128.35:109041
+Time experied during select on socket:48 for 10.68.128.35:109049
+Time experied during select on socket:58 for 10.68.128.35:109057
+Time experied during select on socket:79 for 10.68.128.35:109082
+Time experied during select on socket:83 for 10.68.128.35:109087
+Time experied during select on socket:19 for 10.68.128.35:109019
+Time experied during select on socket:23 for 10.68.128.35:109023
+Time experied during select on socket:89 for 10.68.128.35:109093
+Time experied during select on socket:43 for 10.68.128.35:109044
+Time experied during select on socket:88 for 10.68.128.35:109091
+Time experied during select on socket:67 for 10.68.128.35:109069
+Time experied during select on socket:72 for 10.68.128.35:109074
+Time experied during select on socket:75 for 10.68.128.35:109078
+Time experied during select on socket:60 for 10.68.128.35:109061
+Time experied during select on socket:63 for 10.68.128.35:109065
+Time experied during select on socket:80 for 1 during select on socket:74 for 10.68.128.35:108674
+Time experied during select on socket:85 for 10.68.128.35:108688
+Time experied during select on socket:69 for 10.68.128.35:108668
+Time experied during select on socket:17 for 10.68.128.35:108609
+Time experied during select on socket:54 for 10.68.128.35:108653
+Time experied during select on socket:89 for 10.68.128.35:108694
+Time experied during select on socket:16 for 10.68.128.35:108610
+Time experied during select on socket:15 for 10.68.128.35:108612
+Time experied during select on socket:5 for 10.68.128.35:108611
+Time experied during select on socket:33 for 10.68.128.35:108631
+Time experied during select on socket:12 for 10.68.128.35:108616
+Time experied during select on socket:23 for 10.68.128.35:108620
+Time experied during select on socket:28 for 10.68.128.35:108624
+Time experied during select on socket:47 for 10.68.128.35:108645
+Time experied during select on socket:26 for 10.68.128.35:108622
+Time experied during select on socket:67 for 10.68.128.35:108667
+Time experied during select on socket:61 for 10.68.128.35:108660
+Time experied during select on socket:71 for 10.68.128.35:108670
+Time experied during select on socket:30 for 10.68.128.35:108626
+Time experied during select on socket:43 for 10.68.128.35:108640
+Time experied during select on socket:42 for 10.68.128.35:108644
+Time experied during select on socket:55 for 10.68.128.35:108654
+Time experied during select on socket:76 for 10.68.128.35:108677
+Time experied during select on socket:91 for 10.68.128.35:108697
+Time experied during select on socket:52 for 10.68.128.35:108651
+Time experied during select on socket:50 for 10.68.128.35:108649
+Time experied during select on socket:84 for 10.68.128.35:108686
+Time experied during select on socket:81 for 10.68.128.35:108683
+Time experied during select on socket:82 for 10.68.128.35:108684
+Time experied during select on socket:94 for 10.68.128.35:108696
+Time experied during select on socket:86 for 10.68.128.35:108687
+Time experied during select on socket:92 for 10.68.128.35:108695
+Time experied during select on socket:87 for 10.68.128.35:108689
+Time experied during select on socket:93 for 10.68.128.35:108693
+ select on socket:7 for 10.68.128.35:108714
+Time experied during select on socket:20 for 10.68.128.35:108718
+Time experied during select on socket:11 for 10.68.128.35:108712
+Time experied during select on socket:44 for 10.68.128.35:108747
+Time experied during select on socket:8 for 10.68.128.35:108707
+Time experied during select on socket:85 for 10.68.128.35:108792
+Time experied during select on socket:23 for 10.68.128.35:108721
+Time experied during select on socket:29 for 10.68.128.35:108730
+Time experied during select on socket:31 for 10.68.128.35:108732
+Time experied during select on socket:25 for 10.68.128.35:108724
+Time experied during select on socket:30 for 10.68.128.35:108731
+Time experied during select on socket:36 for 10.68.128.35:108737
+Time experied during select on socket:42 for 10.68.128.35:108743
+Time experied during select on socket:52 for 10.68.128.35:108755
+Time experied during select on socket:41 for 10.68.128.35:108744
+Time experied during select on socket:77 for 10.68.128.35:108783
+Time experied during select on socket:92 for 10.68.128.35:108799
+Time experied during select on socket:10 for 10.68.128.35:108703
+Time experied during select on socket:87 for 10.68.128.35:108794
+Time experied during select on socket:57 for 10.68.128.35:108760
+Time experied during select on socket:59 for 10.68.128.35:108762
+Time experied during select on socket:80 for 10.68.128.35:108787
+Time experied during select on socket:14 for 10.68.128.35:108711
+Time experied during select on socket:15 for 10.68.128.35:108710
+Time experied during select on socket:3 for 10.68.128.35:108709
+Time experied during select on socket:19 for 10.68.128.35:108719
+Time experied during select on socket:43 for 10.68.128.35:108745
+Time experied during select on socket:50 for 10.68.128.35:108752
+Time experied during select on socket:55 for 10.68.128.35:108757
+Time experied during select on socket:69 for 10.68.128.35:108773
+Time experied during select on socket:46 for 10.68.128.35:108751
+Time experied during select on socket:53 for 10.68.128.35:108756
+Time experied during select on socket:68 for 10.68.128.35:108772
+Time experied during select on socket:71 for 10.68.128.35:108776
+Time experied during select on socket:90 for 10.68.128.35:108796
+Time experied during select on socket:73 for 10.68.128.35:108779
+Time experied during select on socket:76 for 10.68.128.35:108781
+Time experied during select on socket:86 for 10.68.128.35:108793
+Time experied during select on socket:79 for 10.68.128.35:108785
+Time experied during select on socket:82 for 10.68.128.35:108789
+Time experied during select on socket:84 for 10.68.128.35:108791
+Time experied during select on socket:89 for 10.68.128.35:108797
+!!!!listening failed on socket:65 for 10.68.128.35:109361. Errno is 95, Operation not supported
+!!!!listening failed on socket:68 for 10.68.128.35:109366. Errno is 95, Operation not supported
+!!!!listening failed on socket:89 for 10.68.128.35:109388. Errno is 95, Operation not supported
+Time experied during select on socket:32 for 10.68.128.35:109329
+Time experied during select on socket:26 for 10.68.128.35:109323
+Time experied during select on socket:79 for 10.68.128.35:109378
+Time experied during select on socket:75 for 10.68.128.35:109374
+Time experied during select on socket:44 for 10.68.128.35:109341
+Time experied during select on socket:45 for 10.68.128.35:109342
+Time experied during select on socket:91 for 10.68.128.35:109391
+Time experied during select on socket:20 for 10.68.128.35:109311
+Time experied during select on socket:74 for 10.68.128.35:109373
+Time experied during select on socket:29 for 10.68.128.35:109325
+Time experied during select on socket:57 for 10.68.128.35:109353
+Time experied during select on socket:10 for 10.68.128.35:109317
+Time experied during select on socket:3 for 10.68.128.35:109305
+Time experied during select on socket:56 for 10.68.128.35:109354
+Time experied during select on socket:60 for 10.68.128.35:109357
+Time experied during select on socket:62 for 10.68.128.35:109359
+Time experied during select on socket:67 for 10.68.128.35:109364
+Time experied during select on socket:55 for 10.68.128.35:109352
+Time experied during select on socket:78 for 10.68.128.35:109377
+Time experied during select on socket:93 for 10.68.128.35:109392
+Time experied during select on socket:37 for 10.68.128.35:109334
+Time experied during select on socket:28 for 10.68.128.35:109326
+Time experied during select on socket:31 for 10.68.128.35:109327
+Time experied during select on socket:52 for 10.68.128.35:109349
+Time experied during select on socket:4 for 10.68.128.35:109301
+Time experied during select on socket:14 for 10.68.128.35:109310
+Time experied during select on socket:17 for 10.68.128.35:109314
+Time experied during select on socket:25 for 10.68.128.35:109322
+Time experied during select on socket:73 for 10.68.128.35:109372
+Time experied during select on socket:76 for 10.68.128.35:109375
+Time experied during select on socket:87 for 10.68.128.35:109385
+Time experied during select on socket:35 for 10.68.128.35:109332
+Time experied during select on socket:21 for 10.68.128.35:109318
+Time experied during select on socket:5 for 10.68.128.35:109304
+Time experied during select on socket:59 for 10.68.128.35:109356
+Time experied during select on socket:7 for 10.68.128.35:109302
+Time experied during select on socket:18 for 10.68.128.35:109315
+Time experied during select on socket:13 for 10.68.128.35:109313
+Time experied during select on socket:99 for 10.68.128.35:109399
+Time experied during select on socket:96 for 10.68.128.35:109396
+Time experied during select on socket:83 for 10.68.128.35:109382
+Time experied during select on socket:39 for 10.68.128.35:109336
+Time experied during select on socket:30 for 10.68.128.35:109328
+Time experied during select on socket:23 for 10.68.128.35:109319
+Time experied during select on socket:81 for 10.68.128.35:109380
+Time experied during select on socket:15 for 10.68.128.35:109312
+Time experied during select on socket:86 for 10.68.128.35:109386
+Time experied during select on socket:69 for 10.68.128.35:109369
+Time experied during select on socket:9 for 10.68.128.35:109300
+Time experied during select on socket:66 for 10.68.128.35:109363
+Time experied during select on socket:33 for 10.68.128.35:109330
+Time experied during select on socket:49 for 10.68.128.35:109346
+Time experied during select on socket:34 for 10.68.128.35:109331
+Time experied during select on socket:47 for 10.68.128.35:109344
+Time experied during select on socket:24 for 10.68.128.35:109320
+Time experied during select on socket:43 for 10.68.128.35:109340
+Time experied during select on socket:40 for 10.68.128.35:109337
+Time experied during select on socket:12 for 10.68.128.35:109307
+Time experied during select on socket:8 for66 for 10.68.128.35:108863
+Time experied during select on socket:83 for 10.68.128.35:108881
+Time experied during select on socket:54 for 10.68.128.35:108851
+Time experied during select on socket:63 for 10.68.128.35:108861
+Time experied during select on socket:40 for 10.68.128.35:108837
+Time experied during select on socket:88 for 10.68.128.35:108886
+Time experied during select on socket:89 for 10.68.128.35:108889
+Time experied during select on socket:48 for 10.68.128.35:108846
+Time experied during select on socket:26 for 10.68.128.35:108823
+Time experied during select on socket:35 for 10.68.128.35:108831
+Time experied during select on socket:67 for 10.68.128.35:108864
+Time experied during select on socket:86 for 10.68.128.35:108884
+Time experied during select on socket:47 for 10.68.128.35:108845
+Time experied during select on socket:50 for 10.68.128.35:108844
+Time experied during select on socket:59 for 10.68.128.35:108856
+Time experied during select on socket:62 for 10.68.128.35:108859
+Time experied during select on socket:70 for 10.68.128.35:108867
+Time experied during select on socket:72 for 10.68.128.35:108869
+Time experied during select on socket:73 for 10.68.128.35:108870
+Time experied during select on socket:77 for 10.68.128.35:108874
+Time experied during select on socket:78 for 10.68.128.35:108876
+Time experied during select on socket:81 for 10.68.128.35:108879
+Time experied during select on socket:97 for 10.68.128.35:108897
+Time experied during select on socket:98 for 10.68.128.35:108899
+d during select on socket:38 for 10.68.128.35:108936
+Time experied during select on socket:31 for 10.68.128.35:108932
+Time experied during select on socket:78 for 10.68.128.35:108980
+Time experied during select on socket:36 for 10.68.128.35:108934
+Time experied during select on socket:21 for 10.68.128.35:108918
+Time experied during select on socket:32 for 10.68.128.35:108929
+Time experied during select on socket:35 for 10.68.128.35:108933
+Time experied during select on socket:7 for 10.68.128.35:108906
+Time experied during select on socket:62 for 10.68.128.35:108961
+Time experied during select on socket:28 for 10.68.128.35:108926
+Time experied during select on socket:46 for 10.68.128.35:108943
+Time experied during select on socket:41 for 10.68.128.35:108940
+Time experied during select on socket:66 for 10.68.128.35:108965
+Time experied during select on socket:87 for 10.68.128.35:108989
+Time experied during select on socket:89 for 10.68.128.35:108991
+Time experied during select on socket:92 for 10.68.128.35:108996
+Time experied during select on socket:72 for 10.68.128.35:108972
+Time experied during select on socket:83 for 10.68.128.35:108985
+Time experied during select on socket:77 for 10.68.128.35:108979
+Time experied during select on socket:67 for 10.68.128.35:108966
+Time experied during select on socket:43 for 10.68.128.35:108942
+Time experied during select on socket:71 for 10.68.128.35:108970
+Time experied during select on socket:95 for 10.68.128.35:108998
+Time experied during select on socket:76 for 10.68.128.35:108978
+Time experied during select on socket:58 for 10.68.128.35:108957
+Time experied during select on socket:49 for 10.68.128.35:108947
+Time experied during select on socket:68 for 10.68.128.35:108967
+Time experied during select on socket:69 for 10.68.128.35:108968
+Time experied during select on socket:75 for 10.68.128.35:108974
+Time experied during select on socket:82 for 10.68.128.35:108984
+Time experied during select on socket:86 for 10.68.128.35:108988
+Time experied during select on socket:91 for 10.68.128.35:108992
+Time experied during select on socket:93 for 10.68.128.35:108994
+Time experied during select on socket:94 for 10.68.128.35:108997
+Time experied during select on socket:96 for 10.68.128.35:108999
+0.68.128.35:109085
+Time experied during select on socket:45 for 10.68.128.35:109047
+Time experied during select on socket:24 for 10.68.128.35:109025
+Time experied during select on socket:69 for 10.68.128.35:109071
+Time experied during select on socket:25 for 10.68.128.35:109026
+Time experied during select on socket:34 for 10.68.128.35:109035
+Time experied during select on socket:66 for 10.68.128.35:109067
+Time experied during select on socket:36 for 10.68.128.35:109037
+Time experied during select on socket:33 for 10.68.128.35:109033
+Time experied during select on socket:40 for 10.68.128.35:109040
+Time experied during select on socket:31 for 10.68.128.35:109032
+Time experied during select on socket:46 for 10.68.128.35:109046
+Time experied during select on socket:50 for 10.68.128.35:109051
+Time experied during select on socket:47 for 10.68.128.35:109048
+Time experied during select on socket:52 for 10.68.128.35:109053
+Time experied during select on socket:62 for 10.68.128.35:109062
+Time experied during select on socket:61 for 10.68.128.35:109063
+Time experied during select on socket:68 for 10.68.128.35:109070
+Time experied during select on socket:73 for 10.68.128.35:109075
+Time experied during select on socket:77 for 10.68.128.35:109080
+Time experied during select on socket:81 for 10.68.128.35:109084
+Time experied during select on socket:82 for 10.68.128.35:109086
+Time experied during select on socket:84 for 10.68.128.35:109088
+Time experied during select on socket:87 for 10.68.128.35:109090
+Time experied during select on socket:86 for 10.68.128.35:109089
+Time experied during select on socket:92 for 10.68.128.35:109096
+Time experied during select on socket:94 for 10.68.128.35:109098
+!!!!listening failed on socket:33 for 10.68.128.35:109830. Errno is 95, Operation not supported
+!!!!listening failed on socket:76 for 10.68.128.35:109874. Errno is 95, Operation not supported
+!!!!listening failed on socket:95 for 10.68.128.35:109894. Errno is 95, Operation not supported
+Time experied during select on socket:33 for 10.68.128.35:109835
+Time experied during select on socket:29 for 10.68.128.35:109826
+Time experied during select on socket:6 for 10.68.128.35:109806
+Time experied during select on socket:24 for 10.68.128.35:109822
+Time experied during select on socket:38 for 10.68.128.35:109836
+Time experied during select on socket:35 for 10.68.128.35:109831
+Time experied during select on socket:37 for 10.68.128.35:109834
+Time experied during select on socket:88 for 10.68.128.35:109886
+Time experied during select on socket:47 for 10.68.128.35:109844
+Time experied during select on socket:20 for 10.68.128.35:109817
+Time experied during select on socket:31 for 10.68.128.35:109828
+Time experied during select on socket:11 for 10.68.128.35:109808
+Time experied during select on socket:77 for 10.68.128.35:109877
+Time experied during select on socket:68 for 10.68.128.35:109866
+Time experied during select on socket:53 for 10.68.128.35:109851
+Time experied during select on socket:41 for 10.68.128.35:109839
+Time experied during select on socket:39 for 10.68.128.35:109837
+Time experied during select on socket:25 for 10.68.128.35:109821
+Time experied during select on socket:27 for 10.68.128.35:109824
+Time experied during select on socket:36 for 10.68.128.35:109833
+Time experied during select on socket:15 for 10.68.128.35:109812
+Time experied during select on socket:32 for 10.68.128.35:109829
+Time experied during select on socket:44 for 10.68.128.35:109843
+Time experied during select on socket:13 for 10.68.128.35:109809
+Time experied during select on socket:19 for 10.68.128.35:109816
+Time experied during select on socket:17 for 10.68.128.35:109814
+Time experied during select on socket:43 for 10.68.128.35:109841
+Time experied during select on socket:81 for 10.68.128.35:109880
+Time experied during select on socket:70 for 10.68.128.35:109868
+Time experied during select on socket:79 for 10.68.128.35:109878
+Time experied during select on socket:72 for 10.68.128.35:109870
+Time experied during select on socket:98 for 10.68.128.35:109898
+Time experied during select on socket:95 for 10.68.128.35:109895
+Time experied during select on socket:74 for 10.68.128.35:109872
+Time experied during select on socket:94 for 10.68.128.35:109893
+Time experied during select on socket:48 for 10.68.128.35:109846
+Time experied during select on socket:91 for 10.68.128.35:109890
+Time experied during select on socket:23 for 10.68.128.35:109820
+Time experied during select on socket:12 for 10.68.128.35:109810
+Time experied during select on socket:87 for 10.68.128.35:109888
+Time experied during select on socket:86 for 10.68.128.35:109885
+Time experied during select on socket:83 for 10.68.128.35:109883
+Time experied during select on socket:66 for 10.68.128.35:109864
+Time experied during select on socket:64 for 10.68.128.35:109862
+Time experied during select on socket:61 for 10.68.128.35:109859
+Time experied during select on socket:16 for 10.68.128.35:109813
+Time experied during select on socket:59 for 10.68.128.35:109857
+Time experied during select on socket:56 for 10.68.128.35:109854
+Time experied during select on socket:54 for 10.68.128.35:109852
+Time experied during select on socket:52 for 10.68.128.35:109850
+Time experied during select on socket:50 for 10.68.128.35:109848
+Time experied during select on socket:42 for 10.68.128.35:109840
+Time experied during select on socket:40 for 10.68.128.35:109838
+Time experied during select on socket:76 for 10.68.128.35:109875
+Time experied during select on socket:93 for 10.68.128.35:109892
+Time experied during select on socket:96 for 10.68.128.35:109896
+Time experied during select on socket:85 for 10.68.128.35:109884
+Time experied during select on socket:90 for 10.68.128.35:109889
+Time experied during select on socket:2ied during select on socket:87 for 10.68.128.35:109287
+Time experied during select on socket:65 for 10.68.128.35:109264
+Time experied during select on socket:88 for 10.68.128.35:109289
+Time experied during select on socket:55 for 10.68.128.35:109253
+Time experied during select on socket:69 for 10.68.128.35:109268
+Time experied during select on socket:16 for 10.68.128.35:109216
+Time experied during select on socket:15 for 10.68.128.35:109215
+Time experied during select on socket:20 for 10.68.128.35:109217
+Time experied during select on socket:24 for 10.68.128.35:109221
+Time experied during select on socket:32 for 10.68.128.35:109229
+Time experied during select on socket:31 for 10.68.128.35:109227
+Time experied during select on socket:36 for 10.68.128.35:109232
+Time experied during select on socket:39 for 10.68.128.35:109235
+Time experied during select on socket:46 for 10.68.128.35:109243
+Time experied during select on socket:45 for 10.68.128.35:109245
+Time experied during select on socket:48 for 10.68.128.35:109246
+Time experied during select on socket:51 for 10.68.128.35:109249
+Time experied during select on socket:49 for 10.68.128.35:109247
+Time experied during select on socket:56 for 10.68.128.35:109254
+Time experied during select on socket:59 for 10.68.128.35:109258
+Time experied during select on socket:61 for 10.68.128.35:109260
+Time experied during select on socket:64 for 10.68.128.35:109262
+Time experied during select on socket:68 for 10.68.128.35:109267
+Time experied during select on socket:78 for 10.68.128.35:109277
+Time experied during select on socket:79 for 10.68.128.35:109278
+Time experied during select on socket:82 for 10.68.128.35:109279
+Time experied during select on socket:80 for 10.68.128.35:109280
+Time experied during select on socket:83 for 10.68.128.35:109282
+Time experied during select on socket:81 for 10.68.128.35:109281
+Time experied during select on socket:84 for 10.68.128.35:109283
+Time experied during select on socket:90 for 10.68.128.35:109290
+ried during select on socket:12 for 10.68.128.35:109116
+Time experied during select on socket:57 for 10.68.128.35:109158
+Time experied during select on socket:26 for 10.68.128.35:109125
+Time experied during select on socket:47 for 10.68.128.35:109148
+Time experied during select on socket:20 for 10.68.128.35:109119
+Time experied during select on socket:10 for 10.68.128.35:109108
+Time experied during select on socket:40 for 10.68.128.35:109140
+Time experied during select on socket:3 for 10.68.128.35:109106
+Time experied during select on socket:80 for 10.68.128.35:109181
+Time experied during select on socket:9 for 10.68.128.35:109105
+Time experied during select on socket:23 for 10.68.128.35:109122
+Time experied during select on socket:27 for 10.68.128.35:109127
+Time experied during select on socket:32 for 10.68.128.35:109132
+Time experied during select on socket:38 for 10.68.128.35:109139
+Time experied during select on socket:39 for 10.68.128.35:109143
+Time experied during select on socket:41 for 10.68.128.35:109141
+Time experied during select on socket:36 for 10.68.128.35:109138
+Time experied during select on socket:46 for 10.68.128.35:109147
+Time experied during select on socket:50 for 10.68.128.35:109151
+Time experied during select on socket:52 for 10.68.128.35:109153
+Time experied during select on socket:55 for 10.68.128.35:109156
+Time experied during select on socket:60 for 10.68.128.35:109161
+Time experied during select on socket:63 for 10.68.128.35:109164
+Time experied during select on socket:66 for 10.68.128.35:109166
+Time experied during select on socket:70 for 10.68.128.35:109170
+Time experied during select on socket:71 for 10.68.128.35:109172
+Time experied during select on socket:72 for 10.68.128.35:109173
+Time experied during select on socket:75 for 10.68.128.35:109176
+Time experied during select on socket:89 for 10.68.128.35:109191
+Time experied during select on socket:88 for 10.68.128.35:109189
+Time experied during select on socket:92 for 10.68.128.35:109193
+Time experied during select on socket:96 for 10.68.128.35:109196
+Time experied during select on socket:98 for 10.68.128.35:109199
+Time experied during select on socket:97 for 10.68.128.35:109198
+!!!!listening failed on socket:17 for 10.68.128.35:109614. Errno is 95, Operation not supported
+!!!!listening failed on socket:40 for 10.68.128.35:109637. Errno is 95, Operation not supported
+!!!!listening failed on socket:43 for 10.68.128.35:109642. Errno is 95, Operation not supported
+!!!!listening failed on socket:48 for 10.68.128.35:109648. Errno is 95, Operation not supported
+!!!!listening failed on socket:57 for 10.68.128.35:109658. Errno is 95, Operation not supported
+Time experied during select on socket:33 for 10.68.128.35:109631
+Time experied during select on socket:25 for 10.68.128.35:109623
+Time experied during select on socket:41 for 10.68.128.35:109640
+Time experied during select on socket:18 for 10.68.128.35:109615
+Time experied during select on socket:66 for 10.68.128.35:109667
+Time experied during select on socket:62 for 10.68.128.35:109664
+Time experied during select on socket:54 for 10.68.128.35:109657
+Time experied during select on socket:14 for 10.68.128.35:109611
+Time experied during select on socket:21 for 10.68.128.35:109619
+Time experied during select on socket:17 for 10.68.128.35:109618
+Time experied during select on socket:23 for 10.68.128.35:109621
+Time experied during select on socket:44 for 10.68.128.35:109643
+Time experied during select on socket:38 for 10.68.128.35:109635
+Time experied during select on socket:48 for 10.68.128.35:109649
+Time experied during select on socket:86 for 10.68.128.35:109688
+Time experied during select on socket:53 for 10.68.128.35:109654
+Time experied during select on socket:22 for 10.68.128.35:109620
+Time experied during select on socket:37 for 10.68.128.35:109636
+Time experied during select on socket:28 for 10.68.128.35:109626
+Time experied during select on socket:81 for 10.68.128.35:109683
+Time experied during select on socket:75 for 10.68.128.35:109677
+Time experied during select on socket:89 for 10.68.128.35:109690
+Time experied during select on socket:34 for 10.68.128.35:109632
+Time experied during select on socket:30 for 10.68.128.35:109628
+Time experied during select on socket:57 for 10.68.128.35:109659
+Time experied during select on socket:72 for 10.68.128.35:109674
+Time experied during select on socket:96 for 10.68.128.35:109698
+Time experied during select on socket:49 for 10.68.128.35:109650
+Time experied during select on socket:93 for 10.68.128.35:109695
+Time experied during select on socket:91 for 10.68.128.35:109693
+Time experied during select on socket:64 for 10.68.128.35:109666
+Time experied during select on socket:61 for 10.68.128.35:109663
+Time experied during select on socket:97 for 10.68.128.35:109699
+Time experied during select on socket:24 for 10.68.128.35:109622
+Time experied during select on socket:26 for 10.68.128.35:109624
+Time experied during select on socket:84 for 10.68.128.35:109686
+Time experied during select on socket:68 for 10.68.128.35:109671
+Time experied during select on socket:78 for 10.68.128.35:109680
+Time experied during select on socket:16 for 10.68.128.35:109613
+Time experied during select on socket:20 for 10.68.128.35:109617
+Time experied during select on socket:15 for 10.68.128.35:109612
+Time experied during select on socket:52 for 10.68.128.35:109653
+Time experied during select on socket:36 for 10.68.128.35:109634
+Time experied during select on socket:19 for 10.68.128.35:109616
+Time experied during select on socket:27 for 10.68.128.35:109625
+Time experied during select on socket:29 for 10.68.128.35:109627
+Time experied during select on socket:32 for 10.68.128.35:109630
+Time experied during select on socket:35 for 10.68.128.35:109633
+Time experied during select on socket:40 for 10.68.128.35:109639
+Time experied during select on socket:42 for 10.68.128.35:109641
+Time experied during select on socket:39 for 10.68.128.35:109638
+Time experied during select on socket:43 for 10.68.128.35:109644
+Time experied during select on socket:50 for 10.68.128.35:109652
+Time experied during select on socket:47 for 10.68.128.35:109647
+Time experied during select on socket:46 for 10.68.128.35:109646
+Time experied during select on socket:45  10.68.128.35:109306
+Time experied during select on socket:6 for 10.68.128.35:109303
+Time experied during select on socket:11 for 10.68.128.35:109308
+Time experied during select on socket:16 for 10.68.128.35:109309
+Time experied during select on socket:19 for 10.68.128.35:109316
+Time experied during select on socket:27 for 10.68.128.35:109324
+Time experied during select on socket:22 for 10.68.128.35:109321
+Time experied during select on socket:38 for 10.68.128.35:109335
+Time experied during select on socket:36 for 10.68.128.35:109333
+Time experied during select on socket:41 for 10.68.128.35:109338
+Time experied during select on socket:42 for 10.68.128.35:109339
+Time experied during select on socket:46 for 10.68.128.35:109343
+Time experied during select on socket:48 for 10.68.128.35:109345
+Time experied during select on socket:51 for 10.68.128.35:109347
+Time experied during select on socket:50 for 10.68.128.35:109348
+Time experied during select on socket:53 for 10.68.128.35:109350
+Time experied during select on socket:54 for 10.68.128.35:109351
+Time experied during select on socket:65 for 10.68.128.35:109365
+Time experied during select on socket:68 for 10.68.128.35:109367
+Time experied during select on socket:72 for 10.68.128.35:109371
+Time experied during select on socket:77 for 10.68.128.35:109376
+Time experied during select on socket:80 for 10.68.128.35:109379
+Time experied during select on socket:63 for 10.68.128.35:109360
+Time experied during select on socket:58 for 10.68.128.35:109355
+Time experied during select on socket:61 for 10.68.128.35:109358
+Time experied during select on socket:64 for 10.68.128.35:109362
+Time experied during select on socket:70 for 10.68.128.35:109368
+Time experied during select on socket:71 for 10.68.128.35:109370
+Time experied during select on socket:82 for 10.68.128.35:109381
+Time experied during select on socket:84 for 10.68.128.35:109383
+Time experied during select on socket:85 for 10.68.128.35:109384
+Time experied during select on socket:88 for 10.68.128.35:109387
+Time experied during select on socket:90 for 10.68.128.35:109390
+Time experied during select on socket:92 for 10.68.128.35:109393
+Time experied during select on socket:89 for 10.68.128.35:109389
+Time experied during select on socket:95 for 10.68.128.35:109395
+Time experied during select on socket:94 for 10.68.128.35:109394
+Time experied during select on socket:98 for 10.68.128.35:109398
+Time experied during select on socket:97 for 10.68.128.35:109397
+for 10.68.128.35:109464
+Time experied during select on socket:78 for 10.68.128.35:109480
+Time experied during select on socket:97 for 10.68.128.35:109499
+Time experied during select on socket:84 for 10.68.128.35:109486
+Time experied during select on socket:90 for 10.68.128.35:109492
+Time experied during select on socket:20 for 10.68.128.35:109418
+Time experied during select on socket:19 for 10.68.128.35:109416
+Time experied during select on socket:23 for 10.68.128.35:109422
+Time experied during select on socket:28 for 10.68.128.35:109425
+Time experied during select on socket:25 for 10.68.128.35:109426
+Time experied during select on socket:30 for 10.68.128.35:109428
+Time experied during select on socket:31 for 10.68.128.35:109431
+Time experied during select on socket:32 for 10.68.128.35:109430
+Time experied during select on socket:35 for 10.68.128.35:109433
+Time experied during select on socket:46 for 10.68.128.35:109446
+Time experied during select on socket:54 for 10.68.128.35:109455
+Time experied during select on socket:52 for 10.68.128.35:109453
+Time experied during select on socket:49 for 10.68.128.35:109451
+Time experied during select on socket:53 for 10.68.128.35:109454
+Time experied during select on socket:56 for 10.68.128.35:109458
+Time experied during select on socket:66 for 10.68.128.35:109468
+Time experied during select on socket:87 for 10.68.128.35:109489
+Time experied during select on socket:95 for 10.68.128.35:109497
+Time experied during select on socket:94 for 10.68.128.35:109496
+Time experied during select on socket:93 for 10.68.128.35:109495
+!!!!listening failed on socket:44 for 10.68.128.35:109941. Errno is 95, Operation not supported
+!!!!listening failed on socket:95 for 10.68.128.35:109993. Errno is 95, Operation not supported
+Time experied during select on socket:17 for 10.68.128.35:109914
+Time experied during select on socket:42 for 10.68.128.35:109939
+Time experied during select on socket:34 for 10.68.128.35:109931
+Time experied during select on socket:25 for 10.68.128.35:109922
+Time experied during select on socket:32 for 10.68.128.35:109929
+Time experied during select on socket:23 for 10.68.128.35:109920
+Time experied during select on socket:27 for 10.68.128.35:109925
+Time experied during select on socket:18 for 10.68.128.35:109915
+Time experied during select on socket:13 for 10.68.128.35:109911
+Time experied during select on socket:39 for 10.68.128.35:109936
+Time experied during select on socket:36 for 10.68.128.35:109933
+Time experied during select on socket:3 for 10.68.128.35:109905
+Time experied during select on socket:15 for 10.68.128.35:109912
+Time experied during select on socket:53 for 10.68.128.35:109951
+Time experied during select on socket:87 for 10.68.128.35:109985
+Time experied during select on socket:99 for 10.68.128.35:109998
+Time experied during select on socket:55 for 10.68.128.35:109954
+Time experied during select on socket:95 for 10.68.128.35:109994
+Time experied during select on socket:93 for 10.68.128.35:109991
+Time experied during select on socket:51 for 10.68.128.35:109950
+Time experied during select on socket:84 for 10.68.128.35:109982
+Time experied during select on socket:78 for 10.68.128.35:109976
+Time experied during select on socket:8 for 10.68.128.35:109902
+Time experied during select on socket:71 for 10.68.128.35:109968
+Time experied during select on socket:62 for 10.68.128.35:109960
+Time experied during select on socket:28 for 10.68.128.35:109923
+Time experied during select on socket:31 for 10.68.128.35:109928
+Time experied during select on socket:22 for 10.68.128.35:109918
+Time experied during select on socket:11 for 10.68.128.35:109906
+Time experied during select on socket:29 for 10.68.128.35:109926
+Time experied during select on socket:90 for 10.68.128.35:109988
+Time experied during select on socket:14 for 10.68.128.35:109910
+Time experied during select on socket:9 for 10.68.128.35:109900
+Time experied during select on socket:5 for 10.68.128.35:109903
+Time experied during select on socket:4 for 10.68.128.35:109907
+Time experied during select on socket:12 for 10.68.128.35:109904
+Time experied during select on socket:10 for 10.68.128.35:109909
+Time experied during select on socket:7 for 10.68.128.35:109901
+Time experied during select on socket:6 for 10.68.128.35:109908
+Time experied during select on socket:16 for 10.68.128.35:109913
+Time experied during select on socket:19 for 10.68.128.35:109916
+Time experied during select on socket:21 for 10.68.128.35:109917
+Time experied during select on socket:20 for 10.68.128.35:109919
+Time experied during select on socket:24 for 10.68.128.35:109921
+Time experied during select on socket:26 for 10.68.128.35:109924
+Time experied during select on socket:30 for 10.68.128.35:109927
+Time experied during select on socket:33 for 10.68.128.35:109930
+Time experied during select on socket:40 for 10.68.128.35:109937
+Time experied during select on socket:37 for 10.68.128.35:109934
+Time experied during select on socket:35 for 10.68.128.35:109932
+Time experied during select on socket:38 for 10.68.128.35:109935
+Time experied during select on socket:43 for 10.68.128.35:109940
+Time experied during select on socket:41 for 10.68.128.35:109938
+Time experied during select on socket:46 for 10.68.128.35:109942
+Time experied during select on socket:45 for 10.68.128.35:109943
+Time experied during select on socket:50 for 10.68.128.35:109948
+Time experied during select on socket:47 for 10.68.128.35:109945
+Time experied during select on socket:48 for 10.68.128.35:109946
+Time experied during select on socket:49 for 10.68.128.35:109947
+Time experied during select on socket:44 for 10.68.128.35:109944
+Time experifor 10.68.128.35:109645
+Time experied during select on socket:51 for 10.68.128.35:109651
+Time experied during select on socket:55 for 10.68.128.35:109655
+Time experied during select on socket:56 for 10.68.128.35:109656
+Time experied during select on socket:59 for 10.68.128.35:109660
+Time experied during select on socket:58 for 10.68.128.35:109661
+Time experied during select on socket:60 for 10.68.128.35:109662
+Time experied during select on socket:63 for 10.68.128.35:109665
+Time experied during select on socket:67 for 10.68.128.35:109669
+Time experied during select on socket:69 for 10.68.128.35:109670
+Time experied during select on socket:65 for 10.68.128.35:109668
+Time experied during select on socket:70 for 10.68.128.35:109672
+Time experied during select on socket:71 for 10.68.128.35:109673
+Time experied during select on socket:76 for 10.68.128.35:109678
+Time experied during select on socket:73 for 10.68.128.35:109675
+Time experied during select on socket:74 for 10.68.128.35:109676
+Time experied during select on socket:77 for 10.68.128.35:109679
+Time experied during select on socket:79 for 10.68.128.35:109681
+Time experied during select on socket:80 for 10.68.128.35:109682
+Time experied during select on socket:82 for 10.68.128.35:109684
+Time experied during select on socket:83 for 10.68.128.35:109685
+Time experied during select on socket:87 for 10.68.128.35:109689
+Time experied during select on socket:85 for 10.68.128.35:109687
+Time experied during select on socket:92 for 10.68.128.35:109694
+Time experied during select on socket:90 for 10.68.128.35:109692
+Time experied during select on socket:88 for 10.68.128.35:109691
+Time experied during select on socket:94 for 10.68.128.35:109696
+Time experied during select on socket:95 for 10.68.128.35:109697
+!!!!listening failed on socket:36 for 10.68.128.35:109733. Errno is 95, Operation not supported
+!!!!listening failed on socket:97 for 10.68.128.35:109795. Errno is 95, Operation not supported
+!!!!listening failed on socket:100 for 10.68.128.35:109799. Errno is 95, Operation not supported
+Time experied during select on socket:49 for 10.68.128.35:109747
+Time experied during select on socket:58 for 10.68.128.35:109755
+Time experied during select on socket:43 for 10.68.128.35:109741
+Time experied during select on socket:95 for 10.68.128.35:109793
+Time experied during select on socket:92 for 10.68.128.35:109790
+Time experied during select on socket:45 for 10.68.128.35:109743
+Time experied during select on socket:52 for 10.68.128.35:109750
+Time experied during select on socket:39 for 10.68.128.35:109737
+Time experied during select on socket:54 for 10.68.128.35:109752
+Time experied during select on socket:64 for 10.68.128.35:109762
+Time experied during select on socket:86 for 10.68.128.35:109784
+Time experied during select on socket:77 for 10.68.128.35:109774
+Time experied during select on socket:62 for 10.68.128.35:109760
+Time experied during select on socket:99 for 10.68.128.35:109798
+Time experied during select on socket:55 for 10.68.128.35:109753
+Time experied during select on socket:90 for 10.68.128.35:109788
+Time experied during select on socket:48 for 10.68.128.35:109746
+Time experied during select on socket:74 for 10.68.128.35:109771
+Time experied during select on socket:68 for 10.68.128.35:109766
+Time experied during select on socket:59 for 10.68.128.35:109757
+Time experied during select on socket:50 for 10.68.128.35:109748
+Time experied during select on socket:51 for 10.68.128.35:109749
+Time experied during select on socket:42 for 10.68.128.35:109740
+Time experied during select on socket:36 for 10.68.128.35:109736
+Time experied during select on socket:60 for 10.68.128.35:109758
+Time experied during select on socket:78 for 10.68.128.35:109775
+Time experied during select on socket:83 for 10.68.128.35:109781
+Time experied during select on socket:71 for 10.68.128.35:109769
+Time experied during select on socket:80 for 10.68.128.35:109778
+Time experied during select on socket:65 for 10.68.128.35:109763
+Time experied during select on socket:98 for 10.68.128.35:109797
+Time experied during select on socket:94 for 10.68.128.35:109792
+Time experied during select on socket:46 for 10.68.128.35:109744
+Time experied during select on socket:56 for 10.68.128.35:109754
+Time experied during select on socket:41 for 10.68.128.35:109739
+Time experied during select on socket:40 for 10.68.128.35:109738
+Time experied during select on socket:44 for 10.68.128.35:109742
+Time experied during select on socket:47 for 10.68.128.35:109745
+Time experied during select on socket:53 for 10.68.128.35:109751
+Time experied during select on socket:57 for 10.68.128.35:109756
+Time experied during select on socket:61 for 10.68.128.35:109759
+Time experied during select on socket:63 for 10.68.128.35:109761
+Time experied during select on socket:67 for 10.68.128.35:109764
+Time experied during select on socket:69 for 10.68.128.35:109767
+Time experied during select on socket:66 for 10.68.128.35:109765
+Time experied during select on socket:70 for 10.68.128.35:109768
+Time experied during select on socket:72 for 10.68.128.35:109770
+Time experied during select on socket:73 for 10.68.128.35:109772
+Time experied during select on socket:75 for 10.68.128.35:109773
+Time experied during select on socket:76 for 10.68.128.35:109776
+Time experied during select on socket:82 for 10.68.128.35:109780
+Time experied during select on socket:79 for 10.68.128.35:109777
+Time experied during select on socket:81 for 10.68.128.35:109779
+Time experied during select on socket:84 for 10.68.128.35:109782
+Time experied during select on socket:87 for 10.68.128.35:109785
+Time experied during select on socket:85 for 10.68.128.35:109783
+Time experied during select on socket:88 for 10.68.128.35:109787
+Time experied during select on socket:89 for 10.68.128.35:109786
+Time experied during select on socket:91 for 10.68.128.35:109789
+Time experied during select on socket:93 for 10.68.128.35:109791
+Time experied during select on socket:96 for 10.68.128.35:109794
+Time experied during select on socket:97 for 10.68.128.35:109796
+2 for 10.68.128.35:109819
+Time experied during select on socket:45 for 10.68.128.35:109842
+Time experied during select on socket:80 for 10.68.128.35:109879
+Time experied during select on socket:4 for 10.68.128.35:109805
+Time experied during select on socket:10 for 10.68.128.35:109807
+Time experied during select on socket:28 for 10.68.128.35:109825
+Time experied during select on socket:14 for 10.68.128.35:109811
+Time experied during select on socket:18 for 10.68.128.35:109815
+Time experied during select on socket:21 for 10.68.128.35:109818
+Time experied during select on socket:26 for 10.68.128.35:109823
+Time experied during select on socket:30 for 10.68.128.35:109827
+Time experied during select on socket:34 for 10.68.128.35:109832
+Time experied during select on socket:46 for 10.68.128.35:109845
+Time experied during select on socket:49 for 10.68.128.35:109847
+Time experied during select on socket:51 for 10.68.128.35:109849
+Time experied during select on socket:55 for 10.68.128.35:109853
+Time experied during select on socket:57 for 10.68.128.35:109855
+Time experied during select on socket:58 for 10.68.128.35:109856
+Time experied during select on socket:60 for 10.68.128.35:109858
+Time experied during select on socket:63 for 10.68.128.35:109861
+Time experied during select on socket:62 for 10.68.128.35:109860
+Time experied during select on socket:65 for 10.68.128.35:109863
+Time experied during select on socket:71 for 10.68.128.35:109869
+Time experied during select on socket:69 for 10.68.128.35:109867
+Time experied during select on socket:67 for 10.68.128.35:109865
+Time experied during select on socket:73 for 10.68.128.35:109871
+Time experied during select on socket:75 for 10.68.128.35:109873
+Time experied during select on socket:78 for 10.68.128.35:109876
+Time experied during select on socket:82 for 10.68.128.35:109881
+Time experied during select on socket:84 for 10.68.128.35:109882
+Time experied during select on socket:89 for 10.68.128.35:109887
+Time experied during select on socket:92 for 10.68.128.35:109891
+Time experied during select on socket:97 for 10.68.128.35:109897
+Time experied during select on socket:99 for 10.68.128.35:109899
+ed during select on socket:57 for 10.68.128.35:109953
+Time experied during select on socket:56 for 10.68.128.35:109955
+Time experied during select on socket:54 for 10.68.128.35:109952
+Time experied during select on socket:52 for 10.68.128.35:109949
+Time experied during select on socket:60 for 10.68.128.35:109958
+Time experied during select on socket:58 for 10.68.128.35:109956
+Time experied during select on socket:63 for 10.68.128.35:109961
+Time experied during select on socket:66 for 10.68.128.35:109964
+Time experied during select on socket:65 for 10.68.128.35:109963
+Time experied during select on socket:59 for 10.68.128.35:109957
+Time experied during select on socket:61 for 10.68.128.35:109959
+Time experied during select on socket:64 for 10.68.128.35:109962
+Time experied during select on socket:68 for 10.68.128.35:109966
+Time experied during select on socket:67 for 10.68.128.35:109965
+Time experied during select on socket:70 for 10.68.128.35:109969
+Time experied during select on socket:69 for 10.68.128.35:109967
+Time experied during select on socket:72 for 10.68.128.35:109970
+Time experied during select on socket:73 for 10.68.128.35:109971
+Time experied during select on socket:75 for 10.68.128.35:109973
+Time experied during select on socket:77 for 10.68.128.35:109975
+Time experied during select on socket:74 for 10.68.128.35:109972
+Time experied during select on socket:76 for 10.68.128.35:109974
+Time experied during select on socket:80 for 10.68.128.35:109977
+Time experied during select on socket:79 for 10.68.128.35:109978
+Time experied during select on socket:81 for 10.68.128.35:109979
+Time experied during select on socket:82 for 10.68.128.35:109981
+Time experied during select on socket:83 for 10.68.128.35:109980
+Time experied during select on socket:85 for 10.68.128.35:109983
+Time experied during select on socket:89 for 10.68.128.35:109987
+Time experied during select on socket:86 for 10.68.128.35:109984
+Time experied during select on socket:88 for 10.68.128.35:109986
+Time experied during select on socket:92 for 10.68.128.35:109990
+Time experied during select on socket:91 for 10.68.128.35:109989
+Time experied during select on socket:94 for 10.68.128.35:109992
+Time experied during select on socket:96 for 10.68.128.35:109995
+Time experied during select on socket:98 for 10.68.128.35:109997
+Time experied during select on socket:100 for 10.68.128.35:109999
+Time experied during select on socket:97 for 10.68.128.35:109996
