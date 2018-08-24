@@ -44,8 +44,16 @@ int main(int argc, char *argv[])
      if (newsockfd < 0) 
           error("ERROR on accept");
      bzero(buffer,256);
+     /*
+     fd_set read_fds;
+     FD_ZERO(&read_fds);
+     FD_SET(sockfd, &read_fds);
+     n = select(sockfd+1, &read_fds, NULL, NULL, 0);
+     if (0 == n)
+     */ 
      n = read(newsockfd,buffer,255);
      if (n < 0) error("ERROR reading from socket");
+     if (0 == n) error("Error read 0 byte, peer closed");
      printf("Here is the message: %s\n",buffer);
      n = write(newsockfd,"I got your message",18);
      if (n < 0) error("ERROR writing to socket");
