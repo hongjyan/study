@@ -1,5 +1,8 @@
 public class sup {
-    public sup() {
+    protected String name;
+
+    public sup(String name_) {
+        name = name_;
 	f();
     }
 
@@ -13,6 +16,10 @@ public class sup {
     
     public void f_toBeCall() {
 	System.out.println("I am f_toBeCall in base class");
+    }
+
+    public void printName() {
+        System.out.println("My Name is " + name);
     }
 }
 
