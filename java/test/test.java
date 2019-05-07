@@ -1,5 +1,8 @@
 package test;
 import java.util.Arrays;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 public class test {
     public static void wrongWayChangeObject(String s) {
@@ -47,5 +50,16 @@ public class test {
 	int j = 1;
 	cannotChangePrimitive(j);
 	System.out.println(j);
+//2019.3.28 test if new file("existfilename") will empty file content
+        File f_handler = new File("test/story.txt");
+        try {
+            FileInputStream fis = new FileInputStream(f_handler);
+            int content = 0;
+            while (-1 != (content=fis.read())) {
+                 System.out.print((char) content);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
