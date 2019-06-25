@@ -1,8 +1,12 @@
 package test;
 import java.util.Arrays;
+<<<<<<< HEAD
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+=======
+import javafx.util.Pair;
+>>>>>>> generic programming
 
 public class test {
     public static void wrongWayChangeObject(String s) {
@@ -60,6 +64,12 @@ public class test {
             }
         } catch (IOException e) {
             e.printStackTrace();
+//2019.6.25
+        try {
+             Pair<Integer, Integer> p = new Pair<>(1, 2);
+             if (p instanceof Pair) { System.out.println("yes\n"); }
+        } catch (Exception e) {
+             e.printStackTrace();
         }
     }
 }
