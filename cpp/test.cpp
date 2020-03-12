@@ -145,5 +145,11 @@ int main() {
     s = s + 1;
     std::cout << s << std::endl;
 }
+
+{
+    cout << "2020.3.11. sizeof on vector return the number of element than the memory occuiped by vector"  << endl;
+    vector<int> vi = {1, 2, 3, 4, 5, 6, 7, 8};
+    std::cout << sizeof(vi) << std::endl;
+}
     return 0;
 }
