@@ -37,18 +37,12 @@ private:
 
 class Foo {
 public:
-    //To summary, 
-    //Take object:Bar as copy-constructor parameter, then copy-constructing of bar will be called.
-    //Take reference:Bar as copy-constructor parameter, then copy-constructing of bar won't be called.
-    //if Foo::bar is object, then bar(b) will call Bar's copy-constructor.
-    //if Foo::bar is reference, then bar(b) won't call Bar's copy-constructor.
-    Foo(Bar b): bar(b), r_bar(b) { printf("constructing foo(Bar)\n"); } //Foo(Bar b) will cause bar's copy-constructor, bar(b) will cause bar's copy-constructor. r_bar(b) won't cause bar's copy-constructor.
+    //TO summary: parameter's copy-constructor  will be call when parameter is object, while won't when parameter is reference
+
+    Foo(Bar b): bar(b), r_bar(b) { printf("constructing foo(Bar)\n"); } //r_bar bond to argument:b which is a temporary object who will be destroied when it is out of this function's range.
+
     Foo(int i, Bar& b): bar(b), r_bar(b) { printf("constructing foo(int, Bar&)\n"); }
  
-    void fun(Bar& b) { printf("fun(Bar& b)\n"); }
-
-    void havefun(Bar b) { printf("havefun(Bar b)\n"); }
-
     Bar& getReferenceBar() {
 	return r_bar;
     }
@@ -73,9 +67,6 @@ public:
 	printf("operator= of Hei\n");
 	return *this;
     }
-    const Hei& getHei() {
-	return *this;
-    }
     
 };
     
@@ -85,33 +76,17 @@ int main() {
     b.setNum(11);
     printf("b.num is %d\n", b.getNum());
     printf("---------------------------\n");
+
     Foo f(b);
-    printf("f.getReferenceBar().getNum is %d\n", f.getReferenceBar().getNum()); //will be -1568605280 since temporary Bar as constructor's parameter will be destoryed.
-    b.setNum(12);
-    printf("f.getReferenceBar().getNum is %d after set\n", f.getReferenceBar().getNum());
-    Bar& rb = f.getReferenceBar();
-    printf("rb.getNum() is %d\n", rb.getNum());
-    rb.setNum(12);
-    printf("rb.getNum() is %d\n", rb.getNum());
+    printf("f.getReferenceBar().getNum is %d\n", f.getReferenceBar().getNum()); //123. I thought it will be an undefined value for example -123124134132 since argument of function is temporary which will be destroied.
     printf("---------------------------\n");
+
     Foo f1(1, b);
-    printf("f1::b::num is %d\n", f1.getReferenceBar().getNum());
+    b.setNum(12);
+    printf("f1::b::num is %d\n", f1.getReferenceBar().getNum()); //12
     printf("---------------------------\n");
-    f.fun(b);
-    printf("---------------------------\n");
-    f.havefun(b);
-    printf("---------------------------\n");
-    b.setNum(13);
-    printf("f1::b::num is %d after change\n", f1.getReferenceBar().getNum());
-    printf("---------------------------\n");
-    Bar b1 = f1.getReferenceBar();
-    printf("---------------------------\n");
-    std::string s1 = "game";
-    std::string s2 = s1;
-    //Bar b2 = f1.getBar();
-    printf("---------------------------\n");
+
     Hei hei;
-    Hei h = hei;
-    Hei h1 = hei.getHei();
+    Hei h = hei; //copy constructor even there is =
     return 0;
 }
