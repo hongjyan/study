@@ -56,6 +56,7 @@ public:
     void print(const Employee &d, const People &b) {
 	cout<<"another employee's name is "<<d._name<<endl; //can access Derived class's protected member no matter it belongs to own or other instance.
 	//cout<<"another people's name is  "<<b._name<<endl;  //can't access base class's protected member surelly. 
+        cout << "another employee's salary is " << d._salary << endl; //as protected member, private member can be accessed by other instance also
     }
 
 private:
