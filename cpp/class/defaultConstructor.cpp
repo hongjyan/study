@@ -28,6 +28,15 @@ private:
     int y_;
 };
 
+class Point4 {
+public:
+    Point4() = default;
+    Point4(const Point4& src): x_(src.x_), y_(src.y_) {}
+private:
+    int x_;
+    int y_;
+};
+
 int main() {
     //if we create one normal-constructor, compiler won't create more normal one, but will create one copy-constructor/assign-operator/de-constor for each one.
     Point d; //error.
@@ -41,6 +50,7 @@ int main() {
     //meanningless since this kind class cann't be instantiated at all !! But We can learn here we must create our own normal-constructor if we create our own copy-constructor 
     Point2 a2; //Error.
     Point2 b2 = a2; //ok
+    Point4 a4; //ok
 
     //if we create nothing, compiler will create one normal-constructor/copy-constructor/assign-operator/de-constructor for each 
     Point3 a3; 

@@ -151,5 +151,28 @@ int main() {
     vector<int> vi = {1, 2, 3, 4, 5, 6, 7, 8};
     std::cout << sizeof(vi) << std::endl;
 }
+
+{
+    cout << "2020.3.20, comparation between -int and unsigned int" << endl;
+    unsigned int c = 274607296;
+    unsigned int d = 274608256;
+    unsigned int Interval = 320;
+    cout << c-d << endl; //4294966336. seems "unsigned x +/- unsigned y" generate unsigned result.
+    cout << (int)(c-d) << endl;//-960
+    cout << Interval << endl;
+
+    unsigned int e = 1;
+    signed char f = -9;
+    cout << typeid(e+f).name() << endl;
+    cout << e + f << endl; 
+    cout << (unsigned int)(f) << endl;
+    
+    cout << -3%12 << endl;
+    unsigned int a = 1;
+    unsigned int b = 4;
+    unsigned int g = 12; 
+    cout << a-b << endl;
+    cout << (a-b)%g << endl; //1
+}
     return 0;
 }
