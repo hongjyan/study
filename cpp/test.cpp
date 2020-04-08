@@ -174,5 +174,15 @@ int main() {
     cout << a-b << endl;
     cout << (a-b)%g << endl; //1
 }
+
+{
+    cout << "2020.4.2. vector.push_back(type &)" << endl;
+    vector<string> svc;
+    {
+        std::string s("soemoe"); 
+        svc.push_back(s);
+    }
+    cout << "svc.size() is  " << svc.size() << ", svc[0] is " << svc[0] << endl; //ok since vector do copy even push_back's parameter type is reference.
+}
     return 0;
 }
