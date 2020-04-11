@@ -20,7 +20,9 @@ private:
 public:
     strVec(): elem(nullptr), firstFree(nullptr), cap(nullptr) {}
     strVec(const strVec&);
+    strVec(strVec &&);
     strVec& operator=(const strVec&);
+    strVec& operator=(strVec &&);
     ~strVec();
     void push_back(string s);
     string *begin() const { return elem; }
@@ -38,6 +40,10 @@ strVec::strVec(const strVec& sv) {
     range posPair = allocate_n_copy(sv.begin(), sv.end());
     elem = posPair.first;
     cap = firstFree = posPair.second;
+}
+
+strVec::strVec(strVec && sv): elem(sv.elem), firstFree(sv.firstFree), cap(sv.cap) {
+    sv.elem = sv.firstFree = sv.cap = nullptr;
 }
 
 void strVec::free() {
@@ -66,6 +72,17 @@ strVec &strVec::operator=(const strVec &src) {
     cap = firstFree = rg.second;
     return *this;
 }
+
+strVec &strVec::operator=(strVec &&rhs) {
+   if (this != &rhs) {
+        free();
+        elem = rhs.elem;
+        firstFree = rhs.firstFree;
+        cap = rhs.cap;
+        rhs.elem = rhs.firstFree = rhs.cap = nullptr;
+   }
+   return *this;
+}  
 
 strVec::~strVec() {
     free();
@@ -101,11 +118,19 @@ int main() {
      }
      strVec sv2(sv);
 
+     
+
      for_each(sv.begin(), sv.end(), [] (const string &s) { cout << s << " "; });
      cout << endl;
      for_each(sv2.begin(), sv2.end(), [] (const string &s) { cout << s << " "; });
      cout << endl;
      sv2 = sv2;
      for_each(sv2.begin(), sv2.end(), [] (const string &s) { cout << s << " "; });
+     cout << endl;
+
+     strVec sv3(std::move(sv2));
+     for_each(sv2.begin(), sv2.end(), [] (const string &s) { cout << s << " "; });
+     cout << endl;
+     for_each(sv3.begin(), sv3.end(), [] (const string &s) { cout << s << " "; });
      cout << endl;
 }
