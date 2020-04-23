@@ -28,7 +28,7 @@ public:
 
     ~Bar() {
         num = 123; 
-        printf("De-constructing bar\n");
+        printf("De-constructing bar at address %p\n", this);
     }
 private:
     int num;
@@ -39,7 +39,10 @@ class Foo {
 public:
     //TO summary: parameter's copy-constructor  will be call when parameter is object, while won't when parameter is reference
 
-    Foo(Bar b): bar(b), r_bar(b) { printf("constructing foo(Bar)\n"); } //r_bar bond to argument:b which is a temporary object who will be destroied when it is out of this function's range.
+    Foo(Bar b): bar(b), r_bar(b) {
+        printf("address of argument is %p\n", &b); 
+        printf("constructing foo(Bar)\n");  //r_bar bond to argument:b which is a temporary object who will be destroied when it is out of this function's range. danger undefined behavior.
+    }
 
     Foo(int i, Bar& b): bar(b), r_bar(b) { printf("constructing foo(int, Bar&)\n"); }
  
@@ -70,6 +73,10 @@ public:
     
 };
     
+Bar &getBar(Bar b) {
+    Bar &rb = b;
+    return rb;
+}
 
 int main() {
     Bar b;
@@ -78,7 +85,10 @@ int main() {
     printf("---------------------------\n");
 
     Foo f(b);
-    printf("f.getReferenceBar().getNum is %d\n", f.getReferenceBar().getNum()); //123. I thought it will be an undefined value for example -123124134132 since argument of function is temporary which will be destroied.
+    printf("f.getReferenceBar().getNum is %d\n", f.getReferenceBar().getNum()); //123. I thought it will be an undefined value for example -123124134132 since argument of function is temporary which will be destroied.  undefined danger behavior
+    printf("the address of reference bar is %p\n", &(f.getReferenceBar()));
+    Bar &b2 = getBar(b);
+    printf("the address of gotBar(b) is %p\n", &b2);
     printf("---------------------------\n");
 
     Foo f1(1, b);
