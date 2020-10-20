@@ -25,5 +25,19 @@ int main() {
     }
     cout << endl;
 //endl
+
+
+//2020.10.20 test vector assignment by another vector. It is ok to assign bigger vector to lessone and ok vice verse.
+    vector<int> vi2 = {1, 2};
+    vector<int> vi3 = {1, 2, 3};
+    vi3 = vi2;
+    for( auto e : vi3) cout << e << " ";
+    cout << endl;    
+
+    vector<int> vi4 = {1};
+    vi3 = vi4;
+    for( auto e : vi3) cout << e << " ";
+    cout << endl;    
+   
     return 0;
 }
