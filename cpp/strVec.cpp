@@ -25,8 +25,8 @@ public:
     strVec& operator=(strVec &&);
     ~strVec();
     void push_back(string s);
-    string *begin() const { return elem; }
-    string *end() const { return firstFree; }
+    string * const begin() const { return elem; }
+    string * const end() const { return firstFree; }
     size_t size() const { return firstFree - elem; }
     size_t capcity() const { return cap - elem; }
 };
@@ -40,10 +40,12 @@ strVec::strVec(const strVec& sv) {
     range posPair = allocate_n_copy(sv.begin(), sv.end());
     elem = posPair.first;
     cap = firstFree = posPair.second;
+    cout << "copy-ctr" << endl;
 }
 
 strVec::strVec(strVec && sv): elem(sv.elem), firstFree(sv.firstFree), cap(sv.cap) {
     sv.elem = sv.firstFree = sv.cap = nullptr;
+    cout << "move-ctr" << endl;
 }
 
 void strVec::free() {
@@ -70,17 +72,18 @@ strVec &strVec::operator=(const strVec &src) {
     free();
     elem = rg.first;
     cap = firstFree = rg.second;
+    cout << "copy-assign" << endl;
     return *this;
 }
 
 strVec &strVec::operator=(strVec &&rhs) {
-   if (this != &rhs) {
-        free();
-        elem = rhs.elem;
-        firstFree = rhs.firstFree;
-        cap = rhs.cap;
-        rhs.elem = rhs.firstFree = rhs.cap = nullptr;
-   }
+   if (this == &rhs) return *this;
+   free();
+   elem = rhs.elem;
+   firstFree = rhs.firstFree;
+   cap = rhs.cap;
+   rhs.elem = rhs.firstFree = rhs.cap = nullptr;
+   cout << "move-assign" << endl;
    return *this;
 }  
 
@@ -130,6 +133,17 @@ int main() {
 
      strVec sv3(std::move(sv2));
      for_each(sv2.begin(), sv2.end(), [] (const string &s) { cout << s << " "; });
+     cout << endl;
+     for_each(sv3.begin(), sv3.end(), [] (const string &s) { cout << s << " "; });
+     cout << endl;
+
+     sv3 = std::move(sv);
+     for_each(sv.begin(), sv.end(), [] (const string &s) { cout << s << " "; });
+     cout << endl;
+     for_each(sv3.begin(), sv3.end(), [] (const string &s) { cout << s << " "; });
+     cout << endl;
+     sv3 = std::move(sv); //will crash?won't but both sv and sv3 will be empty
+     for_each(sv.begin(), sv.end(), [] (const string &s) { cout << s << " "; });
      cout << endl;
      for_each(sv3.begin(), sv3.end(), [] (const string &s) { cout << s << " "; });
      cout << endl;
