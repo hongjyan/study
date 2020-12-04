@@ -20,5 +20,11 @@ public class regexTest {
 	    System.out.println(m.group(2));
 	    System.out.println(m.group(3));
 	}
+
+        String branch = "svnR_GOMS8_1.1.x_RAN3533";
+        String regex2 = "(?!^(svn|cvs|nvs|mvc)$).*"; //.* is not required at other language, but it needs here in java which indicate matches() to connsume the whole string when do match
+        System.out.println(branch.matches(regex2));
+        System.out.println("svn".matches(regex2));
+        System.out.println("somethingsvn".matches(regex2));
     }
 }
