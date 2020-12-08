@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 using namespace std;
 
 
@@ -53,5 +54,13 @@ int main() {
   
 
   //Tar *p4 = new Tar(); //error: 'Tar::Tar()' is private. error: use of deleted function 'Tar::Tar()'
+  //neigther place new save delete-ctr!
+  /*
+  allocator<Tar> alloc;
+  void *rawPlace = alloc.allocate(sizeof(Tar));
+  Tar *p5 = new(rawPlace) Tar();
+  alloc.destroy(p5);
+  alloc.deallocate(p5, sizeof(Tar));
+  */
   return 0;
 }
