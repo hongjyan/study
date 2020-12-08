@@ -86,12 +86,16 @@ void print(const A &aw) {
 
 A foo() {
     A aw(20);
+    aw[0] = 1;
+    aw[1] = 2;
     return aw;
 }
 
 A&& bar() {
     A aw(30);
-    return std::move(aw);
+    aw[0] = 11;
+    aw[1] = 22;
+    return std::move(aw); //crash!!! std::move won't extend temporary object lifecycle.
 }
 
 int main() {
@@ -123,14 +127,19 @@ int main() {
 
    cout << "A a5 = foo()" << endl;
    A a5 = foo(); //copy elide 
+   cout << "a5[0] is " << a5[0] << endl;
  
    cout << "a5 = bar();" << endl;
-   a5 = bar(); //move operator?
+   a5 = bar(); //move operator. previous a5's array memory be released in move-operator
+   //cout << "a5[0] is " << a5[0] << " after move operator"  << endl; //crash!!!! since temporary object was desctructed in bar
+
    cout << "A a6 = bar();" << endl;
    A a6 = bar(); //move ctr   
-   //A &&a7 = a6; //complie error?
+   //cout << "a6[0] is " << a6[0] << endl; //crash!!! since temporary object was desconstructed in bar 
+
+   //A &&a7 = a6; //complie error. Not allow assign left value to right reference.
    cout << "A &&a8 = A()" << endl;
-   A &&a8 = A(); //bond or move-ctr? A: bond
+   A &&a8 = A(); //bond or move-ctr? A: bond since a8 is a reference.
    cout << "A a9 = a8;" << endl;
    A a9 = a8; //copy-ctr, since a8 has a name even a8 is lvalue reference
 
