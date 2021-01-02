@@ -115,6 +115,12 @@ A&& foo2() {
 }
 */
 
+
+//updated at 2020.01.02 to test if it's possible to return a right reference
+A&& foo2(int n) {
+    return A(n);
+}
+
 //work too, but std::move on aw is unncessary. 
 A bar() {
     A aw(30);
@@ -130,7 +136,7 @@ int main() {
    const A& lref_a =  foo(); //const reference extend temporary object lifecycle.
    print(lref_a);
    A&& rref_a = foo();  //same as const A&, rvalue ref extend temporary object lifecycle.
-   print(rref_a);  //it is ok to assign a rrefrence to reference
+   print(rref_a);  //it is ok to bind rrefrence to rvalue reference that has a name.
    cout << endl << endl << endl;
 
 
@@ -158,6 +164,11 @@ int main() {
    A a5 = a4; //copy-ctr rather than move-ctr, since a8 has a name even a8 is lvalue reference
    cout << endl << endl << endl;
 
+
+   A &&a6 = foo2(12);
+   a6[0] = 1;
+   cout << a6[0] << endl;
+   cout << endl << endl << endl;
 
    return 0;
 }   
