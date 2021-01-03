@@ -55,7 +55,9 @@ struct Beta {
 
 
 int main() {
+  cout << "******************************************************************" << endl; 
   cout << "it's ok to bind a lvalue ref to rvalue ref" << endl;
+  cout << "******************************************************************" << endl;;
   int &&rref = 10;
   int &ref = rref;
   ref = 12;
@@ -64,7 +66,10 @@ int main() {
 
 
 
- 
+  cout << "******************************************************************" << endl;
+  cout << "learning the meanning of rvalue reference as return type" << endl;
+  cout << "******************************************************************" << endl;
+  cout << "---------------------------" << endl;
   int *p = nullptr;
   {
     Beta beta;
@@ -73,7 +78,7 @@ int main() {
   }
   cout << "p is " << p << endl;
   if (nullptr != p) {   //p won't be null. 
-     cout << p[8] << endl;  //may lead to crash
+     cout << p[8] << endl;  //try to access address released, theretically, will lead crash. But actually, not, don't know why.
      p[8] = 11;
      cout << p[8] << endl;
   }
