@@ -13,8 +13,14 @@ public:
 
   Foo(const Foo &f): data(f.data) {}
 
+  Foo(Foo &&f) = default;
+  /*Foo(Foo &&f) noexcept { 
+    data = std::move(f.data);
+    cout << "Foo(Foo &&f)" << endl;
+  }*/
+
   Foo& operator=(const Foo &rhs) & {
-    cout << "operator=" << endl;
+    //cout << "operator=" << endl;
     data = rhs.data;
     return *this;
   }
@@ -42,17 +48,21 @@ public:
     return ret;
   }
 
-  Foo sorted() && {
+  Foo& sorted() && {
     cout << "sorted() &&" << endl;
     sort(data.begin(), data.end());
     return *this;
   }
 
-  void print() {
+  void print() const {
     for(auto &e: data) {
       cout << e << " ";
     }
     cout << endl;
+  }
+
+  const Foo getCopy() {
+    return Foo(*this);
   }
 
 private:
@@ -78,9 +88,29 @@ int main() {
   cout << "first match: 'sorted() &&'." << endl;
   cout << "second match:'sorted() const &' since it is ok for const int &i = 20(it is ok to bond a const reference to rvalue." << endl;
   vector<int> ivec{33, 22, 11};
-  Foo(ivec).sorted().print();  //why call "sorted() &" OK on a rvalue?
+  Foo(ivec).sorted().print();
   cout << endl << endl << endl;
   const int &i = 2;
+  cout << endl << endl << endl;
+
+ 
+
+  cout << "call 'sorted() &' on const rvalue" << endl;
+  f.getCopy().sorted().print();
+  cout << endl << endl << endl;
+ 
+
+
+  cout << "call 'sorted() &' on rvalue-reference since reference always has a name" << endl;
+  Foo &&rf = std::move(f);
+  rf.sorted().print();
+  cout <<  "but 'sorted() && on rvalue" << endl;
+  std::move(f).sorted().print(); //move cast f to rvalue.
+  f.print(); //std::move just convert lval to rval reference. 
+  Foo f2(std::move(f)); //move-contructor called since std::move(f) is &&, so f will be empty.
+  f2.print();
+  cout << "f.print is ";
+  f.print();
   cout << endl << endl << endl;
 
   return 0;

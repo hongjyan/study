@@ -88,6 +88,7 @@ strVec &strVec::operator=(strVec &&rhs) {
 }  
 
 strVec::~strVec() {
+    cout << "~dctor" << endl;
     free();
 }
 
@@ -147,4 +148,16 @@ int main() {
      cout << endl;
      for_each(sv3.begin(), sv3.end(), [] (const string &s) { cout << s << " "; });
      cout << endl;
+
+
+     //proove std::move won't extend liftcycle of temporary object
+     {  
+       strVec sv;     
+       sv.push_back("hello");
+       sv3 = std::move(sv);
+     }
+     for_each(sv3.begin(), sv3.end(), [] (const string &s) { cout << s << " "; });
+     cout << endl;
+     
+     return 0;
 }

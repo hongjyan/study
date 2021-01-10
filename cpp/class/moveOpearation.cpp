@@ -12,14 +12,14 @@ public:
     A(size_t size): sz(size) { array = new int[sz](); }
 
     A(const A &src): A(src.sz) {
-        cout << "copy constructor" << endl;
+        cout << "copy constructor " << this << endl;
         for(size_t i=0; i != sz; i++) {
             *(array+i) = *(src.array+i);
         }
     }
 
     A(A &&src) noexcept { 
-       cout << "move constructor" << endl;
+       cout << "move constructor " << this << endl;
        sz = src.sz;
        array = src.array;
        src.array = nullptr;
@@ -27,7 +27,7 @@ public:
     }
 
     A& operator=(const A &rhs) { 
-        cout << "operator=" << endl;
+        cout << "operator="  << this << endl;
         if (this != &rhs) {
             free(); 
             sz = rhs.sz;
@@ -42,7 +42,7 @@ public:
 
    
     A& operator=(A &&rhs) noexcept {
-        cout << "move operator=" << endl;
+        cout << "move operator= " << this << endl;
 
         if (this != &rhs) {
             delete [] array;   
@@ -69,7 +69,7 @@ public:
     }
 
     ~A() {
-        cout << "de-constructor" << endl;
+        cout << "de-constructor "  << this << endl;
         free();
         sz = 0;
         array = nullptr;
@@ -77,6 +77,20 @@ public:
    
    const size_t getSize() const { return sz; }
    int *getArray() { return array; }
+
+
+   //added at 2021.1.10.
+   //will call copy-ctr during return since *this can not be taken as rvalue. 
+   A getA() {
+     return *this;
+   }
+
+   //will call move-ctr during return since temporary value can be taken as rvalue if return-value-optimisation disabled.
+   A getA2() {
+     A tmp(*this);
+     cout << "------" << endl;
+     return tmp;
+   }
 };
 
 void print(const A &aw) {
@@ -107,7 +121,7 @@ A& foo2() {
 
 
 /*error: cannot bind 'A' lvalue to 'A&&'
-A&& foo2() {
+A&& foo3() {
     A aw(20);
     aw[0] = 33;
     aw[1] = 44;
@@ -118,7 +132,7 @@ A&& foo2() {
 
 //updated at 2020.01.02 to test if it's possible to return a right reference
 A&& foo2(int n) {
-    return A(n);
+    return A(n);  //return rvalue reference to a temporary object, will lead crash. 
 }
 
 //work too, but std::move on aw is unncessary. 
@@ -145,7 +159,7 @@ int main() {
    A a2(std::move(a)); //move-ctr. std::move cast lvalue to rvalue referene, so will use move-ctr
    cout << "after be moved, a is " ; 
    print(a);
-   cout << "after move-ctr, a5 is ";
+   cout << "after move-ctr, a2 is ";
    print(a2);
    cout << endl << endl << endl;
 
@@ -165,10 +179,18 @@ int main() {
    cout << endl << endl << endl;
 
 
+   cout << "2021.1.2" << endl;
    A &&a6 = foo2(12);
-   a6[0] = 1;
-   cout << a6[0] << endl;
+//   a6[0] = 1;  //access to address which was released will lead coredump
+//   cout << a6[0] << endl;
    cout << endl << endl << endl;
 
+
+
+   cout << "2021.1.10" << endl;
+   A a7 = A();
+   A a8 = a7.getA();
+   const A a9 = a7.getA2();
+   cout << endl << endl << endl;
    return 0;
 }   
