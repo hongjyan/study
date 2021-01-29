@@ -17,7 +17,7 @@ public:
 class Base2 {
 public:
     Base2() { cout<<"Base2 construct"<<endl; }
-     ~Base2() { cout<<"~Base2"<<endl; }
+    virtual ~Base2() { cout<<"~Base2"<<endl; }
 };
 
 class Derived2 : public Base2 {
@@ -26,19 +26,24 @@ public:
      ~Derived2() { cout<<"~Derived2"<<endl; }
 };
 
+class DD: public Derived2 {
+public:
+    DD() { cout << "dd ctr" << endl; }
+    ~DD() { cout << "dd ~ctr" << endl; }
+};
+
 int main() {
     Base *pb = new Derived;
-    delete pb; //this line will call the destructor of pb:pb->~Base(), since ~Base() is not virtual, so\
-		dynamic binding won't take use. so only destructor of base class was called. This is wrong,\		    because derived class construct was called but derived class destruct was omited. This is \
-		the reason why we set virtual for destructor of base class. 
-    Derived2 d2; //destructor of derived class will call its base class's destructor.
+    delete pb; //this line will call the destructor of pb:pb->~Base(), since ~Base() is not virtual, so dynamic binding won't take use. so only destructor of base class was called. 
+    Derived d; //destructor of derived class will call its base class's destructor where dynamic binding isn't be used.
+    cout << endl << endl << endl;
+    
+    cout << endl << endl << endl;
+    Base2 *pb2 = new Derived2();
+    delete pb2;
+    Base2 *pdd = new DD();  
+    delete pdd;   //dynamic binding still take effect even Derived2(direct base class) hasn't declare virtual for dctor but Base2(root base class)'s dctor is virtual.
+
+
+    cout << endl << endl << endl;
 }
-/* output is 
- * Base construct
- * Derived construct
- * ~Base
- * Base2 construct
- * Derived2 construt
- * ~Derived2
- * ~Base2
- */
