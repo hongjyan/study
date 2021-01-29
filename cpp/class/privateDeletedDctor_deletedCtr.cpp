@@ -48,6 +48,7 @@ int main() {
   Bar *p2 = new Bar();
   //delete p2; //error: 'Bar::~Bar()' is private
   destructBar(p2);
+  //Bar b;  //error: 'Bar::~Bar()' is private
 
   //Tra t;  //error: use of deleted function 'Tra::~Tra()'
   Tra *p3 = new Tra(); //memory leak
