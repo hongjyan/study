@@ -2,7 +2,7 @@
 #include <memory>
 using namespace std;
 
-
+//private dctor class
 class Foo {
 public:
   Foo() { cout << "ctr" << endl; }
@@ -10,6 +10,7 @@ private:
   ~Foo() { cout << "de-ctr" << endl; }
 };
 
+//private dctor class with public member function which call that private dctor
 class Bar {
 public:
   Bar() { cout << "bar-ctr" << endl; }
@@ -23,17 +24,17 @@ void destructBar(const Bar * const ptr) {
   delete ptr; //it is ok for friend function to call private member
 }
 
+//delete dctor class
 class Tra {
 public:
   Tra() { cout << "tra-ctr" << endl; }
   ~Tra() = delete;
 };
 
-
+//private & deleted constructor
 class Tar {
 public:
   static void tar();
-private:
   Tar() = delete;
 };
 
@@ -53,12 +54,12 @@ int main() {
   //delete p3;  //error: use of deleted function 'Tra::~Tra()'
   
 
-  //Tar *p4 = new Tar(); //error: 'Tar::Tar()' is private. error: use of deleted function 'Tar::Tar()'
-  //neigther place new save delete-ctr!
+  //Tar *p4 = new Tar(); //error: use of deleted function 'Tar::Tar()'
+  //neigther place-new deleted-contructor class!
   /*
   allocator<Tar> alloc;
   void *rawPlace = alloc.allocate(sizeof(Tar));
-  Tar *p5 = new(rawPlace) Tar();
+  Tar *p5 = new(rawPlace) Tar;
   alloc.destroy(p5);
   alloc.deallocate(p5, sizeof(Tar));
   */
