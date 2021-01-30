@@ -7,7 +7,6 @@ public:
     static const int val = 10;
 };
 const char* Base::pub_str = "C++";
-const int Base::val;
 
 struct Derived : public Base {
      void output() {
