@@ -71,7 +71,9 @@ int main() {
 //2017/7/25
 {
     std::bitset<4> bits = 0b0111;
-    std::cout << bits << std::endl;
+    std::cout << "std::bitset<4>(0b0111) is " << bits << std::endl;
+    std::cout << "bits[0] is " << bits[0] << endl;
+    std::cout << "bits[3] is " << bits[3] << endl;
     bits.reset(0);
     std::cout << bits << std::endl;
 
