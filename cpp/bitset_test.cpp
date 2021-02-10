@@ -1,5 +1,7 @@
 #include <iostream>
 #include <bitset>
+#include <cstring>
+
 using namespace std;
 
 int main() {
@@ -86,6 +88,13 @@ int main() {
 
     ulong = bitvec4.to_ulong();
     ullong = bitvec4.to_ullong();
+    
+    //new in C++11
+    bitset<32> bitvec6(string("abbbaabb"), 0, string::npos, 'a', 'b');
+    cout << "bitvec6 is " << bitvec6 << endl;
+    const char *s = "abbbaabb";
+    bitset<32> bitvec7(s, strlen(s), 'a', 'b') ;
+    cout << "bitvec7 is " << bitvec7 << endl;
 
     //io operation
     bitset<128> bitvec5;
