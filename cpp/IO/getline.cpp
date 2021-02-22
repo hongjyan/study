@@ -2,7 +2,8 @@
 #include <stdio.h> //printf, linux man getline
 //#include <cstddef>  // size_t, ssize_t
 #include <stdlib.h> // for free
-#include <sstream>
+#include <sstream>  //istringstream
+#include <fstream>  //ifstream
 
 int main() {
     std::string name;
@@ -30,6 +31,20 @@ int main() {
     }
     if (line) free(line);
 
+//2021.2.22
+//ex17.37
+    std::string f;
+    std::cout << "input file_path/file_name" << std::endl;
+    std::cin >> f;
+    std::ifstream  is(f, std::ifstream::in);
+    //is >> std::noskipws;
+    char sink[30];
+    while (is.getline(sink, sizeof(sink)) || !is.eof()) {
+        std::cout << sink << std::endl;
+        is.clear();
+    }      
+
+
 //2017.1.5
     std::string output = "interfaces in default instance:\r\n"
 "-------------------------------\r\n"
@@ -51,6 +66,7 @@ int main() {
     }
 
     std::string temp;
+    std::cout << "debug" << std::endl;
     iss.seekg(0); //? to be done.
     while (iss >> temp) {
         printf("%s\n", temp.c_str());
