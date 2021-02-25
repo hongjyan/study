@@ -2,7 +2,7 @@
 #include <iomanip>
 using namespace std;
 
-int main() {
+int main(int argc, char **argv) {
   //cout manipulator
   cout << "default bool value: " << true << " " << false
        << "\nalpha bool value: " << boolalpha << true << " " << false << endl;
@@ -28,6 +28,7 @@ int main() {
   cout << "i:" << "  " << setw(12) << i << "  " << "next col" << endl;  //setw won't change IO state as endl;
   cout << "d:" << "  " << setw(12) << d << "  " << "next col" << endl;
   cout << right; //restore to default right
+  cout << endl << endl << endl;
 
 
   //cin manipulator
@@ -35,13 +36,16 @@ int main() {
   while (cin >> ch) {  //space will be omitted in default.
     cout << ch;
   }
-
   cin.clear();
-  cout << "again, keep space";
 
+  cout << "again, keep space";
   cin >> noskipws;
   while (cin >> ch) {
     cout << ch;
   }
+  cin >> skipws; //restore default
+  cin.clear();
+  cout << endl << endl << endl;
+
   return 0;
 }
