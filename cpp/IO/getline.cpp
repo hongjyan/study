@@ -39,10 +39,12 @@ int main() {
     std::ifstream  is(f, std::ifstream::in);
     //is >> std::noskipws;
     char sink[30];
+    //while (is.getline(sink, sizeof(sink))) {  //is.failbit will be set if line character number exceed 30.
     while (is.getline(sink, sizeof(sink)) || !is.eof()) {
         std::cout << sink << std::endl;
         is.clear();
     }      
+    is.close();
 
 
 //2017.1.5
@@ -62,12 +64,16 @@ int main() {
 
     char aline[65535] = {0};
     while (iss.getline(aline, 65535)) {
-	printf("aline is %s\n", aline);
+	printf("%s\n", aline);
     }
 
     std::string temp;
-    std::cout << "debug" << std::endl;
+    std::cout << iss.fail() << iss.bad() << iss.eof() << std::endl; //don't know why iss failbit was set.
+    iss.seekg(0);
+    std::cout << iss.fail() << iss.bad() << iss.eof() << std::endl;
+    iss.clear();  //clear failbit
     iss.seekg(0); //? to be done.
+    std::cout << iss.fail() << iss.bad() << iss.eof() << std::endl;
     while (iss >> temp) {
         printf("%s\n", temp.c_str());
     }
