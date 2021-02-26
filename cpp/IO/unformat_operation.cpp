@@ -5,6 +5,57 @@
 
 using namespace std;
 
+void cpy_file(string filename) {
+  ifstream src(filename, std::ios::binary);
+  ofstream dst(filename + ".cpy", std::ios::binary);
+  dst << src.rdbuf();
+}
+
+
+void append_line_number(const string filename) {
+  ifstream in(filename, fstream::in);
+  if (!in) { 
+    cout << "file:" << filename << " doesn't exsit." << endl;
+    return; 
+  }
+  in.close();
+
+  cpy_file(filename);
+  fstream inout(filename + ".cpy", fstream::ate | fstream::in | fstream::out);
+
+  auto endMark = inout.tellg();
+  auto curMark = endMark;
+  string line;
+  size_t cnt = 0;
+  cout << inout.fail() << inout.bad() << endl;
+
+  inout.seekg(0, fstream::beg);
+  while (std::getline(inout, line) && inout.tellg() != endMark) { //inout.tellg!=endMark is necessary, otherwise inout's eofbit will be set, which will cause succeeding operation on inout failed.
+    //get line cnt and reserve current position
+    curMark = inout.tellg();
+    cnt = line.size() + 1; //1 for '\n'
+    
+    //go to end then write cnt and space
+    inout.seekp(0, fstream::end);
+    //inout.write(cnt);  //can not write int as char!
+    inout << cnt;
+    if (curMark != endMark) {
+      inout << ' ';
+    }
+    
+    //go back to reserved position
+    inout.seekg(curMark);
+  }
+  
+  //append newline
+  inout.seekp(0, fstream::end);
+  inout << "\n";
+
+  //close file
+  inout.close();
+}
+  
+
 int main() {
 /********************byte unfromat operation*******************/
   istringstream iss("heloworld");
@@ -72,21 +123,27 @@ int main() {
   cout << endl;
 
 
-  /****ostream.seekp/tellp******/
+  /****fstream.seek/tell******/
   string filename = "test.txt";
-  ofstream outfile;
-  outfile.open(filename);
-  outfile.write("this is an apple", 16);
-  long pos = outfile.tellp();
-  outfile.seekp(pos-7);
-  outfile.write(" sam", 4);
-  outfile.close();
+  //ofstream fs;
+  fstream fs;
+  fs.open(filename);
+  fs.write("this is an apple", 16);
+  long pos = fs.tellp();
+  fs.seekp(pos-7);
+  fs.write(" sam", 4);
+  fs.flush();
   string s;
-  ifstream infile(filename);
-  while (std::getline(infile, s)) {
+  //ifstream infile(filename);
+  fs.seekg(0);
+  while (std::getline(fs, s)) {
     cout << s << endl;
   }
-  infile.close();
+  fs.close();
 
+  /*****fstream seek/tell again from book*********/
+  cout << "input file name" << endl;
+  cin >> filename;
+  append_line_number(filename);
   return 0;
 }
