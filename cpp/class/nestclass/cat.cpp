@@ -18,9 +18,3 @@ void Cat::purr() {
 Cat::~Cat() {
     if (NULL != pCatImpl) delete pCatImpl;
 }
-
-
-int main() {
-    Cat cat;
-    cat.purr();
-}
