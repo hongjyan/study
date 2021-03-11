@@ -1,8 +1,11 @@
+#include <iostream>
+
 //nested class
 int x, y;
 
 class enclose {
   int x;
+  enum { z, k};
   static int s;
 
   struct nestedPrivate {
@@ -17,7 +20,8 @@ public:
                         // OK in C++11: operand of sizeof is unevaluated.
       int b = sizeof s;
 
-      s = i;    // OK: can assign to the static enclose::s     
+      s = i;    // OK: can assign to the static enclose::s 
+      std::cout << k << std::endl;    
       ::x = i;  // OK: can assign to global x
       y = i;    // OK: can assign to global y
     }
@@ -39,7 +43,6 @@ public:
 
 
 //local class
-#include <iostream>
 void containing_f() {
   static int x;
   enum { i, j };
