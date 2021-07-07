@@ -14,10 +14,11 @@ void printer(Args&&... args) {
     (std::cout << ... << args) << '\n';
 }
 
-/*
+/* 不能工作, 那么如何实现右折叠呢？ 
 template<typename ...Args>
 void printer2(Args&&... args) {
     (std::cout << args << ...) << '\n';
+
 }
 */
 
@@ -58,6 +59,17 @@ void left_push_back_2(std::vector<T>& v, Args&&... args)
 }
 
 
+template<typename... Args>
+auto binary_left_divide(Args... args) {
+  return (10 / ... /  args);
+}
+
+template<typename... Args>
+auto binary_right_divide(Args... args) {
+  return (args / ... /  10);
+}
+
+
  //下面没看了
 // compile-time endianness swap based on http://stackoverflow.com/a/36937049 
 template<class T, std::size_t... N>
@@ -73,6 +85,7 @@ int main()
 {
     printer(1, 2, 3, "abc");
 
+
     std::cout << left_multiple(1000, 2, 10, 0.5) << std::endl; //  (((1000 * 2) * 10) * 0.5)
     std::cout << right_multiple(1000, 2, 10, 0.5) << std::endl; // (1000 * (2 * (10 * 0.5)))
     std::cout << left_divide(1000, 2, 10, 0.5) << std::endl;  //   (((1000 / 2) / 10) / 0.5)
@@ -87,6 +100,9 @@ int main()
     for (int i : v2) std::cout << i << ' ';
     std::cout << std::endl;
 
+
+    std::cout << binary_left_divide(1000, 2, 10, 0.5) << std::endl;   //((((10 / 1000) / 2) / 10) / 0.5)
+    std::cout << binary_right_divide(1000, 2, 10, 0.5) << std::endl;  //  (1000 / (2 / (10 / (0.5 / 10))))
 
  
     static_assert(bswap<std::uint16_t>(0x1234u)==0x3412u);
