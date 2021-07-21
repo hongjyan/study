@@ -22,6 +22,25 @@ void printer2(Args&&... args) {
 }
 */
 
+template<int... Args>
+std::ostream& print_int() {
+  return (std::cout << ... << Args) << std::endl;
+}
+
+void print_single_int(int i) { std::cout << i << ' '; }
+
+/*
+void print_int_2(int... args) {  //parameter pack/expansion 不适用非模板
+  print_single_int(args)...;
+  std::cout << std::endl;
+}
+*/
+//可用下面代替https://stackoverflow.com/questions/20407753/can-c11-parameter-packs-be-used-outside-templates 
+template<typename... Ints>
+void foo(Ints... ints) {
+  int args[] { ints... }; //此处展开参数包到数组中
+}
+
 //same result for multiple
 template<typename ...Args>
 auto left_multiple(Args... args) {
@@ -103,8 +122,9 @@ int main()
 
     std::cout << binary_left_divide(1000, 2, 10, 0.5) << std::endl;   //((((10 / 1000) / 2) / 10) / 0.5)
     std::cout << binary_right_divide(1000, 2, 10, 0.5) << std::endl;  //  (1000 / (2 / (10 / (0.5 / 10))))
-
  
     static_assert(bswap<std::uint16_t>(0x1234u)==0x3412u);
     static_assert(bswap<std::uint64_t>(0x0123456789abcdefULL)==0xefcdab8967452301ULL);
+
+    print_int<1, 2, 3>();
 }
