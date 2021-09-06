@@ -67,7 +67,7 @@ private:
     static std::map<std::string, std::function<Message*()>> map_;
 };
 
-std::map<std::string, std::function<Message*()>> factory::map_;
+std::map<std::string, std::function<Message*(Args&&...)>> factory::map_;
 
 
 #define REGISTER_MESSAGE_VNAME(T) reg_msg_##T##_
