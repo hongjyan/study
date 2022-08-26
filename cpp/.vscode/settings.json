@@ -60,5 +60,8 @@
         "typeinfo": "cpp",
         "any": "cpp",
         "set": "cpp"
-    }
+    },
+    "doxygen_runner.doxygen_command": "C:\\Program Files\\doxygen\\bin\\doxygen.exe",
+    "doxygen_runner.configuration_file_override": "D:\\study\\Doxyfile",
+    "doxygen_runner.view_after_generate": true
 }
