@@ -21,13 +21,15 @@ public:
   Foo(int x) {}
   virtual ~Foo() {}
 
-  inline int sum(int x, int y) {
+  virtual inline int sum(int x, int y) {
     return x + y;
   }
 
-  inline Foo clone(int x) {
+  virtual inline Foo clone(int x) {
     return Foo(x);
   }
+
+  inline void nonVitrualfunc() {}  //MockFoo可以不mock某函数
 };
 
 class MockFoo : public Foo {
@@ -65,7 +67,14 @@ TEST_F(gtestPracticeTests, OKWhenSpecifyAction2) {
   ));
   foo.clone(7);
 }
-
+/***************************
+ * 可以看出上面的mock直接mock了具体函数。
+ * 但是并不推荐这样。因为
+ * 1. 如果mock具体类， 那么被mock函数必须是virtual的， 否则不能mock对象的mock函数不能相当于被mock对象的函数，也不会被调用。 所以可能
+ * 需要将非virtual 函数变为virtual
+ * 2. 如果这个具体类有了派生类， 那么测试其他派生类时，先前的mock类还能使用吗？
+ * A: 如果先前使用派生类或者基类都是通过基类指针或引用，那是可以的。？？那么这样还不如直接抽象为接口
+ ****************************/
 
 
 
