@@ -186,7 +186,7 @@ struct MyParameterMock : public MyParameter
 
 struct MyClass
 {
-    virtual ~MyClass() {}
+    virtual ~MyClass() { std::cout << __func__ << std::endl; }
     virtual void myMethod(shared_ptr<MyParameter> p) {}
 };
 struct MyClassMock : public MyClass
@@ -199,6 +199,7 @@ TEST_F(gtestPracticeTests, leaktest)
 {
     shared_ptr<MyClassMock> c = make_shared<MyClassMock>();
     shared_ptr<MyParameterMock> p = make_shared<MyParameterMock>();
+    shared_ptr<MyClass> realC = make_shared<MyClass>();
     //因为如果EXPECT_CALL是要按顺序执行，那么gmock需要维护EXPECT_CALL的顺序， 而gmock靠holding指向前面EXPECT_CALL的指针来达到,
     //且对EXPECT_CALL检查是发生在mock对象被析构时。 故此时就死循环了， 析构要等share_ptr计数为0， 而由于in order检查又需要hold share_ptr，
     //这将造成mock对象不能被析构。
@@ -233,13 +234,18 @@ TEST_F(gtestPracticeTests, leaktest)
     doesn't delete the mock object properly - you could end up with a passing test when there's 
     actually a bug.
 ***************************/
-struct MockSubscriber {
+struct Subscriber {
+  virtual void func1() {}
+  virtual ~Subscriber() { std::cout << __func__ << std::endl; }
+};
+
+struct MockSubscriber : Subscriber {
   MOCK_METHOD0(func1, void());
 };
 
-vector<shared_ptr<MockSubscriber>> g_subscribers;
+vector<shared_ptr<Subscriber>> g_subscribers;
 
-void subscribe(shared_ptr<MockSubscriber>& p) {
+void subscribe(shared_ptr<Subscriber> p) {
   g_subscribers.push_back(p);
 }
 
@@ -265,6 +271,22 @@ TEST_F(gtestPracticeTests, verifyWhenDtor_shouldSuccess)
     notify();
 }
 
+//证明实际类也可能memory leak
+//third的析构是在’1‘后打印的， 说明third的析构是在整个UT退出是析构的，而不是TEST_F退出时析构的。原因是third被压入全局g_subscribers里了。
+TEST_F(gtestPracticeTests, verifyWhenDtor_realClass)
+{
+    shared_ptr<Subscriber> third(make_shared<Subscriber>());
+    subscribe(third);
+    notify();
+}
+
+TEST_F(gtestPracticeTests, verifyWhenDtor_realClassRepeatedToSeeWhenDestruct)
+{
+    std::cout << '1' << std::endl;
+    shared_ptr<Subscriber> fourth(make_shared<Subscriber>());
+    subscribe(fourth);
+    notify();
+}
 
 
 /***************************
