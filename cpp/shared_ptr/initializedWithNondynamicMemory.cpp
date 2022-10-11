@@ -100,5 +100,9 @@ int main() {
 
         cout << "------" << endl;
     }
+
+    //2022.11.3 share_ptr<T>()会是空指针吗？
+    if (!shared_ptr<int>()) cout << "1 null ptr." << endl;
+    if (!shared_ptr<Foo>()) cout << "2 null ptr." << endl;
     return 0;
 }

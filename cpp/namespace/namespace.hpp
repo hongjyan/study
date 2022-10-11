@@ -1,5 +1,7 @@
 #include <iostream>
 
+int k = 10;
+
 /*********** inline namespace *********************/
 namespace C98 {
   int i = 10;
@@ -24,11 +26,16 @@ namespace {     //OK, c11 style
   int j = 13;
 }
 
-
-int main() {
-  std::cout << "C98::i = " << C98::i << std::endl;
-  std::cout << "C11::i = " << i << std::endl;
-  std::cout << "C11::s is " << s << std::endl;
-  std::cout << "global static j is " << j << std::endl;
-  return 0;
+//2022.10.18
+namespace has
+{
+  int k = 1111;
+namespace tracingService
+{
+  void f() {
+    std::cout << "k is " << k << ", it should be 1111 since it is the value \
+      of innerMost namespace" << std::endl;
+    std::cout << "C11::i is " << C11::i << std::endl; //prove global namespace will be searched for namespace too. 
+  } 
+}
 }

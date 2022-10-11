@@ -76,6 +76,8 @@ int main() {
   
 
   //typeid
+  int i = 1234;
+  typeid(1)==typeid(i) ? cout << std::hex << i  << endl : cout << "neq" << endl;
   cout << (typeid(*p) == typeid(d)) << endl; //compare type of two expression
   cout << (typeid(*p) == typeid(Derived)) << endl;  //compare type of expression and another type
     //ok to *p even p is null when p points to no-polymophic type

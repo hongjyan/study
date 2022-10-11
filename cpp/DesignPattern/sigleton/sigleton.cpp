@@ -9,39 +9,23 @@ using namespace std;
 
 class Questionnary
 {
-  std::string _str;
-
-  static Questionnary& getInstanceImpl(std::string* const s = nullptr)
-  {
-    static Questionnary instance{ s };
-    return instance;
-  }
-
-  Questionnary(std::string* const s)
-    : _str{ s ? move(*s) : std::string{} } // employ move ctor
-  {
-    if (nullptr == s)
-      throw std::runtime_error{ "Questionnary not initialized" };
-  }
-
+  private:
+    std::string str_;
+    char c_;
+    Questionnary(const std::string& s, char c): str_(s), c_(c) {}
+ 
 public:
-  static Questionnary& getInstance()
+  static Questionnary& getInstance(const std::string& s, char c)
   {
-    return getInstanceImpl();
-  }
-  static void init(std::string s) // enable moving in
-  {
-    getInstanceImpl(&s);
-  }
-
-  void print() {
-    cout << _str << endl;
+    static Questionnary instance{s, c}; //static变量只初始化一次。
+    instance.str_ = s; //但是可以赋值多次
+    cout << instance.str_  << " " << instance.c_ << endl;
+    return instance;
   }
 
   Questionnary(Questionnary const&) = delete;
   void operator=(Questionnary const&) = delete;
 };
-
 
 
 class MySigleton {
@@ -66,42 +50,9 @@ public:
     void print() { cout << str_ << endl; } 
 };
 
-class MySigleton2 {
-private:
-    string str_;
-    static shared_ptr<MySigleton2> mySigleton2_;
-
-    MySigleton2() = default;
-    MySigleton2(const MySigleton2&) = delete;
-    MySigleton2& operator=(const MySigleton2&) = delete;
-
-public:
-    static shared_ptr<MySigleton2> getInstance() {
-        if (!mySigleton2_) mySigleton2_ = make_mySigleton2();
-        return mySigleton2_;
-    }
-
-    shared_ptr<MySigleton2> set(const string& str) {
-        str_ = str;
-        return mySigleton2_;
-    }  
-    void print() { cout << str_ << endl; } 
-};
-
-struct DerivedSigleton2 : public MySigleton2 {};
-std::shared_ptr<MySigleton2> make_mySigleton2()
-{
-    return std::make_shared<DerivedSigleton2>();
-}
-
 int main() {
-    // Questionnary::getInstance().print(); //will throw runtime error since instance now initialized.
-
-    Questionnary::init("foo");
-    Questionnary::getInstance().print();
-
-    Questionnary::init("bar");
-    Questionnary::getInstance().print(); //output will be foo
+    Questionnary::getInstance("foo", 'a'); //"foo a"
+    Questionnary::getInstance("bar", 'b'); //"bar a"
 
     cout << "---------------" << std::endl;
     auto x = MySigleton::getInstance();
@@ -109,7 +60,5 @@ int main() {
     x->set("foo")->print();
     x->set("bar")->print();
 
-    cout << "---------------" << std::endl;
-    make_mySigleton2();
-
+    return 0;
 }

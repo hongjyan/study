@@ -15,6 +15,7 @@ struct gtestPracticeTests : public Test {
 
 /***************************
 测试返回值无默认构造函数，但EXPECT_CALL不带action的行为。
+2022.10.10 测试能否EXPECT_CALL 继承过来的函数（非mock类里的mock_method). A: NO
 ***************************/
 class Foo {
 public:
@@ -67,13 +68,28 @@ TEST_F(gtestPracticeTests, OKWhenSpecifyAction2) {
   ));
   foo.clone(7);
 }
+
+//2022.10.10
+TEST_F(gtestPracticeTests, tryEXPECTCALLInheritedFunction) {
+  MockFoo foo{10};
+  // EXPECT_CALL(foo, nonVitrualfunc()).Times(1); // error: â€˜class MockFooâ€™ has no member named â€˜gmock_nonVitrualfuncâ€™; did you mean â€˜nonVitrualfuncâ€™?
+  foo.nonVitrualfunc();
+}
+
+TEST_F(gtestPracticeTests, testExpectTwice) {
+  MockFoo foo{10};
+  EXPECT_CALL(foo, sum(_, _)).Times(2);
+  foo.sum(1, 2);
+  foo.sum(2, 1);
+}
 /***************************
  * 可以看出上面的mock直接mock了具体函数。
  * 但是并不推荐这样。因为
- * 1. 如果mock具体类， 那么被mock函数必须是virtual的， 否则不能mock对象的mock函数不能相当于被mock对象的函数，也不会被调用。 所以可能
- * 需要将非virtual 函数变为virtual
+ * 1. 如果mock具体类， 那么被mock函数必须是virtual的。 因为，即使mock类的mock非virtual函数，被测试代码依然call那个被隐藏了函数，而非mock_method。 所以可能
+ * 需要将非virtual 函数变为virtual. 我们代码里面的L2DebugStreamMessageSender这个具体类就被L2SenderMock了，L2DebugStreamMessageSender不想将
+ * 其不可改变实现sendStreamStartReq置为virtual， 所以新增 virtual sendStreamActivationReq_impl， 以让mock类去mock，当然多拉出一个impl可以将接口与实现分离
  * 2. 如果这个具体类有了派生类， 那么测试其他派生类时，先前的mock类还能使用吗？
- * A: 如果先前使用派生类或者基类都是通过基类指针或引用，那是可以的。？？那么这样还不如直接抽象为接口
+ * A: 如果生产环境里的派生类或者基类都是通过基类指针或引用被使用，那是可以的。？？那么这样还不如直接抽象为接口
  ****************************/
 
 

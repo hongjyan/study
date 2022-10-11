@@ -8,6 +8,10 @@ class enclose {
   enum { z, k};
   static int s;
 
+  void encloseF() {
+    std::cout << __func__ << std::endl;
+  }
+
   struct nestedPrivate {
     void g() {};
   };
@@ -24,6 +28,7 @@ public:
       std::cout << k << std::endl;    
       ::x = i;  // OK: can assign to global x
       y = i;    // OK: can assign to global y
+      //encloseF(); //2022.10.10 cannot call member function â€˜void enclose::encloseF()â€™ without object
     }
 
 
@@ -40,6 +45,12 @@ public:
     return nestedPrivate();
   }
 };
+
+//can we inherit private nest class?
+//A: no, we can't 
+// class DerivedNestedPrivate : public enclose::nestedPrivate
+// {
+// };
 
 
 //local class
@@ -70,6 +81,7 @@ int main() {
 
   containing_f();
   //Local l;  //local class can only be accessed by containing function.
+
   return 0;
 }
 
