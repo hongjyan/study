@@ -10,12 +10,12 @@ public:
 
     Rule(Function func) : func_(std::move(func)) {}
 
-    //?????????????, ???U?????T, ??U==T. 
-    //U->T?????????operator()?
+    // 不同类型的模板实例间的转换， 前提为U可以转换为T， 或者U==T.
+    // U->T的转换发生再下面的operator()中
     template <class U>
     Rule(const Rule<U>& other): Rule([&other] (const T& item) { return other(item); }) {}
 
-    bool operator()(const T& item) const //?????const? ???????
+    bool operator()(const T& item) const
     {
         return func_(item);
     }
