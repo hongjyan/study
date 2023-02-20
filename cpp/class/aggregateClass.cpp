@@ -45,4 +45,7 @@ int main() {
     //In c++11, no matching function for call to â€˜FooWithDefaultValue::FooWithDefaultValue(<brace-enclosed initializer list>)
     //Ok in c++14
     FooWithDefaultValue fooWithDefaultValue1 = {2, 'd', "fun"};
+    std::cout << "fooWithDefaultValue1.s is " << fooWithDefaultValue1.s << std::endl;
+    FooWithDefaultValue fooWithDefaultValue2 = {2, 'd'};
+    std::cout << "fooWithDefaultValue2.s is " << fooWithDefaultValue2.s << std::endl;
 }

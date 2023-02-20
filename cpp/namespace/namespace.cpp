@@ -1,14 +1,23 @@
 #include "namespace.hpp"
 
 //2022.10.18 need c++20
-// namespace has::tracingService::streaming
-// {
-//   void f2() {
-//     std::cout << "k is " << k << ", it should be 1111 since it is the value \
-//       of innerMost namespace" << std::endl;
-//     std::cout << "C11::i is " << C11::i << std::endl; //prove global namespace will be searched for namespace too. 
-//   } 
-// }
+namespace has::tracingService::streaming
+{
+  void f2() {
+    f();
+    1111 == k ? std::cout<<"correct" : std::cout<<"wrong";
+    std::cout << std::endl;
+  }
+
+  struct Foo {};
+  
+  using namespace C98;
+  C98::Foo f3(Foo foo)
+  { 
+    return C98::Foo();
+  }
+
+}
 
 int main() {
   std::cout << "C98::i = " << C98::i << std::endl;
@@ -16,6 +25,6 @@ int main() {
   std::cout << "C11::s is " << s << std::endl;
   std::cout << "global static j is " << j << std::endl;
   has::tracingService::f();
-  // has::tracingService::f2();
+  has::tracingService::streaming::f2();
   return 0;
 }

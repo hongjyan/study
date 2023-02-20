@@ -4,17 +4,21 @@ using namespace std;
 class base {
 public:
     int get_value() {
-	return value;
+	    return value;
     }
 private:
+    void output_value() {
+        cout << value << endl;
+    }
     int value;
 };
 
 class derived : public base {
 public:
     void output_value() {
-//	cout << value << endl;
-	cout << get_value() << endl;
+	    // cout << value << endl;
+        // base::output_value();
+	    cout << get_value() << endl;
     }
 };
 

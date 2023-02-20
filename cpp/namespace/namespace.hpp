@@ -5,6 +5,7 @@ int k = 10;
 /*********** inline namespace *********************/
 namespace C98 {
   int i = 10;
+  struct Foo {};
 }
 
 inline namespace C11 {  //let C11 as default namespace.
@@ -34,8 +35,8 @@ namespace tracingService
 {
   void f() {
     std::cout << "k is " << k << ", it should be 1111 since it is the value \
-      of innerMost namespace" << std::endl;
+of innerMost namespace" << std::endl;
     std::cout << "C11::i is " << C11::i << std::endl; //prove global namespace will be searched for namespace too. 
-  } 
+  }
 }
 }
