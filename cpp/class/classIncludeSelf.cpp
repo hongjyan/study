@@ -21,6 +21,11 @@ struct Bar
         return Bar();
     }
 
+    static Bar staticllyGetDefaultBar()
+    {
+        return Bar();
+    }
+
 private:
     // Bar self_; // will cause Bar infinitely large
     Bar* pself_;  // ok
@@ -30,5 +35,6 @@ private:
 int main() {
     Bar bar;
     bar.getDefaultBar();
+    Bar::staticllyGetDefaultBar();
     return 0;
 }  
