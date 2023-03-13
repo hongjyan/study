@@ -40,7 +40,9 @@ public:
     }
 
 private:
-    string s_{"1"}, s2_{"11"}, s3_{"111"};
+    string s_{"1"}, s2_{"11"};
+protected:
+    string s3_{"111"};
 };
 
 class derived : public base {
@@ -62,6 +64,8 @@ public:
     string vGetStr3()
     {
         cout << __func__ << ": ";
+        cout << "s3 address is " << &s3_;
+        cout << ", base::s3 address is " << &(base::s3_);
         return s3_;
     }
 
