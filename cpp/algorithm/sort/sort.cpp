@@ -241,6 +241,59 @@ void quickSort(int A[], int size) {
     if (size-1 != pivot) quickSort(A+pivot+1, size-1-pivot);
 }
 
+
+// BST. Binary search tree sort
+struct Node {
+    int key;
+    Node* left;
+    Node* right;
+};
+
+Node* newNode(int key) {
+    Node* node = new Node;
+    node->key = key;
+    node->left = node->right = nullptr;
+    return node;
+}
+
+Node* insert(Node* root, int key) {
+    if (nullptr == root) {
+        return newNode(key);
+    }
+    if (root->key > key) {
+        root->left = insert(root->left, key);
+    }
+    else if (root->key < key) {
+        root->right = insert(root->right, key);
+    }
+    return root;
+}
+
+Node* createBinaryTree(int* arr, int n) {
+    if (nullptr == arr) return nullptr;
+
+    Node* root = nullptr;
+    for (int i=0; i!=n; ++i) {
+        root = insert(root, arr[i]);
+    }
+    return root;
+}
+
+void destructBinaryTree(Node* root) {
+    if (nullptr != root->left) destructBinaryTree(root->left);
+    if (nullptr != root->right) destructBinaryTree(root->right);
+    if (nullptr != root) delete root;
+}
+
+void storeSorted(Node* root, int arr[], int& i) {
+    if (nullptr != root) {
+        storeSorted(root->left, arr, i);
+        arr[i++] = root->key;
+        storeSorted(root->right, arr, i);
+    }
+}
+
+
 int main() {
     printf("standardInsertSort\n");
     int array0[] = {1, 2323, 434, 543534,65, 7,3,88983, 8453,213 ,23445, 343658, 23, 854,384};
@@ -292,9 +345,19 @@ int main() {
     printArray(array444, sizeof(array444)/sizeof(int));
 
     printf("QickSort\n");
-    int array5[] = {1, 2323, 434, 543534,65, 7,3,88983, 8453,213 ,23445, 343658, 23, 854,384};
+    int array5[] = {1, 2323, 434, 543534,65, 7,3,88983, 8453,213 ,23445, 343658, 213, 23, 854,384};
     quickSort(array5, sizeof(array5)/sizeof(int));
     printArray(array5, sizeof(array5)/sizeof(int));
+
+    printf("binaryTreeSort\n");
+    int array6[] = {1, 2323, 434, 543534, 65, 7,3,88983, 8453, 213, 23445, 343658, 213, 23, 854,384};
+    int size = sizeof(array6)/sizeof(int);
+    printArray(array6, size);
+    Node* root = createBinaryTree(array6, size);
+    int i = 0;
+    storeSorted(root, array6, i);
+    printArray(array6, i);
+    destructBinaryTree(root);
 
     return 0;
 }    
