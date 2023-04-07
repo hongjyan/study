@@ -108,6 +108,8 @@ void SelectionSort(int* array, int size) {
 
 
 //Merge sort
+// 假设arrayA以mid为分隔， 左右都是有序的， 那么经过merge， arrayB将是一个有序数组。
+
 void Merge(int* arrayA, int beg, int mid, int end, int* arrayB) {
     int i = beg;
     int j = mid; 
@@ -129,12 +131,14 @@ void copyArray(int* src, int* dst, int size) {
 int min(int a, int b) {
     return a<b ? a:b;
 }
-//TopDown
+// 递归将长数组最终分割为只有2个元素的数组才跳出递归， 此时由于mid两边各只有一个元素，所以mid两边均为有序数组。
+// 此时调用merge后， Array将为2个元素的sorted数组。然后递归返回上一层的，再次merge 2个长度为2的已排序好的数组。
+// 以此类推， 直到整个数组被排序
 void TopDownSplitMerge(int* arrayA, int beg, int end, int* arrayB) {
     if (end-beg <= 1) return;
 
     int mid = (beg+end)/2;
-    TopDownSplitMerge(arrayB, beg, mid, arrayA); //arrayA is the temporary array, merge arrayA--->arrayB below.
+    TopDownSplitMerge(arrayB, beg, mid, arrayA); // 为什么此时要调换arrayA 和arrayB.
     TopDownSplitMerge(arrayB, mid, end, arrayA);
     Merge(arrayA, beg, mid, end, arrayB);
 }
@@ -143,7 +147,8 @@ void MergeSort_TopDown(int* array, int size) {
     copyArray(array, tempArray, size);
     TopDownSplitMerge(tempArray, 0, size, array);
 }
-//BottomUp
+// 将数组A以length为2切分数组， 那么由于数组长度为2， 所有调用merge时， mid两端可以看作为 已排序数组
+// 所以第一次merge后， 数组A由已排序好的两个元素的小数组。然后第二次merge时，对相邻数组进行合并。直到整个数组排序完成。
 void MergeSort_BottomUp(int* A, int size) {
     int B[size];
     for (int width=1; width<size; width*=2) {
