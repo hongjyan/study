@@ -15,8 +15,9 @@ public:
     
  
     ~Context() {
-        eventHandler_ = nullptr;// wrong, since this will be called quick when main finshed.
+        // eventHandler_ = nullptr; // wrong, since this will be called quick when main finshed. 
         //eventThread_.join();  //call join after detach will let program crash!!!!
+        printf("~~~~~~~~~dctor\n");
     }
     
     void setEventHandler(EventHandler eventHandler) {

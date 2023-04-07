@@ -1,8 +1,12 @@
 #include <cstdio>
 void swap(int* array, int i, int j) {
+    if (i==j) return;
     array[i] = array[i]^array[j];
     array[j] = array[i]^array[j];
     array[i] = array[i]^array[j];
+    // int temp = array[i];
+    // array[i] = array[j];
+    // array[j] = temp;
 }
 
 void printArray(int *array, int size) {
@@ -14,9 +18,12 @@ void printArray(int *array, int size) {
 
 void insertSort(int* array, int size) {
     int i;
+    // 将数组的第一个元素视为已排序序列。然后遍历随后元素
     for (i=1; i<size; i++) {
+        // 此处if时为了i=1时， 下面两次j-1， 将导致数组的index变为-1. 所以此处为了比较只有两个元素的数组。
         if (array[i-1] > array[i]) swap(array, i, i-1);
         int j = i-1;
+        // 比较array[j]与已排序好的array[0...j-1]所有元素
         while (j>0 && array[j-1]>array[j]) {
             swap(array, j, j-1);
             j--;
@@ -25,9 +32,14 @@ void insertSort(int* array, int size) {
 }
 
 void standardInsertSort(int* array, int size) {
+    // 将数组的第一个元素视为已排序序列。然后遍历随后元素
+    // array[0...i-1]是已排序序列，接下来寻找array[i]的插入位置
     for (int i=1; i<size; i++) {
-        int element = array[i];
+        int element = array[i]; // 暂存array[i]
         int j = i-1;
+        // 比较已排序的array[0...i-1]里所有元素与array[i]大小， 如果后者小，那么就要
+        // 腾出一个位子给array[i]插入。 怎么腾呢？ 就是将大于array[i]的所有元素向右
+        // 移动一个位置， 即下面的array[j+1] = array[j]
         while(j>0 && array[j]>element) {
             array[j+1] = array[j];
             j--;
@@ -51,9 +63,11 @@ void recursiveStandardInsertSort(int* array, int size) {
 
 
 //seems bubbleSort is reverse direction of insertSort, but do not know why it said that insertSort is efficient than bubbleSort
+// 第一个和第二个比较， 谁高谁向右， 第二个和第三个比较，谁高谁右移。以此类推， 第一次循环最高到最右。第二次循环第二高到最右。 
 void BubbleSort(int* array, int size) {
     int n = size;
     while (n>0) {
+        // 从最左边开始， 第N高结束，因为右边的n...size-1已是有序最高的了
         for (int j=0; j<n-1; j++) {
             if (array[j] > array[j+1]) swap(array, j, j+1);
         }
@@ -61,9 +75,11 @@ void BubbleSort(int* array, int size) {
     }
 } 
 
+// 反向冒泡， 最矮冒泡到最左边
 void reverseBubbleSort(int* array, int size) {
     int n = 0;
     while (n<size) {
+        // 从最右边开始，第N矮结束， 因为左边的0...n已经是有序最矮的了
         for (int j=size-1; j>n; j--) {
              if (array[j] < array[j-1]) swap(array, j, j-1);
         }
@@ -71,13 +87,19 @@ void reverseBubbleSort(int* array, int size) {
     }
 }
 
+// 假定一个最矮，然后将队列中所有人和当前得到的最矮比较高矮，那么遍历完成就会得到真正最矮
+// 第二次遍历就会得到真正第二矮。以此类推
 void SelectionSort(int* array, int size) {
     int iMin = 0, j;
+    // 先假设第i个人最矮。当然这个i从0开始，且从0开始遍历，那么第一次的最矮就是全队列最矮的
+    // 第二次从1开始遍历，那么第二次最矮的就是第二矮的
     for (int i=0; i<size; i++) {
         iMin = i;
+        // 比较i以后的所有元素即array[j与array[i]高矮, 将更矮的index更新到最矮号牌上
         for (j=i+1; j<size; j++) {
             if (array[iMin] > array[j]) iMin = j;
         }
+        // 如果最矮号码牌上index与i不一致， 那么swap。
         if (i != iMin) {
             swap(array, i, iMin);
         }
@@ -226,18 +248,19 @@ void quickSort(int A[], int size) {
     if (size<=1) return;
     int pivot = size-1;
     int i=0; 
+    //while循环结束后， pivot左边得元素都比pivot小， pivot右边元素都比pivot大。
     while (i<pivot) {
         if (A[i] > A[pivot]) {
-            int temp = A[i];
-            A[i] = A[pivot-1];
-            A[pivot-1] = A[pivot];
-            A[pivot] = temp;
+            swap(A, i, pivot-1);
+            swap(A, pivot-1, pivot);
             pivot--;
         } else {
             i++;
         }
     }
+    // 递归排序pivot左边元素
     quickSort(A, pivot);
+    // 如果pivot不是最后一个元素， 就有必要递归排序pivot右边元素。
     if (size-1 != pivot) quickSort(A+pivot+1, size-1-pivot);
 }
 
@@ -344,7 +367,7 @@ int main() {
     HeapSortUp(array444, sizeof(array444)/sizeof(int));
     printArray(array444, sizeof(array444)/sizeof(int));
 
-    printf("QickSort\n");
+    printf("QuickSort\n");
     int array5[] = {1, 2323, 434, 543534,65, 7,3,88983, 8453,213 ,23445, 343658, 213, 23, 854,384};
     quickSort(array5, sizeof(array5)/sizeof(int));
     printArray(array5, sizeof(array5)/sizeof(int));
