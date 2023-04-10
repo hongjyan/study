@@ -29,7 +29,9 @@ public:
 
 int main() {
 	Outer outer(12);
-	std::cout << Outer::Nested::getAge(outer) << std::endl;
-	std::cout << Supper::getAge(outer) <<std::endl;
+	Outer::Nested nested;
+	Supper supper;
+	std::cout << nested.getAge(outer) << std::endl;
+	std::cout << supper.getAge(outer) <<std::endl;
 	return 0;
 }

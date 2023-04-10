@@ -4,8 +4,8 @@ struct NamespaceProxy
 {
     NamespaceProxy();
     ~NamespaceProxy();
+    struct Impl;
 private:
-    struct impl;
-    std::unique_ptr<impl> impl_;
+    std::unique_ptr<Impl> Impl_;
 };
 
