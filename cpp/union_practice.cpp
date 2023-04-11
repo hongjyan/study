@@ -6,6 +6,7 @@ class Token {
 private:
   enum {CHAR, INT, STR} tok;
 
+  // 匿名union数据成员
   union {
     char cval;
     int ival;
