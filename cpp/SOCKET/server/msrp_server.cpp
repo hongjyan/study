@@ -8,7 +8,7 @@
 
 void* server(void* pNode) {
     struct nodeInfo *pnode = static_cast<struct nodeInfo *>(pNode);
-    int sockfd, new_fd, rv;
+    int listenfd, connfd, rv;
     struct addrinfo hints, *serverinfo_list, *p;
     struct sockaddr clientaddr;
     int yes=1;
@@ -16,6 +16,7 @@ void* server(void* pNode) {
 
     char port[30];
     sprintf(port, "%d", pnode->port);
+    // 用于identify"接收数据的文件名"
     char filename[100];
     sprintf(filename, "%s_%s", pnode->ip, port);
 
@@ -32,56 +33,54 @@ void* server(void* pNode) {
         pthread_exit(NULL);
     };
     
-    
     for (p=serverinfo_list; p!=NULL;  p=p->ai_next) {
-	if ((sockfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol)) == -1) {
-            printf("!!!!create socket failed\n");    
-            continue;
+	    if ((listenfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol)) == -1) {
+                printf("!!!!create socket failed\n");    
+                continue;
+            }
+    
+	    if (setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)) == -1) {
+	        printf("!!!!set socket option failed for socket:%d for %s:%s\n", listenfd, pnode->ip, port);
+                close(listenfd);
+                delete pnode;
+                pthread_exit(NULL);
+	    }
+
+	    if (setsockopt(listenfd, SOL_SOCKET, SO_RCVBUF, &rcvbuf, sizeof(int)) == -1) {
+	        printf("!!!!set socket option failed for socket:%d for %s:%s\n", listenfd, pnode->ip, port);
+                close(listenfd);
+                delete pnode;
+                pthread_exit(NULL);
+	    }
+
+        if (setsockopt(listenfd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv, sizeof tv) == -1) {
+            close(listenfd);
+            printf("!!!!set socket option failed for socket:%d for %s:%s\n", listenfd, pnode->ip, port);
+            delete pnode;
+            pthread_exit(NULL);
         }
-	
-	if (setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)) == -1) {
-	    printf("!!!!set socket option failed for socket:%d for %s:%s\n", sockfd, pnode->ip, port);
-            close(sockfd);
-            delete pnode;
-            pthread_exit(NULL);
-	}
 
-	if (setsockopt(sockfd, SOL_SOCKET, SO_RCVBUF, &rcvbuf, sizeof(int)) == -1) {
-	    printf("!!!!set socket option failed for socket:%d for %s:%s\n", sockfd, pnode->ip, port);
-            close(sockfd);
-            delete pnode;
-            pthread_exit(NULL);
-	}
-
-
-       if (setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv, sizeof tv) == -1) {
-           close(sockfd);
-           printf("!!!!set socket option failed for socket:%d for %s:%s\n", sockfd, pnode->ip, port);
-           delete pnode;
-           pthread_exit(NULL);
-       }
-
-	if (bind(sockfd, p->ai_addr, p->ai_addrlen) == -1) {
-	    printf("!!!!bind socket failed in loop for socket:%d for %s:%s. Errno is %d, %s\n", sockfd, pnode->ip, port, errno, strerror(errno));
-	    close(sockfd);
-	    continue;
-	}
-	break;
+	    if (bind(listenfd, p->ai_addr, p->ai_addrlen) == -1) {
+	        printf("!!!!bind socket failed in loop for socket:%d for %s:%s. Errno is %d, %s\n", listenfd, pnode->ip, port, errno, strerror(errno));
+	        close(listenfd);
+	        continue;
+	    }
+	    break;
     }
 
     if (p==NULL) {
-	printf("!!!!create/setsockopt/bind socket for %s:%s failed\n", pnode->ip, port);
+	    printf("!!!!create/setsockopt/bind socket for %s:%s failed\n", pnode->ip, port);
         delete pnode;
-	pthread_exit(NULL);
+	    pthread_exit(NULL);
     }
 
     freeaddrinfo(serverinfo_list);
 
-    if ((listen(sockfd, 1)) == -1) {
-	printf("!!!!listening failed on socket:%d for %s:%s. Errno is %d, %s\n", sockfd, pnode->ip, port, errno, strerror(errno));
+    if ((listen(listenfd, 1)) == -1) {
+	    printf("!!!!listening failed on socket:%d for %s:%s. Errno is %d, %s\n", listenfd, pnode->ip, port, errno, strerror(errno));
         delete pnode;
-        close(sockfd);
-	pthread_exit(NULL);
+        close(listenfd);
+	    pthread_exit(NULL);
     }
 
 
@@ -90,48 +89,48 @@ void* server(void* pNode) {
     struct timeval timeout;
     fd_set rfds;
     FD_ZERO(&rfds);
-    FD_SET(sockfd, &rfds);
+    FD_SET(listenfd, &rfds);
     timeout.tv_sec = 80;
     timeout.tv_usec = 0;
-    nready = select(sockfd+1, &rfds, NULL, NULL, &timeout);
+    nready = select(listenfd+1, &rfds, NULL, NULL, &timeout);
     switch (nready) {
 	case -1 :
-            close(sockfd);
-	    printf("!!!!Error happened during select on socket:%d for %s:%s\n", sockfd, pnode->ip, port);
-            delete pnode;
+        close(listenfd);
+	    printf("!!!!Error happened during select on socket:%d for %s:%s\n", listenfd, pnode->ip, port);
+        delete pnode;
 	    pthread_exit(NULL);
 	case 0 :
-            close(sockfd);
-	    printf("Time experied during select on socket:%d for %s:%s\n", sockfd, pnode->ip, port);
-            delete pnode;
+        close(listenfd);
+	    printf("Time experied during select on socket:%d for %s:%s\n", listenfd, pnode->ip, port);
+        delete pnode;
 	    pthread_exit(NULL);
 	default:
-            if (!FD_ISSET(sockfd, &rfds)) {
-                close(sockfd);
-	        printf("select() return postive value, but socket:%d for %s:%s is not in rfds \n", sockfd, pnode->ip, port);
-                delete pnode;
-                pthread_exit(NULL);
-            }
-            break;
+        if (!FD_ISSET(listenfd, &rfds)) {
+            close(listenfd);
+	        printf("select() return postive value, but socket:%d for %s:%s is not in rfds \n", listenfd, pnode->ip, port);
+            delete pnode;
+            pthread_exit(NULL);
+        }
+        break;
     }
 
 
-    socklen_t sin_size = sizeof clientaddr;
-    if ((new_fd = accept(sockfd, &clientaddr, &sin_size)) == -1) {
-        printf("!!!!accept on socket:%d for %s:%s failed, errno is %s\n", sockfd, pnode->ip, port, strerror(errno));
-        close(sockfd);
+    socklen_t sin_size = sizeof(clientaddr);
+    if ((connfd = accept(listenfd, &clientaddr, &sin_size)) == -1) {
+        printf("!!!!accept on socket:%d for %s:%s failed, errno is %s\n", listenfd, pnode->ip, port, strerror(errno));
+        close(listenfd);
     	delete pnode;
         pthread_exit(NULL);
     }
     else {
-        close(sockfd);
+        close(listenfd);
     }
 
 
     int count = 500;
     while (0 != count--) {
-    	if (!send_data(new_fd, pnode->pdatainfo)) break;
-        if (!receive_data(new_fd, filename)) break; 
+    	if (!send_data(connfd, pnode->pdatainfo)) break;
+        if (!receive_data(connfd, filename)) break; 
         usleep(20000);
     }
     if (-1 != count) {
@@ -139,7 +138,7 @@ void* server(void* pNode) {
         printf("------------------------------------------------------------------------------------------------------>\n");
     }
  
-    close(new_fd);
+    close(connfd);
     delete pnode;
     return p->ai_addr;
 }

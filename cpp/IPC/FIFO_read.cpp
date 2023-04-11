@@ -16,6 +16,7 @@ int main() {
 
     printf("Waiting for a writer\n");
     fd = open(FIFO_NAME, O_RDONLY);
+    printf("Got a writer\n");
     
     do {
         if ((num = read(fd, s, 300)) == -1) {
@@ -23,6 +24,7 @@ int main() {
         }
         else {
           s[num] = '\0';
+          printf("%s\n", s);
           printf("read %d bytes\n", num);
         }
     } while (num > 0);

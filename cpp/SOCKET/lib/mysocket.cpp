@@ -84,8 +84,8 @@ struct dataInfo getFileData(const char* fileName) {
 bool recv_n(int fd, int n, char* buffer) { //user guarantee buffer's size. need to add method to get security.
     if (NULL == buffer) return false;
     ssize_t received = 0,
-            total_received = 0,
-            rest = n;
+    total_received = 0,
+    rest = n;
         
  
     do {
